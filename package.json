@@ -6,11 +6,11 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "gh-build": "ng build --configuration github --base-href /politicz-fe/",
     "watch": "ng build --watch --configuration development",
     "test": "jest",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "deploy": "ng deploy --base-href=/politicz-fe/"
+    "test:coverage": "jest --coverage"
   },
   "private": true,
   "dependencies": {
