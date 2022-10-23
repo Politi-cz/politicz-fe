@@ -40,7 +40,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build-prod && cp dist/index.html dist/404.html
+        run: npm run build-prod && cp dist/politicz-fe/index.html dist/politicz-fe/404.html
 
       - name: Test
         run: npm run test
