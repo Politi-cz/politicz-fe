@@ -1,4 +1,6 @@
 {
   "home": "Doma",
-  "app-page": "App stránka"
+  "app-page": "App stránka",
+  "menu-settings": "Nastavení",
+  "menu-logout": "Odhlásit se"
 }

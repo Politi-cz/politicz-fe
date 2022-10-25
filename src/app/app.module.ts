@@ -11,13 +11,14 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from 'src/environments/environment';
+import { NavbarComponent } from './layout/navbar/navbar.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, environment.assetsPath, '.json');
 }
 
 @NgModule({
-  declarations: [AppComponent, ContentLayoutComponent],
+  declarations: [AppComponent, ContentLayoutComponent, NavbarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
