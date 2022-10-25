@@ -1,0 +1,27 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.flag-container {
+  display: flex;
+  height: 130%;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  margin-right: 5rem;
+
+  .flag {
+      width: 2rem;
+      height: 100%;
+      &--white {
+        background-color: #fff;
+      }
+
+      &--blue {
+        background-color: #11457e;
+      }
+
+      &--red {
+        background-color: #d71c19;
+      }
+  }
+
+}

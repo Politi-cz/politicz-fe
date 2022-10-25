@@ -1,5 +1,6 @@
 {
   "home": "Home page",
-  "app-page": "App page"
-
+  "app-page": "App page",
+  "menu-settings": "Settings",
+  "menu-logout": "Logout"
 }
