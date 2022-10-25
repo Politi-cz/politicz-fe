@@ -4,6 +4,8 @@
 
 export const environment = {
   production: false,
+
+  assetsPath: './assets/i18n/',
 };
 
 /*

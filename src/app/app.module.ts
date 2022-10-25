@@ -10,9 +10,10 @@ import { ContentLayoutComponent } from './layout/content-layout/content-layout.c
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { environment } from 'src/environments/environment';
 
 export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, '../../../assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, environment.assetsPath, '.json');
 }
 
 @NgModule({
