@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
 
-  assetsPath: './politicz-fe/assets/i18n/',
+  assetsPath: './assets/i18n/',
 };
