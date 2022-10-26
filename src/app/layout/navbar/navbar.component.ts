@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 
 @Component({
@@ -7,9 +7,15 @@ import { ThemePalette } from '@angular/material/core';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
+  @Output() toggleSidebar = new EventEmitter();
+
   links = ['home', 'kokot'];
   activeLink = this.links[0];
   background: ThemePalette = 'primary';
 
   constructor() {}
+
+  toggleSidebarHandler(): void {
+    this.toggleSidebar.emit();
+  }
 }
