@@ -11,8 +11,12 @@ app-content-layout {
   height: 100vh;
 }
 
-mat-sidenav-container.mat-drawer-container {
+app-sidenav {
   overflow: auto;
   flex-grow: 1;
+
+  & > mat-sidenav-container.mat-drawer-container {
+    height: 100%;
+  }
 }
 // fullscreen layout
