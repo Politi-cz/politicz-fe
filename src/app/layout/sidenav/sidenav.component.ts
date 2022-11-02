@@ -1,5 +1,5 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Store } from '@ngxs/store';
 import { SidenavService } from './sidenav.service';
@@ -9,7 +9,7 @@ import { SidenavService } from './sidenav.service';
   templateUrl: './sidenav.component.html',
   styleUrls: ['./sidenav.component.scss'],
 })
-export class SidenavComponent implements OnInit, OnDestroy {
+export class SidenavComponent implements OnDestroy, AfterViewInit {
   @ViewChild('snav') sidenav!: MatSidenav;
 
   mobileQuery!: MediaQueryList;
@@ -22,14 +22,8 @@ export class SidenavComponent implements OnInit, OnDestroy {
     this.mobileQuery.addEventListener('change', this._mobileQueryListener);
   }
 
-  ngOnInit(): void {
-    this.sidenavService.isOpen$.subscribe(value => {
-      if (value) {
-        this.sidenav.open();
-      } else {
-        this.sidenav.close();
-      }
-    });
+  ngAfterViewInit(): void {
+    this.sidenavService.setSidenav(this.sidenav);
   }
 
   ngOnDestroy(): void {

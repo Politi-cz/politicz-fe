@@ -1,3 +1,4 @@
+import { MatSidenav } from '@angular/material/sidenav';
 import { Observable, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 
@@ -5,17 +6,13 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class SidenavService {
-  isOpen$!: Subject<boolean>;
+  private _sidenav!: MatSidenav;
 
-  constructor() {
-    this.isOpen$ = new Subject();
+  setSidenav(sidenav: MatSidenav) {
+    this._sidenav = sidenav;
   }
 
-  open() {
-    this.isOpen$.next(true);
-  }
-
-  close() {
-    this.isOpen$.next(false);
+  toggleSidenav() {
+    this._sidenav.toggle();
   }
 }

@@ -1,5 +1,5 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
+import { Component } from '@angular/core';
+import { SidenavService } from '../sidenav/sidenav.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,15 +7,9 @@ import { ThemePalette } from '@angular/material/core';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  @Output() toggleSidebar = new EventEmitter();
+  constructor(private sidenavService: SidenavService) {}
 
-  links = ['home', 'kokot'];
-  activeLink = this.links[0];
-  background: ThemePalette = 'primary';
-
-  constructor() {}
-
-  toggleSidebarHandler(): void {
-    this.toggleSidebar.emit();
+  toggleSidenav(): void {
+    this.sidenavService.toggleSidenav();
   }
 }
