@@ -3,6 +3,13 @@
     #snav
     [mode]="mobileQuery.matches ? 'over' : 'side'"
     [fixedInViewport]="mobileQuery.matches">
+    <div class="search">
+      <mat-form-field appearance="standard" class="search__input">
+        <mat-label>{{'sidenav-search' | translate}}</mat-label>
+        <input type="text" matInput>
+        <mat-icon color="primary" matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
     <mat-nav-list>
       <mat-list-item *ngFor="let party of partiesAndLogos">
         <img matListAvatar [src]="party.img" class="party-icon">

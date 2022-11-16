@@ -1,3 +1,14 @@
 .party-icon {
   margin-right: .5rem;
 }
+
+.search {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__input {
+    width: 90%;
+  }
+}
