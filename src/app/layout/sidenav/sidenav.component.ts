@@ -1,7 +1,6 @@
 import { MediaMatcher } from '@angular/cdk/layout';
 import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Store } from '@ngxs/store';
 import { SidenavService } from './sidenav.service';
 
 @Component({
@@ -13,6 +12,18 @@ export class SidenavComponent implements OnDestroy, AfterViewInit {
   @ViewChild('snav') sidenav!: MatSidenav;
 
   mobileQuery!: MediaQueryList;
+  partiesAndLogos: { name: string; img: string; id: string }[] = [
+    {
+      name: 'Pirátská strana',
+      img: '../../../assets/party-logos/pirati.svg',
+      id: 'pirati',
+    },
+    {
+      name: 'Svoboda a přímá demokracie',
+      img: '../../../assets/party-logos/spd.png',
+      id: 'spd',
+    },
+  ];
 
   private _mobileQueryListener: () => void;
 

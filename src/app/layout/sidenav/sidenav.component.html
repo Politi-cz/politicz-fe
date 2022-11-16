@@ -2,14 +2,16 @@
   <mat-sidenav [opened]="mobileQuery.matches ? false : true"
     #snav
     [mode]="mobileQuery.matches ? 'over' : 'side'"
-    [fixedInViewport]="mobileQuery.matches"
-    fixedTopGap="56">
+    [fixedInViewport]="mobileQuery.matches">
     <mat-nav-list>
-      <a mat-list-item routerLink=".">Kokosak</a>
+      <mat-list-item *ngFor="let party of partiesAndLogos">
+        <img matListAvatar [src]="party.img" class="party-icon">
+        <span>{{party.name}}</span>
+      </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <ng-template></ng-template>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
