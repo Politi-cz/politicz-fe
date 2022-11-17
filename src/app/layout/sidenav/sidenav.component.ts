@@ -15,12 +15,12 @@ export class SidenavComponent implements OnDestroy, AfterViewInit {
   partiesAndLogos: { name: string; img: string; id: string }[] = [
     {
       name: 'Pirátská strana',
-      img: '../../../assets/party-logos/pirati.svg',
+      img: 'assets/party-logos/pirati.svg',
       id: 'pirati',
     },
     {
       name: 'Svoboda a přímá demokracie',
-      img: '../../../assets/party-logos/spd.png',
+      img: 'assets/party-logos/spd.png',
       id: 'spd',
     },
   ];
