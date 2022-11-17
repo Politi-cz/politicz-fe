@@ -12,13 +12,16 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from 'src/environments/environment';
 import { NavbarComponent } from './layout/navbar/navbar.component';
+import { SidenavComponent } from './layout/sidenav/sidenav.component';
+import { NgxsModule } from '@ngxs/store';
+import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, environment.assetsPath, '.json');
 }
 
 @NgModule({
-  declarations: [AppComponent, ContentLayoutComponent, NavbarComponent],
+  declarations: [AppComponent, ContentLayoutComponent, NavbarComponent, SidenavComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -33,6 +36,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
       defaultLanguage: 'cz',
     }),
+    NgxsModule.forRoot([]),
+    NgxsLoggerPluginModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],

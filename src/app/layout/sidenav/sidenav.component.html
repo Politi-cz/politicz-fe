@@ -1,0 +1,24 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav [opened]="mobileQuery.matches ? false : true"
+    #snav
+    [mode]="mobileQuery.matches ? 'over' : 'side'"
+    [fixedInViewport]="mobileQuery.matches">
+    <div class="search">
+      <mat-form-field appearance="standard" class="search__input">
+        <mat-label>{{'sidenav-search' | translate}}</mat-label>
+        <input type="text" matInput>
+        <mat-icon color="primary" matSuffix>search</mat-icon>
+      </mat-form-field>
+    </div>
+    <mat-nav-list>
+      <mat-list-item *ngFor="let party of partiesAndLogos">
+        <img matListAvatar [src]="party.img" class="party-icon">
+        <span>{{party.name}}</span>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

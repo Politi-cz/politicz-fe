@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ThemePalette } from '@angular/material/core';
+import { SidenavService } from '../sidenav/sidenav.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +7,9 @@ import { ThemePalette } from '@angular/material/core';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  links = ['home', 'kokot'];
-  activeLink = this.links[0];
-  background: ThemePalette = 'primary';
+  constructor(private sidenavService: SidenavService) {}
 
-  constructor() {}
+  toggleSidenav(): void {
+    this.sidenavService.toggleSidenav();
+  }
 }
