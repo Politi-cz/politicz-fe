@@ -72,6 +72,12 @@ MIT
 @ngx-translate/http-loader
 MIT
 
+@ngxs/logger-plugin
+MIT
+
+@ngxs/store
+MIT
+
 rxjs
 Apache-2.0
                                Apache License
