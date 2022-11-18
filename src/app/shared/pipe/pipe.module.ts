@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PathToPartyLogoPipe } from './path-to-party-logo.pipe';
+import { PathToPartyLogoPipe } from './pathToPartyLogo/path-to-party-logo.pipe';
+import { FilterPartiesPipe } from './filterParties/filter-parties.pipe';
 
 @NgModule({
-  declarations: [PathToPartyLogoPipe],
+  declarations: [PathToPartyLogoPipe, FilterPartiesPipe],
   imports: [CommonModule],
-  exports: [PathToPartyLogoPipe],
+  exports: [PathToPartyLogoPipe, FilterPartiesPipe],
 })
 export class PipeModule {}
