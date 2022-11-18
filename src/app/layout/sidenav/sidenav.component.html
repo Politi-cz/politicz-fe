@@ -11,8 +11,10 @@
       </mat-form-field>
     </div>
     <mat-nav-list>
-      <mat-list-item *ngFor="let party of partiesAndLogos">
-        <img matListAvatar [src]="party.img" class="party-icon">
+      <mat-list-item *ngFor="let party of sidenavParties$ | async">
+        <div class="logo-container">
+          <img [src]="party.image | pathToPartyLogo" class="party-icon">
+        </div>
         <span>{{party.name}}</span>
       </mat-list-item>
     </mat-nav-list>

@@ -1,5 +1,4 @@
 import { MatSidenav } from '@angular/material/sidenav';
-import { Observable, Subject } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 @Injectable({
