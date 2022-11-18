@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container autosize class="sidenav-container">
   <mat-sidenav [opened]="mobileQuery.matches ? false : true"
     #snav
     [mode]="mobileQuery.matches ? 'over' : 'side'"
@@ -6,12 +6,12 @@
     <div class="search">
       <mat-form-field appearance="standard" class="search__input">
         <mat-label>{{'sidenav-search' | translate}}</mat-label>
-        <input type="text" matInput>
+        <input type="text" [(ngModel)]="searchValue" matInput>
         <mat-icon color="primary" matSuffix>search</mat-icon>
       </mat-form-field>
     </div>
     <mat-nav-list>
-      <mat-list-item *ngFor="let party of sidenavParties$ | async">
+      <mat-list-item *ngFor="let party of (sidenavParties$ | async)! | filterParties: searchValue ">
         <div class="logo-container">
           <img [src]="party.image | pathToPartyLogo" class="party-icon">
         </div>

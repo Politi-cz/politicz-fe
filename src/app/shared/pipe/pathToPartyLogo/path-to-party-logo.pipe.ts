@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Image } from './../../data/schema/image';
-import { environment } from './../../../environments/environment';
+import { Image } from '../../../data/schema/image';
+import { environment } from '../../../../environments/environment';
 
 @Pipe({
   name: 'pathToPartyLogo',

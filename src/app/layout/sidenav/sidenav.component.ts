@@ -16,18 +16,7 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
 
   mobileQuery!: MediaQueryList;
   sidenavParties$!: Observable<IPartySidenavItem[]>;
-  partiesAndLogos: { name: string; img: string; id: string }[] = [
-    {
-      name: 'Pirátská strana',
-      img: 'assets/party-logos/pirati.svg',
-      id: 'pirati',
-    },
-    {
-      name: 'Svoboda a přímá demokracie',
-      img: 'assets/party-logos/spd.png',
-      id: 'spd',
-    },
-  ];
+  searchValue = '';
 
   private _mobileQueryListener: () => void;
 

@@ -18,5 +18,9 @@ app-sidenav {
   & > mat-sidenav-container.mat-drawer-container {
     height: 100%;
   }
+
+  mat-sidenav {
+    min-width: $sidenav-width;
+  }
 }
 // fullscreen layout
