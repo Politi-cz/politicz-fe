@@ -4,5 +4,5 @@ export const environment = {
   assetsPath: './assets/i18n/',
   assetsPartyLogosPath: 'assets/party-logos/',
 
-  apiUrl: 'https://virtserver.swaggerhub.com/kollermartin/politicz/1.0.0/political-parties',
+  apiUrl: 'https://virtserver.swaggerhub.com/kollermartin/politicz/1.0.0',
 };
