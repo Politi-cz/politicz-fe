@@ -24,3 +24,21 @@ app-sidenav {
   }
 }
 // fullscreen layout
+
+.errorNotification {
+  background-color: red;
+  color: #fff;
+}
+
+.successNotification {
+  background-color: rgb(29, 141, 29);
+  color: #fff;
+}
+
+.mat-simple-snackbar-action {
+  color: #fff;
+}
+
+.mat-snack-bar-container {
+  max-width: 90vw !important;
+}
