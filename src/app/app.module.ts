@@ -1,3 +1,4 @@
+import { SpinnerState } from './state/spinner.state';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -36,7 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
       defaultLanguage: 'cz',
     }),
-    NgxsModule.forRoot([]),
+    NgxsModule.forRoot([SpinnerState]),
     NgxsLoggerPluginModule.forRoot(),
   ],
   providers: [],
