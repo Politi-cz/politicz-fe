@@ -14,6 +14,10 @@ const routes: Routes = [
         path: 'home',
         loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
       },
+      {
+        path: 'political-party',
+        loadChildren: () => import('./modules/party/party.module').then(m => m.PartyModule),
+      },
     ],
   },
   { path: '**', redirectTo: '/home', pathMatch: 'full' },

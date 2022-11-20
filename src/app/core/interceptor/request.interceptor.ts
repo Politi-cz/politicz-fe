@@ -11,7 +11,10 @@ export class RequestInterceptor implements HttpInterceptor {
   constructor(private store: Store) {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    this.store.dispatch(new Spinner.Set(true));
+    // Workaround for expression changed after it was checked error
+    setTimeout(() => {
+      this.store.dispatch(new Spinner.Set(true));
+    });
 
     return next.handle(request).pipe(
       finalize(() => {
