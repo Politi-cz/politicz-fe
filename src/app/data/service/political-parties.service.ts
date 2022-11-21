@@ -15,7 +15,7 @@ export class PoliticalPartiesService {
     return this.http.get<IPartySidenavItem[]>(`${environment.apiUrl}/political-parties`);
   }
 
-  getPoliticalParty(id: string): Observable<IPoliticalParty> {
+  getPoliticalParty(id: string | null): Observable<IPoliticalParty> {
     if (!id) {
       throw new Error('invalid political party ID');
     }

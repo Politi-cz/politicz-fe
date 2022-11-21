@@ -1,5 +1,7 @@
 export interface IPolitician {
-  name: string;
-  surname: string;
+  fullName: string;
   birthDate: Date;
+  instagramUrl?: string;
+  twitterUrl?: string;
+  facebookUrl?: string;
 }

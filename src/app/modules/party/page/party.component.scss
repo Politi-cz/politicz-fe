@@ -1,0 +1,21 @@
+.party {
+  height: 100%;
+  padding: 2rem 4rem;
+
+  &__heading {
+    font-size: 3rem;
+    text-align: center;
+    padding: 1rem 0 2rem 0;
+    letter-spacing: .1rem;
+    word-spacing: .5rem;
+    text-transform: uppercase;
+    font-size: bold;
+  }
+
+  &__politicians {
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 3rem;
+  }
+}

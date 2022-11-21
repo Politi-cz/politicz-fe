@@ -1,1 +1,8 @@
-<p>party works!</p>
+<div class="party">
+  <ng-container *ngIf="politicalParty$ | async as party" >
+    <h1 class="party__heading">{{party.name}}</h1>
+    <div class="party__politicians">
+      <app-politician *ngFor="let politician of party.politicians" [politician]="politician"></app-politician>
+    </div>
+  </ng-container>
+</div>
