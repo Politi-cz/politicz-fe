@@ -11,6 +11,7 @@ import { PoliticalPartiesService } from './../../../data/service/political-parti
 })
 export class PartyComponent implements OnInit {
   politicalParty$: Observable<IPoliticalParty>;
+  filteredPoliticalParty$: Observable<IPoliticalParty>;
 
   constructor(private route: ActivatedRoute, private partiesService: PoliticalPartiesService) {}
 

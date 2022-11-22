@@ -3,5 +3,7 @@
   "app-page": "App page",
   "menu-settings": "Settings",
   "menu-logout": "Logout",
-  "sidenav-search": "Search a political party"
+  "sidenav-search": "Search a political party",
+  "party-members": "Members",
+  "politician-search": "Search a politician"
 }

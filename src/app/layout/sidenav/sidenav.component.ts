@@ -17,7 +17,6 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
 
   mobileQuery!: MediaQueryList;
   sidenavParties$!: Observable<IPartySidenavItem[]>;
-  searchValue = '';
 
   private _mobileQueryListener: () => void;
 
