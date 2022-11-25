@@ -1,7 +1,7 @@
 import { Store } from '@ngxs/store';
-import { IPolitician } from './../../../data/schema/politician';
+import { IPolitician } from '../../data/schema/politician';
 import { Pipe, PipeTransform } from '@angular/core';
-import { Utils } from '../../utils/utils';
+import { Utils } from '../utils/utils';
 import { Filters } from 'src/app/action/filters.action';
 
 @Pipe({
