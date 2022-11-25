@@ -1,0 +1,19 @@
+<div class="party">
+  <ng-container *ngIf="(politicalParty$ | async) as party" >
+    <h1 class="party__heading">{{party.name}}</h1>
+    <div class="party__politicians">
+      <div class="party__search">
+        <mat-form-field appearance="outline">
+          <mat-label>{{'politician-search' | translate}}</mat-label>
+          <input type="text" #input matInput>
+          <mat-icon color="primary" matSuffix>search</mat-icon>
+        </mat-form-field>
+      </div>
+      <app-politician *ngFor="let politician of party.politicians | filterPoliticians: input.value" [politician]="politician"></app-politician>
+      <ng-container *ngIf="(politiciansCount | async) === 0">
+        <span class="no-result">{{'no-result' | translate}}</span>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>
+

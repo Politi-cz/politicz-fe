@@ -1,10 +1,14 @@
+import { Select, Store } from '@ngxs/store';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { IPartySidenavItem } from './../../data/schema/party-sidenav-item';
 import { PoliticalPartiesService } from './../../data/service/political-parties.service';
 import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { SidenavService } from '../../shared/service/sidenav.service';
+import { Router } from '@angular/router';
+import { Filters } from 'src/app/action/filters.action';
+import { FiltersState } from 'src/app/state/filters.state';
 
 @Component({
   selector: 'app-sidenav',
@@ -13,10 +17,10 @@ import { SidenavService } from '../../shared/service/sidenav.service';
 })
 export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('snav') sidenav!: MatSidenav;
+  @Select(FiltersState.getPartyFilterCount) partiesCount: Observable<number>;
 
   mobileQuery!: MediaQueryList;
   sidenavParties$!: Observable<IPartySidenavItem[]>;
-  searchValue = '';
 
   private _mobileQueryListener: () => void;
 
@@ -24,7 +28,9 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
     private sidenavService: SidenavService,
-    private partiesService: PoliticalPartiesService
+    private partiesService: PoliticalPartiesService,
+    private router: Router,
+    private store: Store
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -32,7 +38,9 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.sidenavParties$ = this.partiesService.getPartiesForSidenav();
+    this.sidenavParties$ = this.partiesService
+      .getPartiesForSidenav()
+      .pipe(tap(data => this.store.dispatch(new Filters.Set({ partyFilterCount: data.length }))));
   }
 
   ngAfterViewInit(): void {
@@ -41,5 +49,9 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnDestroy(): void {
     this.mobileQuery.removeEventListener('change', this._mobileQueryListener);
+  }
+
+  navigateToPoliticalPartyPage(id: string) {
+    this.router.navigate(['/political-party'], { queryParams: { id } });
   }
 }

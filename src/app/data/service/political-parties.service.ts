@@ -1,3 +1,4 @@
+import { IPoliticalParty } from './../schema/political-party';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IPartySidenavItem } from '../schema/party-sidenav-item';
@@ -12,5 +13,13 @@ export class PoliticalPartiesService {
 
   getPartiesForSidenav(): Observable<IPartySidenavItem[]> {
     return this.http.get<IPartySidenavItem[]>(`${environment.apiUrl}/political-parties`);
+  }
+
+  getPoliticalParty(id: string | null): Observable<IPoliticalParty> {
+    if (!id) {
+      throw new Error('invalid political party ID');
+    }
+
+    return this.http.get<IPoliticalParty>(`${environment.apiUrl}/political-parties/${id}`);
   }
 }

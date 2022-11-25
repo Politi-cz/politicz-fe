@@ -1,0 +1,20 @@
+@import '../../../../../styles/variables.scss';
+
+.politician-card {
+
+  &__media {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-evenly;
+
+    img {
+      width: 3rem;
+      transition: all .5s;
+      border-radius: 25%;
+
+      &:hover {
+        scale: 1.1;
+      }
+    }
+  }
+}

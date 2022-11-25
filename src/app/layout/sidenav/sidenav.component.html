@@ -6,16 +6,19 @@
     <div class="search">
       <mat-form-field appearance="standard" class="search__input">
         <mat-label>{{'sidenav-search' | translate}}</mat-label>
-        <input type="text" [(ngModel)]="searchValue" matInput>
+        <input type="text" #input matInput>
         <mat-icon color="primary" matSuffix>search</mat-icon>
       </mat-form-field>
     </div>
     <mat-nav-list>
-      <mat-list-item *ngFor="let party of (sidenavParties$ | async)! | filterParties: searchValue ">
+      <mat-list-item (click)="navigateToPoliticalPartyPage(party.id)" *ngFor="let party of (sidenavParties$ | async)! | filterParties: input.value ">
         <div class="logo-container">
           <img [src]="party.image | pathToPartyLogo" class="party-icon">
         </div>
         <span>{{party.name}}</span>
+      </mat-list-item>
+      <mat-list-item *ngIf="(partiesCount | async) === 0">
+        <span class="no-result">{{'no-result' | translate}}</span>
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>

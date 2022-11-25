@@ -1,0 +1,41 @@
+@import '../../../../styles/variables.scss';
+
+.party {
+  height: 100%;
+  padding: 2rem 4rem;
+
+  &__heading {
+    font-size: 3rem;
+    text-align: center;
+    padding: 1rem 0 2rem 0;
+    letter-spacing: .1rem;
+    word-spacing: .5rem;
+    text-transform: uppercase;
+    font-size: bold;
+  }
+
+  &__subheading {
+    font-size: 2rem;
+  }
+
+  &__politicians {
+    display: grid;
+    padding-bottom: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax($card-width, 1fr));
+    gap: 3.3rem;
+  }
+
+  &__search {
+    justify-self: flex-start;
+    grid-column: 1 / -1;
+
+    & > * {
+      width: 100%;
+    }
+  }
+}
+
+.no-result {
+  font-size: 3rem;
+  grid-column: 1 / -1;
+}

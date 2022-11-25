@@ -1,4 +1,5 @@
 import { Image } from './image';
+
 export interface IPartySidenavItem {
   id: string;
   name: string;
