@@ -3,5 +3,8 @@
   "app-page": "App stránka",
   "menu-settings": "Nastavení",
   "menu-logout": "Odhlásit se",
-  "sidenav-search": "Hledat politickou stranu"
+  "sidenav-search": "Hledat politickou stranu",
+  "party-members": "Členové",
+  "politician-search": "Hledat politika",
+  "no-result": "Výsledek hledání nebyl nalezen"
 }
