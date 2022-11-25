@@ -17,6 +17,9 @@
         </div>
         <span>{{party.name}}</span>
       </mat-list-item>
+      <mat-list-item *ngIf="(partiesCount | async) === 0">
+        <span class="no-result">{{'no-result' | translate}}</span>
+      </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
 

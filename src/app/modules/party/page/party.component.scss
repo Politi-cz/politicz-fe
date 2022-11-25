@@ -21,7 +21,6 @@
   &__politicians {
     display: grid;
     padding-bottom: 2rem;
-    justify-items: center;
     grid-template-columns: repeat(auto-fit, minmax($card-width, 1fr));
     gap: 3.3rem;
   }
@@ -34,4 +33,9 @@
       width: 100%;
     }
   }
+}
+
+.no-result {
+  font-size: 3rem;
+  grid-column: 1 / -1;
 }

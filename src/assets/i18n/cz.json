@@ -5,5 +5,6 @@
   "menu-logout": "Odhlásit se",
   "sidenav-search": "Hledat politickou stranu",
   "party-members": "Členové",
-  "politician-search": "Hledat politika"
+  "politician-search": "Hledat politika",
+  "no-result": "Výsledek hledání nebyl nalezen"
 }
