@@ -32,7 +32,7 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
     private router: Router,
     private store: Store
   ) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
+    this.mobileQuery = media.matchMedia('(max-width: 1200px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addEventListener('change', this._mobileQueryListener);
   }
