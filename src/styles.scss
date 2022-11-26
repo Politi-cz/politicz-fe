@@ -26,8 +26,8 @@ app-sidenav {
     height: 100%;
   }
 
-  mat-sidenav {
-    min-width: $sidenav-width;
+  mat-sidenav .mat-list-base {
+    min-width: $sidenav-width !important;
   }
 }
 // fullscreen layout
