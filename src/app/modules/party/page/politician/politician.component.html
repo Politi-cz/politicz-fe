@@ -5,7 +5,6 @@
       <mat-card-subtitle>{{politician.birthDate | dateFormatter}}</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="assets/man-user-svgrepo-com.svg">
-    <mat-divider></mat-divider>
     <mat-card-content class="politician-card__media">
       <a *ngIf="politician.facebookUrl" [href]="politician.facebookUrl" target="_blank">
         <img class="mat-elevation-z4" src="assets/icons/facebook.svg" aria-label="redirect to facebook profile of politic" alt="redirect to facebook profile of politic">

@@ -1,7 +1,14 @@
 @import './styles/variables.scss';
 
 
-html, body { height: 100%; }
+html, body { height: 100%;
+
+  font-size: 85%;
+
+  @media only screen and (max-width: $bp-large) {
+    font-size: 70%;
+  }
+}
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 // fullscreen layout
