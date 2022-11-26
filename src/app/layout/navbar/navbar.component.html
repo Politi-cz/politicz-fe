@@ -1,20 +1,24 @@
-<mat-toolbar color="primary">
-  <button (click)="toggleSidenav()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <span>Politi.cz</span>
-  <span class="spacer"></span>
-  <div class="flag-container">
-    <div class="flag flag--white"></div>
-    <div class="flag flag--red"></div>
-    <div class="flag flag--blue"></div>
+<mat-toolbar class="navbar" color="primary">
+  <div class="navbar__left">
+    <button (click)="toggleSidenav()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Politi.cz</span>
+  </div>
+  <!-- <span class="spacer"></span> -->
+  <div class="navbar__mid">
+    <div class="flag-container">
+      <div class="flag flag--white"></div>
+      <div class="flag flag--red"></div>
+      <div class="flag flag--blue"></div>
+    </div>
   </div>
   <button mat-button [matMenuTriggerFor]="menu">
     Pepík
     <mat-icon>account_circle</mat-icon>
   </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>{{'menu-settings' | translate}}</button>
-    <button mat-menu-item>{{'menu-logout' | translate}}</button>
-  </mat-menu>
 </mat-toolbar>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>{{'menu-settings' | translate}}</button>
+  <button mat-menu-item>{{'menu-logout' | translate}}</button>
+</mat-menu>
