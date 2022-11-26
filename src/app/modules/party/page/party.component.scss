@@ -4,6 +4,10 @@
   height: 100%;
   padding: 2rem 4rem;
 
+  @media only screen and (max-width: $bp-small) {
+    padding: 2rem;
+  }
+
   &__heading {
     font-size: 3rem;
     text-align: center;
@@ -12,6 +16,10 @@
     word-spacing: .5rem;
     text-transform: uppercase;
     font-size: bold;
+
+    @media only screen and (max-width: $bp-large) {
+      line-height: 3.5rem;
+    }
   }
 
   &__subheading {
@@ -23,6 +31,10 @@
     padding-bottom: 2rem;
     grid-template-columns: repeat(auto-fit, minmax($card-width, 1fr));
     gap: 3.3rem;
+
+    @media only screen and (max-width: $bp-small) {
+      gap: 2rem;
+    }
   }
 
   &__search {
@@ -38,4 +50,8 @@
 .no-result {
   font-size: 3rem;
   grid-column: 1 / -1;
+  
+  @media only screen and (max-width: $bp-small) {
+    line-height: 4rem;
+  }
 }
