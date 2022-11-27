@@ -1,3 +1,5 @@
+@import '../../../styles/variables.scss';
+
 .logo-container {
   margin-right: .5rem;
   width: 4rem;
@@ -19,4 +21,28 @@
   &__input {
     width: 90%;
   }
+}
+
+.sidenav__close {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 0px;
+  top: 50%;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background-color: $main-color;
+  z-index: 1000;
+  translate: 50% 0;
+  cursor: pointer;
+
+  mat-icon {
+    color: #fff;
+  }
+}
+
+.hidden {
+  display: none !important;
 }
