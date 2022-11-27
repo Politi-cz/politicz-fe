@@ -21,6 +21,12 @@
         <span class="no-result">{{'no-result' | translate}}</span>
       </mat-list-item>
     </mat-nav-list>
+
+    <span (click)="toggleSidenav()" class="sidenav__close" [ngClass]="{'sidenav__close': mobileQuery.matches, 'hidden': !mobileQuery.matches}">
+      <mat-icon>
+        arrow_back_ios_new
+      </mat-icon>
+    </span>
   </mat-sidenav>
 
   <mat-sidenav-content>

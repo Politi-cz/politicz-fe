@@ -9,6 +9,9 @@
           <mat-icon color="primary" matSuffix>search</mat-icon>
         </mat-form-field>
       </div>
+      <div class="empty">
+
+      </div>
       <app-politician *ngFor="let politician of party.politicians | filterPoliticians: input.value" [politician]="politician"></app-politician>
       <ng-container *ngIf="(politiciansCount | async) === 0">
         <span class="no-result">{{'no-result' | translate}}</span>
