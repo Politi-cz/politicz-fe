@@ -3,6 +3,11 @@
 .navbar {
   display: flex;
 
+  &__politi {
+    text-decoration: none;
+    color: #fff;
+  }
+
   &__left {
     display: flex;
     align-items: center;
