@@ -3,6 +3,12 @@
     #snav
     [mode]="mobileQuery.matches ? 'over' : 'side'"
     [fixedInViewport]="mobileQuery.matches">
+    <mat-nav-list>
+      <mat-list-item class="navitem" routerLink="'/home'">
+          <mat-icon color="primary">home</mat-icon>
+        <span >{{'sidenav-home' | translate}}</span>
+      </mat-list-item>
+    </mat-nav-list>
     <div class="search">
       <mat-form-field appearance="standard" class="search__input">
         <mat-label>{{'sidenav-search' | translate}}</mat-label>
