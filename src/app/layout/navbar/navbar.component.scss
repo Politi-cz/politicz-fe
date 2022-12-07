@@ -6,6 +6,11 @@
   &__politi {
     text-decoration: none;
     color: #fff;
+    transition: all .25s;
+
+    &:hover {
+      color: rgb(225, 220, 220);
+    }
   }
 
   &__left {
