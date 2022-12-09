@@ -1,3 +1,5 @@
+import { News } from './../../../../data/schema/news';
+import { NewsService } from './../../../../data/service/news.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  newsList: News[];
 
-  ngOnInit(): void {
-    console.log('Home works');
-  }
+  constructor(private news: NewsService) {}
+
+  ngOnInit(): void {}
 }

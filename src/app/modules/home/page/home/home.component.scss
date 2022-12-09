@@ -1,0 +1,7 @@
+.container {
+    display: grid;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: [full-start] minmax(10rem, 1fr) [center-start] repeat(8, minmax(min-content, 1fr)) [center-end] minmax(10rem, 1fr) [full-end];
+    gap: 3rem 2rem;
+}
