@@ -1,7 +1,16 @@
 .container {
     display: grid;
-    height: 100vh;
+    grid-template-columns: [full-start] 40rem [center-start] repeat(8, minmax(min-content, 1fr)) [center-end] 40rem [full-end];
+    padding: 5rem 0;
+}
+
+.news_container {
+    grid-column: center-start / center-end;
     display: grid;
-    grid-template-columns: [full-start] minmax(10rem, 1fr) [center-start] repeat(8, minmax(min-content, 1fr)) [center-end] minmax(10rem, 1fr) [full-end];
+    grid-template-columns: [center-start] repeat(3, minmax(min-content, 1fr)) [center-end];
     gap: 3rem 2rem;
+
+    & app-news:nth-of-type(1) {
+        grid-column: center-start / center-end;
+    }
 }

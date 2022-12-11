@@ -1,6 +1,12 @@
 @import './styles/variables.scss';
 
 
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
 html, body { height: 100%;
 
   font-size: 85%;

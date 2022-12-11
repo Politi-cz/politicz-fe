@@ -1,6 +1,7 @@
 import { News } from './../../../../data/schema/news';
 import { NewsService } from './../../../../data/service/news.service';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,13 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
   newsList: News[];
 
-  constructor(private news: NewsService) {}
+  constructor(private newsService: NewsService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getAllNews();
+  }
+
+  getAllNews(): void {
+    this.newsService.getAllNews().subscribe(news => (this.newsList = news));
+  }
 }
