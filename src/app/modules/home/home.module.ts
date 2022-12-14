@@ -7,13 +7,14 @@ import { HomeComponent } from './page/home/home.component';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from 'src/environments/environment';
+import { NewsComponent } from './page/home/news/news.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, environment.assetsPath, '.json');
 }
 
 @NgModule({
-  declarations: [HomeComponent],
+  declarations: [HomeComponent, NewsComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

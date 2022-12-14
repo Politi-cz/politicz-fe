@@ -1,0 +1,42 @@
+@import '../../../../../styles/variables.scss';
+
+.container {
+    display: grid;
+    grid-template-columns: [full-start] 20rem [center-start] repeat(8, minmax(min-content, 1fr)) [center-end] 20rem [full-end];
+    padding: 5rem 0;
+
+    @media only screen and (max-width: $bp-xlarge) {
+        grid-template-columns: [full-start] 10rem [center-start] repeat(8, minmax(min-content, 1fr)) [center-end] 10rem [full-end];
+    }
+
+    @media only screen and (max-width: $bp-small) {
+        grid-template-columns: [center-start] repeat(8, minmax(min-content, 1fr)) [center-end];
+        padding: 2rem 3rem;
+    }
+
+    @media only screen and (max-width: $bp-mobile) {
+        grid-template-columns: [center-start] repeat(8, minmax(min-content, 1fr)) [center-end];
+        padding: 2rem 3rem;
+    }
+}
+
+.news_container {
+    grid-column: center-start / center-end;
+    display: grid;
+    grid-template-columns: [center-start] repeat(3, minmax(20rem, 32rem)) [center-end];
+    justify-content: center;
+    gap: 3rem 2rem;
+
+    @media only screen and (max-width: $bp-medium) {
+        grid-template-columns: [center-start] repeat(2, minmax(20rem, 1fr)) [center-end];
+    }
+
+    @media only screen and (max-width: $bp-mobile) {
+        grid-template-columns: [center-start] 1fr [center-end];
+        gap: 2rem;
+    }
+
+    & app-news:nth-of-type(1) {
+        grid-column: center-start / center-end;
+    }
+}

@@ -1,8 +1,14 @@
 @import './styles/variables.scss';
 
 
-html, body { height: 100%;
+*, *::before, *::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
+html, body {
+  height: 100%;
   font-size: 85%;
 
   @media only screen and (max-width: $bp-large) {

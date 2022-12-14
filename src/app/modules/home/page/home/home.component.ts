@@ -1,4 +1,7 @@
+import { News } from './../../../../data/schema/news';
+import { NewsService } from './../../../../data/service/news.service';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -6,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  newsList: News[];
+
+  constructor(private newsService: NewsService) {}
 
   ngOnInit(): void {
-    console.log('Home works');
+    this.getAllNews();
+  }
+
+  getAllNews(): void {
+    this.newsService.getAllNews().subscribe(news => (this.newsList = news));
   }
 }

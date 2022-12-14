@@ -3,6 +3,16 @@
 .navbar {
   display: flex;
 
+  &__politi {
+    text-decoration: none;
+    color: #fff;
+    transition: all .25s;
+
+    &:hover {
+      color: rgb(225, 220, 220);
+    }
+  }
+
   &__left {
     display: flex;
     align-items: center;
@@ -34,7 +44,7 @@
       }
 
       &--blue {
-        background-color: #11457e;
+        background-color: hsl(211, 76%, 28%);
       }
 
       &--red {
