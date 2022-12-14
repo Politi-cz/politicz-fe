@@ -6,5 +6,6 @@
   "sidenav-search": "Search a political party",
   "party-members": "Members",
   "politician-search": "Search a politician",
-  "no-result": "No search result found"
+  "no-result": "No search result found",
+  "sidenav-home": "Home"
 }
