@@ -42,6 +42,30 @@ app-sidenav {
 }
 // fullscreen layout
 
+.container {
+  display: grid;
+  grid-template-columns: [full-start] 20rem [center-start] repeat(8, minmax(min-content, 1fr)) [center-end] 20rem [full-end];
+  padding: 5rem 0;
+
+  @media only screen and (max-width: $bp-xlarge) {
+      grid-template-columns: [full-start] 10rem [center-start] repeat(8, minmax(min-content, 1fr)) [center-end] 10rem [full-end];
+  }
+
+  @media only screen and (max-width: $bp-small) {
+      grid-template-columns: [center-start] repeat(8, minmax(min-content, 1fr)) [center-end];
+      padding: 2rem 3rem;
+  }
+
+  @media only screen and (max-width: $bp-mobile) {
+      grid-template-columns: [center-start] repeat(8, minmax(min-content, 1fr)) [center-end];
+      padding: 2rem 3rem;
+  }
+
+  &__content {
+    grid-column: center-start / center-end;
+  }
+}
+
 .errorNotification {
   background-color: red;
   color: #fff;

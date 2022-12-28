@@ -1,5 +1,6 @@
 import { News } from './../../../../../data/schema/news';
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-news',
@@ -9,5 +10,5 @@ import { Component, Input, OnInit } from '@angular/core';
 export class NewsComponent {
   @Input() news: News;
 
-  constructor() {}
+  constructor(private router: Router) {}
 }
