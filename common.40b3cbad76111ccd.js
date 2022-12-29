@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpoliticz_fe=self.webpackChunkpoliticz_fe||[]).push([[592],{1296:(D,r,e)=>{e.d(r,{l:()=>u});var _=e(1764),n=e.n(_),o=e(4650);let u=(()=>{class t{transform(a,s="DD.MM.YYYY"){return n()(a).format(s)}}return t.\u0275fac=function(a){return new(a||t)},t.\u0275pipe=o.Yjl({name:"dateFormatter",type:t,pure:!0}),t})()}}]);
