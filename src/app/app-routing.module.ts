@@ -4,14 +4,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './core/guard/auth.guard';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/news', pathMatch: 'full' },
   {
     path: '',
     component: ContentLayoutComponent,
     canActivate: [AuthGuard],
     children: [
       {
-        path: 'home',
+        path: 'news',
         loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
       },
       {
@@ -20,7 +20,7 @@ const routes: Routes = [
       },
     ],
   },
-  { path: '**', redirectTo: '/home', pathMatch: 'full' },
+  { path: '**', redirectTo: '/news', pathMatch: 'full' },
 ];
 
 @NgModule({
