@@ -21,8 +21,4 @@ export class HomeComponent implements OnInit {
   getAllNews(): void {
     this.newsService.getAllNews().subscribe(news => (this.newsList = news));
   }
-
-  navigateToDetail(id: string): void {
-    this.router.navigate([`/news/detail`], { queryParams: { id: id } });
-  }
 }

@@ -11,4 +11,8 @@ export class NewsComponent {
   @Input() news: News;
 
   constructor(private router: Router) {}
+
+  navigateToDetail(id: string): void {
+    this.router.navigate([`/news/detail`], { queryParams: { id: id } });
+  }
 }
