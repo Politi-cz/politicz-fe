@@ -6,7 +6,7 @@
 <mat-menu #menu="matMenu">
   <ng-container *ngFor="let action of actions">
     <button mat-menu-item (click)="onClick(action)">
-      <mat-icon>{{action.icon}}</mat-icon>
+      <mat-icon color="primary">{{action.icon}}</mat-icon>
       <span>{{action.label}}</span>
     </button>
   </ng-container>
