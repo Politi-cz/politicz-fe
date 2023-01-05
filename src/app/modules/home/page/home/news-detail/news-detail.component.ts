@@ -1,5 +1,5 @@
 import { NewsService } from './../../../../../data/service/news.service';
-import { News } from './../../../../../data/schema/news';
+import { INews } from './../../../../../data/schema/news';
 import { Observable, switchMap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news-detail.component.scss'],
 })
 export class NewsDetailComponent implements OnInit {
-  newsDetail$: Observable<News>;
+  newsDetail$: Observable<INews>;
 
   constructor(private route: ActivatedRoute, private newsService: NewsService) {}
 

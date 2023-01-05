@@ -1,8 +1,11 @@
+import { NewsState } from './../../../../state/news.state';
+import { News } from 'src/app/action/news.action';
 import { Router } from '@angular/router';
-import { News } from './../../../../data/schema/news';
+import { INews } from './../../../../data/schema/news';
 import { NewsService } from './../../../../data/service/news.service';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
+import { Select, Store } from '@ngxs/store';
 
 @Component({
   selector: 'app-home',
@@ -10,15 +13,15 @@ import { Observable } from 'rxjs';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  newsList: News[];
+  @Select(NewsState) newsList$: Observable<INews[]>;
 
-  constructor(private newsService: NewsService, private router: Router) {}
+  constructor(private newsService: NewsService, private router: Router, private store: Store) {}
 
   ngOnInit(): void {
     this.getAllNews();
   }
 
   getAllNews(): void {
-    this.newsService.getAllNews().subscribe(news => (this.newsList = news));
+    this.store.dispatch(new News.GetAll());
   }
 }

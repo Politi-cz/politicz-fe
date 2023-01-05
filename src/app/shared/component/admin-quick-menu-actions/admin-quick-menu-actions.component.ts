@@ -7,9 +7,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./admin-quick-menu-actions.component.scss'],
 })
 export class AdminQuickMenuActionsComponent {
-  @Input() actions: QuickMenuAction[];
-
   @Output() actionClickEvt = new EventEmitter<QuickMenuAction>();
+
+  readonly menuActions: QuickMenuAction[] = [
+    { icon: 'edit', label: 'menu-action-edit', type: ActionType.EDIT },
+    { icon: 'delete', label: 'menu-action-delete', type: ActionType.DELETE },
+  ];
 
   actionTypes = ActionType;
 

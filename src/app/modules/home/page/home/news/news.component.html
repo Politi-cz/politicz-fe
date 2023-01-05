@@ -1,5 +1,5 @@
 <div class="news" (click)="navigateToDetail(news.id)">
-    <app-admin-quick-menu-actions [actions]="menuActions" (actionClickEvt)="handleActionEvent($event)" class="quick-menu"></app-admin-quick-menu-actions>
+    <app-admin-quick-menu-actions (actionClickEvt)="handleActionEvent($event)" class="quick-menu"></app-admin-quick-menu-actions>
     <img src="assets/polit.jpg">
     <div class="news__text">
       <h3>{{news.heading}}</h3>

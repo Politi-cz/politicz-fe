@@ -1,7 +1,10 @@
+import { News } from 'src/app/action/news.action';
+import { NewsService } from './../../../../../data/service/news.service';
 import { ActionType, QuickMenuAction } from './../../../../../data/schema/quick-menu-action';
-import { News } from './../../../../../data/schema/news';
+import { INews } from './../../../../../data/schema/news';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Store } from '@ngxs/store';
 
 @Component({
   selector: 'app-news',
@@ -9,14 +12,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./news.component.scss'],
 })
 export class NewsComponent {
-  @Input() news: News;
+  @Input() news: INews;
 
-  readonly menuActions: QuickMenuAction[] = [
-    { icon: 'edit', label: 'action_edit', type: ActionType.EDIT },
-    { icon: 'delete', label: 'action_delete', type: ActionType.DELETE },
-  ];
-
-  constructor(private router: Router) {}
+  constructor(private router: Router, private store: Store) {}
 
   navigateToDetail(id: string): void {
     this.router.navigate([`/news/detail`], { queryParams: { id: id } });
@@ -28,7 +26,7 @@ export class NewsComponent {
         alert('Zedituju tě more');
         break;
       case ActionType.DELETE:
-        alert('DEAD');
+        this.store.dispatch(new News.Remove(this.news));
         break;
     }
   }
