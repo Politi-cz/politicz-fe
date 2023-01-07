@@ -1,11 +1,11 @@
+import { politicalPartyState } from './../../../state/political-party.state';
 import { FiltersState } from './../../../state/filters.state';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
-import { Observable, switchMap, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IPoliticalParty } from './../../../data/schema/political-party';
-import { PoliticalPartiesService } from './../../../data/service/political-parties.service';
-import { Filters } from 'src/app/action/filters.action';
+import { PoliticalParty } from 'src/app/action/political-party.action';
 
 @Component({
   selector: 'app-party',
@@ -14,19 +14,13 @@ import { Filters } from 'src/app/action/filters.action';
 })
 export class PartyComponent implements OnInit {
   @Select(FiltersState.getPoliticianFilterCount) politiciansCount: Observable<number>;
+  @Select(politicalPartyState) politicalParty$: Observable<IPoliticalParty>;
 
-  politicalParty$: Observable<IPoliticalParty>;
-  filteredPoliticalParty$: Observable<IPoliticalParty>;
-
-  constructor(private route: ActivatedRoute, private partiesService: PoliticalPartiesService, private store: Store) {}
+  constructor(private route: ActivatedRoute, private store: Store) {}
 
   ngOnInit(): void {
-    this.politicalParty$ = this.route.queryParamMap.pipe(
-      switchMap(params => {
-        return this.partiesService
-          .getPoliticalParty(params.get('id'))
-          .pipe(tap(data => this.store.dispatch(new Filters.Set({ politicianFilterCount: data.politicians.length }))));
-      })
+    this.route.queryParamMap.subscribe(params =>
+      this.store.dispatch(new PoliticalParty.LoadPoliticalPartyById(params.get('id')!))
     );
   }
 }

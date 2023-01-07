@@ -3,7 +3,7 @@
       <mat-icon>more_vert</mat-icon>
     </button>
 </div>
-<mat-menu #menu="matMenu" xPosition="before">
+<mat-menu #menu="matMenu" xPosition="after">
   <ng-container *ngFor="let action of menuActions">
     <button mat-menu-item (click)="onClick(action)">
       <mat-icon color="primary">{{action.icon}}</mat-icon>
