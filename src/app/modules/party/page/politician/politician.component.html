@@ -1,5 +1,5 @@
 <ng-container *ngIf="politician">
-  <mat-card class="politician-card mat-elevation-z4">
+  <mat-card appearance="outlined" class="politician-card mat-elevation-z4">
     <app-admin-quick-menu-actions (actionClickEvt)="handleActionEvent($event)"></app-admin-quick-menu-actions>
     <mat-card-header>
       <mat-card-title>{{politician.fullName}}</mat-card-title>
