@@ -1,5 +1,5 @@
-import { NewsService } from './../data/service/news.service';
-import { INews } from './../data/schema/news';
+import { NewsService } from '../../../data/service/news.service';
+import { INews } from '../../../data/schema/news';
 import { Action, State, StateContext } from '@ngxs/store';
 import { Injectable } from '@angular/core';
 import { News } from '../action/news.action';

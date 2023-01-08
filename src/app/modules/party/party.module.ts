@@ -1,4 +1,4 @@
-import { politicalPartyState } from './../../state/political-party.state';
+import { politicalPartyState } from './state/political-party.state';
 import { SharedModule } from './../../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';

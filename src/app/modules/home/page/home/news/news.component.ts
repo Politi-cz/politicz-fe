@@ -1,10 +1,9 @@
-import { News } from 'src/app/action/news.action';
-import { NewsService } from './../../../../../data/service/news.service';
 import { ActionType, QuickMenuAction } from './../../../../../data/schema/quick-menu-action';
 import { INews } from './../../../../../data/schema/news';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngxs/store';
+import { News } from '../../../action/news.action';
 
 @Component({
   selector: 'app-news',

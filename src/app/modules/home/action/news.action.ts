@@ -1,4 +1,5 @@
-import { INews } from './../data/schema/news';
+import { INews } from '../../../data/schema/news';
+
 export namespace News {
   export class GetAll {
     static readonly type = '[News] GetAll';

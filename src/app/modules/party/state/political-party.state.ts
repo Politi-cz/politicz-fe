@@ -1,8 +1,8 @@
-import { PoliticalPartiesService } from './../data/service/political-parties.service';
+import { PoliticalPartiesService } from '../../../data/service/political-parties.service';
 import { Injectable } from '@angular/core';
 import { Selector, State, Action, StateContext } from '@ngxs/store';
 import { PoliticalParty } from '../action/political-party.action';
-import { IPoliticalParty } from '../data/schema/political-party';
+import { IPoliticalParty } from '../../../data/schema/political-party';
 
 @State<IPoliticalParty>({
   name: 'politicalPartyState',

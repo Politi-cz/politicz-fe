@@ -2,7 +2,7 @@ import { IPolitician } from './../../../../data/schema/politician';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActionType, QuickMenuAction } from 'src/app/data/schema/quick-menu-action';
 import { Store } from '@ngxs/store';
-import { PoliticalParty } from 'src/app/action/political-party.action';
+import { PoliticalParty } from '../../action/political-party.action';
 
 @Component({
   selector: 'app-politician',

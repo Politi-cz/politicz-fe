@@ -1,4 +1,4 @@
-import { NewsState } from './../../state/news.state';
+import { NewsState } from './state/news.state';
 import { NgxsModule } from '@ngxs/store';
 import { SharedModule } from './../../shared/shared.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
