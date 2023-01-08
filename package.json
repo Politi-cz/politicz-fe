@@ -42,7 +42,6 @@
     "@angular-eslint/template-parser": "15.0.0-alpha.5",
     "@angular/cli": "~15.0.4",
     "@angular/compiler-cli": "^15.0.4",
-    "@ngxs/logger-plugin": "^3.7.5",
     "@types/jest": "^29.2.0",
     "@typescript-eslint/eslint-plugin": "^5.43.0",
     "@typescript-eslint/parser": "^5.43.0",

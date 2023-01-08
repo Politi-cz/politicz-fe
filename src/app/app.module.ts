@@ -15,7 +15,6 @@ import { environment } from 'src/environments/environment';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { NgxsModule } from '@ngxs/store';
-import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 import { FiltersState } from './state/filters.state';
 
 export function HttpLoaderFactory(http: HttpClient) {
@@ -39,7 +38,6 @@ export function HttpLoaderFactory(http: HttpClient) {
       defaultLanguage: 'cz',
     }),
     NgxsModule.forRoot([SpinnerState, FiltersState]),
-    NgxsLoggerPluginModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
