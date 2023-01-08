@@ -72,9 +72,6 @@ MIT
 @ngx-translate/http-loader
 MIT
 
-@ngxs/logger-plugin
-MIT
-
 @ngxs/store
 MIT
 
