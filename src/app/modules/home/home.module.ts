@@ -1,3 +1,5 @@
+import { NewsState } from './state/news.state';
+import { NgxsModule } from '@ngxs/store';
 import { SharedModule } from './../../shared/shared.module';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { NgModule } from '@angular/core';
@@ -21,6 +23,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     CommonModule,
     HomeRoutingModule,
     SharedModule,
+    NgxsModule.forFeature([NewsState]),
     TranslateModule.forChild({
       defaultLanguage: 'cz',
       loader: {

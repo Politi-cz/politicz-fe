@@ -7,5 +7,7 @@
   "party-members": "Members",
   "politician-search": "Search a politician",
   "no-result": "No search result found",
-  "sidenav-home": "Home"
+  "sidenav-home": "Home",
+  "menu-action-edit": "Edit",
+  "menu-action-delete": "Delete"
 }

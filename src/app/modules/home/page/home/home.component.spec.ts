@@ -1,7 +1,9 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { TranslateLoader, TranslateModule, TranslateService, TranslateStore } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule, TranslateStore } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgxsModule } from '@ngxs/store';
+import { NewsState } from '../../state/news.state';
 
 import { HomeComponent } from './home.component';
 
@@ -13,9 +15,14 @@ describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
 
+  const storeMock = {
+    dispatch: jest.fn(),
+  };
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
+        NgxsModule.forRoot([NewsState]),
         HttpClientModule,
         TranslateModule.forChild({
           defaultLanguage: 'cz',

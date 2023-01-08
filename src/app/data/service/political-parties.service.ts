@@ -22,4 +22,8 @@ export class PoliticalPartiesService {
 
     return this.http.get<IPoliticalParty>(`${environment.apiUrl}/political-parties/${id}`);
   }
+
+  removePolitician(id: string): Observable<void> {
+    return this.http.delete<void>(`${environment.apiUrl}/political-parties/${id}`);
+  }
 }

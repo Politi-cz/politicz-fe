@@ -9,14 +9,17 @@ describe('FilterPoliticians', () => {
 
   const politicians: IPolitician[] = [
     {
+      id: '1',
       fullName: 'Karel Kokos',
       birthDate: new Date(),
     },
     {
+      id: '2',
       fullName: 'Karel Topol',
       birthDate: new Date(),
     },
     {
+      id: '3',
       fullName: 'Prokop Černý',
       birthDate: new Date(),
     },

@@ -1,0 +1,13 @@
+<div class="wrapper" *ngIf="menuActions">
+    <button class="buttonek" mat-icon-button (click)="$event.stopPropagation()" [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+</div>
+<mat-menu #menu="matMenu" xPosition="after">
+  <ng-container *ngFor="let action of menuActions">
+    <button mat-menu-item (click)="onClick(action)">
+      <mat-icon color="primary">{{action.icon}}</mat-icon>
+      <span>{{action.label | translate}}</span>
+    </button>
+  </ng-container>
+</mat-menu>

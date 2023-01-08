@@ -5,10 +5,20 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material.module';
 import { PipeModule } from './pipe/pipe.module';
+import { AdminQuickMenuActionsComponent } from './component/admin-quick-menu-actions/admin-quick-menu-actions.component';
 
 @NgModule({
-  declarations: [],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TranslateModule, PipeModule],
-  exports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, MaterialModule, TranslateModule, PipeModule],
+  declarations: [AdminQuickMenuActionsComponent],
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TranslateModule, PipeModule, MaterialModule],
+  exports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    MaterialModule,
+    TranslateModule,
+    PipeModule,
+    AdminQuickMenuActionsComponent,
+  ],
 })
 export class SharedModule {}
