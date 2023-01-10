@@ -5,7 +5,6 @@
     </button>
     <a class="navbar__politi" routerLink="'/home'">Politi.cz</a>
   </div>
-  <!-- <span class="spacer"></span> -->
   <div class="navbar__mid">
     <div class="flag-container">
       <div class="flag flag--white"></div>
@@ -13,8 +12,8 @@
       <div class="flag flag--blue"></div>
     </div>
   </div>
-  <button mat-button [matMenuTriggerFor]="menu">
-    Pepík
+  <button class="menu" mat-button [matMenuTriggerFor]="menu">
+    <span>Pepík</span>
     <mat-icon>account_circle</mat-icon>
   </button>
 </mat-toolbar>
