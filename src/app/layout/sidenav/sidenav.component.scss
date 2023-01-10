@@ -1,9 +1,20 @@
 @import '../../../styles/variables.scss';
 
-.logo-container {
-  margin-right: .5rem;
-  width: 4rem;
-  height: 3rem;
+.party {
+  display: flex;
+  align-items: center;
+
+  &__logo-container {
+    margin-right: .5rem;
+    width: 4rem;
+    height: 3rem;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
 }
 
 .navitem {
@@ -16,20 +27,9 @@ mat-icon {
   margin-right: 1rem;
 }
 
-.party-icon {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
 .search {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   &__input {
-    width: 90%;
+    width: 100%;
   }
 }
 
@@ -45,7 +45,6 @@ mat-icon {
   border-radius: 50% 0 0 50%;
   background-color: $main-color;
   z-index: 1000;
-
   cursor: pointer;
 
   mat-icon {
