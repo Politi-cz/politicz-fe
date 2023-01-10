@@ -5,9 +5,10 @@
   &__media {
     display: flex;
     justify-content: space-evenly;
+    margin-top: 1rem;
 
     img {
-      width: 3rem;
+      width: 3.5rem;
       transition: all .5s;
       border-radius: 25%;
 
