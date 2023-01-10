@@ -3,6 +3,8 @@
 .party {
   display: flex;
   align-items: center;
+  font-weight: 400;
+  font-size: 1.5rem;
 
   &__logo-container {
     margin-right: .5rem;
@@ -18,8 +20,12 @@
 }
 
 .navitem {
-  font-size: 1.5rem;
-  justify-content: center;
+
+  span {
+    font-weight: 400;
+    font-size: 1.5rem;
+    justify-content: center;
+  }
 }
 
 mat-icon {
