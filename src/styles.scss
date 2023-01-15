@@ -67,22 +67,11 @@ app-sidenav {
 }
 
 .errorNotification {
-  background-color: red;
-  color: #fff;
+  --mdc-snackbar-container-color: rgb(240, 43, 43);
+  --mat-mdc-snack-bar-button-color: #fff;
 }
 
 .successNotification {
-  background-color: rgb(29, 141, 29);
-  color: #fff;
+  --mdc-snackbar-container-color: #187c2c;
+  --mat-mdc-snack-bar-button-color: #fff;
 }
-
-.mat-mdc-snack-bar-action {
-  color: #fff;
-}
-
-.mat-mdc-snack-bar-container {
-  max-width: 90vw !important;
-}
-
-/* TODO(mdc-migration): The following rule targets internal classes of button that may no longer apply for the MDC version.*/
-.mat-button-focus-overlay { background-color: transparent !important; }// fix for button that is opening sidenav being focued after closing sidenav
