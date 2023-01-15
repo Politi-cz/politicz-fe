@@ -1,5 +1,5 @@
 <mat-sidenav-container autosize class="sidenav-container">
-  <mat-sidenav [opened]="mobileQuery.matches ? false : true"
+  <mat-sidenav [autoFocus]="false" [opened]="mobileQuery.matches ? false : true"
     #snav
     [mode]="mobileQuery.matches ? 'over' : 'side'"
     [fixedInViewport]="mobileQuery.matches">
