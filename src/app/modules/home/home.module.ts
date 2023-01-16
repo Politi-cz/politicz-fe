@@ -12,13 +12,14 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { environment } from 'src/environments/environment';
 import { NewsComponent } from './page/news/news.component';
 import { NewsDetailComponent } from './page/news-detail/news-detail.component';
+import { AddNewsComponent } from './page/add-news/add-news.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, environment.assetsPath, '.json');
 }
 
 @NgModule({
-  declarations: [HomeComponent, NewsComponent, NewsDetailComponent],
+  declarations: [HomeComponent, NewsComponent, NewsDetailComponent, AddNewsComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,
