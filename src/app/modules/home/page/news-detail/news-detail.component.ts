@@ -1,5 +1,5 @@
-import { NewsService } from './../../../../../data/service/news.service';
-import { INews } from './../../../../../data/schema/news';
+import { NewsService } from '../../../../data/service/news.service';
+import { INews } from '../../../../data/schema/news';
 import { Observable, switchMap } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';

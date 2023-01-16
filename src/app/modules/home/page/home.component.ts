@@ -1,9 +1,9 @@
-import { NewsState } from '../../state/news.state';
-import { INews } from './../../../../data/schema/news';
+import { INews } from './../../../data/schema/news';
+import { NewsState } from '../state/news.state';
 import { Component, OnInit } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Select, Store } from '@ngxs/store';
-import { News } from '../../action/news.action';
+import { News } from '../action/news.action';
 
 @Component({
   selector: 'app-home',

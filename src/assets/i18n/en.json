@@ -9,5 +9,6 @@
   "no-result": "No search result found",
   "sidenav-home": "Home",
   "menu-action-edit": "Edit",
-  "menu-action-delete": "Delete"
+  "menu-action-delete": "Delete",
+  "add-post": "Add article"
 }
