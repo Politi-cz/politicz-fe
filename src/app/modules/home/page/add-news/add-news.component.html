@@ -1,11 +1,12 @@
 <section class="container">
   <div class="container__content">
     <h1>Add pleb</h1>
-    <form class="form-content">
+    <form [formGroup]="newsForm" class="form-content">
       <mat-form-field class="span-12" appearance="outline">
         <mat-label>Outline form field</mat-label>
-        <input matInput placeholder="Placeholder">
+        <input formControlName="heading" matInput placeholder="Placeholder">
       </mat-form-field>
+      <angular-editor formControlName="content" class="span-12" [config]="config"></angular-editor>
     </form>
   </div>
 </section>
