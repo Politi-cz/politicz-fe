@@ -19,8 +19,8 @@ export class PartyComponent implements OnInit {
   constructor(private route: ActivatedRoute, private store: Store) {}
 
   ngOnInit(): void {
-    this.route.queryParamMap.subscribe(params =>
-      this.store.dispatch(new PoliticalParty.LoadPoliticalPartyById(params.get('id')))
-    );
+    this.route.queryParamMap.subscribe(params => {
+      return this.store.dispatch(new PoliticalParty.LoadPoliticalPartyById(params.get('id')));
+    });
   }
 }

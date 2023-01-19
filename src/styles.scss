@@ -75,3 +75,35 @@ app-sidenav {
   --mdc-snackbar-container-color: #187c2c;
   --mat-mdc-snack-bar-button-color: #fff;
 }
+
+.form-content {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+}
+
+.span {
+  &-1 {
+    grid-column: span 1;
+  }
+
+  &-2 {
+    grid-column: span 2;
+  }
+
+  &-4 {
+    grid-column: span 4;
+  }
+
+  &-6 {
+    grid-column: span 4;
+  }
+
+  &-8 {
+    grid-column: span 8;
+  }
+
+  &-12 {
+    grid-column: span 12;
+  }
+}

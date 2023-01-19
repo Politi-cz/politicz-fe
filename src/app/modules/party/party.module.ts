@@ -7,9 +7,10 @@ import { PartyRoutingModule } from './party-routing.module';
 import { PartyComponent } from './page/party.component';
 import { PoliticianComponent } from './page/politician/politician.component';
 import { NgxsModule } from '@ngxs/store';
+import { AddPoliticianComponent } from './page/add-politician/add-politician.component';
 
 @NgModule({
-  declarations: [PartyComponent, PoliticianComponent],
+  declarations: [PartyComponent, PoliticianComponent, AddPoliticianComponent],
   imports: [CommonModule, PartyRoutingModule, SharedModule, NgxsModule.forFeature([politicalPartyState])],
 })
 export class PartyModule {}
