@@ -80,6 +80,15 @@ app-sidenav {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 2rem;
+  background-color: #fff;
+  padding: 3rem 2rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
 }
 
 .span {
@@ -96,7 +105,7 @@ app-sidenav {
   }
 
   &-6 {
-    grid-column: span 4;
+    grid-column: span 6;
   }
 
   &-8 {

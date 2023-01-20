@@ -10,5 +10,14 @@
   "sidenav-home": "Home",
   "menu-action-edit": "Edit",
   "menu-action-delete": "Delete",
-  "add-politician": "Add politician"
+  "add-politician": "Add politician",
+  "politician-new": "New politician",
+  "politician-name": "Name and Surname",
+  "birthday": "Date of birth",
+  "politician-profileImageUrl": "Profile picture link",
+  "politician-twitterUrl": "Twitter account link",
+  "politician-instagramUrl": "Instagram account link",
+  "politician-facebookUrl": "Facebook account link",
+  "create": "Create",
+  "back": "Back"
 }

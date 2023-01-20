@@ -10,5 +10,14 @@
   "sidenav-home": "Hlavní strana",
   "menu-action-edit": "Upravit",
   "menu-action-delete": "Smazat",
-  "add-politician": "Přidat politika"
+  "add-politician": "Přidat politika",
+  "politician-new": "Nový politik",
+  "politician-name": "Jméno a příjmení",
+  "birthday": "Datum narození",
+  "politician-profileImageUrl": "Odkaz na profilový obrázek",
+  "politician-twitterUrl": "Odkaz na twitter účet",
+  "politician-instagramUrl": "Odkaz na instagram účet",
+  "politician-facebookUrl": "Odkaz na facebook účet",
+  "create": "Vytvořit",
+  "back": "Zpět"
 }
