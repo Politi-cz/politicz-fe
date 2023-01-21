@@ -1,3 +1,4 @@
+import { IPoliticianRequest } from './../schema/politician-request';
 import { IPoliticalParty } from './../schema/political-party';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -21,6 +22,10 @@ export class PoliticalPartiesService {
     }
 
     return this.http.get<IPoliticalParty>(`${environment.apiUrl}/political-parties/${id}`);
+  }
+
+  addPolitician(partyId: string, politician: IPoliticianRequest): Observable<void> {
+    return this.http.post<void>(`${environment.apiUrl}/political-parties/${partyId}/politician`, politician);
   }
 
   removePolitician(id: string): Observable<void> {

@@ -23,6 +23,11 @@ export class politicalPartyState {
     return state;
   }
 
+  @Selector()
+  static getPoliticalPartyId(state: IPoliticalParty) {
+    return state.id;
+  }
+
   @Action(PoliticalParty.LoadPoliticalPartyById) loadPoliticalPartyById(
     ctx: StateContext<IPoliticalParty>,
     { payload }: PoliticalParty.LoadPoliticalPartyById
@@ -33,6 +38,11 @@ export class politicalPartyState {
   @Action(PoliticalParty.Set)
   setPoliticalParty(ctx: StateContext<IPoliticalParty>, { payload }: PoliticalParty.Set) {
     ctx.patchState(payload);
+  }
+
+  @Action(PoliticalParty.AddPolitician)
+  addPolitician(ctx: StateContext<IPoliticalParty>, { payload }: PoliticalParty.AddPolitician) {
+    this.politicalPartyService.addPolitician(ctx.getState().id, payload).subscribe();
   }
 
   @Action(PoliticalParty.RemovePolitician)

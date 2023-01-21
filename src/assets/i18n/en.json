@@ -19,5 +19,7 @@
   "politician-instagramUrl": "Instagram account link",
   "politician-facebookUrl": "Facebook account link",
   "create": "Create",
-  "back": "Back"
+  "back": "Back",
+  "form-required": "Required field",
+  "form-date": "Wrong date format (DD/MM/YYYY)"
 }
