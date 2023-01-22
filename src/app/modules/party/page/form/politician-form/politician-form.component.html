@@ -8,7 +8,7 @@
     <mat-label>{{'birthday' | translate}}</mat-label>
     <input matInput [matDatepicker]="picker" formControlName="birthDate">
     <mat-error>{{'form-date' | translate}}</mat-error>
-    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-hint>DD/MM/YYYY</mat-hint>
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker touchUi startView="multi-year"></mat-datepicker>
   </mat-form-field>

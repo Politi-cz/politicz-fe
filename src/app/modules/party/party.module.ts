@@ -12,7 +12,13 @@ import { PoliticianFormComponent } from './page/form/politician-form/politician-
 import { EditPoliticianComponent } from './page/edit-politician/edit-politician.component';
 
 @NgModule({
-  declarations: [PartyComponent, PoliticianComponent, AddPoliticianComponent, PoliticianFormComponent, EditPoliticianComponent],
+  declarations: [
+    PartyComponent,
+    PoliticianComponent,
+    AddPoliticianComponent,
+    PoliticianFormComponent,
+    EditPoliticianComponent,
+  ],
   imports: [CommonModule, PartyRoutingModule, SharedModule, NgxsModule.forFeature([politicalPartyState])],
 })
 export class PartyModule {}
