@@ -33,6 +33,10 @@ export class PoliticalPartiesService {
     return this.http.get<IPolitician>(`${environment.apiUrl}/political-parties/politician/${politicianId}`);
   }
 
+  editPolitician(request: IPoliticianRequest): Observable<void> {
+    return this.http.put<void>(`${environment.apiUrl}/political-parties/politician`, request);
+  }
+
   removePolitician(id: string): Observable<void> {
     return this.http.delete<void>(`${environment.apiUrl}/political-parties/${id}`);
   }

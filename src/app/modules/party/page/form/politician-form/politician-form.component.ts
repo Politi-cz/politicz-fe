@@ -20,11 +20,12 @@ export class PoliticianFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.politicianForm = this._fb.group<AddPoliticianForm>({
-      name: this._fb.control(this.politician?.fullName, {
+      name: this._fb.control(this.politician?.name, {
         nonNullable: true,
         validators: [Validators.required],
       }),
       birthDate: this._fb.control(this.politician?.birthDate, {
+        //TODO: Date in czech locale format
         nonNullable: true,
         validators: [Validators.required],
       }),

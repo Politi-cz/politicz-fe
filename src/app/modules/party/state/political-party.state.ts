@@ -45,6 +45,11 @@ export class politicalPartyState {
     this.politicalPartyService.addPolitician(ctx.getState().id, payload).subscribe();
   }
 
+  @Action(PoliticalParty.EditPolitician)
+  editPolitician(ctx: StateContext<IPoliticalParty>, { payload }: PoliticalParty.EditPolitician) {
+    this.politicalPartyService.editPolitician(payload).subscribe();
+  }
+
   @Action(PoliticalParty.RemovePolitician)
   removePolitician(ctx: StateContext<IPoliticalParty>, { payload }: PoliticalParty.RemovePolitician) {
     this.politicalPartyService.removePolitician(payload.id).subscribe(() => {

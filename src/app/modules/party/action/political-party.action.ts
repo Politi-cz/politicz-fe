@@ -20,6 +20,12 @@ export namespace PoliticalParty {
     constructor(public payload: IPoliticianRequest) {}
   }
 
+  export class EditPolitician {
+    static readonly type = '[PoliticalParty] Edit politician';
+
+    constructor(public payload: IPoliticianRequest) {}
+  }
+
   export class RemovePolitician {
     static readonly type = '[PoliticalParty] Remove politician';
 

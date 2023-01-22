@@ -15,7 +15,7 @@ const routes: Routes = [
     component: AddPoliticianComponent,
   },
   {
-    path: 'edit/:politicianId',
+    path: ':id/edit/:politicianId',
     component: EditPoliticianComponent,
   },
 ];

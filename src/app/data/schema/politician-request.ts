@@ -1,8 +1,9 @@
 export interface IPoliticianRequest {
+  id?: string;
   name: string;
   birthDate: Date;
   profileImageUrl: string;
-  instagramUrl?: string | undefined;
-  twitterUrl?: string | undefined;
-  facebookUrl?: string | undefined;
+  instagramUrl?: string;
+  twitterUrl?: string;
+  facebookUrl?: string;
 }
