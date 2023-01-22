@@ -1,3 +1,4 @@
+import { IPolitician } from './../../../data/schema/politician';
 import { politicalPartyState } from '../state/political-party.state';
 import { FiltersState } from './../../../state/filters.state';
 import { Component, OnInit } from '@angular/core';
@@ -15,6 +16,7 @@ import { PoliticalParty } from '../action/political-party.action';
 export class PartyComponent implements OnInit {
   @Select(FiltersState.getPoliticianFilterCount) politiciansCount: Observable<number>;
   @Select(politicalPartyState) politicalParty$: Observable<IPoliticalParty>;
+  @Select(politicalPartyState.getPoliticians) politicians$: Observable<IPolitician[]>;
 
   constructor(private route: ActivatedRoute, private store: Store) {}
 

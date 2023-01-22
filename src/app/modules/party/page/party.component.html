@@ -16,13 +16,14 @@
           </button>
         </div>
     </div>
-
+    <ng-container *ngIf="politicians$ | async as politicians">
       <div class="politicians">
-        <app-politician *ngFor="let politician of party.politicians | filterPoliticians: input.value" [politician]="politician"></app-politician>
+        <app-politician *ngFor="let politician of politicians | filterPoliticians: input.value" [politician]="politician"></app-politician>
         <ng-container *ngIf="(politiciansCount | async) === 0">
           <span class="no-result">{{'no-result' | translate}}</span>
         </ng-container>
       </div>
     </ng-container>
+  </ng-container>
 </section>
 

@@ -55,7 +55,7 @@
 
   display: grid;
   padding-bottom: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax($card-width, 1fr));
+  grid-template-columns: repeat(auto-fit, $card-width);
   gap: 3.3rem;
 
   @media only screen and (max-width: $bp-small) {

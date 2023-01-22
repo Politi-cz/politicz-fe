@@ -15,7 +15,7 @@ import { tap } from 'rxjs';
     tags: [],
   },
 })
-@Injectable() //TODO: refactoring, not using subscribe, but return observable and use tap.
+@Injectable()
 export class politicalPartyState {
   constructor(private politicalPartyService: PoliticalPartiesService) {}
 
@@ -27,6 +27,11 @@ export class politicalPartyState {
   @Selector()
   static getPoliticalPartyId(state: IPoliticalParty) {
     return state.id;
+  }
+
+  @Selector()
+  static getPoliticians(state: IPoliticalParty) {
+    return state.politicians;
   }
 
   @Action(PoliticalParty.GetPoliticalParty, { cancelUncompleted: true }) getPoliticalParty(
