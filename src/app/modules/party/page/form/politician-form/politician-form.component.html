@@ -1,0 +1,40 @@
+<form class="form-content" [formGroup]="politicianForm" (ngSubmit)="submit()">
+  <mat-form-field class="span-6" appearance="outline">
+    <mat-label>{{'politician-name' | translate}}</mat-label>
+    <input matInput formControlName="name">
+    <mat-error>{{'form-required' | translate}}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="span-6" appearance="outline">
+    <mat-label>{{'birthday' | translate}}</mat-label>
+    <input matInput [matDatepicker]="picker" formControlName="birthDate">
+    <mat-error>{{'form-date' | translate}}</mat-error>
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker touchUi startView="multi-year"></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="span-12" appearance="outline">
+    <mat-label>{{'politician-profileImageUrl' | translate}}</mat-label>
+    <input matInput formControlName="profileImageUrl">
+    <mat-error>{{'form-required' | translate}}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="span-12" appearance="outline">
+    <mat-label>{{'politician-twitterUrl' | translate}}</mat-label>
+    <input matInput formControlName="twitterUrl">
+  </mat-form-field>
+  <mat-form-field class="span-12" appearance="outline">
+    <mat-label>{{'politician-instagramUrl' | translate}}</mat-label>
+    <input matInput formControlName="instagramUrl">
+  </mat-form-field>
+  <mat-form-field class="span-12" appearance="outline">
+    <mat-label>{{'politician-facebookUrl' | translate}}</mat-label>
+    <input matInput formControlName="facebookUrl">
+  </mat-form-field>
+  <div class="form-footer span-12">
+    <button (click)="cancel()" type="button" mat-raised-button class="button-add">
+      {{'back' | translate}}
+    </button>
+    <button type="submit" mat-raised-button color="primary" class="button-add" [disabled]="!politicianForm.valid">
+      {{'create' | translate}}
+    </button>
+  </div>
+</form>

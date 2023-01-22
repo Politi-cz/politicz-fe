@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 import { IPartySidenavItem } from '../schema/party-sidenav-item';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { IPolitician } from '../schema/politician';
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +27,10 @@ export class PoliticalPartiesService {
 
   addPolitician(partyId: string, politician: IPoliticianRequest): Observable<void> {
     return this.http.post<void>(`${environment.apiUrl}/political-parties/${partyId}/politician`, politician);
+  }
+
+  getPolitician(politicianId: string): Observable<IPolitician> {
+    return this.http.get<IPolitician>(`${environment.apiUrl}/political-parties/politician/${politicianId}`);
   }
 
   removePolitician(id: string): Observable<void> {

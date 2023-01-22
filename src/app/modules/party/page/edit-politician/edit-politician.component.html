@@ -1,0 +1,6 @@
+<section class="container">
+  <div class="container__content">
+    <h1>{{'politician-edit' | translate}}</h1>
+    <app-politician-form *ngIf="(politician$ | async)! as politician" [politician]="politician"></app-politician-form>
+  </div>
+</section>
