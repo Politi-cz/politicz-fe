@@ -20,7 +20,7 @@ export class PartyComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.queryParamMap.subscribe(params => {
-      return this.store.dispatch(new PoliticalParty.LoadPoliticalPartyById(params.get('id')));
+      return this.store.dispatch(new PoliticalParty.GetPoliticalParty(params.get('id')));
     });
   }
 }
