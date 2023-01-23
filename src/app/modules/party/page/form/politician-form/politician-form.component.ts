@@ -20,7 +20,7 @@ export class PoliticianFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.politicianForm = this._fb.group<AddPoliticianForm>({
-      name: this._fb.control(this.politician?.name, {
+      fullName: this._fb.control(this.politician?.fullName, {
         nonNullable: true,
         validators: [Validators.required],
       }),
