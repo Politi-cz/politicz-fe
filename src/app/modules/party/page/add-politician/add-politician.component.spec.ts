@@ -20,3 +20,4 @@ describe('AddPoliticianComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+//TODO unit tests

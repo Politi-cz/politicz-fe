@@ -25,7 +25,7 @@ export class PoliticianFormComponent implements OnInit {
         validators: [Validators.required],
       }),
       birthDate: this._fb.control(this.politician?.birthDate, {
-        //TODO: Date in czech locale format
+        //TODO: Date in czech locale format, czech months
         nonNullable: true,
         validators: [Validators.required],
       }),
