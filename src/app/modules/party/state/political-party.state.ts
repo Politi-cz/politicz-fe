@@ -53,7 +53,7 @@ export class politicalPartyState {
 
   @Action(PoliticalParty.RemovePolitician)
   removePolitician(ctx: StateContext<IPoliticalParty>, { payload }: PoliticalParty.RemovePolitician) {
-    return this.politicalPartyService.removePolitician(payload.id).pipe(
+    return this.politicalPartyService.removePolitician(payload.id!).pipe(
       tap(() => {
         const filteredPoliticians = ctx.getState().politicians.filter(politician => politician.id !== payload.id);
         ctx.patchState({ politicians: filteredPoliticians });
