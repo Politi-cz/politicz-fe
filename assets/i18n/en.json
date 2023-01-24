@@ -9,5 +9,18 @@
   "no-result": "No search result found",
   "sidenav-home": "Home",
   "menu-action-edit": "Edit",
-  "menu-action-delete": "Delete"
+  "menu-action-delete": "Delete",
+  "add-politician": "Add politician",
+  "politician-new": "New politician",
+  "politician-edit": "Edit politician",
+  "politician-name": "Name and Surname",
+  "birthday": "Date of birth",
+  "politician-profileImageUrl": "Profile picture link",
+  "politician-twitterUrl": "Twitter account link",
+  "politician-instagramUrl": "Instagram account link",
+  "politician-facebookUrl": "Facebook account link",
+  "create": "Create",
+  "back": "Back",
+  "form-required": "Required field",
+  "form-date": "Wrong date format (DD/MM/YYYY)"
 }
