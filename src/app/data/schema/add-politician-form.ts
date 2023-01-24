@@ -1,9 +1,9 @@
 import { FormControl } from '@angular/forms';
 
 export interface AddPoliticianForm {
-  fullName: FormControl<string>;
-  birthDate: FormControl<Date>;
-  profileImageUrl: FormControl<string>;
+  fullName: FormControl<string | undefined>;
+  birthDate: FormControl<Date | undefined>;
+  profileImageUrl: FormControl<string | undefined>;
   twitterUrl: FormControl<string | null>;
   facebookUrl: FormControl<string | null>;
   instagramUrl: FormControl<string | null>;

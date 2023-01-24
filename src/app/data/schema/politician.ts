@@ -1,5 +1,5 @@
 export interface IPolitician {
-  id: string;
+  id?: string;
   fullName: string;
   birthDate: Date;
   profileImageUrl: string;

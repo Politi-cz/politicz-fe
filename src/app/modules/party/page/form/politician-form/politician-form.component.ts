@@ -9,7 +9,7 @@ import { AddPoliticianForm } from './../../../../../data/schema/add-politician-f
   styleUrls: ['./politician-form.component.scss'],
 })
 export class PoliticianFormComponent implements OnInit {
-  @Input() politician: IPolitician;
+  @Input() politician: IPolitician | undefined;
 
   @Output() submitEvent = new EventEmitter();
   @Output() cancelEvent = new EventEmitter();
@@ -25,7 +25,6 @@ export class PoliticianFormComponent implements OnInit {
         validators: [Validators.required],
       }),
       birthDate: this._fb.control(this.politician?.birthDate, {
-        //TODO: Date in czech locale format, czech months
         nonNullable: true,
         validators: [Validators.required],
       }),
@@ -39,13 +38,13 @@ export class PoliticianFormComponent implements OnInit {
     });
   }
 
-  submit() {
+  public submit() {
     if (this.politicianForm.valid) {
       this.submitEvent.emit(this.politicianForm.value);
     }
   }
 
-  cancel() {
+  public cancel() {
     this.cancelEvent.emit();
   }
 }
