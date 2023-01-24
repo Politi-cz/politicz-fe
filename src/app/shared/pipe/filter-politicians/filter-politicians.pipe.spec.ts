@@ -11,16 +11,19 @@ describe('FilterPoliticians', () => {
     {
       id: '1',
       fullName: 'Karel Kokos',
+      profileImageUrl: 'kks',
       birthDate: new Date(),
     },
     {
       id: '2',
       fullName: 'Karel Topol',
+      profileImageUrl: 'kks',
       birthDate: new Date(),
     },
     {
       id: '3',
       fullName: 'Prokop Černý',
+      profileImageUrl: 'kks',
       birthDate: new Date(),
     },
   ];

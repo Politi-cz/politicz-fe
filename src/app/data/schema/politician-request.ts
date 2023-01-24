@@ -1,4 +1,4 @@
-export interface IPolitician {
+export interface IPoliticianRequest {
   id?: string;
   fullName: string;
   birthDate: Date;
