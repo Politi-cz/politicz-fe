@@ -1,4 +1,4 @@
-import { IPolitician } from './../../../../../data/schema/politician';
+import { IPolitician } from './../../../../data/schema/politician';
 import { FormBuilder } from '@angular/forms';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 

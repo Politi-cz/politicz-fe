@@ -44,7 +44,8 @@ app-sidenav {
 
 .container {
   display: grid;
-  grid-template-columns: [full-start] 20rem [center-start] repeat(8, minmax(min-content, 1fr)) [center-end] 20rem [full-end];
+  grid-template-columns: [full-start] 20rem [center-start] repeat(8, minmax(min-content, 10rem)) [center-end] 20rem [full-end];
+  justify-content: center;
   padding: 5rem 0;
 
   @media only screen and (max-width: $bp-xlarge) {
@@ -92,24 +93,32 @@ app-sidenav {
 }
 //TODO Make responsive
 .span {
-  &-1 {
-    grid-column: span 1;
-  }
-
-  &-2 {
-    grid-column: span 2;
-  }
 
   &-4 {
     grid-column: span 4;
+
+    @media only screen and (max-width: $bp-xlarge) {
+      grid-column: span 6;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      grid-column: span 12;
+    }
   }
 
   &-6 {
     grid-column: span 6;
+
+    @media only screen and (max-width: $bp-small) {
+      grid-column: span 12;
+    }
   }
 
   &-8 {
     grid-column: span 8;
+    @media only screen and (max-width: $bp-mobile) {
+      grid-column: span 12;
+    }
   }
 
   &-12 {
