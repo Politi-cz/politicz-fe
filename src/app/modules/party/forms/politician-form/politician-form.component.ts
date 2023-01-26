@@ -1,7 +1,7 @@
-import { IPolitician } from './../../../../../data/schema/politician';
+import { IPolitician } from './../../../../data/schema/politician';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AddPoliticianForm } from './../../../../../data/schema/add-politician-form';
+import { AddPoliticianForm } from './../../../../data/schema/add-politician-form';
 
 @Component({
   selector: 'app-politician-form',
