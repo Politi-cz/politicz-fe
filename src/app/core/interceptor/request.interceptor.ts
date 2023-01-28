@@ -10,17 +10,32 @@ export class RequestInterceptor implements HttpInterceptor {
   // Implement adding headers to request
   constructor(private store: Store) {}
 
-  //TODO delete null/undefined attributes from request
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // Workaround for expression changed after it was checked error
     setTimeout(() => {
       this.store.dispatch(new Spinner.Set(true));
     });
 
+    request = request.clone({ body: this.removeEmptyAttributes(request.body) });
+
     return next.handle(request).pipe(
       finalize(() => {
         this.store.dispatch(new Spinner.Set(false));
       })
     );
+  }
+
+  private removeEmptyAttributes(requestBody: any): object {
+    const body = { ...requestBody };
+
+    if (body) {
+      Object.keys(body).forEach(attribute => {
+        if (body[attribute] == null) {
+          delete body[attribute];
+        }
+      });
+    }
+
+    return body;
   }
 }
