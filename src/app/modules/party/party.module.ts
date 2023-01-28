@@ -8,7 +8,7 @@ import { PartyComponent } from './page/party.component';
 import { PoliticianComponent } from './page/politician/politician.component';
 import { NgxsModule } from '@ngxs/store';
 import { AddPoliticianComponent } from './page/add-politician/add-politician.component';
-import { PoliticianFormComponent } from './page/form/politician-form/politician-form.component';
+import { PoliticianFormComponent } from './forms/politician-form/politician-form.component';
 import { EditPoliticianComponent } from './page/edit-politician/edit-politician.component';
 
 @NgModule({
