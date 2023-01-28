@@ -39,19 +39,12 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MAT_MOMENT_DATE_ADAPTER_OPTIONS, MomentDateAdapter, MomentDateModule } from '@angular/material-moment-adapter';
-
-export const MY_FORMATS = {
-  parse: {
-    dateInput: 'DD/MM/YYYY',
-  },
-  display: {
-    dateInput: 'DD/MM/YYYY',
-    monthYearLabel: 'MMMM YYYY',
-    dateA11yLabel: 'DD/MM/YYYY',
-    monthYearA11yLabel: 'MMMM YYYY',
-  },
-};
+import {
+  MAT_MOMENT_DATE_ADAPTER_OPTIONS,
+  MAT_MOMENT_DATE_FORMATS,
+  MomentDateAdapter,
+  MomentDateModule,
+} from '@angular/material-moment-adapter';
 
 const materialModules = [
   CdkTreeModule,
@@ -101,8 +94,11 @@ const materialModules = [
       useClass: MomentDateAdapter,
       deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS],
     },
-
-    { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+    { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
   ],
 })
-export class MaterialModule {}
+export class MaterialModule {
+  constructor(private _dateAdapter: DateAdapter<any>) {
+    this._dateAdapter.setLocale('cs');
+  }
+}

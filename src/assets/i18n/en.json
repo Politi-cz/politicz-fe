@@ -22,5 +22,6 @@
   "create": "Create",
   "back": "Back",
   "form-required": "Required field",
-  "form-date": "Wrong date format (DD/MM/YYYY)"
+  "form-date": "Wrong date format (DD/MM/YYYY)",
+  "year-format": "DD/MM/YYYY"
 }

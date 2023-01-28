@@ -8,9 +8,9 @@
     <mat-label>{{'birthday' | translate}}</mat-label>
     <input matInput [matDatepicker]="picker" formControlName="birthDate">
     <mat-error>{{'form-date' | translate}}</mat-error>
-    <mat-hint>DD/MM/YYYY</mat-hint>
+    <mat-hint>{{'year-format' | translate}}</mat-hint>
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker touchUi startView="multi-year"></mat-datepicker>
+    <mat-datepicker #picker startView="multi-year"></mat-datepicker>
   </mat-form-field>
   <mat-form-field class="span-12" appearance="outline">
     <mat-label>{{'politician-profileImageUrl' | translate}}</mat-label>
