@@ -41,6 +41,7 @@ export class politicalPartyState {
     return this.politicalPartyService.getPoliticalParty(payload).pipe(tap(data => ctx.setState(data)));
   }
 
+  //TODO make BE return politician with id
   @Action(PoliticalParty.AddPolitician)
   addPolitician(ctx: StateContext<IPoliticalParty>, { payload }: PoliticalParty.AddPolitician) {
     return this.politicalPartyService.addPolitician(ctx.getState().id, payload); //No need to add politician to state, politicians are reloaded after adding
