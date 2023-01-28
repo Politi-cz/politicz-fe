@@ -10,6 +10,7 @@ export class RequestInterceptor implements HttpInterceptor {
   // Implement adding headers to request
   constructor(private store: Store) {}
 
+  //TODO delete null/undefined attributes from request
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // Workaround for expression changed after it was checked error
     setTimeout(() => {
