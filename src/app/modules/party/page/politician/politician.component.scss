@@ -1,6 +1,12 @@
 @import '../../../../../styles/variables.scss';
 
 .politician-card {
+  width: $card-width;
+
+  &__image {
+    display: block !important;
+    max-height: 15rem !important;
+  }
 
   &__media {
     display: flex;
@@ -8,7 +14,7 @@
     margin-top: 1rem;
 
     img {
-      width: 3.5rem;
+      width: 3rem;
       transition: all .5s;
       border-radius: 25%;
 
