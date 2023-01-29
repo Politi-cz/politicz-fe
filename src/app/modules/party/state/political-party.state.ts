@@ -1,3 +1,4 @@
+import { NotificationService } from './../../../shared/service/notification.service';
 import { PoliticalPartiesService } from '../../../data/service/political-parties.service';
 import { Injectable } from '@angular/core';
 import { Selector, State, Action, StateContext } from '@ngxs/store';
@@ -14,10 +15,13 @@ import { tap } from 'rxjs';
     politicians: [],
     tags: [],
   },
-})
+}) //TODO Unit tests
 @Injectable()
 export class politicalPartyState {
-  constructor(private politicalPartyService: PoliticalPartiesService) {}
+  constructor(
+    private politicalPartyService: PoliticalPartiesService,
+    private notificationService: NotificationService
+  ) {}
 
   @Selector()
   static getPoliticalParty(state: IPoliticalParty) {
@@ -41,15 +45,33 @@ export class politicalPartyState {
     return this.politicalPartyService.getPoliticalParty(payload).pipe(tap(data => ctx.setState(data)));
   }
 
-  //TODO make BE return politician with id
   @Action(PoliticalParty.AddPolitician)
   addPolitician(ctx: StateContext<IPoliticalParty>, { payload }: PoliticalParty.AddPolitician) {
-    return this.politicalPartyService.addPolitician(ctx.getState().id, payload); //No need to add politician to state, politicians are reloaded after adding
+    return this.politicalPartyService.addPolitician(ctx.getState().id, payload).pipe(
+      tap(politician => {
+        return ctx.patchState({ politicians: [...ctx.getState().politicians, politician] });
+      })
+    );
   }
 
   @Action(PoliticalParty.EditPolitician)
   editPolitician(ctx: StateContext<IPoliticalParty>, { payload }: PoliticalParty.EditPolitician) {
-    return this.politicalPartyService.editPolitician(payload); //No need to add modified politician to state, politicians are reloaded after editing.
+    return this.politicalPartyService.editPolitician(ctx.getState().id, payload).pipe(
+      tap(politician => {
+        let politicians = [...ctx.getState().politicians];
+
+        const indexOfEditedPolitician = politicians.findIndex(oldPolitician => oldPolitician.id === politician.id);
+
+        if (indexOfEditedPolitician === -1) {
+          this.notificationService.showError('Wrong politician id');
+          return;
+        }
+
+        politicians[indexOfEditedPolitician] = { ...politician };
+
+        return ctx.patchState({ politicians: [...politicians] });
+      })
+    );
   }
 
   @Action(PoliticalParty.RemovePolitician)

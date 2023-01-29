@@ -1,5 +1,5 @@
+import { IPolitician } from './../../../../data/schema/politician';
 import { Router, ActivatedRoute } from '@angular/router';
-import { IPoliticianRequest } from './../../../../data/schema/politician-request';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { PoliticalParty } from '../../action/political-party.action';
@@ -18,7 +18,7 @@ export class AddPoliticianComponent implements OnInit {
     this._route.paramMap.subscribe(params => (this.politicalPartyId = params.get('id')!));
   }
 
-  public onSubmit(politician: IPoliticianRequest) {
+  public onSubmit(politician: IPolitician) {
     this._store.dispatch(new PoliticalParty.AddPolitician(politician));
     this.navigateBack();
   }

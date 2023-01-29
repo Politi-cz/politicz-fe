@@ -1,6 +1,5 @@
-import { IPoliticianRequest } from './../../../data/schema/politician-request';
 import { IPolitician } from '../../../data/schema/politician';
-import { IPoliticalParty } from '../../../data/schema/political-party';
+
 export namespace PoliticalParty {
   export class GetPoliticalParty {
     static readonly type = '[PoliticalParty] LoadPoliticalPartyById';
@@ -11,13 +10,13 @@ export namespace PoliticalParty {
   export class AddPolitician {
     static readonly type = '[PoliticalParty] Add politician';
 
-    constructor(public payload: IPoliticianRequest) {}
+    constructor(public payload: IPolitician) {}
   }
 
   export class EditPolitician {
     static readonly type = '[PoliticalParty] Edit politician';
 
-    constructor(public payload: IPoliticianRequest) {}
+    constructor(public payload: IPolitician) {}
   }
 
   export class RemovePolitician {
