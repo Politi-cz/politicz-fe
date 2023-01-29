@@ -1,5 +1,5 @@
-export interface IPoliticianRequest {
-  id?: string;
+export interface IPoliticianResponse {
+  id: string;
   fullName: string;
   birthDate: Date;
   profileImageUrl: string;

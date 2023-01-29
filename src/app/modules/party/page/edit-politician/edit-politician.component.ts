@@ -1,4 +1,3 @@
-import { IPoliticianRequest } from './../../../../data/schema/politician-request';
 import { PoliticalPartiesService } from './../../../../data/service/political-parties.service';
 import { IPolitician } from './../../../../data/schema/politician';
 import { Observable, switchMap } from 'rxjs';
@@ -36,8 +35,8 @@ export class EditPoliticianComponent implements OnInit {
     );
   }
 
-  public onSubmit(politician: IPoliticianRequest) {
-    const request = { id: this.politicianId, ...politician } as IPoliticianRequest;
+  public onSubmit(politician: IPolitician) {
+    const request = { id: this.politicianId, ...politician } as IPolitician;
     this._store.dispatch(new PoliticalParty.EditPolitician(request));
     this.navigateBack();
   }
