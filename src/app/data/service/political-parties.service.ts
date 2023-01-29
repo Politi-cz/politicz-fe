@@ -1,9 +1,9 @@
+import { environment } from './../../../environments/environment';
 import { IPoliticianResponse } from './../schema/politician-response';
 import { IPoliticalParty } from './../schema/political-party';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IPartySidenavItem } from '../schema/party-sidenav-item';
-import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { IPolitician } from '../schema/politician';
 

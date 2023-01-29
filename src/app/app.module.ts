@@ -1,3 +1,4 @@
+import { environment } from './../environments/environment';
 import { SpinnerState } from './state/spinner.state';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -11,7 +12,6 @@ import { ContentLayoutComponent } from './layout/content-layout/content-layout.c
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { environment } from 'src/environments/environment';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { NgxsModule } from '@ngxs/store';
