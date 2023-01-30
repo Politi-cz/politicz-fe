@@ -24,8 +24,6 @@ describe('PoliticianFormComponent', () => {
     facebookUrl: null,
   };
 
-  const filledPoliticianForm = { ...politician };
-
   let component: PoliticianFormComponent;
   let fixture: ComponentFixture<PoliticianFormComponent>;
 
