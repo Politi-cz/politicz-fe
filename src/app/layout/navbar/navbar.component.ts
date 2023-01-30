@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component } from '@angular/core';
 import { SidenavService } from '../../shared/service/sidenav.service';
 
@@ -7,9 +8,9 @@ import { SidenavService } from '../../shared/service/sidenav.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-  constructor(private sidenavService: SidenavService) {}
+  constructor(private _sidenavService: SidenavService, private _router: Router) {}
 
   toggleSidenav(): void {
-    this.sidenavService.toggleSidenav();
+    this._sidenavService.toggleSidenav();
   }
 }
