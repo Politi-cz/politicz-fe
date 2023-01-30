@@ -1,3 +1,4 @@
+import { AdminSectionComponent } from './shared/component/admin-section/admin-section.component';
 import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -17,6 +18,10 @@ const routes: Routes = [
       {
         path: 'political-party',
         loadChildren: () => import('./modules/party/party.module').then(m => m.PartyModule),
+      },
+      {
+        path: 'admin',
+        component: AdminSectionComponent,
       },
     ],
   },
