@@ -2,6 +2,7 @@
   "home": "Home page",
   "app-page": "App page",
   "menu-settings": "Settings",
+  "menu-admin": "Admin section",
   "menu-logout": "Logout",
   "sidenav-search": "Search a political party",
   "party-members": "Members",
@@ -23,5 +24,6 @@
   "back": "Back",
   "form-required": "Required field",
   "form-date": "Wrong date format (DD/MM/YYYY)",
-  "year-format": "DD/MM/YYYY"
+  "year-format": "DD/MM/YYYY",
+  "admin-party-add": "Add political party"
 }
