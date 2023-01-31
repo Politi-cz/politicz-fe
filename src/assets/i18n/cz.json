@@ -25,5 +25,6 @@
   "form-required": "Povinný údaj",
   "form-date": "Chybný formát datumu (DD.MM.YYYY)",
   "year-format": "DD.MM.YYYY",
-  "admin-party-add": "Přidat politickou stranu"
+  "admin-party-add": "Přidat politickou stranu",
+  "edit-party": "Upravit stranu"
 }

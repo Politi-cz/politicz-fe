@@ -25,5 +25,6 @@
   "form-required": "Required field",
   "form-date": "Wrong date format (DD/MM/YYYY)",
   "year-format": "DD/MM/YYYY",
-  "admin-party-add": "Add political party"
+  "admin-party-add": "Add political party",
+  "edit-party": "Edit party"
 }
