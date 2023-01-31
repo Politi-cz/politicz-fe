@@ -39,6 +39,12 @@
         width: 100% !important;
       }
     }
+
+    &__admin-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem 0;
+    }
   }
 
   .empty {

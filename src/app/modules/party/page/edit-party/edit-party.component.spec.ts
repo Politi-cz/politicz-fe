@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminSectionComponent } from './admin-section.component';
+import { EditPartyComponent } from './edit-party.component';
 
-describe('AdminSectionComponent', () => {
-  let component: AdminSectionComponent;
-  let fixture: ComponentFixture<AdminSectionComponent>;
+describe('EditPartyComponent', () => {
+  let component: EditPartyComponent;
+  let fixture: ComponentFixture<EditPartyComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AdminSectionComponent],
+      declarations: [EditPartyComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AdminSectionComponent);
+    fixture = TestBed.createComponent(EditPartyComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

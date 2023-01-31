@@ -1,7 +1,7 @@
 import { politicalPartyState } from './../../state/political-party.state';
 import { Router } from '@angular/router';
 import { IPolitician } from './../../../../data/schema/politician';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActionType, QuickMenuAction } from 'src/app/data/schema/quick-menu-action';
 import { Store } from '@ngxs/store';
 import { PoliticalParty } from '../../action/political-party.action';
@@ -21,7 +21,7 @@ export class PoliticianComponent {
 
     switch (action.type) {
       case ActionType.EDIT:
-        this._router.navigate(['/political-party', politicalPartyId, 'edit', this.politician.id]);
+        this._router.navigate(['/political-party', politicalPartyId, 'edit-politician', this.politician.id]);
         break;
       case ActionType.DELETE:
         this._store.dispatch(new PoliticalParty.RemovePolitician(this.politician));

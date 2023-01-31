@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AdminSectionComponent } from './admin-section.component';
+import { PartyFormComponent } from './party-form.component';
 
-describe('AdminSectionComponent', () => {
-  let component: AdminSectionComponent;
-  let fixture: ComponentFixture<AdminSectionComponent>;
+describe('PartyFormComponent', () => {
+  let component: PartyFormComponent;
+  let fixture: ComponentFixture<PartyFormComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AdminSectionComponent],
+      declarations: [PartyFormComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(AdminSectionComponent);
+    fixture = TestBed.createComponent(PartyFormComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

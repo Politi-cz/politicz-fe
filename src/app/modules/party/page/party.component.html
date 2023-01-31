@@ -10,10 +10,16 @@
               <mat-icon color="primary" matSuffix>search</mat-icon>
             </mat-form-field>
           </div>
-          <button [routerLink]="['/political-party', party.id, 'add']" mat-raised-button color="primary" class="button-add">
-            <mat-icon>add</mat-icon>
-            {{'add-politician' | translate}}
-          </button>
+          <div class="party__actions__admin-buttons">
+            <button [routerLink]="['/political-party', party.id, 'edit']" mat-raised-button color="primary" class="button-add">
+              <mat-icon>edit</mat-icon>
+              {{'edit-party' | translate}}
+            </button>
+            <button [routerLink]="['/political-party', party.id, 'add-politician']" mat-raised-button color="primary" class="button-add">
+              {{'add-politician' | translate}}
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
         </div>
     </div>
     <ng-container *ngIf="politicians$ | async as politicians">
