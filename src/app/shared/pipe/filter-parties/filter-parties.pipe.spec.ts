@@ -10,20 +10,14 @@ describe('FilterPartiesPipe', () => {
   const parties: IPoliticalParty[] = [
     {
       id: '1',
-      image: {
-        name: 'kks',
-        extension: '.jpg',
-      },
+      image: '',
       name: 'SPD',
       politicians: [],
       tags: ['Úsvit příme demokracio', 'Tomio'],
     },
     {
       id: '2',
-      image: {
-        name: 'kkt',
-        extension: '.jpg',
-      },
+      image: '',
       name: 'Pirati',
       politicians: [],
       tags: ['Bartoš', 'tráva'],
