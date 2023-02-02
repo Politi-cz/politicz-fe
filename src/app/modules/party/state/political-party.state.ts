@@ -11,7 +11,7 @@ import { tap } from 'rxjs';
   defaults: {
     id: '',
     name: 'kokodzina',
-    image: { name: '', extension: '' },
+    image: '',
     politicians: [],
     tags: [],
   },

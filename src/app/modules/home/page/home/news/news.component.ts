@@ -1,6 +1,6 @@
 import { ActionType, QuickMenuAction } from './../../../../../data/schema/quick-menu-action';
 import { INews } from './../../../../../data/schema/news';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { News } from '../../../action/news.action';

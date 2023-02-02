@@ -20,7 +20,7 @@
       <mat-list-item (click)="navigateToPoliticalPartyPage(party.id)" *ngFor="let party of (sidenavParties$ | async)! | filterParties: input.value ">
         <div class="party">
           <div class="party__logo-container">
-            <img [src]="party.image | pathToPartyLogo" class="party-icon">
+            <img [src]="party.image" class="party-icon">
           </div>
           <span>{{party.name}}</span>
         </div>

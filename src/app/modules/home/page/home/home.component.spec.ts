@@ -15,10 +15,6 @@ describe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
 
-  const storeMock = {
-    dispatch: jest.fn(),
-  };
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
