@@ -1,1 +1,40 @@
-<p>party-form works!</p>
+<form class="form-content" [formGroup]="partyForm" (ngSubmit)="submit(partyForm)">
+  <mat-form-field class="span-12" appearance="outline">
+    <mat-label>{{'party-name' | translate}}</mat-label>
+    <input matInput formControlName="name">
+    <mat-error>{{'form-required' | translate}}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="span-12" appearance="outline">
+    <mat-label>{{'party-image' | translate}}</mat-label>
+    <input matInput formControlName="name">
+    <mat-error>{{'form-required' | translate}}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="span-12" appearance="fill">
+    <mat-label>Favorite Fruits</mat-label>
+    <mat-chip-grid #chipGrid aria-label="Enter fruits">
+      <mat-chip-row *ngFor="let tag of tags"
+                    (removed)="remove(tag)"
+                    [editable]="true"
+                    (edited)="edit(tag, $event)"
+                    [aria-description]="'press enter to edit ' + tag">
+        {{tag}}
+        <button matChipRemove [attr.aria-label]="'remove ' + tag">
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip-row>
+      <input placeholder="New fruit..."
+             [matChipInputFor]="chipGrid"
+             [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+             [matChipInputAddOnBlur]="addOnBlur"
+             (matChipInputTokenEnd)="add($event)"/>
+    </mat-chip-grid>
+  </mat-form-field>
+  <div class="form-footer span-12">
+    <button (click)="cancel()" type="button" mat-raised-button class="button-add">
+      {{'back' | translate}}
+    </button>
+    <button type="submit" mat-raised-button color="primary" class="button-add" [disabled]="!partyForm.valid">
+      {{'create' | translate}}
+    </button>
+  </div>
+</form>
