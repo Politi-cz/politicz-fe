@@ -26,5 +26,11 @@
   "form-date": "Wrong date format (DD/MM/YYYY)",
   "year-format": "DD/MM/YYYY",
   "admin-party-add": "Add political party",
-  "edit-party": "Edit party"
+  "edit-party": "Edit party",
+  "party-name": "Political party name",
+  "party-image": "Link to political party logo/image",
+  "party-tags": "Political party tags",
+  "party-tag-placeholder": "Used to improve filtering",
+  "chips-hint": "To finish typing a word, press ENTER or the comma key",
+  "chips-required": "Required field - must contain at least 1 word"
 }

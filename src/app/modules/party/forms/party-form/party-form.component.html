@@ -6,34 +6,35 @@
   </mat-form-field>
   <mat-form-field class="span-12" appearance="outline">
     <mat-label>{{'party-image' | translate}}</mat-label>
-    <input matInput formControlName="name">
+    <input matInput formControlName="image">
     <mat-error>{{'form-required' | translate}}</mat-error>
   </mat-form-field>
-  <mat-form-field class="span-12" appearance="fill">
-    <mat-label>Favorite Fruits</mat-label>
-    <mat-chip-grid #chipGrid aria-label="Enter fruits">
+  <mat-form-field class="span-12" appearance="outline">
+    <mat-label>{{'party-tags' | translate}}</mat-label>
+    <mat-chip-grid #chipGrid formControlName="tags">
       <mat-chip-row *ngFor="let tag of tags"
                     (removed)="remove(tag)"
                     [editable]="true"
-                    (edited)="edit(tag, $event)"
-                    [aria-description]="'press enter to edit ' + tag">
+                    (edited)="edit(tag, $event)">
         {{tag}}
         <button matChipRemove [attr.aria-label]="'remove ' + tag">
           <mat-icon>cancel</mat-icon>
         </button>
       </mat-chip-row>
-      <input placeholder="New fruit..."
+      <input [placeholder]="'party-tag-placeholder' | translate"
              [matChipInputFor]="chipGrid"
              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
              [matChipInputAddOnBlur]="addOnBlur"
              (matChipInputTokenEnd)="add($event)"/>
     </mat-chip-grid>
+    <mat-hint>{{'chips-hint' | translate}}</mat-hint>
+    <mat-error>{{'chips-required' | translate}}</mat-error>
   </mat-form-field>
   <div class="form-footer span-12">
     <button (click)="cancel()" type="button" mat-raised-button class="button-add">
       {{'back' | translate}}
     </button>
-    <button type="submit" mat-raised-button color="primary" class="button-add" [disabled]="!partyForm.valid">
+    <button type="submit" mat-raised-button color="primary" class="button-add">
       {{'create' | translate}}
     </button>
   </div>
