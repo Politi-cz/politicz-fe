@@ -30,6 +30,52 @@
     <mat-hint>{{'chips-hint' | translate}}</mat-hint>
     <mat-error>{{'chips-required' | translate}}</mat-error>
   </mat-form-field>
+  <h2 class="span-12">Add politician</h2>
+  <ng-container formArrayName="politicians">
+    <ng-container *ngFor="let politicianForm of politicians.controls; let i = index" [formGroupName]="i">
+        <h3 class="span-12 politician-number">{{i + 1 + '.' + ' Politician' | translate}}</h3>
+        <mat-form-field class="span-6" appearance="outline">
+          <mat-label>{{'politician-name' | translate}}</mat-label>
+          <input matInput formControlName="fullname">
+          <mat-error>{{'form-required' | translate}}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="span-6" appearance="outline">
+          <mat-label>{{'birthday' | translate}}</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="birthDate">
+          <mat-error>{{'form-date' | translate}}</mat-error>
+          <mat-hint>{{'year-format' | translate}}</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker startView="multi-year"></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="span-12" appearance="outline">
+          <mat-label>{{'politician-profileImageUrl' | translate}}</mat-label>
+          <input matInput formControlName="profileImageUrl">
+          <mat-error>{{'form-required' | translate}}</mat-error>
+        </mat-form-field>
+        <mat-form-field class="span-12" appearance="outline">
+          <mat-label>{{'politician-twitterUrl' | translate}}</mat-label>
+          <input matInput formControlName="twitterUrl">
+        </mat-form-field>
+        <mat-form-field class="span-12" appearance="outline">
+          <mat-label>{{'politician-instagramUrl' | translate}}</mat-label>
+          <input matInput formControlName="instagramUrl">
+        </mat-form-field>
+        <mat-form-field class="span-12" appearance="outline">
+          <mat-label>{{'politician-facebookUrl' | translate}}</mat-label>
+          <input matInput formControlName="facebookUrl">
+        </mat-form-field>
+        <div class="span-12 delete-politician">
+          <button type="button" mat-fab color="warn" (click)="removePolitician(i)">
+            <mat-icon>clear</mat-icon>
+          </button>
+        </div>
+    </ng-container>
+  </ng-container>
+  <div class="span-12 add-politician-container">
+    <button type="button" mat-fab color="primary" (click)="addPolitician()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
   <div class="form-footer span-12">
     <button (click)="cancel()" type="button" mat-raised-button class="button-add">
       {{'back' | translate}}

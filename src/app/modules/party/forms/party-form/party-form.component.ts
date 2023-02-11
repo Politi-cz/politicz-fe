@@ -1,4 +1,4 @@
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, Validators } from '@angular/forms';
 import { IPoliticalParty } from './../../../../data/schema/political-party';
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractFormComponent } from '../../../../shared/forms/abstractForm';
@@ -34,6 +34,33 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
         image: this.party.image,
       });
     }
+  }
+
+  get politicians() {
+    return this.partyForm.controls['politicians'] as FormArray;
+  }
+
+  public addPolitician() {
+    const politicianForm = this._fb.group({
+      fullname: this._fb.control('', {validators: Validators.required}),
+      birthDate: this._fb.control('', {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
+      profileImageUrl: this._fb.control('', {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
+      facebookUrl: this._fb.control(''),
+      instagramUrl: this._fb.control(''),
+      twitterUrl: this._fb.control(''),
+    })
+
+    this.politicians.push(politicianForm)
+  }
+
+  public removePolitician(index: number) {
+    this.politicians.removeAt(index);
   }
 
   add(event: MatChipInputEvent): void {
