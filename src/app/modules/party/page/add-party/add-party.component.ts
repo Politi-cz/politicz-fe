@@ -1,3 +1,8 @@
+import { NotificationService } from './../../../../shared/service/notification.service';
+import { Router } from '@angular/router';
+import { PoliticalPartiesService } from './../../../../data/service/political-parties.service';
+import { IPoliticalParty } from './../../../../data/schema/political-party';
+import { FormGroup } from '@angular/forms';
 import { Component } from '@angular/core';
 
 @Component({
@@ -6,5 +11,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-party.component.scss']
 })
 export class AddPartyComponent {
+  constructor(private _partiesService: PoliticalPartiesService, private _router: Router, private _notificationService: NotificationService) {}
 
+  onSubmit(party: IPoliticalParty) {
+    if (party.politicians.length < 1) {
+      this._notificationService.showError('error-politician-required');
+      return;
+    }
+    this._partiesService.createPoliticalParty(party).subscribe(() => this.navigateBack());
+  }
+
+  navigateBack() {
+    this._router.navigate(['/news']);
+  }
 }

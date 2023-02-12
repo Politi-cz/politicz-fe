@@ -30,7 +30,7 @@
     <mat-hint>{{'chips-hint' | translate}}</mat-hint>
     <mat-error>{{'chips-required' | translate}}</mat-error>
   </mat-form-field>
-  <h2 class="span-12">Add politician</h2>
+  <h2 class="span-12">{{'politician-add' | translate}}</h2>
   <ng-container formArrayName="politicians">
     <ng-container *ngFor="let politicianForm of politicians.controls; let i = index" [formGroupName]="i">
         <h3 class="span-12 politician-number">{{i + 1 + '.' + ' Politician' | translate}}</h3>

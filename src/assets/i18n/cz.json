@@ -11,7 +11,7 @@
   "sidenav-home": "Hlavní strana",
   "menu-action-edit": "Upravit",
   "menu-action-delete": "Smazat",
-  "add-politician": "Přidat politika",
+  "politician-add": "Přidat politika",
   "politician-new": "Nový politik",
   "politician-edit": "Upravit politika",
   "politician-name": "Jméno a příjmení",
@@ -32,5 +32,6 @@
   "party-tags": "Tagy politické strany",
   "party-tag-placeholder": "Slouží pro zlepšení filtrování",
   "chips-hint": "Zadávání slova ukončete zmáčknutím klávesy ENTER nebo znakem čárky",
-  "chips-required": "Povinný údaj - musí obsahovat alespoň 1 slovo"
+  "chips-required": "Povinný údaj - musí obsahovat alespoň 1 slovo",
+  "error-politician-required": "Pro vytvoření politické strany přidejte alespoň 1 politika"
 }

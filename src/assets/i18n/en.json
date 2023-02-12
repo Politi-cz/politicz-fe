@@ -11,7 +11,7 @@
   "sidenav-home": "Home",
   "menu-action-edit": "Edit",
   "menu-action-delete": "Delete",
-  "add-politician": "Add politician",
+  "politician-add": "Add politician",
   "politician-new": "New politician",
   "politician-edit": "Edit politician",
   "politician-name": "Name and Surname",
@@ -32,5 +32,6 @@
   "party-tags": "Political party tags",
   "party-tag-placeholder": "Used to improve filtering",
   "chips-hint": "To finish typing a word, press ENTER or the comma key",
-  "chips-required": "Required field - must contain at least 1 word"
+  "chips-required": "Required field - must contain at least 1 word",
+  "error-politician-required": "To create a political party, add at least 1 politician"
 }

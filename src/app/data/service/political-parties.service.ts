@@ -25,6 +25,10 @@ export class PoliticalPartiesService {
     return this.http.get<IPoliticalParty>(`${environment.apiUrl}/political-parties/${id}`);
   }
 
+  createPoliticalParty(party: IPoliticalParty) {
+    return this.http.post(`${environment.apiUrl}/political-parties/create`, party)
+  }
+
   addPolitician(partyId: string, politician: IPolitician): Observable<IPoliticianResponse> {
     return this.http.post<IPoliticianResponse>(
       `${environment.apiUrl}/political-parties/${partyId}/politician`,

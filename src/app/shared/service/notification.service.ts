@@ -1,5 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
   providedIn: 'root',
@@ -11,17 +12,17 @@ export class NotificationService {
     verticalPosition: 'top' as MatSnackBarVerticalPosition,
   };
 
-  constructor(private snackBar: MatSnackBar, private zone: NgZone) {}
+  constructor(private snackBar: MatSnackBar, private zone: NgZone, private translate: TranslateService) {}
 
   showSuccess(message: string, duration = this._duration) {
     this.zone.run(() => {
-      this.snackBar.open(message, 'X', { panelClass: ['successNotification'], duration: duration, ...this.config });
+      this.snackBar.open(this.translate.instant(message), 'X', { panelClass: ['successNotification'], duration: duration, ...this.config });
     });
   }
 
   showError(message: string, duration = this._duration) {
     this.zone.run(() => {
-      this.snackBar.open(message, 'X', { panelClass: ['errorNotification'], duration: duration, ...this.config });
+      this.snackBar.open(this.translate.instant(message), 'X', { panelClass: ['errorNotification'], duration: duration, ...this.config });
     });
   }
 }

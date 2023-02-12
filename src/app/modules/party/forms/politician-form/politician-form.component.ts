@@ -12,7 +12,7 @@ import { AddPoliticianForm } from './../../../../data/schema/add-politician-form
 export class PoliticianFormComponent extends AbstractFormComponent implements OnInit {
   @Input() politician: IPolitician | undefined;
 
-  public politicianForm: FormGroup<AddPoliticianForm>;
+  public politicianForm: FormGroup<AddPoliticianForm>; //TODO Refactor
 
   constructor(private _fb: FormBuilder) {
     super();
