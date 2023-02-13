@@ -16,13 +16,21 @@ export class NotificationService {
 
   showSuccess(message: string, duration = this._duration) {
     this.zone.run(() => {
-      this.snackBar.open(this.translate.instant(message), 'X', { panelClass: ['successNotification'], duration: duration, ...this.config });
+      this.snackBar.open(this.translate.instant(message), 'X', {
+        panelClass: ['successNotification'],
+        duration: duration,
+        ...this.config,
+      });
     });
   }
 
   showError(message: string, duration = this._duration) {
     this.zone.run(() => {
-      this.snackBar.open(this.translate.instant(message), 'X', { panelClass: ['errorNotification'], duration: duration, ...this.config });
+      this.snackBar.open(this.translate.instant(message), 'X', {
+        panelClass: ['errorNotification'],
+        duration: duration,
+        ...this.config,
+      });
     });
   }
 }

@@ -2,16 +2,19 @@ import { NotificationService } from './../../../../shared/service/notification.s
 import { Router } from '@angular/router';
 import { PoliticalPartiesService } from './../../../../data/service/political-parties.service';
 import { IPoliticalParty } from './../../../../data/schema/political-party';
-import { FormGroup } from '@angular/forms';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-add-party',
   templateUrl: './add-party.component.html',
-  styleUrls: ['./add-party.component.scss']
+  styleUrls: ['./add-party.component.scss'],
 })
 export class AddPartyComponent {
-  constructor(private _partiesService: PoliticalPartiesService, private _router: Router, private _notificationService: NotificationService) {}
+  constructor(
+    private _partiesService: PoliticalPartiesService,
+    private _router: Router,
+    private _notificationService: NotificationService
+  ) {}
 
   onSubmit(party: IPoliticalParty) {
     if (party.politicians.length < 1) {

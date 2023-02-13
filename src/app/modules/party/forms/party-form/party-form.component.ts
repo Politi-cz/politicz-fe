@@ -42,7 +42,7 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
 
   public addPolitician() {
     const politicianForm = this._fb.group({
-      fullname: this._fb.control('', {validators: Validators.required}),
+      fullname: this._fb.control('', { validators: Validators.required }),
       birthDate: this._fb.control('', {
         nonNullable: true,
         validators: [Validators.required],
@@ -54,9 +54,9 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
       facebookUrl: this._fb.control(''),
       instagramUrl: this._fb.control(''),
       twitterUrl: this._fb.control(''),
-    })
+    });
 
-    this.politicians.push(politicianForm)
+    this.politicians.push(politicianForm);
   }
 
   public removePolitician(index: number) {
