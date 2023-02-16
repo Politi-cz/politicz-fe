@@ -16,7 +16,7 @@ export class AddPartyComponent {
     private _notificationService: NotificationService
   ) {}
 
-  onSubmit(party: IPoliticalParty) {
+  public onSubmit(party: IPoliticalParty) {
     if (party.politicians.length < 1) {
       this._notificationService.showError('error-politician-required');
       return;
@@ -24,7 +24,7 @@ export class AddPartyComponent {
     this._partiesService.createPoliticalParty(party).subscribe(() => this.navigateBack());
   }
 
-  navigateBack() {
+  public navigateBack() {
     this._router.navigate(['/news']);
   }
 }

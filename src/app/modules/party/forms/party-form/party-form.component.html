@@ -1,4 +1,4 @@
-<form class="form-content" [formGroup]="partyForm" (ngSubmit)="submit(partyForm)">
+<form class="form-content" [formGroup]="partyForm" (ngSubmit)="submit()">
   <mat-form-field class="span-12" appearance="outline">
     <mat-label>{{'party-name' | translate}}</mat-label>
     <input matInput formControlName="name">
@@ -13,9 +13,9 @@
     <mat-label>{{'party-tags' | translate}}</mat-label>
     <mat-chip-grid #chipGrid formControlName="tags">
       <mat-chip-row *ngFor="let tag of tags"
-                    (removed)="remove(tag)"
+                    (removed)="removeTag(tag)"
                     [editable]="true"
-                    (edited)="edit(tag, $event)">
+                    (edited)="editTag(tag, $event)">
         {{tag}}
         <button matChipRemove [attr.aria-label]="'remove ' + tag">
           <mat-icon>cancel</mat-icon>
@@ -25,14 +25,17 @@
              [matChipInputFor]="chipGrid"
              [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
              [matChipInputAddOnBlur]="addOnBlur"
-             (matChipInputTokenEnd)="add($event)"/>
+             (matChipInputTokenEnd)="addTag($event)"/>
     </mat-chip-grid>
     <mat-hint>{{'chips-hint' | translate}}</mat-hint>
     <mat-error>{{'chips-required' | translate}}</mat-error>
   </mat-form-field>
-  <h2 class="span-12">{{'politician-add' | translate}}</h2>
-  <ng-container formArrayName="politicians">
-    <ng-container *ngFor="let politicianForm of politicians.controls; let i = index" [formGroupName]="i">
+  <ng-container *ngIf="!party">
+
+  </ng-container>
+  <ng-container *ngIf="!party" formArrayName="politicians">
+    <h2 class="span-12">{{'politician-add' | translate}}</h2>
+    <ng-container *ngFor="let politicianForm of politicians?.controls; let i = index" [formGroupName]="i">
         <h3 class="span-12 politician-number">{{i + 1 + '.' + ' Politician' | translate}}</h3>
         <mat-form-field class="span-6" appearance="outline">
           <mat-label>{{'politician-name' | translate}}</mat-label>
@@ -70,18 +73,18 @@
           </button>
         </div>
     </ng-container>
+    <div class="span-12 add-politician-container">
+      <button type="button" mat-fab color="primary" (click)="addPolitician()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </div>
   </ng-container>
-  <div class="span-12 add-politician-container">
-    <button type="button" mat-fab color="primary" (click)="addPolitician()">
-      <mat-icon>add</mat-icon>
-    </button>
-  </div>
   <div class="form-footer span-12">
     <button (click)="cancel()" type="button" mat-raised-button class="button-add">
       {{'back' | translate}}
     </button>
     <button type="submit" mat-raised-button color="primary" class="button-add">
-      {{'create' | translate}}
+      {{party ? ('update' | translate) : ('create' | translate)}}
     </button>
   </div>
 </form>

@@ -33,8 +33,9 @@
     <button (click)="cancel()" type="button" mat-raised-button class="button-add">
       {{'back' | translate}}
     </button>
+    <!-- TODO dont disable -->
     <button type="submit" mat-raised-button color="primary" class="button-add" [disabled]="!politicianForm.valid">
-      {{'create' | translate}}
+      {{politician ? ('update' | translate) : ('create' | translate)}}
     </button>
   </div>
 </form>

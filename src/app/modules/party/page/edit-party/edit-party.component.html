@@ -1,1 +1,5 @@
-<p>edit-party works!</p>
+<section class="container">
+  <div class="container__content">
+    <app-party-form *ngIf="(politicalParty$ | async) as politicalParty" [party]="politicalParty" (submitEvent)="onSubmit($event)" (cancelEvent)="navigateBack(politicalPartyId)"></app-party-form>
+  </div>
+</section>

@@ -26,7 +26,11 @@ export class PoliticalPartiesService {
   }
 
   createPoliticalParty(party: IPoliticalParty) {
-    return this.http.post(`${environment.apiUrl}/political-parties/create`, party)
+    return this.http.post(`${environment.apiUrl}/political-parties/create`, party);
+  }
+
+  editPoliticalParty(party: IPoliticalParty): Observable<IPoliticalParty> {
+    return this.http.put<IPoliticalParty>(`${environment.apiUrl}/political-parties/${party.id}`, party);
   }
 
   addPolitician(partyId: string, politician: IPolitician): Observable<IPoliticianResponse> {
@@ -35,7 +39,7 @@ export class PoliticalPartiesService {
       politician
     );
   }
-
+  //TODO Modify EP url
   editPolitician(partyId: string, request: IPolitician): Observable<IPoliticianResponse> {
     return this.http.put<IPoliticianResponse>(`${environment.apiUrl}/political-parties/${partyId}/politician`, request);
   }
