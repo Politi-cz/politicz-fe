@@ -30,12 +30,9 @@
     <mat-hint>{{'chips-hint' | translate}}</mat-hint>
     <mat-error>{{'chips-required' | translate}}</mat-error>
   </mat-form-field>
-  <ng-container *ngIf="!party">
-
-  </ng-container>
   <ng-container *ngIf="!party" formArrayName="politicians">
     <h2 class="span-12">{{'politician-add' | translate}}</h2>
-    <ng-container *ngFor="let politicianForm of politicians?.controls; let i = index" [formGroupName]="i">
+    <ng-container *ngFor="let politicianForm of politiciansFormArray?.controls; let i = index" [formGroupName]="i">
         <h3 class="span-12 politician-number">{{i + 1 + '.' + ' Politician' | translate}}</h3>
         <mat-form-field class="span-6" appearance="outline">
           <mat-label>{{'politician-name' | translate}}</mat-label>

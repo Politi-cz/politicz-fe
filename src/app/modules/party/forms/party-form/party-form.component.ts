@@ -42,14 +42,14 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
     }
   }
 
-  get politicians() {
+  get politiciansFormArray() {
     return this.partyForm?.controls['politicians'] ?? null;
   }
 
   override submit() {
     if (this.partyForm.valid) {
       this.partyForm.patchValue({
-        tags: [...this.tags],
+        tags: [...this.tags], //Make sure that tags control has current tags, mat-chips behavior is odd
       });
       this.submitEvent.emit(this.partyForm.value);
     }
@@ -71,14 +71,14 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
       twitterUrl: this._fb.control(''),
     });
 
-    if (this.politicians) {
-      this.politicians.push(politicianForm);
+    if (this.politiciansFormArray) {
+      this.politiciansFormArray.push(politicianForm);
     }
   }
 
   public removePolitician(index: number) {
-    if (this.politicians) {
-      this.politicians.removeAt(index);
+    if (this.politiciansFormArray) {
+      this.politiciansFormArray.removeAt(index);
     }
   }
 

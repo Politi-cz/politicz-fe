@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 import { IPartySidenavItem } from '../schema/party-sidenav-item';
 import { Observable } from 'rxjs';
 import { IPolitician } from '../schema/politician';
+import { ICreatePoliticalPartyResponse } from '../schema/create-party-response';
+import { IPoliticalPartyPolticiansFree } from '../schema/political-party-politicians-free';
 
 @Injectable({
   providedIn: 'root',
@@ -25,12 +27,12 @@ export class PoliticalPartiesService {
     return this.http.get<IPoliticalParty>(`${environment.apiUrl}/political-parties/${id}`);
   }
 
-  createPoliticalParty(party: IPoliticalParty) {
-    return this.http.post(`${environment.apiUrl}/political-parties/create`, party);
+  createPoliticalParty(party: IPoliticalParty): Observable<ICreatePoliticalPartyResponse> {
+    return this.http.post<ICreatePoliticalPartyResponse>(`${environment.apiUrl}/political-parties/create`, party);
   }
 
-  editPoliticalParty(party: IPoliticalParty): Observable<IPoliticalParty> {
-    return this.http.put<IPoliticalParty>(`${environment.apiUrl}/political-parties/${party.id}`, party);
+  editPoliticalParty(party: IPoliticalPartyPolticiansFree): Observable<IPoliticalPartyPolticiansFree> {
+    return this.http.put<IPoliticalPartyPolticiansFree>(`${environment.apiUrl}/political-parties/${party.id}`, party);
   }
 
   addPolitician(partyId: string, politician: IPolitician): Observable<IPoliticianResponse> {
