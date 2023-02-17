@@ -1,4 +1,4 @@
-import { IPoliticalParty } from './../../../data/schema/political-party';
+import { IPartySidenavItem } from './../../../data/schema/party-sidenav-item';
 import { FilterPartiesPipe } from './filter-parties.pipe';
 describe('FilterPartiesPipe', () => {
   const storeMock: any = {
@@ -7,19 +7,17 @@ describe('FilterPartiesPipe', () => {
 
   const pipe = new FilterPartiesPipe(storeMock);
 
-  const parties: IPoliticalParty[] = [
+  const parties: IPartySidenavItem[] = [
     {
       id: '1',
       image: '',
       name: 'SPD',
-      politicians: [],
       tags: ['Úsvit příme demokracio', 'Tomio'],
     },
     {
       id: '2',
       image: '',
       name: 'Pirati',
-      politicians: [],
       tags: ['Bartoš', 'tráva'],
     },
   ];

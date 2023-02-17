@@ -45,9 +45,23 @@ export class politicalPartyState {
     return this.politicalPartyService.getPoliticalParty(payload).pipe(tap(data => ctx.setState(data)));
   }
 
+  @Action(PoliticalParty.CreatePoliticalParty) createPoliticalParty(
+    ctx: StateContext<IPoliticalParty>,
+    { payload }: PoliticalParty.CreatePoliticalParty
+  ) {
+    return this.politicalPartyService.createPoliticalParty(payload).pipe(tap(data => ctx.patchState({ ...data })));
+  }
+
+  @Action(PoliticalParty.UpdatePoliticalParty) updatePoliticalParty(
+    ctx: StateContext<IPoliticalParty>,
+    { payload }: PoliticalParty.UpdatePoliticalParty
+  ) {
+    return this.politicalPartyService.editPoliticalParty(payload).pipe(tap(data => ctx.patchState({ ...data })));
+  }
+
   @Action(PoliticalParty.AddPolitician)
   addPolitician(ctx: StateContext<IPoliticalParty>, { payload }: PoliticalParty.AddPolitician) {
-    return this.politicalPartyService.addPolitician(ctx.getState().id, payload).pipe(
+    return this.politicalPartyService.addPolitician(ctx.getState().id!, payload).pipe(
       tap(politician => {
         return ctx.patchState({ politicians: [...ctx.getState().politicians, politician] });
       })
@@ -56,7 +70,7 @@ export class politicalPartyState {
 
   @Action(PoliticalParty.EditPolitician)
   editPolitician(ctx: StateContext<IPoliticalParty>, { payload }: PoliticalParty.EditPolitician) {
-    return this.politicalPartyService.editPolitician(ctx.getState().id, payload).pipe(
+    return this.politicalPartyService.editPolitician(ctx.getState().id!, payload).pipe(
       tap(politician => {
         let politicians = [...ctx.getState().politicians];
 

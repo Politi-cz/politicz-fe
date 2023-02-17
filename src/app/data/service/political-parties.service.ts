@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 import { IPartySidenavItem } from '../schema/party-sidenav-item';
 import { Observable } from 'rxjs';
 import { IPolitician } from '../schema/politician';
+import { ICreatePoliticalPartyResponse } from '../schema/create-party-response';
+import { IPoliticalPartyPolticiansFree } from '../schema/political-party-politicians-free';
 
 @Injectable({
   providedIn: 'root',
@@ -25,13 +27,21 @@ export class PoliticalPartiesService {
     return this.http.get<IPoliticalParty>(`${environment.apiUrl}/political-parties/${id}`);
   }
 
+  createPoliticalParty(party: IPoliticalParty): Observable<ICreatePoliticalPartyResponse> {
+    return this.http.post<ICreatePoliticalPartyResponse>(`${environment.apiUrl}/political-parties/create`, party);
+  }
+
+  editPoliticalParty(party: IPoliticalPartyPolticiansFree): Observable<IPoliticalPartyPolticiansFree> {
+    return this.http.put<IPoliticalPartyPolticiansFree>(`${environment.apiUrl}/political-parties/${party.id}`, party);
+  }
+
   addPolitician(partyId: string, politician: IPolitician): Observable<IPoliticianResponse> {
     return this.http.post<IPoliticianResponse>(
       `${environment.apiUrl}/political-parties/${partyId}/politician`,
       politician
     );
   }
-
+  //TODO Modify EP url
   editPolitician(partyId: string, request: IPolitician): Observable<IPoliticianResponse> {
     return this.http.put<IPoliticianResponse>(`${environment.apiUrl}/political-parties/${partyId}/politician`, request);
   }

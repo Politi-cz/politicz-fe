@@ -1,0 +1,5 @@
+<section class="container">
+  <div class="container__content">
+    <app-party-form *ngIf="(politicalParty$ | async) as politicalParty" [party]="politicalParty" (submitEvent)="onSubmit($event)" (cancelEvent)="navigateBack(politicalParty.id!)"></app-party-form>
+  </div>
+</section>

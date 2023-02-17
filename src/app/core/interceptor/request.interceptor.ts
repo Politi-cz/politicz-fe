@@ -25,6 +25,7 @@ export class RequestInterceptor implements HttpInterceptor {
     );
   }
 
+  //TODO Doesn't work for nested objects - do recursion
   private removeEmptyAttributes(requestBody: any): object {
     const body = { ...requestBody };
 

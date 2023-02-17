@@ -10,6 +10,9 @@ import { NgxsModule } from '@ngxs/store';
 import { AddPoliticianComponent } from './page/add-politician/add-politician.component';
 import { PoliticianFormComponent } from './forms/politician-form/politician-form.component';
 import { EditPoliticianComponent } from './page/edit-politician/edit-politician.component';
+import { EditPartyComponent } from './page/edit-party/edit-party.component';
+import { AddPartyComponent } from './page/add-party/add-party.component';
+import { PartyFormComponent } from './forms/party-form/party-form.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,9 @@ import { EditPoliticianComponent } from './page/edit-politician/edit-politician.
     AddPoliticianComponent,
     PoliticianFormComponent,
     EditPoliticianComponent,
+    EditPartyComponent,
+    AddPartyComponent,
+    PartyFormComponent,
   ],
   imports: [CommonModule, PartyRoutingModule, SharedModule, NgxsModule.forFeature([politicalPartyState])],
 })

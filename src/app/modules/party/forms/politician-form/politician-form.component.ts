@@ -1,5 +1,6 @@
+import { AbstractFormComponent } from '../../../../shared/forms/abstractForm';
 import { IPolitician } from './../../../../data/schema/politician';
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AddPoliticianForm } from './../../../../data/schema/add-politician-form';
 
@@ -8,15 +9,14 @@ import { AddPoliticianForm } from './../../../../data/schema/add-politician-form
   templateUrl: './politician-form.component.html',
   styleUrls: ['./politician-form.component.scss'],
 })
-export class PoliticianFormComponent implements OnInit {
+export class PoliticianFormComponent extends AbstractFormComponent implements OnInit {
   @Input() politician: IPolitician | undefined;
 
-  @Output() submitEvent = new EventEmitter();
-  @Output() cancelEvent = new EventEmitter();
+  public politicianForm: FormGroup<AddPoliticianForm>; //TODO Refactor, Use IPoliticalPartyPoliticianFormInterface
 
-  public politicianForm: FormGroup<AddPoliticianForm>;
-
-  constructor(private _fb: FormBuilder) {}
+  constructor(private _fb: FormBuilder) {
+    super();
+  }
 
   ngOnInit(): void {
     this.politicianForm = this._fb.group<AddPoliticianForm>({
@@ -36,15 +36,5 @@ export class PoliticianFormComponent implements OnInit {
       instagramUrl: this._fb.control(this.politician?.instagramUrl ?? null),
       twitterUrl: this._fb.control(this.politician?.twitterUrl ?? null),
     });
-  }
-
-  public submit() {
-    if (this.politicianForm.valid) {
-      this.submitEvent.emit(this.politicianForm.value);
-    }
-  }
-
-  public cancel() {
-    this.cancelEvent.emit();
   }
 }

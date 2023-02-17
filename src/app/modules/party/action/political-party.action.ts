@@ -1,3 +1,5 @@
+import { IPoliticalPartyPolticiansFree } from './../../../data/schema/political-party-politicians-free';
+import { IPoliticalParty } from './../../../data/schema/political-party';
 import { IPolitician } from '../../../data/schema/politician';
 
 export namespace PoliticalParty {
@@ -5,6 +7,20 @@ export namespace PoliticalParty {
     static readonly type = '[PoliticalParty] LoadPoliticalPartyById';
 
     constructor(public payload: string | null) {}
+  }
+
+  export class CreatePoliticalParty {
+    static readonly type = '[Politicalparty] Create political party';
+
+    constructor(public payload: IPoliticalParty) {}
+  }
+
+  export class UpdatePoliticalParty {
+    static readonly type = '[Politicalparty] Update political party';
+
+    constructor(public payload: IPoliticalPartyPolticiansFree) {
+      console.log('update ty grcko');
+    }
   }
 
   export class AddPolitician {
