@@ -56,7 +56,7 @@ describe('PoliticianFormComponent', () => {
 
     jest.spyOn(component.submitEvent, 'emit');
 
-    component.submit();
+    component.submit(component.politicianForm);
     fixture.detectChanges();
 
     expect(component.submitEvent.emit).toHaveBeenCalled();
@@ -68,7 +68,7 @@ describe('PoliticianFormComponent', () => {
   it('Form should not be submitted if politician hasnt been passed', () => {
     fixture.detectChanges();
     jest.spyOn(component.submitEvent, 'emit');
-    component.submit();
+    component.submit(component.politicianForm);
 
     fixture.detectChanges();
 
