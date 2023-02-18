@@ -4,8 +4,7 @@
     [opened]="mobileQuery.matches ? false : true"
     #snav
     [mode]="mobileQuery.matches ? 'over' : 'side'"
-    [fixedInViewport]="mobileQuery.matches"
-  >
+    [fixedInViewport]="mobileQuery.matches">
     <mat-nav-list>
       <mat-list-item class="navitem" routerLink="'/home'">
         <mat-icon color="primary">home</mat-icon>
@@ -22,8 +21,7 @@
     <mat-nav-list>
       <mat-list-item
         (click)="navigateToPoliticalPartyPage(party.id)"
-        *ngFor="let party of (sidenavParties$ | async)! | filterParties : input.value"
-      >
+        *ngFor="let party of (sidenavParties$ | async)! | filterParties : input.value">
         <div class="party">
           <div class="party__logo-container">
             <img [src]="party.image" class="party-icon" />
@@ -39,9 +37,8 @@
     <span
       (click)="toggleSidenav()"
       class="sidenav__close"
-      [ngClass]="{ sidenav__close: mobileQuery.matches, hidden: !mobileQuery.matches }"
-    >
-      <mat-icon> arrow_back_ios_new </mat-icon>
+      [ngClass]="{ sidenav__close: mobileQuery.matches, hidden: !mobileQuery.matches }">
+      <mat-icon>arrow_back_ios_new</mat-icon>
     </span>
   </mat-sidenav>
 

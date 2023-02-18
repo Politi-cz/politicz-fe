@@ -5,7 +5,6 @@
       *ngIf="(politician$ | async)! as politician"
       [politician]="politician"
       (cancelEvent)="navigateBack()"
-      (submitEvent)="onSubmit($event)"
-    ></app-politician-form>
+      (submitEvent)="onSubmit($event)"></app-politician-form>
   </div>
 </section>

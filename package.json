@@ -12,7 +12,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "lint": "eslint --fix . && prettier --write ."
+    "lint": "ng lint --fix && prettier --write ."
   },
   "dependencies": {
     "@angular/animations": "^15.0.4",

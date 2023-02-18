@@ -1,5 +1,4 @@
 {
-  //TODO: Add html linting, lint everything in pipeline, enforce semicolons, look for most used eslintr configs
   "root": true,
   "ignorePatterns": ["projects/**/*"],
   "plugins": ["unused-imports", "@typescript-eslint", "import", "prettier"],

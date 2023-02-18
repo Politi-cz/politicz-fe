@@ -5,8 +5,7 @@
         *ngIf="politicalParty.id"
         [party]="politicalParty"
         (submitEvent)="onSubmit($event)"
-        (cancelEvent)="navigateBack(politicalParty.id!)"
-      ></app-party-form>
+        (cancelEvent)="navigateBack(politicalParty.id!)"></app-party-form>
     </ng-container>
   </div>
 </section>

@@ -15,8 +15,7 @@
             [routerLink]="['/political-party', party.id, 'edit']"
             mat-raised-button
             color="primary"
-            class="button-add"
-          >
+            class="button-add">
             <mat-icon>edit</mat-icon>
             {{ 'edit-party' | translate }}
           </button>
@@ -24,8 +23,7 @@
             [routerLink]="['/political-party', party.id, 'add-politician']"
             mat-raised-button
             color="primary"
-            class="button-add"
-          >
+            class="button-add">
             {{ 'politician-add' | translate }}
             <mat-icon>add</mat-icon>
           </button>
@@ -36,8 +34,7 @@
       <div class="politicians">
         <app-politician
           *ngFor="let politician of politicians | filterPoliticians : input.value"
-          [politician]="politician"
-        ></app-politician>
+          [politician]="politician"></app-politician>
         <ng-container *ngIf="(politiciansCount | async) === 0">
           <span class="no-result">{{ 'no-result' | translate }}</span>
         </ng-container>
