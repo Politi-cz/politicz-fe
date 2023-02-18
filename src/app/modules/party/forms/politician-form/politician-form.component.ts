@@ -1,8 +1,8 @@
+import { IPoliticianForm } from '../../../../data/schema/politician-form';
 import { AbstractFormComponent } from '../../../../shared/forms/abstractForm';
 import { IPolitician } from './../../../../data/schema/politician';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AddPoliticianForm } from './../../../../data/schema/add-politician-form';
+import { FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-politician-form',
@@ -12,29 +12,38 @@ import { AddPoliticianForm } from './../../../../data/schema/add-politician-form
 export class PoliticianFormComponent extends AbstractFormComponent implements OnInit {
   @Input() politician: IPolitician | undefined;
 
-  public politicianForm: FormGroup<AddPoliticianForm>; //TODO Refactor, Use IPoliticalPartyPoliticianFormInterface
+  public politicianForm = this._fb.group<IPoliticianForm>({
+    fullname: this._fb.control('', {
+      nonNullable: true,
+      validators: [Validators.required],
+    }),
+    birthDate: this._fb.control('', {
+      nonNullable: true,
+      validators: [Validators.required],
+    }),
+    profileImageUrl: this._fb.control('', {
+      nonNullable: true,
+      validators: [Validators.required],
+    }),
+    facebookUrl: this._fb.control(''),
+    instagramUrl: this._fb.control(''),
+    twitterUrl: this._fb.control(''),
+  });
 
   constructor(private _fb: FormBuilder) {
     super();
   }
 
   ngOnInit(): void {
-    this.politicianForm = this._fb.group<AddPoliticianForm>({
-      fullName: this._fb.control(this.politician?.fullName, {
-        nonNullable: true,
-        validators: [Validators.required],
-      }),
-      birthDate: this._fb.control(this.politician?.birthDate, {
-        nonNullable: true,
-        validators: [Validators.required],
-      }),
-      profileImageUrl: this._fb.control(this.politician?.profileImageUrl, {
-        nonNullable: true,
-        validators: [Validators.required],
-      }),
-      facebookUrl: this._fb.control(this.politician?.facebookUrl ?? null),
-      instagramUrl: this._fb.control(this.politician?.instagramUrl ?? null),
-      twitterUrl: this._fb.control(this.politician?.twitterUrl ?? null),
-    });
+    if (this.politician) {
+      this.politicianForm.patchValue({
+        fullname: this.politician.fullname,
+        birthDate: this.politician.birthDate,
+        facebookUrl: this.politician.facebookUrl,
+        instagramUrl: this.politician.instagramUrl,
+        profileImageUrl: this.politician.profileImageUrl,
+        twitterUrl: this.politician.twitterUrl,
+      });
+    }
   }
 }

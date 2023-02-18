@@ -18,9 +18,7 @@ export namespace PoliticalParty {
   export class UpdatePoliticalParty {
     static readonly type = '[Politicalparty] Update political party';
 
-    constructor(public payload: IPoliticalPartyPolticiansFree) {
-      console.log('update ty grcko');
-    }
+    constructor(public payload: IPoliticalPartyPolticiansFree) {}
   }
 
   export class AddPolitician {

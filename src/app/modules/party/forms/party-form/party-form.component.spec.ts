@@ -16,7 +16,7 @@ describe('PartyFormComponent', () => {
     politicians: [
       {
         birthDate: new Date(),
-        fullName: 'karel',
+        fullname: 'karel',
         profileImageUrl: 'ss',
         facebookUrl: 'dsds',
         id: '5',

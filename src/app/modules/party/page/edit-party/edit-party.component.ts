@@ -1,7 +1,7 @@
 import { IPoliticalPartyPolticiansFree } from './../../../../data/schema/political-party-politicians-free';
 import { PoliticalParty } from '../../action/political-party.action';
 import { politicalPartyState } from './../../state/political-party.state';
-import { Select, Store } from '@ngxs/store';
+import { Store } from '@ngxs/store';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { IPoliticalParty } from './../../../../data/schema/political-party';
@@ -13,7 +13,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   styleUrls: ['./edit-party.component.scss'],
 })
 export class EditPartyComponent implements OnInit, OnDestroy {
-  @Select(politicalPartyState.getPoliticalParty) politicalParty$: Observable<IPoliticalParty>;
+  politicalParty$: Observable<IPoliticalParty>;
 
   private destroy$ = new Subject<void>();
 
@@ -22,6 +22,7 @@ export class EditPartyComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this._route.paramMap.subscribe(params => {
       this._store.dispatch(new PoliticalParty.GetPoliticalParty(params.get('id')));
+      this.politicalParty$ = this._store.select(politicalPartyState.getPoliticalParty);
     });
   }
 
@@ -37,6 +38,6 @@ export class EditPartyComponent implements OnInit, OnDestroy {
   }
 
   public navigateBack(id: string) {
-    this._router.navigate(['/political-party'], { queryParams: { id: id } });
+    this._router.navigate(['/political-party/' + id]);
   }
 }

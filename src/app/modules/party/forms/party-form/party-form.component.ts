@@ -1,4 +1,4 @@
-import { IPoliticalPartyPolitician } from './../../../../data/schema/political-party-politician-form';
+import { IPoliticianForm } from '../../../../data/schema/politician-form';
 import { IPoliticalPartyForm } from './../../../../data/schema/political-party-form';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { IPoliticalParty } from './../../../../data/schema/political-party';
@@ -19,7 +19,7 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
     name: this._fb.nonNullable.control('', { validators: Validators.required }),
     image: this._fb.nonNullable.control('', Validators.required),
     tags: this._fb.nonNullable.control([''], Validators.required),
-    politicians: this._fb.array<FormGroup<IPoliticalPartyPolitician>>([]),
+    politicians: this._fb.array<FormGroup<IPoliticianForm>>([]),
   });
   public tags: string[] = [];
   public addOnBlur = true;
@@ -56,7 +56,7 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
   }
 
   public addPolitician() {
-    const politicianForm = this._fb.group<IPoliticalPartyPolitician>({
+    const politicianForm = this._fb.group<IPoliticianForm>({
       fullname: this._fb.control('', { nonNullable: true, validators: Validators.required }),
       birthDate: this._fb.control('', {
         nonNullable: true,

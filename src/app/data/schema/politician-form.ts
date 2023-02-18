@@ -1,7 +1,8 @@
 import { FormControl } from '@angular/forms';
-export interface IPoliticalPartyPolitician {
+
+export interface IPoliticianForm {
   fullname: FormControl<string>;
-  birthDate: FormControl<string>;
+  birthDate: FormControl<Date | string>;
   profileImageUrl: FormControl<string>;
   facebookUrl: FormControl<string | null>;
   instagramUrl: FormControl<string | null>;

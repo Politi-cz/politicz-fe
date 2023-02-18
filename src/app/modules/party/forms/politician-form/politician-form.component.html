@@ -1,7 +1,7 @@
 <form class="form-content" [formGroup]="politicianForm" (ngSubmit)="submit(politicianForm)">
   <mat-form-field class="span-6" appearance="outline">
     <mat-label>{{'politician-name' | translate}}</mat-label>
-    <input matInput formControlName="fullName">
+    <input matInput formControlName="fullname">
     <mat-error>{{'form-required' | translate}}</mat-error>
   </mat-form-field>
   <mat-form-field class="span-6" appearance="outline">
@@ -33,8 +33,7 @@
     <button (click)="cancel()" type="button" mat-raised-button class="button-add">
       {{'back' | translate}}
     </button>
-    <!-- TODO dont disable -->
-    <button type="submit" mat-raised-button color="primary" class="button-add" [disabled]="!politicianForm.valid">
+    <button type="submit" mat-raised-button color="primary" class="button-add">
       {{politician ? ('update' | translate) : ('create' | translate)}}
     </button>
   </div>

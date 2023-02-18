@@ -25,11 +25,12 @@ export class EditPoliticianComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    //Could have used ngxs, but this is much easier in my opinion
+    //Could have used ngxs, but this is much easier in my opinion //TODO look if this couldn't be fixes
     this.politician$ = this._route.paramMap.pipe(
       switchMap(params => {
         this.politicalPartyId = params.get('id')!;
         this.politicianId = params.get('politicianId')!;
+        this._store.dispatch(new PoliticalParty.GetPoliticalParty(this.politicalPartyId));
         return this._politicalPartiesService.getPolitician(this.politicianId);
       })
     );
