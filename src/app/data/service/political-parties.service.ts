@@ -1,13 +1,15 @@
 import { environment } from './../../../environments/environment';
-import { IPoliticianResponse } from './../schema/politician-response';
-import { IPoliticalParty } from './../schema/political-party';
+import { IPoliticianResponse } from '../schema/politician';
+import {
+  ICreatePoliticalPartyResponse,
+  IPoliticalParty,
+  IPoliticalPartyPolticiansFree,
+} from './../schema/political-party';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IPartySidenavItem } from '../schema/party-sidenav-item';
+import { IPartySidenavItem } from './../schema/political-party';
 import { Observable } from 'rxjs';
 import { IPolitician } from '../schema/politician';
-import { ICreatePoliticalPartyResponse } from '../schema/create-party-response';
-import { IPoliticalPartyPolticiansFree } from '../schema/political-party-politicians-free';
 
 @Injectable({
   providedIn: 'root',

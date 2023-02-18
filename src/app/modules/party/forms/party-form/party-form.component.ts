@@ -1,7 +1,6 @@
-import { IPoliticianForm } from '../../../../data/schema/politician-form';
-import { IPoliticalPartyForm } from './../../../../data/schema/political-party-form';
+import { IPoliticianForm } from 'src/app/data/schema/politician';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { IPoliticalParty } from './../../../../data/schema/political-party';
+import { IPoliticalParty, IPoliticalPartyForm } from './../../../../data/schema/political-party';
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractFormComponent } from '../../../../shared/forms/abstractForm';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';

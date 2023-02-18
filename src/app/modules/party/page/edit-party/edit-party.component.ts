@@ -1,10 +1,9 @@
-import { IPoliticalPartyPolticiansFree } from './../../../../data/schema/political-party-politicians-free';
 import { PoliticalParty } from '../../action/political-party.action';
 import { politicalPartyState } from './../../state/political-party.state';
 import { Store } from '@ngxs/store';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
-import { IPoliticalParty } from './../../../../data/schema/political-party';
+import { IPoliticalParty, IPoliticalPartyPolticiansFree } from './../../../../data/schema/political-party';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({

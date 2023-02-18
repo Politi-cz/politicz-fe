@@ -1,4 +1,4 @@
-import { IPoliticianForm } from '../../../../data/schema/politician-form';
+import { IPoliticianForm } from './../../../../data/schema/politician';
 import { AbstractFormComponent } from '../../../../shared/forms/abstractForm';
 import { IPolitician } from './../../../../data/schema/politician';
 import { Component, Input, OnInit } from '@angular/core';
