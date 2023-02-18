@@ -21,6 +21,8 @@
     "esModuleInterop": true,
     "strictPropertyInitialization": false
   },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

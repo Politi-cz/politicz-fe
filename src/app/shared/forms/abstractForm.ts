@@ -4,6 +4,7 @@ import { Output, EventEmitter, Component } from '@angular/core';
 @Component({ template: '' })
 export class AbstractFormComponent {
   @Output() submitEvent = new EventEmitter();
+
   @Output() cancelEvent = new EventEmitter();
 
   public submit(formGroup: FormGroup) {

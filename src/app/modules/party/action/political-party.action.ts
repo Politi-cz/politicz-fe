@@ -1,5 +1,7 @@
-import { IPoliticalPartyPolticiansFree } from './../../../data/schema/political-party-politicians-free';
-import { IPoliticalParty } from './../../../data/schema/political-party';
+import {
+  IPoliticalParty,
+  IPoliticalPartyPolticiansFree,
+} from './../../../data/schema/political-party';
 import { IPolitician } from '../../../data/schema/politician';
 
 export namespace PoliticalParty {
@@ -18,9 +20,7 @@ export namespace PoliticalParty {
   export class UpdatePoliticalParty {
     static readonly type = '[Politicalparty] Update political party';
 
-    constructor(public payload: IPoliticalPartyPolticiansFree) {
-      console.log('update ty grcko');
-    }
+    constructor(public payload: IPoliticalPartyPolticiansFree) {}
   }
 
   export class AddPolitician {

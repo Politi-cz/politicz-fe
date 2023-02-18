@@ -2,13 +2,20 @@ import { Select, Store } from '@ngxs/store';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Observable, tap } from 'rxjs';
-import { IPartySidenavItem } from './../../data/schema/party-sidenav-item';
 import { PoliticalPartiesService } from './../../data/service/political-parties.service';
-import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { SidenavService } from '../../shared/service/sidenav.service';
 import { Router } from '@angular/router';
 import { Filters } from 'src/app/action/filters.action';
 import { FiltersState } from 'src/app/state/filters.state';
+import { IPartySidenavItem } from 'src/app/data/schema/political-party';
 
 @Component({
   selector: 'app-sidenav',
@@ -17,9 +24,11 @@ import { FiltersState } from 'src/app/state/filters.state';
 })
 export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('snav') sidenav!: MatSidenav;
+
   @Select(FiltersState.getPartyFilterCount) partiesCount: Observable<number>;
 
   mobileQuery!: MediaQueryList;
+
   sidenavParties$!: Observable<IPartySidenavItem[]>;
 
   private _mobileQueryListener: () => void;
@@ -38,9 +47,10 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
+    //TODO Should be observable and get parties from state. For example, when new party is added, should be also added here
     this.sidenavParties$ = this.partiesService
       .getPartiesForSidenav()
-      .pipe(tap(data => this.store.dispatch(new Filters.Set({ partyFilterCount: data.length }))));
+      .pipe(tap((data) => this.store.dispatch(new Filters.Set({ partyFilterCount: data.length }))));
   }
 
   ngAfterViewInit(): void {
@@ -52,7 +62,7 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   navigateToPoliticalPartyPage(id: string) {
-    this.router.navigate(['/political-party'], { queryParams: { id } }); //TODO don't do query param, instead put url in url path
+    this.router.navigate(['/political-party/' + id]);
   }
 
   toggleSidenav() {

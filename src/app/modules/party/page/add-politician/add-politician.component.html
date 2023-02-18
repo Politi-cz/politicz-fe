@@ -1,6 +1,8 @@
 <section class="container">
   <div class="container__content">
-    <h1>{{'politician-new' | translate}}</h1>
-    <app-politician-form (submitEvent)="onSubmit($event)" (cancelEvent)="navigateBack()"></app-politician-form>
+    <h1>{{ 'politician-new' | translate }}</h1>
+    <app-politician-form
+      (submitEvent)="onSubmit($event)"
+      (cancelEvent)="navigateBack()"></app-politician-form>
   </div>
 </section>

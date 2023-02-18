@@ -1,7 +1,6 @@
-import { IPoliticalPartyPolitician } from './../../../../data/schema/political-party-politician-form';
-import { IPoliticalPartyForm } from './../../../../data/schema/political-party-form';
+import { IPoliticianForm } from 'src/app/data/schema/politician';
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { IPoliticalParty } from './../../../../data/schema/political-party';
+import { IPoliticalParty, IPoliticalPartyForm } from './../../../../data/schema/political-party';
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractFormComponent } from '../../../../shared/forms/abstractForm';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
@@ -19,10 +18,13 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
     name: this._fb.nonNullable.control('', { validators: Validators.required }),
     image: this._fb.nonNullable.control('', Validators.required),
     tags: this._fb.nonNullable.control([''], Validators.required),
-    politicians: this._fb.array<FormGroup<IPoliticalPartyPolitician>>([]),
+    politicians: this._fb.array<FormGroup<IPoliticianForm>>([]),
   });
+
   public tags: string[] = [];
+
   public addOnBlur = true;
+
   public readonly separatorKeysCodes = [ENTER, COMMA] as const;
 
   constructor(private _fb: FormBuilder) {
@@ -43,7 +45,7 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
   }
 
   get politiciansFormArray() {
-    return this.partyForm?.controls['politicians'] ?? null;
+    return this.partyForm?.controls.politicians ?? null;
   }
 
   override submit() {
@@ -56,7 +58,7 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
   }
 
   public addPolitician() {
-    const politicianForm = this._fb.group<IPoliticalPartyPolitician>({
+    const politicianForm = this._fb.group<IPoliticianForm>({
       fullname: this._fb.control('', { nonNullable: true, validators: Validators.required }),
       birthDate: this._fb.control('', {
         nonNullable: true,

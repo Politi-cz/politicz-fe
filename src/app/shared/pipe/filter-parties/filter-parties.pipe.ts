@@ -1,8 +1,8 @@
 import { Store } from '@ngxs/store';
-import { IPartySidenavItem } from '../../../data/schema/party-sidenav-item';
 import { Pipe, PipeTransform } from '@angular/core';
 import { Utils } from '../../utils/utils';
 import { Filters } from '../../../../app/action/filters.action';
+import { IPartySidenavItem } from './../../../data/schema/political-party';
 
 @Pipe({
   name: 'filterParties',
@@ -16,7 +16,7 @@ export class FilterPartiesPipe implements PipeTransform {
       return parties;
     }
 
-    const filteredParties = parties.filter(party => {
+    const filteredParties = parties.filter((party) => {
       return (
         Utils.textIncludesSearchedValueCaseInsensitive(party.name, searchValue) ||
         Utils.arrayIncludesSearchedValueCaseInsensitive(party.tags, searchValue)

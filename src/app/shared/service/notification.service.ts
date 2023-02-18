@@ -1,5 +1,9 @@
 import { Injectable, NgZone } from '@angular/core';
-import { MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition } from '@angular/material/snack-bar';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 import { TranslateService } from '@ngx-translate/core';
 
 @Injectable({
@@ -7,12 +11,17 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class NotificationService {
   private _duration = 5000;
+
   private config = {
     horizontalPosition: 'center' as MatSnackBarHorizontalPosition,
     verticalPosition: 'top' as MatSnackBarVerticalPosition,
   };
 
-  constructor(private snackBar: MatSnackBar, private zone: NgZone, private translate: TranslateService) {}
+  constructor(
+    private snackBar: MatSnackBar,
+    private zone: NgZone,
+    private translate: TranslateService
+  ) {}
 
   showSuccess(message: string, duration = this._duration) {
     this.zone.run(() => {

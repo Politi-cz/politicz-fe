@@ -16,8 +16,8 @@ export class FilterPoliticiansPipe implements PipeTransform {
       return politicians;
     }
 
-    const filteredPoliticians = politicians.filter(politician =>
-      Utils.textIncludesSearchedValueCaseInsensitive(politician.fullName, searchValue)
+    const filteredPoliticians = politicians.filter((politician) =>
+      Utils.textIncludesSearchedValueCaseInsensitive(politician.fullname, searchValue)
     );
 
     this.store.dispatch(new Filters.Set({ politicianFilterCount: filteredPoliticians.length }));

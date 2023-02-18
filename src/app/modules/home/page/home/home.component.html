@@ -1,7 +1,7 @@
 <section class="container">
-    <div class="news_container">
-      <ng-container *ngFor="let news of newsList$ | async">
-          <app-news [news]="news"></app-news>
-      </ng-container>
-    </div>
+  <div class="news_container">
+    <ng-container *ngFor="let news of newsList$ | async">
+      <app-news [news]="news"></app-news>
+    </ng-container>
+  </div>
 </section>

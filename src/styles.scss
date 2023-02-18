@@ -1,13 +1,15 @@
 @import './styles/variables.scss';
 
-
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   font-size: 85%;
 
@@ -15,7 +17,9 @@ html, body {
     font-size: 70%;
   }
 }
-body { margin: 0; }
+body {
+  margin: 0;
+}
 
 // fullscreen layout
 app-content-layout {
@@ -49,17 +53,17 @@ app-sidenav {
   padding: 5rem 0;
 
   @media only screen and (max-width: $bp-xlarge) {
-      grid-template-columns: [full-start] 10rem [center-start] repeat(8, minmax(min-content, 1fr)) [center-end] 10rem [full-end];
+    grid-template-columns: [full-start] 10rem [center-start] repeat(8, minmax(min-content, 1fr)) [center-end] 10rem [full-end];
   }
 
   @media only screen and (max-width: $bp-small) {
-      grid-template-columns: [center-start] repeat(8, minmax(min-content, 1fr)) [center-end];
-      padding: 2rem 3rem;
+    grid-template-columns: [center-start] repeat(8, minmax(min-content, 1fr)) [center-end];
+    padding: 2rem 3rem;
   }
 
   @media only screen and (max-width: $bp-mobile) {
-      grid-template-columns: [center-start] repeat(8, minmax(min-content, 1fr)) [center-end];
-      padding: 2rem 3rem;
+    grid-template-columns: [center-start] repeat(8, minmax(min-content, 1fr)) [center-end];
+    padding: 2rem 3rem;
   }
 
   &__content {
@@ -93,7 +97,6 @@ app-sidenav {
 }
 
 .span {
-
   &-4 {
     grid-column: span 4;
 

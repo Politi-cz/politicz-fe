@@ -13,11 +13,11 @@ const routes: Routes = [
     children: [
       {
         path: 'news',
-        loadChildren: () => import('./modules/home/home.module').then(m => m.HomeModule),
+        loadChildren: () => import('./modules/home/home.module').then((m) => m.HomeModule),
       },
       {
         path: 'political-party',
-        loadChildren: () => import('./modules/party/party.module').then(m => m.PartyModule),
+        loadChildren: () => import('./modules/party/party.module').then((m) => m.PartyModule),
       },
       {
         path: 'admin',

@@ -1,10 +1,12 @@
-import { IPoliticalPartyPolticiansFree } from './../../../../data/schema/political-party-politicians-free';
 import { PoliticalParty } from '../../action/political-party.action';
-import { politicalPartyState } from './../../state/political-party.state';
-import { Select, Store } from '@ngxs/store';
+import { PoliticalPartyState } from './../../state/political-party.state';
+import { Store } from '@ngxs/store';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
-import { IPoliticalParty } from './../../../../data/schema/political-party';
+import {
+  IPoliticalParty,
+  IPoliticalPartyPolticiansFree,
+} from './../../../../data/schema/political-party';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
@@ -13,15 +15,16 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   styleUrls: ['./edit-party.component.scss'],
 })
 export class EditPartyComponent implements OnInit, OnDestroy {
-  @Select(politicalPartyState.getPoliticalParty) politicalParty$: Observable<IPoliticalParty>;
+  politicalParty$: Observable<IPoliticalParty>;
 
   private destroy$ = new Subject<void>();
 
   constructor(private _route: ActivatedRoute, private _router: Router, private _store: Store) {}
 
   ngOnInit(): void {
-    this._route.paramMap.subscribe(params => {
+    this._route.paramMap.subscribe((params) => {
       this._store.dispatch(new PoliticalParty.GetPoliticalParty(params.get('id')));
+      this.politicalParty$ = this._store.select(PoliticalPartyState.getPoliticalParty);
     });
   }
 
@@ -30,13 +33,13 @@ export class EditPartyComponent implements OnInit, OnDestroy {
   }
 
   public onSubmit(party: IPoliticalPartyPolticiansFree) {
-    const currentPoliticalParty = this._store.selectSnapshot(politicalPartyState);
+    const currentPoliticalParty = this._store.selectSnapshot(PoliticalPartyState);
     this._store
       .dispatch(new PoliticalParty.UpdatePoliticalParty({ ...party, id: currentPoliticalParty.id }))
       .subscribe(() => this.navigateBack(currentPoliticalParty.id));
   }
 
   public navigateBack(id: string) {
-    this._router.navigate(['/political-party'], { queryParams: { id: id } });
+    this._router.navigate(['/political-party/' + id]);
   }
 }

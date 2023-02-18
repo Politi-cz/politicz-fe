@@ -1,5 +1,5 @@
 import { QuickMenuAction, ActionType } from './../../../data/schema/quick-menu-action';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-admin-quick-menu-actions',
