@@ -41,9 +41,12 @@ export class PoliticalPartiesService {
       politician
     );
   }
-  //TODO Modify EP url
-  editPolitician(partyId: string, request: IPolitician): Observable<IPoliticianResponse> {
-    return this.http.put<IPoliticianResponse>(`${environment.apiUrl}/political-parties/${partyId}/politician`, request);
+
+  editPolitician(politicianId: string, request: IPolitician): Observable<IPoliticianResponse> {
+    return this.http.put<IPoliticianResponse>(
+      `${environment.apiUrl}/political-parties/politician/${politicianId}`,
+      request
+    );
   }
 
   getPolitician(politicianId: string): Observable<IPolitician> {

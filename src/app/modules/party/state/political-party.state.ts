@@ -70,7 +70,7 @@ export class politicalPartyState {
 
   @Action(PoliticalParty.EditPolitician)
   editPolitician(ctx: StateContext<IPoliticalParty>, { payload }: PoliticalParty.EditPolitician) {
-    return this.politicalPartyService.editPolitician(ctx.getState().id!, payload).pipe(
+    return this.politicalPartyService.editPolitician(payload.id!, payload).pipe(
       tap(politician => {
         let politicians = [...ctx.getState().politicians];
 
