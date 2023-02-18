@@ -8,9 +8,14 @@ import { AddPartyComponent } from './page/add-party/add-party.component';
 
 const routes: Routes = [
   {
+    // For now redirect to news
     path: '',
-    component: PartyComponent,
+    redirectTo: '/news',
     pathMatch: 'full',
+  },
+  {
+    path: ':id',
+    component: PartyComponent,
   },
   {
     path: ':id/add-politician',
