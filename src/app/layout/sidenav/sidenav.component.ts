@@ -38,6 +38,7 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit(): void {
+    //TODO Should be observable and get parties from state. For example, when new party is added, should be also added here
     this.sidenavParties$ = this.partiesService
       .getPartiesForSidenav()
       .pipe(tap(data => this.store.dispatch(new Filters.Set({ partyFilterCount: data.length }))));
