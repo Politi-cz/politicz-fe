@@ -15,7 +15,7 @@ import { tap } from 'rxjs';
     politicians: [],
     tags: [],
   },
-}) //TODO Unit tests
+})
 @Injectable()
 export class politicalPartyState {
   constructor(
