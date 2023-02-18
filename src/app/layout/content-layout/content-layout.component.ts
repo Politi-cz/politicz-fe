@@ -10,6 +10,4 @@ import { Select } from '@ngxs/store';
 })
 export class ContentLayoutComponent {
   @Select(SpinnerState.getSpinnerState) spinner$!: Observable<boolean>;
-
-  constructor() {}
 }

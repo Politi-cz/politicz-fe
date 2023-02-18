@@ -44,14 +44,14 @@ describe('PartyFormComponent', () => {
   it('Should contain politicians formArray when initialized', () => {
     fixture.detectChanges();
 
-    expect(component.partyForm.controls['politicians']).toBeDefined();
+    expect(component.partyForm.controls.politicians).toBeDefined();
   });
 
   it('Should remove politicians formArray when political party is passed in input', () => {
     component.party = mockPoliticalParty;
     fixture.detectChanges();
 
-    expect(component.partyForm.controls['politicians']).toBeUndefined();
+    expect(component.partyForm.controls.politicians).toBeUndefined();
   });
 
   it('Should fill values in partyForm in controls when party is passed', () => {
@@ -71,7 +71,7 @@ describe('PartyFormComponent', () => {
     component.submit();
     fixture.detectChanges();
 
-    expect(component.submitEvent.emit).not.toHaveBeenCalled;
+    expect(component.submitEvent.emit).not.toHaveBeenCalled();
   });
 
   it('Should submit form', () => {

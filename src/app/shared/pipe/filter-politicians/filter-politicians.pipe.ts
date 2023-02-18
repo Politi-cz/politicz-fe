@@ -16,7 +16,7 @@ export class FilterPoliticiansPipe implements PipeTransform {
       return politicians;
     }
 
-    const filteredPoliticians = politicians.filter(politician =>
+    const filteredPoliticians = politicians.filter((politician) =>
       Utils.textIncludesSearchedValueCaseInsensitive(politician.fullname, searchValue)
     );
 

@@ -1,15 +1,14 @@
 <section class="container">
   <div class="container__content">
-    <ng-container *ngIf="(newsDetail$ | async) as news">
+    <ng-container *ngIf="newsDetail$ | async as news">
       <div class="news">
         <div class="news__header">
           <div class="news__header__box">
-            <h1 class="news__header__box__heading">{{news.heading}}</h1>
-            <p class="news__header__box__date">{{news.publishDate! | dateFormatter}}</p>
+            <h1 class="news__header__box__heading">{{ news.heading }}</h1>
+            <p class="news__header__box__date">{{ news.publishDate! | dateFormatter }}</p>
           </div>
         </div>
-        <div [innerHTML]="news.content" class="news__content">
-        </div>
+        <div [innerHTML]="news.content" class="news__content"> </div>
       </div>
     </ng-container>
   </div>

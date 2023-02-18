@@ -1,39 +1,47 @@
 <mat-sidenav-container autosize class="sidenav-container">
-  <mat-sidenav [autoFocus]="false" [opened]="mobileQuery.matches ? false : true"
+  <mat-sidenav
+    [autoFocus]="false"
+    [opened]="mobileQuery.matches ? false : true"
     #snav
     [mode]="mobileQuery.matches ? 'over' : 'side'"
-    [fixedInViewport]="mobileQuery.matches">
+    [fixedInViewport]="mobileQuery.matches"
+  >
     <mat-nav-list>
       <mat-list-item class="navitem" routerLink="'/home'">
-          <mat-icon color="primary">home</mat-icon>
-        <span >{{'sidenav-home' | translate}}</span>
+        <mat-icon color="primary">home</mat-icon>
+        <span>{{ 'sidenav-home' | translate }}</span>
       </mat-list-item>
     </mat-nav-list>
     <div class="search">
       <mat-form-field class="search__input">
-        <mat-label>{{'sidenav-search' | translate}}</mat-label>
-        <input type="text" #input matInput>
+        <mat-label>{{ 'sidenav-search' | translate }}</mat-label>
+        <input type="text" #input matInput />
         <mat-icon color="primary" matSuffix>search</mat-icon>
       </mat-form-field>
     </div>
     <mat-nav-list>
-      <mat-list-item (click)="navigateToPoliticalPartyPage(party.id)" *ngFor="let party of (sidenavParties$ | async)! | filterParties: input.value ">
+      <mat-list-item
+        (click)="navigateToPoliticalPartyPage(party.id)"
+        *ngFor="let party of (sidenavParties$ | async)! | filterParties : input.value"
+      >
         <div class="party">
           <div class="party__logo-container">
-            <img [src]="party.image" class="party-icon">
+            <img [src]="party.image" class="party-icon" />
           </div>
-          <span>{{party.name}}</span>
+          <span>{{ party.name }}</span>
         </div>
       </mat-list-item>
       <mat-list-item *ngIf="(partiesCount | async) === 0">
-        <span class="no-result">{{'no-result' | translate}}</span>
+        <span class="no-result">{{ 'no-result' | translate }}</span>
       </mat-list-item>
     </mat-nav-list>
 
-    <span (click)="toggleSidenav()" class="sidenav__close" [ngClass]="{'sidenav__close': mobileQuery.matches, 'hidden': !mobileQuery.matches}">
-      <mat-icon>
-        arrow_back_ios_new
-      </mat-icon>
+    <span
+      (click)="toggleSidenav()"
+      class="sidenav__close"
+      [ngClass]="{ sidenav__close: mobileQuery.matches, hidden: !mobileQuery.matches }"
+    >
+      <mat-icon> arrow_back_ios_new </mat-icon>
     </span>
   </mat-sidenav>
 

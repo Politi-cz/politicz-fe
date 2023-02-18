@@ -20,8 +20,11 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
     tags: this._fb.nonNullable.control([''], Validators.required),
     politicians: this._fb.array<FormGroup<IPoliticianForm>>([]),
   });
+
   public tags: string[] = [];
+
   public addOnBlur = true;
+
   public readonly separatorKeysCodes = [ENTER, COMMA] as const;
 
   constructor(private _fb: FormBuilder) {
@@ -42,7 +45,7 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
   }
 
   get politiciansFormArray() {
-    return this.partyForm?.controls['politicians'] ?? null;
+    return this.partyForm?.controls.politicians ?? null;
   }
 
   override submit() {

@@ -6,7 +6,7 @@
   &__politi {
     text-decoration: none;
     color: #fff;
-    transition: all .25s;
+    transition: all 0.25s;
 
     &:hover {
       color: rgb(225, 220, 220);
@@ -35,23 +35,22 @@
   display: flex;
   align-self: stretch;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  margin: 0 .5rem;
+  margin: 0 0.5rem;
   .flag {
-      width: 2rem;
-      height: 100%;
-      &--white {
-        background-color: #fff;
-      }
+    width: 2rem;
+    height: 100%;
+    &--white {
+      background-color: #fff;
+    }
 
-      &--blue {
-        background-color: hsl(211, 76%, 28%);
-      }
+    &--blue {
+      background-color: hsl(211, 76%, 28%);
+    }
 
-      &--red {
-        background-color: #d71c19;
-      }
+    &--red {
+      background-color: #d71c19;
+    }
   }
-
 }
 
 .menu {

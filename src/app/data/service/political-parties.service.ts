@@ -30,11 +30,19 @@ export class PoliticalPartiesService {
   }
 
   createPoliticalParty(party: IPoliticalParty): Observable<ICreatePoliticalPartyResponse> {
-    return this.http.post<ICreatePoliticalPartyResponse>(`${environment.apiUrl}/political-parties/create`, party);
+    return this.http.post<ICreatePoliticalPartyResponse>(
+      `${environment.apiUrl}/political-parties/create`,
+      party
+    );
   }
 
-  editPoliticalParty(party: IPoliticalPartyPolticiansFree): Observable<IPoliticalPartyPolticiansFree> {
-    return this.http.put<IPoliticalPartyPolticiansFree>(`${environment.apiUrl}/political-parties/${party.id}`, party);
+  editPoliticalParty(
+    party: IPoliticalPartyPolticiansFree
+  ): Observable<IPoliticalPartyPolticiansFree> {
+    return this.http.put<IPoliticalPartyPolticiansFree>(
+      `${environment.apiUrl}/political-parties/${party.id}`,
+      party
+    );
   }
 
   addPolitician(partyId: string, politician: IPolitician): Observable<IPoliticianResponse> {
@@ -52,7 +60,9 @@ export class PoliticalPartiesService {
   }
 
   getPolitician(politicianId: string): Observable<IPolitician> {
-    return this.http.get<IPolitician>(`${environment.apiUrl}/political-parties/politician/${politicianId}`);
+    return this.http.get<IPolitician>(
+      `${environment.apiUrl}/political-parties/politician/${politicianId}`
+    );
   }
 
   removePolitician(id: string): Observable<void> {

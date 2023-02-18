@@ -15,6 +15,7 @@ export class EditPoliticianComponent implements OnInit {
   politician$: Observable<IPolitician>;
 
   private politicalPartyId: string;
+
   private politicianId: string;
 
   constructor(
@@ -27,7 +28,7 @@ export class EditPoliticianComponent implements OnInit {
   ngOnInit(): void {
     //Could have used ngxs, but this is much easier in my opinion //TODO look if this couldn't be fixes
     this.politician$ = this._route.paramMap.pipe(
-      switchMap(params => {
+      switchMap((params) => {
         this.politicalPartyId = params.get('id')!;
         this.politicianId = params.get('politicianId')!;
         this._store.dispatch(new PoliticalParty.GetPoliticalParty(this.politicalPartyId));

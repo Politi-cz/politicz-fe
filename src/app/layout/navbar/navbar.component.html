@@ -1,6 +1,12 @@
 <mat-toolbar class="navbar" color="primary">
   <div class="navbar__left">
-    <button (click)="toggleSidenav();" onclick="this.blur()" mat-icon-button  class="example-icon" aria-label="Example icon-button with menu icon">
+    <button
+      (click)="toggleSidenav()"
+      onclick="this.blur()"
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
       <mat-icon>menu</mat-icon>
     </button>
     <a class="navbar__politi" routerLink="'/home'">Politi.cz</a>
@@ -18,7 +24,7 @@
   </button>
 </mat-toolbar>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>{{'menu-settings' | translate}}</button>
-  <button mat-menu-item routerLink="/admin">{{'menu-admin' | translate}}</button>
-  <button mat-menu-item>{{'menu-logout' | translate}}</button>
+  <button mat-menu-item>{{ 'menu-settings' | translate }}</button>
+  <button mat-menu-item routerLink="/admin">{{ 'menu-admin' | translate }}</button>
+  <button mat-menu-item>{{ 'menu-logout' | translate }}</button>
 </mat-menu>

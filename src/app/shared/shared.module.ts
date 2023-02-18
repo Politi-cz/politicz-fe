@@ -10,7 +10,15 @@ import { AdminSectionComponent } from './component/admin-section/admin-section.c
 
 @NgModule({
   declarations: [AdminQuickMenuActionsComponent, AdminSectionComponent],
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, RouterModule, TranslateModule, PipeModule, MaterialModule],
+  imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    TranslateModule,
+    PipeModule,
+    MaterialModule,
+  ],
   exports: [
     CommonModule,
     FormsModule,

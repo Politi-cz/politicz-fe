@@ -15,7 +15,7 @@ export class AddPoliticianComponent implements OnInit {
   constructor(private _store: Store, private _router: Router, private _route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this._route.paramMap.subscribe(params => (this.politicalPartyId = params.get('id')!));
+    this._route.paramMap.subscribe((params) => (this.politicalPartyId = params.get('id')!));
   }
 
   public onSubmit(politician: IPolitician) {

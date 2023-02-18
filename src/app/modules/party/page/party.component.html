@@ -1,35 +1,47 @@
 <section class="container">
-  <ng-container *ngIf="(politicalParty$ | async) as party" >
-      <div class="party">
-        <h1 class="party__heading">{{party.name}}</h1>
-        <div class="party__actions">
-          <div class="party__actions__search">
-            <mat-form-field appearance="outline">
-              <mat-label>{{'politician-search' | translate}}</mat-label>
-              <input type="text" #input matInput>
-              <mat-icon color="primary" matSuffix>search</mat-icon>
-            </mat-form-field>
-          </div>
-          <div class="party__actions__admin-buttons">
-            <button [routerLink]="['/political-party', party.id, 'edit']" mat-raised-button color="primary" class="button-add">
-              <mat-icon>edit</mat-icon>
-              {{'edit-party' | translate}}
-            </button>
-            <button [routerLink]="['/political-party', party.id, 'add-politician']" mat-raised-button color="primary" class="button-add">
-              {{'politician-add' | translate}}
-              <mat-icon>add</mat-icon>
-            </button>
-          </div>
+  <ng-container *ngIf="politicalParty$ | async as party">
+    <div class="party">
+      <h1 class="party__heading">{{ party.name }}</h1>
+      <div class="party__actions">
+        <div class="party__actions__search">
+          <mat-form-field appearance="outline">
+            <mat-label>{{ 'politician-search' | translate }}</mat-label>
+            <input type="text" #input matInput />
+            <mat-icon color="primary" matSuffix>search</mat-icon>
+          </mat-form-field>
         </div>
+        <div class="party__actions__admin-buttons">
+          <button
+            [routerLink]="['/political-party', party.id, 'edit']"
+            mat-raised-button
+            color="primary"
+            class="button-add"
+          >
+            <mat-icon>edit</mat-icon>
+            {{ 'edit-party' | translate }}
+          </button>
+          <button
+            [routerLink]="['/political-party', party.id, 'add-politician']"
+            mat-raised-button
+            color="primary"
+            class="button-add"
+          >
+            {{ 'politician-add' | translate }}
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
     </div>
     <ng-container *ngIf="politicians$ | async as politicians">
       <div class="politicians">
-        <app-politician *ngFor="let politician of politicians | filterPoliticians: input.value" [politician]="politician"></app-politician>
+        <app-politician
+          *ngFor="let politician of politicians | filterPoliticians : input.value"
+          [politician]="politician"
+        ></app-politician>
         <ng-container *ngIf="(politiciansCount | async) === 0">
-          <span class="no-result">{{'no-result' | translate}}</span>
+          <span class="no-result">{{ 'no-result' | translate }}</span>
         </ng-container>
       </div>
     </ng-container>
   </ng-container>
 </section>
-

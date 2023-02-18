@@ -1,7 +1,12 @@
 <section class="container">
   <div class="container__content">
-    <ng-container *ngIf="(politicalParty$ | async) as politicalParty">
-      <app-party-form *ngIf="politicalParty.id" [party]="politicalParty" (submitEvent)="onSubmit($event)" (cancelEvent)="navigateBack(politicalParty.id!)"></app-party-form>
+    <ng-container *ngIf="politicalParty$ | async as politicalParty">
+      <app-party-form
+        *ngIf="politicalParty.id"
+        [party]="politicalParty"
+        (submitEvent)="onSubmit($event)"
+        (cancelEvent)="navigateBack(politicalParty.id!)"
+      ></app-party-form>
     </ng-container>
   </div>
 </section>

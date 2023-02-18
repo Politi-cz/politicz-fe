@@ -1,4 +1,7 @@
-import { IPoliticalParty, IPoliticalPartyPolticiansFree } from './../../../data/schema/political-party';
+import {
+  IPoliticalParty,
+  IPoliticalPartyPolticiansFree,
+} from './../../../data/schema/political-party';
 import { IPolitician } from '../../../data/schema/politician';
 
 export namespace PoliticalParty {

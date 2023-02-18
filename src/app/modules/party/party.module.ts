@@ -1,4 +1,4 @@
-import { politicalPartyState } from './state/political-party.state';
+import { PoliticalPartyState } from './state/political-party.state';
 import { SharedModule } from './../../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -25,6 +25,11 @@ import { PartyFormComponent } from './forms/party-form/party-form.component';
     AddPartyComponent,
     PartyFormComponent,
   ],
-  imports: [CommonModule, PartyRoutingModule, SharedModule, NgxsModule.forFeature([politicalPartyState])],
+  imports: [
+    CommonModule,
+    PartyRoutingModule,
+    SharedModule,
+    NgxsModule.forFeature([PoliticalPartyState]),
+  ],
 })
 export class PartyModule {}

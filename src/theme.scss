@@ -11,13 +11,15 @@ $my-primary: mat.define-palette(mat.$blue-palette, A400);
 $my-accent: mat.define-palette(mat.$orange-palette, 600);
 $my-warn: mat.define-palette(mat.$red-palette, A700);
 
-$my-theme: mat.define-light-theme((
- color: (
-   primary: $my-primary,
-   accent: $my-accent,
-   warn: $my-warn
- ),
- typography: $my-typography
-));
+$my-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-primary,
+      accent: $my-accent,
+      warn: $my-warn,
+    ),
+    typography: $my-typography,
+  )
+);
 
 @include mat.all-component-themes($my-theme);

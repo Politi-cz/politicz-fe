@@ -7,7 +7,7 @@ import { IPoliticalParty } from '../../../data/schema/political-party';
 import { tap } from 'rxjs';
 
 @State<IPoliticalParty>({
-  name: 'politicalPartyState',
+  name: 'PoliticalPartyState',
   defaults: {
     id: '',
     name: 'kokodzina',
@@ -17,7 +17,7 @@ import { tap } from 'rxjs';
   },
 })
 @Injectable()
-export class politicalPartyState {
+export class PoliticalPartyState {
   constructor(
     private politicalPartyService: PoliticalPartiesService,
     private notificationService: NotificationService
@@ -42,27 +42,33 @@ export class politicalPartyState {
     ctx: StateContext<IPoliticalParty>,
     { payload }: PoliticalParty.GetPoliticalParty
   ) {
-    return this.politicalPartyService.getPoliticalParty(payload).pipe(tap(data => ctx.setState(data)));
+    return this.politicalPartyService
+      .getPoliticalParty(payload)
+      .pipe(tap((data) => ctx.setState(data)));
   }
 
   @Action(PoliticalParty.CreatePoliticalParty) createPoliticalParty(
     ctx: StateContext<IPoliticalParty>,
     { payload }: PoliticalParty.CreatePoliticalParty
   ) {
-    return this.politicalPartyService.createPoliticalParty(payload).pipe(tap(data => ctx.patchState({ ...data })));
+    return this.politicalPartyService
+      .createPoliticalParty(payload)
+      .pipe(tap((data) => ctx.patchState({ ...data })));
   }
 
   @Action(PoliticalParty.UpdatePoliticalParty) updatePoliticalParty(
     ctx: StateContext<IPoliticalParty>,
     { payload }: PoliticalParty.UpdatePoliticalParty
   ) {
-    return this.politicalPartyService.editPoliticalParty(payload).pipe(tap(data => ctx.patchState({ ...data })));
+    return this.politicalPartyService
+      .editPoliticalParty(payload)
+      .pipe(tap((data) => ctx.patchState({ ...data })));
   }
 
   @Action(PoliticalParty.AddPolitician)
   addPolitician(ctx: StateContext<IPoliticalParty>, { payload }: PoliticalParty.AddPolitician) {
     return this.politicalPartyService.addPolitician(ctx.getState().id!, payload).pipe(
-      tap(politician => {
+      tap((politician) => {
         return ctx.patchState({ politicians: [...ctx.getState().politicians, politician] });
       })
     );
@@ -71,10 +77,12 @@ export class politicalPartyState {
   @Action(PoliticalParty.EditPolitician)
   editPolitician(ctx: StateContext<IPoliticalParty>, { payload }: PoliticalParty.EditPolitician) {
     return this.politicalPartyService.editPolitician(payload.id!, payload).pipe(
-      tap(politician => {
+      tap((politician) => {
         let politicians = [...ctx.getState().politicians];
 
-        const indexOfEditedPolitician = politicians.findIndex(oldPolitician => oldPolitician.id === politician.id);
+        const indexOfEditedPolitician = politicians.findIndex(
+          (oldPolitician) => oldPolitician.id === politician.id
+        );
 
         if (indexOfEditedPolitician === -1) {
           this.notificationService.showError('Wrong politician id');
@@ -89,10 +97,15 @@ export class politicalPartyState {
   }
 
   @Action(PoliticalParty.RemovePolitician)
-  removePolitician(ctx: StateContext<IPoliticalParty>, { payload }: PoliticalParty.RemovePolitician) {
+  removePolitician(
+    ctx: StateContext<IPoliticalParty>,
+    { payload }: PoliticalParty.RemovePolitician
+  ) {
     return this.politicalPartyService.removePolitician(payload.id!).pipe(
       tap(() => {
-        const filteredPoliticians = ctx.getState().politicians.filter(politician => politician.id !== payload.id);
+        const filteredPoliticians = ctx
+          .getState()
+          .politicians.filter((politician) => politician.id !== payload.id);
         ctx.patchState({ politicians: filteredPoliticians });
       })
     );

@@ -4,13 +4,12 @@
   height: 100%;
   grid-column: center-start / center-end;
 
-
   &__heading {
     font-size: 3rem;
     text-align: center;
     padding: 1rem 0 2rem 0;
-    letter-spacing: .1rem;
-    word-spacing: .5rem;
+    letter-spacing: 0.1rem;
+    word-spacing: 0.5rem;
     text-transform: uppercase;
     font-size: bold;
 
