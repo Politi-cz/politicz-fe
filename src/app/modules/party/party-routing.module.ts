@@ -14,6 +14,10 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'add', //TODO WHen add is below :id, it thinks about is as :id and is redirected to PartyComponent, think about better path name
+    component: AddPartyComponent,
+  },
+  {
     path: ':id',
     component: PartyComponent,
   },
@@ -24,10 +28,6 @@ const routes: Routes = [
   {
     path: ':id/edit-politician/:politicianId',
     component: EditPoliticianComponent,
-  },
-  {
-    path: 'add',
-    component: AddPartyComponent,
   },
   {
     path: ':id/edit',

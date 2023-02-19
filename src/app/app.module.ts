@@ -1,3 +1,4 @@
+import { SidenavPartiesState } from './state/sidenav-parties.state';
 import { environment } from './../environments/environment';
 import { SpinnerState } from './state/spinner.state';
 import { NgModule } from '@angular/core';
@@ -37,7 +38,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       },
       defaultLanguage: 'cz',
     }),
-    NgxsModule.forRoot([SpinnerState, FiltersState]),
+    NgxsModule.forRoot([SpinnerState, FiltersState, SidenavPartiesState]),
   ],
   providers: [],
   bootstrap: [AppComponent],
