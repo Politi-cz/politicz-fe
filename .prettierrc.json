@@ -6,10 +6,9 @@
   "singleQuote": true,
   "trailingComma": "all",
   "bracketSpacing": true,
-  "jsxSingleQuote": false,
   "arrowParens": "always",
   "proseWrap": "never",
   "htmlWhitespaceSensitivity": "strict",
-  "endOfLine": "lf",
+  "endOfLine": "auto",
   "bracketSameLine": true
 }
