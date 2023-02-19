@@ -1,5 +1,5 @@
 import { IPoliticianForm } from 'src/app/data/schema/politician';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
 import { IPoliticalParty, IPoliticalPartyForm } from './../../../../data/schema/political-party';
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractFormComponent } from '../../../../shared/forms/abstractForm';
@@ -31,7 +31,7 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
     super();
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     if (this.party) {
       this.partyForm.removeControl('politicians');
       this.tags = [...this.party.tags]; //If user didn't triggers blur event in mat-chips, the latest values are not added.
@@ -44,11 +44,11 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
     }
   }
 
-  get politiciansFormArray() {
+  public get politiciansFormArray(): FormArray<FormGroup<IPoliticianForm>> | null {
     return this.partyForm?.controls.politicians ?? null;
   }
 
-  override submit() {
+  public override submit(): void {
     if (this.partyForm.valid) {
       this.partyForm.patchValue({
         tags: [...this.tags], //Make sure that tags control has current tags, mat-chips behavior is odd
@@ -57,7 +57,7 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
     }
   }
 
-  public addPolitician() {
+  public addPolitician(): void {
     const politicianForm = this._fb.group<IPoliticianForm>({
       fullname: this._fb.control('', { nonNullable: true, validators: Validators.required }),
       birthDate: this._fb.control('', {
@@ -78,7 +78,7 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
     }
   }
 
-  public removePolitician(index: number) {
+  public removePolitician(index: number): void {
     if (this.politiciansFormArray) {
       this.politiciansFormArray.removeAt(index);
     }
@@ -102,15 +102,17 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
     }
   }
 
-  public editTag(tag: string, event: MatChipEditedEvent) {
+  public editTag(tag: string, event: MatChipEditedEvent): void {
     const value = event.value.trim();
 
     if (!value) {
       this.removeTag(tag);
+
       return;
     }
 
     const index = this.tags.indexOf(tag);
+
     if (index >= 0) {
       this.tags[index] = value;
     }

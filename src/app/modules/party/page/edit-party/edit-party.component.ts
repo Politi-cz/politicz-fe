@@ -21,25 +21,25 @@ export class EditPartyComponent implements OnInit, OnDestroy {
 
   constructor(private _route: ActivatedRoute, private _router: Router, private _store: Store) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this._route.paramMap.subscribe((params) => {
       this._store.dispatch(new PoliticalParty.GetPoliticalParty(params.get('id')));
       this.politicalParty$ = this._store.select(PoliticalPartyState.getPoliticalParty);
     });
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.destroy$.next();
   }
 
-  public onSubmit(party: IPoliticalPartyPolticiansFree) {
+  public onSubmit(party: IPoliticalPartyPolticiansFree): void {
     const currentPoliticalParty = this._store.selectSnapshot(PoliticalPartyState);
     this._store
       .dispatch(new PoliticalParty.UpdatePoliticalParty({ ...party, id: currentPoliticalParty.id }))
       .subscribe(() => this.navigateBack(currentPoliticalParty.id));
   }
 
-  public navigateBack(id: string) {
+  public navigateBack(id: string): void {
     this._router.navigate(['/political-party/' + id]);
   }
 }

@@ -34,7 +34,7 @@ export class PoliticianFormComponent extends AbstractFormComponent implements On
     super();
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     if (this.politician) {
       this.politicianForm.patchValue({
         fullname: this.politician.fullname,

@@ -15,11 +15,11 @@ export class NewsComponent {
 
   constructor(private router: Router, private store: Store) {}
 
-  navigateToDetail(id: string): void {
-    this.router.navigate([`/news/detail`], { queryParams: { id: id } });
+  public navigateToDetail(id: string): void {
+    this.router.navigate(['/news/detail'], { queryParams: { id: id } });
   }
 
-  handleActionEvent(action: QuickMenuAction) {
+  public handleActionEvent(action: QuickMenuAction): void {
     switch (action.type) {
       case ActionType.EDIT:
         alert('Zedituju tě more');

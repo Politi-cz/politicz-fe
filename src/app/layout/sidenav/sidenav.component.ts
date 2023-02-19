@@ -39,33 +39,33 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
     private sidenavService: SidenavService,
     private partiesService: PoliticalPartiesService,
     private router: Router,
-    private store: Store
+    private store: Store,
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 1360px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addEventListener('change', this._mobileQueryListener);
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     //TODO Should be observable and get parties from state. For example, when new party is added, should be also added here
     this.sidenavParties$ = this.partiesService
       .getPartiesForSidenav()
       .pipe(tap((data) => this.store.dispatch(new Filters.Set({ partyFilterCount: data.length }))));
   }
 
-  ngAfterViewInit(): void {
+  public ngAfterViewInit(): void {
     this.sidenavService.setSidenav(this.sidenav);
   }
 
-  ngOnDestroy(): void {
+  public ngOnDestroy(): void {
     this.mobileQuery.removeEventListener('change', this._mobileQueryListener);
   }
 
-  navigateToPoliticalPartyPage(id: string) {
+  public navigateToPoliticalPartyPage(id: string): void {
     this.router.navigate(['/political-party/' + id]);
   }
 
-  toggleSidenav() {
+  public toggleSidenav(): void {
     this.sidenavService.toggleSidenav();
   }
 }

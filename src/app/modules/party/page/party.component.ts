@@ -22,7 +22,7 @@ export class PartyComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private store: Store) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.route.paramMap.subscribe((params) => {
       return this.store.dispatch(new PoliticalParty.GetPoliticalParty(params.get('id')));
     });

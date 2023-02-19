@@ -1,5 +1,6 @@
 import { IPartySidenavItem } from './../../../data/schema/political-party';
 import { FilterPartiesPipe } from './filter-parties.pipe';
+
 describe('FilterPartiesPipe', () => {
   const storeMock: any = {
     dispatch: jest.fn(),

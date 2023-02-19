@@ -7,13 +7,13 @@ export class AbstractFormComponent {
 
   @Output() cancelEvent = new EventEmitter();
 
-  public submit(formGroup: FormGroup) {
+  public submit(formGroup: FormGroup): void {
     if (formGroup.valid) {
       this.submitEvent.emit(formGroup.value);
     }
   }
 
-  public cancel() {
+  public cancel(): void {
     this.cancelEvent.emit();
   }
 }

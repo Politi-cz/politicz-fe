@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'dateFormatter',
 })
 export class DateFormatterPipe implements PipeTransform {
-  transform(date: string | Date, format: string = 'DD.MM.YYYY'): string {
+  public transform(date: string | Date, format: string = 'DD.MM.YYYY'): string {
     return dayjs(date).format(format);
   }
 }

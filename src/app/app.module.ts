@@ -17,7 +17,7 @@ import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { NgxsModule } from '@ngxs/store';
 import { FiltersState } from './state/filters.state';
 
-export function HttpLoaderFactory(http: HttpClient) {
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, environment.assetsPath, '.json');
 }
 

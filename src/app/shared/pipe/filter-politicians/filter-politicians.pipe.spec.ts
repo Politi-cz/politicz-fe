@@ -1,5 +1,6 @@
 import { IPolitician } from './../../../data/schema/politician';
 import { FilterPoliticiansPipe } from './filter-politicians.pipe';
+
 describe('FilterPoliticians', () => {
   const storeMock: any = {
     dispatch: jest.fn(),

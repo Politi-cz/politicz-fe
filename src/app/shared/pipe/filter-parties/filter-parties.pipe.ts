@@ -10,9 +10,10 @@ import { IPartySidenavItem } from './../../../data/schema/political-party';
 export class FilterPartiesPipe implements PipeTransform {
   constructor(private store: Store) {}
 
-  transform(parties: IPartySidenavItem[], searchValue: string): IPartySidenavItem[] {
-    if (!searchValue || parties == null) {
+  public transform(parties: IPartySidenavItem[], searchValue: string): IPartySidenavItem[] {
+    if (!searchValue || parties === null || parties === undefined) {
       this.store.dispatch(new Filters.Set({ partyFilterCount: parties?.length ?? 1 }));
+
       return parties;
     }
 
@@ -24,6 +25,7 @@ export class FilterPartiesPipe implements PipeTransform {
     });
 
     this.store.dispatch(new Filters.Set({ partyFilterCount: filteredParties.length }));
+
     return filteredParties;
   }
 }

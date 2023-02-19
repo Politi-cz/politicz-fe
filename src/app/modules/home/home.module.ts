@@ -13,7 +13,7 @@ import { environment } from 'src/environments/environment';
 import { NewsComponent } from './page/home/news/news.component';
 import { NewsDetailComponent } from './page/home/news-detail/news-detail.component';
 
-export function HttpLoaderFactory(http: HttpClient) {
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, environment.assetsPath, '.json');
 }
 

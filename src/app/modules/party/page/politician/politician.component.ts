@@ -16,7 +16,7 @@ export class PoliticianComponent {
 
   constructor(private _store: Store, private _router: Router) {}
 
-  handleActionEvent(action: QuickMenuAction) {
+  public handleActionEvent(action: QuickMenuAction): void {
     const politicalPartyId = this._store.selectSnapshot(PoliticalPartyState.getPoliticalPartyId);
 
     switch (action.type) {

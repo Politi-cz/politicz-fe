@@ -4,7 +4,7 @@ import { CanActivate } from '@angular/router';
 @Injectable()
 export class AuthGuard implements CanActivate {
   // Implement auth logic
-  canActivate(): boolean {
+  public canActivate(): boolean {
     return true;
   }
 }

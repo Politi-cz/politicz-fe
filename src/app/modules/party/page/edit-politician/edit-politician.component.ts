@@ -22,28 +22,29 @@ export class EditPoliticianComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router,
     private _politicalPartiesService: PoliticalPartiesService,
-    private _store: Store
+    private _store: Store,
   ) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     //Could have used ngxs, but this is much easier in my opinion //TODO look if this couldn't be fixes
     this.politician$ = this._route.paramMap.pipe(
       switchMap((params) => {
         this.politicalPartyId = params.get('id')!;
         this.politicianId = params.get('politicianId')!;
         this._store.dispatch(new PoliticalParty.GetPoliticalParty(this.politicalPartyId));
+
         return this._politicalPartiesService.getPolitician(this.politicianId);
-      })
+      }),
     );
   }
 
-  public onSubmit(politician: IPolitician) {
+  public onSubmit(politician: IPolitician): void {
     const request = { id: this.politicianId, ...politician } as IPolitician;
     this._store.dispatch(new PoliticalParty.EditPolitician(request));
     this.navigateBack();
   }
 
-  public navigateBack() {
+  public navigateBack(): void {
     this._router.navigate(['/political-party'], { queryParams: { id: this.politicalPartyId } });
   }
 }

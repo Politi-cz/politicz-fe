@@ -13,18 +13,19 @@ export class AddPartyComponent {
   constructor(
     private _partiesService: PoliticalPartiesService,
     private _router: Router,
-    private _notificationService: NotificationService
+    private _notificationService: NotificationService,
   ) {}
 
-  public onSubmit(party: IPoliticalParty) {
+  public onSubmit(party: IPoliticalParty): void {
     if (party.politicians.length < 1) {
       this._notificationService.showError('error-politician-required');
+
       return;
     }
     this._partiesService.createPoliticalParty(party).subscribe(() => this.navigateBack());
   }
 
-  public navigateBack() {
+  public navigateBack(): void {
     this._router.navigate(['/news']);
   }
 }

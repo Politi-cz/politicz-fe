@@ -10,15 +10,15 @@ import { INews } from '../schema/news';
 export class NewsService {
   constructor(private http: HttpClient) {}
 
-  getAllNews(): Observable<INews[]> {
+  public getAllNews(): Observable<INews[]> {
     return this.http.get<INews[]>(`${environment.apiUrl}/news`);
   }
 
-  getNewsById(id: string): Observable<INews> {
+  public getNewsById(id: string): Observable<INews> {
     return this.http.get<INews>(`${environment.apiUrl}/news/${id}`);
   }
 
-  deleteNews(id: string): Observable<void> {
+  public deleteNews(id: string): Observable<void> {
     return this.http.delete<void>(`${environment.apiUrl}/news/${id}`);
   }
 }

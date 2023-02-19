@@ -17,11 +17,11 @@ import { IPolitician } from '../schema/politician';
 export class PoliticalPartiesService {
   constructor(private http: HttpClient) {}
 
-  getPartiesForSidenav(): Observable<IPartySidenavItem[]> {
+  public getPartiesForSidenav(): Observable<IPartySidenavItem[]> {
     return this.http.get<IPartySidenavItem[]>(`${environment.apiUrl}/political-parties`);
   }
 
-  getPoliticalParty(id: string | null): Observable<IPoliticalParty> {
+  public getPoliticalParty(id: string | null): Observable<IPoliticalParty> {
     if (!id) {
       throw new Error('invalid political party ID');
     }
@@ -29,43 +29,46 @@ export class PoliticalPartiesService {
     return this.http.get<IPoliticalParty>(`${environment.apiUrl}/political-parties/${id}`);
   }
 
-  createPoliticalParty(party: IPoliticalParty): Observable<ICreatePoliticalPartyResponse> {
+  public createPoliticalParty(party: IPoliticalParty): Observable<ICreatePoliticalPartyResponse> {
     return this.http.post<ICreatePoliticalPartyResponse>(
       `${environment.apiUrl}/political-parties/create`,
-      party
+      party,
     );
   }
 
-  editPoliticalParty(
-    party: IPoliticalPartyPolticiansFree
+  public editPoliticalParty(
+    party: IPoliticalPartyPolticiansFree,
   ): Observable<IPoliticalPartyPolticiansFree> {
     return this.http.put<IPoliticalPartyPolticiansFree>(
       `${environment.apiUrl}/political-parties/${party.id}`,
-      party
+      party,
     );
   }
 
-  addPolitician(partyId: string, politician: IPolitician): Observable<IPoliticianResponse> {
+  public addPolitician(partyId: string, politician: IPolitician): Observable<IPoliticianResponse> {
     return this.http.post<IPoliticianResponse>(
       `${environment.apiUrl}/political-parties/${partyId}/politician`,
-      politician
+      politician,
     );
   }
 
-  editPolitician(politicianId: string, request: IPolitician): Observable<IPoliticianResponse> {
+  public editPolitician(
+    politicianId: string,
+    request: IPolitician,
+  ): Observable<IPoliticianResponse> {
     return this.http.put<IPoliticianResponse>(
       `${environment.apiUrl}/political-parties/politician/${politicianId}`,
-      request
+      request,
     );
   }
 
-  getPolitician(politicianId: string): Observable<IPolitician> {
+  public getPolitician(politicianId: string): Observable<IPolitician> {
     return this.http.get<IPolitician>(
-      `${environment.apiUrl}/political-parties/politician/${politicianId}`
+      `${environment.apiUrl}/political-parties/politician/${politicianId}`,
     );
   }
 
-  removePolitician(id: string): Observable<void> {
+  public removePolitician(id: string): Observable<void> {
     return this.http.delete<void>(`${environment.apiUrl}/political-parties/${id}`);
   }
 }

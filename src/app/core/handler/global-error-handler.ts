@@ -5,7 +5,7 @@ import { ErrorHandler, Injectable } from '@angular/core';
 export class GlobalErrorHandler implements ErrorHandler {
   constructor(private notificationService: NotificationService) {}
 
-  handleError(error: any): void {
+  public handleError(error: any): void {
     this.notificationService.showError(error?.message ?? 'error-undefined');
     console.error(error);
   }

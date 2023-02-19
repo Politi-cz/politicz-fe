@@ -7,7 +7,7 @@ import { NewsState } from '../../state/news.state';
 
 import { HomeComponent } from './home.component';
 
-export function HttpLoaderFactory(http: HttpClient) {
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
 }
 

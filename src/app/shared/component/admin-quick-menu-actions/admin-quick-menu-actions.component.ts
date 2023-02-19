@@ -16,7 +16,7 @@ export class AdminQuickMenuActionsComponent {
 
   actionTypes = ActionType;
 
-  onClick(action: QuickMenuAction) {
+  public onClick(action: QuickMenuAction): void {
     this.actionClickEvt.emit(action);
   }
 }

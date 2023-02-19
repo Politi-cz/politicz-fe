@@ -15,11 +15,11 @@ export class HomeComponent implements OnInit {
 
   constructor(private store: Store) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getAllNews();
   }
 
-  getAllNews(): void {
+  public getAllNews(): void {
     this.store.dispatch(new News.GetAll());
   }
 }

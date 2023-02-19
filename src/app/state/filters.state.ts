@@ -13,16 +13,19 @@ import { IFiltersCount } from '../data/schema/filters-count';
 @Injectable()
 export class FiltersState {
   @Selector()
-  static getPartyFilterCount(state: IFiltersCount) {
+  public static getPartyFilterCount(state: IFiltersCount): number | undefined {
     return state.partyFilterCount;
   }
 
   @Selector()
-  static getPoliticianFilterCount(state: IFiltersCount) {
+  public static getPoliticianFilterCount(state: IFiltersCount): number | undefined {
     return state.politicianFilterCount;
   }
 
-  @Action(Filters.Set) setFilters(ctx: StateContext<IFiltersCount>, { payload }: Filters.Set) {
+  @Action(Filters.Set) public setFilters(
+    ctx: StateContext<IFiltersCount>,
+    { payload }: Filters.Set,
+  ): void {
     ctx.patchState({ ...ctx.getState, ...payload });
   }
 }

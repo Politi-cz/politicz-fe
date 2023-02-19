@@ -14,9 +14,9 @@ export class NewsDetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private newsService: NewsService) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.newsDetail$ = this.route.queryParamMap.pipe(
-      switchMap((params) => this.newsService.getNewsById(params.get('id')!))
+      switchMap((params) => this.newsService.getNewsById(params.get('id')!)),
     );
   }
 }

@@ -14,16 +14,16 @@ export class AddPoliticianComponent implements OnInit {
 
   constructor(private _store: Store, private _router: Router, private _route: ActivatedRoute) {}
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this._route.paramMap.subscribe((params) => (this.politicalPartyId = params.get('id')!));
   }
 
-  public onSubmit(politician: IPolitician) {
+  public onSubmit(politician: IPolitician): void {
     this._store.dispatch(new PoliticalParty.AddPolitician(politician));
     this.navigateBack();
   }
 
-  public navigateBack() {
+  public navigateBack(): void {
     this._router.navigate(['/political-party'], { queryParams: { id: this.politicalPartyId } });
   }
 }

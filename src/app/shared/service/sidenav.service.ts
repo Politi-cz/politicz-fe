@@ -7,11 +7,11 @@ import { Injectable } from '@angular/core';
 export class SidenavService {
   private _sidenav!: MatSidenav;
 
-  setSidenav(sidenav: MatSidenav) {
+  public setSidenav(sidenav: MatSidenav): void {
     this._sidenav = sidenav;
   }
 
-  toggleSidenav() {
+  public toggleSidenav(): void {
     this._sidenav.toggle();
   }
 }

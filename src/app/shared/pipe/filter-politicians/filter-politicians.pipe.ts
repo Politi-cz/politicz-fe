@@ -10,14 +10,15 @@ import { Filters } from '../../../../app/action/filters.action';
 export class FilterPoliticiansPipe implements PipeTransform {
   constructor(private store: Store) {}
 
-  transform(politicians: IPolitician[], searchValue: string): IPolitician[] {
-    if (!searchValue || politicians == null) {
+  public transform(politicians: IPolitician[], searchValue: string): IPolitician[] {
+    if (!searchValue || politicians === null || politicians === undefined) {
       this.store.dispatch(new Filters.Set({ politicianFilterCount: politicians.length }));
+
       return politicians;
     }
 
     const filteredPoliticians = politicians.filter((politician) =>
-      Utils.textIncludesSearchedValueCaseInsensitive(politician.fullname, searchValue)
+      Utils.textIncludesSearchedValueCaseInsensitive(politician.fullname, searchValue),
     );
 
     this.store.dispatch(new Filters.Set({ politicianFilterCount: filteredPoliticians.length }));

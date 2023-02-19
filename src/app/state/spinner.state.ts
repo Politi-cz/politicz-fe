@@ -9,11 +9,14 @@ import { Spinner } from '../action/spinner.action';
 @Injectable()
 export class SpinnerState {
   @Selector()
-  static getSpinnerState(state: boolean) {
+  public static getSpinnerState(state: boolean): boolean {
     return state;
   }
 
-  @Action(Spinner.Set) setSpinner(ctx: StateContext<boolean>, { payload }: Spinner.Set) {
+  @Action(Spinner.Set) public setSpinner(
+    ctx: StateContext<boolean>,
+    { payload }: Spinner.Set,
+  ): void {
     ctx.setState(payload);
   }
 }

@@ -20,10 +20,10 @@ export class NotificationService {
   constructor(
     private snackBar: MatSnackBar,
     private zone: NgZone,
-    private translate: TranslateService
+    private translate: TranslateService,
   ) {}
 
-  showSuccess(message: string, duration = this._duration) {
+  public showSuccess(message: string, duration = this._duration): void {
     this.zone.run(() => {
       this.snackBar.open(this.translate.instant(message), 'X', {
         panelClass: ['successNotification'],
@@ -33,7 +33,7 @@ export class NotificationService {
     });
   }
 
-  showError(message: string, duration = this._duration) {
+  public showError(message: string, duration = this._duration): void {
     this.zone.run(() => {
       this.snackBar.open(this.translate.instant(message), 'X', {
         panelClass: ['errorNotification'],

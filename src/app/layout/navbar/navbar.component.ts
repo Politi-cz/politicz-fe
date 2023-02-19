@@ -10,7 +10,7 @@ import { SidenavService } from '../../shared/service/sidenav.service';
 export class NavbarComponent {
   constructor(private _sidenavService: SidenavService, private _router: Router) {}
 
-  toggleSidenav(): void {
+  public toggleSidenav(): void {
     this._sidenavService.toggleSidenav();
   }
 }

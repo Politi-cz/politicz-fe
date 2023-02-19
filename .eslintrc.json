@@ -17,6 +17,146 @@
       ],
       "parser": "@typescript-eslint/parser",
       "rules": {
+        "import/prefer-default-export": 0,
+        "@typescript-eslint/no-inferrable-types": [
+          0,
+          {
+            "ignoreProperties": true,
+            "ignoreParameters": true
+          }
+        ],
+        "@typescript-eslint/typedef": [
+          "error",
+          {
+            "arrayDestructuring": false,
+            "arrowParameter": false,
+            "memberVariableDeclaration": false,
+            "parameter": false,
+            "objectDestructuring": false,
+            "propertyDeclaration": true,
+            "variableDeclaration": false
+          }
+        ],
+        "no-console": [
+          "error",
+          {
+            "allow": ["warn", "error"]
+          }
+        ],
+        "no-param-reassign": "error",
+        "@typescript-eslint/no-unused-vars": ["error"],
+        "@typescript-eslint/explicit-member-accessibility": [
+          "error",
+          {
+            "accessibility": "explicit",
+            "overrides": {
+              "accessors": "explicit",
+              "constructors": "off",
+              "methods": "explicit",
+              "properties": "off",
+              "parameterProperties": "explicit"
+            }
+          }
+        ],
+        "object-property-newline": [
+          "error",
+          {
+            "allowAllPropertiesOnSameLine": true
+          }
+        ],
+        "key-spacing": [
+          "error",
+          {
+            "multiLine": {
+              "beforeColon": false,
+              "afterColon": true
+            }
+          }
+        ],
+        "no-empty": "error",
+        "no-unexpected-multiline": "error",
+        "no-unreachable": "error",
+        "eqeqeq": ["error", "always"],
+        "no-multi-spaces": "error",
+        "block-spacing": "error",
+        "camelcase": [
+          "error",
+          {
+            "properties": "never"
+          }
+        ],
+        "comma-dangle": ["error", "always-multiline"],
+        "computed-property-spacing": ["error", "never"],
+        "id-length": [
+          "error",
+          {
+            "min": 1
+          }
+        ],
+        "indent": [
+          "error",
+          2,
+          {
+            "CallExpression": {
+              "arguments": "first"
+            },
+            "FunctionExpression": {
+              "parameters": "first"
+            },
+            "SwitchCase": 1
+          }
+        ],
+        "lines-between-class-members": [
+          "error",
+          "always",
+          {
+            "exceptAfterSingleLine": true
+          }
+        ],
+        "no-multiple-empty-lines": [
+          "error",
+          {
+            "max": 1,
+            "maxEOF": 0
+          }
+        ],
+        "no-trailing-spaces": "off",
+        "no-whitespace-before-property": "error",
+        "operator-linebreak": ["error", "after"],
+        "padding-line-between-statements": [
+          "error",
+          {
+            "blankLine": "always",
+            "prev": "directive",
+            "next": "*"
+          },
+          {
+            "blankLine": "always",
+            "prev": "import",
+            "next": "*"
+          },
+          {
+            "blankLine": "any",
+            "prev": "import",
+            "next": "import"
+          },
+          {
+            "blankLine": "always",
+            "prev": "*",
+            "next": ["return", "multiline-block-like"]
+          }
+        ],
+        "quotes": ["error", "single"],
+        "space-before-blocks": "error",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@angular-eslint/no-output-on-prefix": "off",
+        "@typescript-eslint/explicit-module-boundary-types": [
+          "error",
+          {
+            "allowArgumentsExplicitlyTypedAsAny": true
+          }
+        ],
+        "semi": ["error", "always"],
         "no-unused-expressions": "off",
         "@typescript-eslint/no-unused-expressions": "warn",
         "no-unused-vars": "off",

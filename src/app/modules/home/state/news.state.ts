@@ -10,13 +10,17 @@ import { News } from '../action/news.action';
 })
 @Injectable()
 export class NewsState {
+  //TODO refactor, return observable instead of subscribe
   constructor(private newsService: NewsService) {}
 
-  @Action(News.GetAll) getNews(ctx: StateContext<INews[]>): void {
+  @Action(News.GetAll) public getNews(ctx: StateContext<INews[]>): void {
     this.newsService.getAllNews().subscribe((news) => ctx.setState(news));
   }
 
-  @Action(News.Remove) removeNews(ctx: StateContext<INews[]>, { payload }: News.Remove) {
+  @Action(News.Remove) public removeNews(
+    ctx: StateContext<INews[]>,
+    { payload }: News.Remove,
+  ): void {
     this.newsService
       .deleteNews(payload.id)
       .subscribe(() => ctx.setState(ctx.getState().filter((news) => news.id !== payload.id)));
