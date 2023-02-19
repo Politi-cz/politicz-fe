@@ -1,7 +1,7 @@
 import { PoliticalParty } from '../../action/political-party.action';
 import { PoliticalPartyState } from './../../state/political-party.state';
 import { Store } from '@ngxs/store';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import {
   IPoliticalParty,
@@ -22,7 +22,7 @@ export class EditPartyComponent implements OnInit, OnDestroy {
   constructor(private _route: ActivatedRoute, private _router: Router, private _store: Store) {}
 
   public ngOnInit(): void {
-    this._route.paramMap.subscribe((params) => {
+    this._route.paramMap.subscribe((params: ParamMap) => {
       this._store.dispatch(new PoliticalParty.GetPoliticalParty(params.get('id')));
       this.politicalParty$ = this._store.select(PoliticalPartyState.getPoliticalParty);
     });

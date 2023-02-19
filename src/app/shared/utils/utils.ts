@@ -12,7 +12,9 @@ export class Utils {
     array: string[],
     valueToSearch: string,
   ): boolean {
-    return array.some((element) => element.toLowerCase().includes(valueToSearch.toLowerCase()));
+    return array.some((element: string) =>
+      element.toLowerCase().includes(valueToSearch.toLowerCase()),
+    );
   }
 
   public static formatDate(date: string, format: string): string {

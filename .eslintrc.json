@@ -29,9 +29,9 @@
           "error",
           {
             "arrayDestructuring": false,
-            "arrowParameter": false,
+            "arrowParameter": true,
             "memberVariableDeclaration": false,
-            "parameter": false,
+            "parameter": true,
             "objectDestructuring": false,
             "propertyDeclaration": true,
             "variableDeclaration": false

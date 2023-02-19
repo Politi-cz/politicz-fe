@@ -17,7 +17,7 @@ export class FilterPartiesPipe implements PipeTransform {
       return parties;
     }
 
-    const filteredParties = parties.filter((party) => {
+    const filteredParties = parties.filter((party: IPartySidenavItem) => {
       return (
         Utils.textIncludesSearchedValueCaseInsensitive(party.name, searchValue) ||
         Utils.arrayIncludesSearchedValueCaseInsensitive(party.tags, searchValue)

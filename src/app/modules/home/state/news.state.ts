@@ -14,7 +14,7 @@ export class NewsState {
   constructor(private newsService: NewsService) {}
 
   @Action(News.GetAll) public getNews(ctx: StateContext<INews[]>): void {
-    this.newsService.getAllNews().subscribe((news) => ctx.setState(news));
+    this.newsService.getAllNews().subscribe((news: INews[]) => ctx.setState(news));
   }
 
   @Action(News.Remove) public removeNews(
@@ -23,6 +23,8 @@ export class NewsState {
   ): void {
     this.newsService
       .deleteNews(payload.id)
-      .subscribe(() => ctx.setState(ctx.getState().filter((news) => news.id !== payload.id)));
+      .subscribe(() =>
+        ctx.setState(ctx.getState().filter((news: INews) => news.id !== payload.id)),
+      );
   }
 }

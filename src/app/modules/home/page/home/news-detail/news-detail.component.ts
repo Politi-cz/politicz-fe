@@ -1,7 +1,7 @@
 import { NewsService } from './../../../../../data/service/news.service';
 import { INews } from './../../../../../data/schema/news';
 import { Observable, switchMap } from 'rxjs';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -16,7 +16,7 @@ export class NewsDetailComponent implements OnInit {
 
   public ngOnInit(): void {
     this.newsDetail$ = this.route.queryParamMap.pipe(
-      switchMap((params) => this.newsService.getNewsById(params.get('id')!)),
+      switchMap((params: ParamMap) => this.newsService.getNewsById(params.get('id')!)),
     );
   }
 }

@@ -23,7 +23,7 @@ export class NotificationService {
     private translate: TranslateService,
   ) {}
 
-  public showSuccess(message: string, duration = this._duration): void {
+  public showSuccess(message: string, duration: number = this._duration): void {
     this.zone.run(() => {
       this.snackBar.open(this.translate.instant(message), 'X', {
         panelClass: ['successNotification'],
@@ -33,7 +33,7 @@ export class NotificationService {
     });
   }
 
-  public showError(message: string, duration = this._duration): void {
+  public showError(message: string, duration: number = this._duration): void {
     this.zone.run(() => {
       this.snackBar.open(this.translate.instant(message), 'X', {
         panelClass: ['errorNotification'],

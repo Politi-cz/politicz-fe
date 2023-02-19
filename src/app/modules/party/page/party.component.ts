@@ -2,7 +2,7 @@ import { IPolitician } from './../../../data/schema/politician';
 import { PoliticalPartyState } from '../state/political-party.state';
 import { FiltersState } from './../../../state/filters.state';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { IPoliticalParty } from './../../../data/schema/political-party';
@@ -23,7 +23,7 @@ export class PartyComponent implements OnInit {
   constructor(private route: ActivatedRoute, private store: Store) {}
 
   public ngOnInit(): void {
-    this.route.paramMap.subscribe((params) => {
+    this.route.paramMap.subscribe((params: ParamMap) => {
       return this.store.dispatch(new PoliticalParty.GetPoliticalParty(params.get('id')));
     });
   }

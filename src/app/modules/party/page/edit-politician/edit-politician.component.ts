@@ -1,7 +1,7 @@
 import { PoliticalPartiesService } from './../../../../data/service/political-parties.service';
 import { IPolitician } from './../../../../data/schema/politician';
 import { Observable, switchMap } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { PoliticalParty } from '../../action/political-party.action';
@@ -28,7 +28,7 @@ export class EditPoliticianComponent implements OnInit {
   public ngOnInit(): void {
     //Could have used ngxs, but this is much easier in my opinion //TODO look if this couldn't be fixes
     this.politician$ = this._route.paramMap.pipe(
-      switchMap((params) => {
+      switchMap((params: ParamMap) => {
         this.politicalPartyId = params.get('id')!;
         this.politicianId = params.get('politicianId')!;
         this._store.dispatch(new PoliticalParty.GetPoliticalParty(this.politicalPartyId));

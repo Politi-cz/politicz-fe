@@ -49,7 +49,7 @@ export class PoliticalPartyState {
   ): Observable<IPoliticalParty> {
     return this.politicalPartyService
       .getPoliticalParty(payload)
-      .pipe(tap((data) => ctx.setState(data)));
+      .pipe(tap((data: IPoliticalParty) => ctx.setState(data)));
   }
 
   @Action(PoliticalParty.CreatePoliticalParty) public createPoliticalParty(
@@ -58,7 +58,7 @@ export class PoliticalPartyState {
   ): Observable<ICreatePoliticalPartyResponse> {
     return this.politicalPartyService
       .createPoliticalParty(payload)
-      .pipe(tap((data) => ctx.patchState({ ...data })));
+      .pipe(tap((data: ICreatePoliticalPartyResponse) => ctx.patchState({ ...data })));
   }
 
   @Action(PoliticalParty.UpdatePoliticalParty) public updatePoliticalParty(
@@ -67,7 +67,7 @@ export class PoliticalPartyState {
   ): Observable<IPoliticalPartyPolticiansFree> {
     return this.politicalPartyService
       .editPoliticalParty(payload)
-      .pipe(tap((data) => ctx.patchState({ ...data })));
+      .pipe(tap((data: IPoliticalPartyPolticiansFree) => ctx.patchState({ ...data })));
   }
 
   @Action(PoliticalParty.AddPolitician)
@@ -76,7 +76,7 @@ export class PoliticalPartyState {
     { payload }: PoliticalParty.AddPolitician,
   ): Observable<IPoliticianResponse> {
     return this.politicalPartyService.addPolitician(ctx.getState().id!, payload).pipe(
-      tap((politician) => {
+      tap((politician: IPoliticianResponse) => {
         return ctx.patchState({ politicians: [...ctx.getState().politicians, politician] });
       }),
     );
@@ -88,11 +88,11 @@ export class PoliticalPartyState {
     { payload }: PoliticalParty.EditPolitician,
   ): Observable<IPoliticianResponse> {
     return this.politicalPartyService.editPolitician(payload.id!, payload).pipe(
-      tap((politician) => {
+      tap((politician: IPoliticianResponse) => {
         let politicians = [...ctx.getState().politicians];
 
         const indexOfEditedPolitician = politicians.findIndex(
-          (oldPolitician) => oldPolitician.id === politician.id,
+          (oldPolitician: IPolitician) => oldPolitician.id === politician.id,
         );
 
         if (indexOfEditedPolitician === -1) {
@@ -117,7 +117,7 @@ export class PoliticalPartyState {
       tap(() => {
         const filteredPoliticians = ctx
           .getState()
-          .politicians.filter((politician) => politician.id !== payload.id);
+          .politicians.filter((politician: IPolitician) => politician.id !== payload.id);
         ctx.patchState({ politicians: filteredPoliticians });
       }),
     );
