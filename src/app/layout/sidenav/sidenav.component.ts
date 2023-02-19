@@ -1,10 +1,9 @@
-import { SidenavPartiesActions } from 'src/app/core/action/sidenav-parties.action';
-import { SidenavPartiesState } from './../../core/state/sidenav-parties.state';
+import { SidenavPartiesActions } from 'src/app/action/sidenav-parties.action';
+import { SidenavPartiesState } from '../../state/sidenav-parties.state';
 import { Select, Store } from '@ngxs/store';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { Observable } from 'rxjs';
-import { PoliticalPartiesService } from './../../data/service/political-parties.service';
 import {
   AfterViewInit,
   ChangeDetectorRef,
@@ -38,7 +37,6 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
     private sidenavService: SidenavService,
-    private partiesService: PoliticalPartiesService,
     private router: Router,
     private store: Store,
   ) {

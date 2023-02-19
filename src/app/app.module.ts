@@ -1,4 +1,4 @@
-import { SidenavPartiesState } from './core/state/sidenav-parties.state';
+import { SidenavPartiesState } from './state/sidenav-parties.state';
 import { environment } from './../environments/environment';
 import { SpinnerState } from './state/spinner.state';
 import { NgModule } from '@angular/core';
