@@ -1,7 +1,9 @@
+import { SidenavPartiesActions } from 'src/app/core/action/sidenav-parties.action';
+import { SidenavPartiesState } from './../../core/state/sidenav-parties.state';
 import { Select, Store } from '@ngxs/store';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Observable, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { PoliticalPartiesService } from './../../data/service/political-parties.service';
 import {
   AfterViewInit,
@@ -13,7 +15,6 @@ import {
 } from '@angular/core';
 import { SidenavService } from '../../shared/service/sidenav.service';
 import { Router } from '@angular/router';
-import { Filters } from 'src/app/action/filters.action';
 import { FiltersState } from 'src/app/state/filters.state';
 import { IPartySidenavItem } from 'src/app/data/schema/political-party';
 
@@ -27,9 +28,9 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @Select(FiltersState.getPartyFilterCount) partiesCount: Observable<number>;
 
-  mobileQuery!: MediaQueryList;
+  @Select(SidenavPartiesState.getParties) sidenavParties$: Observable<IPartySidenavItem[]>;
 
-  sidenavParties$!: Observable<IPartySidenavItem[]>;
+  mobileQuery!: MediaQueryList;
 
   private _mobileQueryListener: () => void;
 
@@ -48,13 +49,15 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public ngOnInit(): void {
     //TODO Should be observable and get parties from state. For example, when new party is added, should be also added here
-    this.sidenavParties$ = this.partiesService
-      .getPartiesForSidenav()
-      .pipe(
-        tap((data: IPartySidenavItem[]) =>
-          this.store.dispatch(new Filters.Set({ partyFilterCount: data.length })),
-        ),
-      );
+    // this.sidenavParties$ = this.partiesService
+    //   .getPartiesForSidenav()
+    //   .pipe(
+    //     tap((data: IPartySidenavItem[]) =>
+    //       this.store.dispatch(new Filters.Set({ partyFilterCount: data.length })),
+    //     ),
+    //   );
+
+    this.store.dispatch(new SidenavPartiesActions.GetSidenavParties());
   }
 
   public ngAfterViewInit(): void {
