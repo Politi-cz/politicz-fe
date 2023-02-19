@@ -23,7 +23,9 @@ export class AddPartyComponent {
 
       return;
     }
-    this._store.dispatch(new PoliticalParty.CreatePoliticalParty(party)).subscribe(() => this.navigateBack());
+    this._store
+      .dispatch(new PoliticalParty.CreatePoliticalParty(party))
+      .subscribe(() => this.navigateBack());
   }
 
   public navigateBack(): void {

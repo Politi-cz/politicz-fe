@@ -21,10 +21,14 @@ export class SidenavPartiesState {
     return state.parties;
   }
 
-  @Action(SidenavPartiesActions.GetSidenavParties) public getSidenavParties(ctx: StateContext<ISidenavPartiesStateModel>): Observable<IPartySidenavItem[]> {
-    return this._politicalPartiesService.getPartiesForSidenav().pipe(tap((data: IPartySidenavItem[]) => {
-      ctx.setState({parties: [...data]});
-      ctx.dispatch(new Filters.Set({ partyFilterCount: data.length }));
-    }));
+  @Action(SidenavPartiesActions.GetSidenavParties) public getSidenavParties(
+    ctx: StateContext<ISidenavPartiesStateModel>,
+  ): Observable<IPartySidenavItem[]> {
+    return this._politicalPartiesService.getPartiesForSidenav().pipe(
+      tap((data: IPartySidenavItem[]) => {
+        ctx.setState({ parties: [...data] });
+        ctx.dispatch(new Filters.Set({ partyFilterCount: data.length }));
+      }),
+    );
   }
 }

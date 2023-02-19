@@ -58,24 +58,24 @@ export class PoliticalPartyState {
     ctx: StateContext<IPoliticalParty>,
     { payload }: PoliticalParty.CreatePoliticalParty,
   ): Observable<ICreatePoliticalPartyResponse> {
-    return this.politicalPartyService
-      .createPoliticalParty(payload)
-      .pipe(tap((data: ICreatePoliticalPartyResponse) => {
+    return this.politicalPartyService.createPoliticalParty(payload).pipe(
+      tap((data: ICreatePoliticalPartyResponse) => {
         ctx.patchState({ ...data });
         ctx.dispatch(new SidenavPartiesActions.GetSidenavParties());
-      }));
+      }),
+    );
   }
 
   @Action(PoliticalParty.UpdatePoliticalParty) public updatePoliticalParty(
     ctx: StateContext<IPoliticalParty>,
     { payload }: PoliticalParty.UpdatePoliticalParty,
   ): Observable<IPoliticalPartyPolticiansFree> {
-    return this.politicalPartyService
-      .editPoliticalParty(payload)
-      .pipe(tap((data: IPoliticalPartyPolticiansFree) => {
+    return this.politicalPartyService.editPoliticalParty(payload).pipe(
+      tap((data: IPoliticalPartyPolticiansFree) => {
         ctx.patchState({ ...data });
         ctx.dispatch(new SidenavPartiesActions.GetSidenavParties());
-      }));
+      }),
+    );
   }
 
   @Action(PoliticalParty.AddPolitician)
