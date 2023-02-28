@@ -22,7 +22,7 @@ export class PoliticianComponent {
     switch (action.type) {
       case ActionType.EDIT:
         this._router.navigate([
-          '/political-party',
+          '/political-party/detail',
           politicalPartyId,
           'edit-politician',
           this.politician.id,

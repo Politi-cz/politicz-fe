@@ -26,7 +26,6 @@ export class EditPoliticianComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    //Could have used ngxs, but this is much easier in my opinion //TODO look if this couldn't be fixes
     this.politician$ = this._route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         this.politicalPartyId = params.get('id')!;
@@ -45,6 +44,6 @@ export class EditPoliticianComponent implements OnInit {
   }
 
   public navigateBack(): void {
-    this._router.navigate(['/political-party'], { queryParams: { id: this.politicalPartyId } });
+    this._router.navigate(['/political-party/detail/' + this.politicalPartyId]);
   }
 }

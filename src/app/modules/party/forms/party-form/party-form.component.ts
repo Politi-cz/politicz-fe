@@ -59,7 +59,7 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
 
   public addPolitician(): void {
     const politicianForm = this._fb.group<IPoliticianForm>({
-      fullname: this._fb.control('', { nonNullable: true, validators: Validators.required }),
+      fullName: this._fb.control('', { nonNullable: true, validators: Validators.required }),
       birthDate: this._fb.control('', {
         nonNullable: true,
         validators: [Validators.required],

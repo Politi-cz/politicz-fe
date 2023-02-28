@@ -1,7 +1,7 @@
 <form class="form-content" [formGroup]="politicianForm" (ngSubmit)="submit(politicianForm)">
   <mat-form-field class="span-6" appearance="outline">
     <mat-label>{{ 'politician-name' | translate }}</mat-label>
-    <input matInput formControlName="fullname" />
+    <input matInput formControlName="fullName" />
     <mat-error>{{ 'form-required' | translate }}</mat-error>
   </mat-form-field>
   <mat-form-field class="span-6" appearance="outline">

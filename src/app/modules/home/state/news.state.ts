@@ -11,7 +11,6 @@ import { News } from '../action/news.action';
 })
 @Injectable()
 export class NewsState {
-  //TODO refactor, return observable instead of subscribe
   constructor(private newsService: NewsService) {}
 
   @Action(News.GetAll) public getNews(ctx: StateContext<INews[]>): Observable<INews[]> {

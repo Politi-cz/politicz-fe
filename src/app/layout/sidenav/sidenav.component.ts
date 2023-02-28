@@ -58,7 +58,7 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public navigateToPoliticalPartyPage(id: string): void {
-    this.router.navigate(['/political-party/' + id]);
+    this.router.navigate(['/political-party/detail/' + id]);
   }
 
   public toggleSidenav(): void {

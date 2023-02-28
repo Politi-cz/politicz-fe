@@ -13,7 +13,7 @@ export class PoliticianFormComponent extends AbstractFormComponent implements On
   @Input() politician: IPolitician | undefined;
 
   public politicianForm = this._fb.group<IPoliticianForm>({
-    fullname: this._fb.control('', {
+    fullName: this._fb.control('', {
       nonNullable: true,
       validators: [Validators.required],
     }),
@@ -37,7 +37,7 @@ export class PoliticianFormComponent extends AbstractFormComponent implements On
   public ngOnInit(): void {
     if (this.politician) {
       this.politicianForm.patchValue({
-        fullname: this.politician.fullname,
+        fullName: this.politician.fullName,
         birthDate: this.politician.birthDate,
         facebookUrl: this.politician.facebookUrl,
         instagramUrl: this.politician.instagramUrl,

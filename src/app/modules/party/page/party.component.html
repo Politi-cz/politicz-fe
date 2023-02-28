@@ -12,7 +12,7 @@
         </div>
         <div class="party__actions__admin-buttons">
           <button
-            [routerLink]="['/political-party', party.id, 'edit']"
+            [routerLink]="['/political-party/detail', party.id, 'edit']"
             mat-raised-button
             color="primary"
             class="button-add">
@@ -20,7 +20,7 @@
             {{ 'edit-party' | translate }}
           </button>
           <button
-            [routerLink]="['/political-party', party.id, 'add-politician']"
+            [routerLink]="['/political-party/detail', party.id, 'add-politician']"
             mat-raised-button
             color="primary"
             class="button-add">

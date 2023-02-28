@@ -26,6 +26,6 @@ export class AddPoliticianComponent implements OnInit {
   }
 
   public navigateBack(): void {
-    this._router.navigate(['/political-party'], { queryParams: { id: this.politicalPartyId } });
+    this._router.navigate(['/political-party/detail/' + this.politicalPartyId]);
   }
 }

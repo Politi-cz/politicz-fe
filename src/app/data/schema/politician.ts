@@ -2,7 +2,7 @@ import { FormControl } from '@angular/forms';
 
 export interface IPolitician {
   id?: string;
-  fullname: string;
+  fullName: string;
   birthDate: Date;
   profileImageUrl: string;
   instagramUrl?: string;
@@ -11,7 +11,7 @@ export interface IPolitician {
 }
 
 export interface IPoliticianForm {
-  fullname: FormControl<string>;
+  fullName: FormControl<string>;
   birthDate: FormControl<Date | string>;
   profileImageUrl: FormControl<string>;
   facebookUrl: FormControl<string | null>;
@@ -21,7 +21,7 @@ export interface IPoliticianForm {
 
 export interface IPoliticianResponse {
   id: string;
-  fullname: string;
+  fullName: string;
   birthDate: Date;
   profileImageUrl: string;
   instagramUrl?: string;

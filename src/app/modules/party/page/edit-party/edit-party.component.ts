@@ -40,6 +40,6 @@ export class EditPartyComponent implements OnInit, OnDestroy {
   }
 
   public navigateBack(id: string): void {
-    this._router.navigate(['/political-party/' + id]);
+    this._router.navigate(['/political-party/detail/' + id]);
   }
 }

@@ -8,7 +8,7 @@ import { TranslateModule } from '@ngx-translate/core';
 describe('PoliticianFormComponent', () => {
   const politician: IPolitician = {
     birthDate: new Date(),
-    fullname: 'Tomio Okamura',
+    fullName: 'Tomio Okamura',
     profileImageUrl: 'https://profile.cz',
     facebookUrl: 'https://fb.com',
     instagramUrl: 'https://ig.com',
@@ -16,7 +16,7 @@ describe('PoliticianFormComponent', () => {
   };
 
   const emptyPoliticianFormValues = {
-    fullname: '',
+    fullName: '',
     birthDate: '',
     profileImageUrl: '',
     instagramUrl: '',
@@ -82,7 +82,7 @@ describe('PoliticianFormComponent', () => {
 
     jest.spyOn(component.submitEvent, 'emit');
 
-    const fullNameControl = component.politicianForm.get('fullname');
+    const fullNameControl = component.politicianForm.get('fullName');
     const birthDateControl = component.politicianForm.get('birthDateControl');
     const profileImageUrl = component.politicianForm.get('profileImageUrl');
 
