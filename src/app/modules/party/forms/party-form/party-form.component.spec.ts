@@ -1,4 +1,4 @@
-import { IPoliticalParty } from './../../../../data/schema/political-party';
+import { IPoliticalParty } from '../../../../data/schema/political-party';
 import { FormBuilder } from '@angular/forms';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
@@ -9,7 +9,7 @@ describe('PartyFormComponent', () => {
   let fixture: ComponentFixture<PartyFormComponent>;
 
   const mockPoliticalParty: IPoliticalParty = {
-    image: 'ss',
+    imageUrl: 'ss',
     name: 'test',
     id: '5',
     tags: ['brk', 'frk'],
@@ -60,7 +60,7 @@ describe('PartyFormComponent', () => {
 
     const partyControls = component.partyForm.controls;
 
-    expect(partyControls.image.value).toBe(mockPoliticalParty.image);
+    expect(partyControls.imageUrl.value).toBe(mockPoliticalParty.imageUrl);
     expect(partyControls.name.value).toBe(mockPoliticalParty.name);
     expect(partyControls.tags.value).toEqual(expect.arrayContaining(mockPoliticalParty.tags));
   });

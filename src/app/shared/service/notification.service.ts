@@ -23,6 +23,7 @@ export class NotificationService {
     private translate: TranslateService,
   ) {}
 
+  //TODO Show for success actions when create/edit etc...
   public showSuccess(message: string, duration: number = this._duration): void {
     this.zone.run(() => {
       this.snackBar.open(this.translate.instant(message), 'X', {

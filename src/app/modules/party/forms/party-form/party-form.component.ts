@@ -1,6 +1,6 @@
 import { IPoliticianForm } from 'src/app/data/schema/politician';
 import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
-import { IPoliticalParty, IPoliticalPartyForm } from './../../../../data/schema/political-party';
+import { IPoliticalParty, IPoliticalPartyForm } from '../../../../data/schema/political-party';
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractFormComponent } from '../../../../shared/forms/abstractForm';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
@@ -16,7 +16,7 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
 
   public partyForm = this._fb.group<IPoliticalPartyForm>({
     name: this._fb.nonNullable.control('', { validators: Validators.required }),
-    image: this._fb.nonNullable.control('', Validators.required),
+    imageUrl: this._fb.nonNullable.control('', Validators.required),
     tags: this._fb.nonNullable.control([''], Validators.required),
     politicians: this._fb.array<FormGroup<IPoliticianForm>>([]),
   });
@@ -38,7 +38,7 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
 
       this.partyForm.patchValue({
         name: this.party.name,
-        image: this.party.image,
+        imageUrl: this.party.imageUrl,
         tags: [...this.party.tags],
       });
     }

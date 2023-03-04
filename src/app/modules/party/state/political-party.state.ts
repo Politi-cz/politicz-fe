@@ -1,6 +1,6 @@
 import { SidenavPartiesActions } from 'src/app/action/sidenav-parties.action';
-import { IPolitician, IPoliticianResponse } from './../../../data/schema/politician';
-import { NotificationService } from './../../../shared/service/notification.service';
+import { IPolitician, IPoliticianResponse } from '../../../data/schema/politician';
+import { NotificationService } from '../../../shared/service/notification.service';
 import { PoliticalPartiesService } from '../../../data/service/political-parties.service';
 import { Injectable } from '@angular/core';
 import { Selector, State, Action, StateContext } from '@ngxs/store';
@@ -8,16 +8,17 @@ import { PoliticalParty } from '../action/political-party.action';
 import {
   ICreatePoliticalPartyResponse,
   IPoliticalParty,
-  IPoliticalPartyPolticiansFree,
+  IPoliticalPartyPoliticiansFree,
 } from '../../../data/schema/political-party';
 import { tap, Observable } from 'rxjs';
 
+//TODO Delete political party logic
 @State<IPoliticalParty>({
   name: 'PoliticalPartyState',
   defaults: {
     id: '',
     name: 'kokodzina',
-    image: '',
+    imageUrl: '',
     politicians: [],
     tags: [],
   },
@@ -68,9 +69,9 @@ export class PoliticalPartyState {
   @Action(PoliticalParty.UpdatePoliticalParty) public updatePoliticalParty(
     ctx: StateContext<IPoliticalParty>,
     { payload }: PoliticalParty.UpdatePoliticalParty,
-  ): Observable<IPoliticalPartyPolticiansFree> {
+  ): Observable<IPoliticalPartyPoliticiansFree> {
     return this.politicalPartyService.editPoliticalParty(payload).pipe(
-      tap((data: IPoliticalPartyPolticiansFree) => {
+      tap((data: IPoliticalPartyPoliticiansFree) => {
         ctx.patchState({ ...data });
         ctx.dispatch(new SidenavPartiesActions.GetSidenavParties());
       }),
