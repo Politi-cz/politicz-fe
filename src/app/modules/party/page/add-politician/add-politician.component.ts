@@ -1,4 +1,4 @@
-import { IPolitician } from './../../../../data/schema/politician';
+import { IPolitician } from '../../../../data/schema/politician';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
@@ -21,8 +21,9 @@ export class AddPoliticianComponent implements OnInit {
   }
 
   public onSubmit(politician: IPolitician): void {
-    this._store.dispatch(new PoliticalParty.AddPolitician(politician));
-    this.navigateBack();
+    this._store
+      .dispatch(new PoliticalParty.AddPolitician(politician))
+      .subscribe(() => this.navigateBack());
   }
 
   public navigateBack(): void {
