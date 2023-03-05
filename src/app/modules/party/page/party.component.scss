@@ -11,7 +11,6 @@
     letter-spacing: 0.1rem;
     word-spacing: 0.5rem;
     text-transform: uppercase;
-    font-size: bold;
 
     @media only screen and (max-width: $bp-large) {
       line-height: 3.5rem;
@@ -60,7 +59,10 @@
 
   display: grid;
   padding-bottom: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax($card-width, 1fr));
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax($card-width, 1fr)
+  ); //TODO looks bad when 1 or 2 politicians, do better
   gap: 3.3rem;
 
   @media only screen and (max-width: $bp-small) {
