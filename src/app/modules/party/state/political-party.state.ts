@@ -62,6 +62,7 @@ export class PoliticalPartyState {
       tap((data: ICreatePoliticalPartyResponse) => {
         ctx.patchState({ ...data });
         ctx.dispatch(new SidenavPartiesActions.GetSidenavParties());
+        this.notificationService.showSuccess('party-create-success');
       }),
     );
   }
@@ -74,6 +75,7 @@ export class PoliticalPartyState {
       tap((data: IPoliticalPartyPoliticiansFree) => {
         ctx.patchState({ ...data });
         ctx.dispatch(new SidenavPartiesActions.GetSidenavParties());
+        this.notificationService.showSuccess('party-edit-success');
       }),
     );
   }
@@ -85,7 +87,8 @@ export class PoliticalPartyState {
   ): Observable<IPoliticianResponse> {
     return this.politicalPartyService.addPolitician(ctx.getState().id!, payload).pipe(
       tap((politician: IPoliticianResponse) => {
-        return ctx.patchState({ politicians: [...ctx.getState().politicians, politician] });
+        ctx.patchState({ politicians: [...ctx.getState().politicians, politician] });
+        this.notificationService.showSuccess('politician-create-success');
       }),
     );
   }
@@ -111,7 +114,8 @@ export class PoliticalPartyState {
 
         politicians[indexOfEditedPolitician] = { ...politician };
 
-        return ctx.patchState({ politicians: [...politicians] });
+        ctx.patchState({ politicians: [...politicians] });
+        this.notificationService.showSuccess('politician-edit-success');
       }),
     );
   }
@@ -126,7 +130,9 @@ export class PoliticalPartyState {
         const filteredPoliticians = ctx
           .getState()
           .politicians.filter((politician: IPolitician) => politician.id !== payload.id);
+
         ctx.patchState({ politicians: filteredPoliticians });
+        this.notificationService.showSuccess('politician-remove-success');
       }),
     );
   }

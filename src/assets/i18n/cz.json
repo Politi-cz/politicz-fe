@@ -34,5 +34,10 @@
   "party-tag-placeholder": "Slouží pro zlepšení filtrování",
   "chips-hint": "Zadávání slova ukončete zmáčknutím klávesy ENTER nebo znakem čárky",
   "chips-required": "Povinný údaj - musí obsahovat alespoň 1 slovo",
-  "error-politician-required": "Pro vytvoření politické strany přidejte alespoň 1 politika"
+  "error-politician-required": "Pro vytvoření politické strany přidejte alespoň 1 politika",
+  "party-create-success": "Politická strana byla úspěšně vytvořena",
+  "party-edit-success": "Politická strana byla úspěšně upravena",
+  "politician-create-success": "Politik byl úspěšně vytvořen",
+  "politician-edit-success": "Politik byl úspěšně upraven",
+  "politician-remove-success": "Politik byl odstraněn"
 }
