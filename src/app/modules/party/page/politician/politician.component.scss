@@ -1,7 +1,7 @@
 @import '../../../../../styles/variables.scss';
 
 .politician-card {
-  width: $card-width;
+  max-width: 30rem;
 
   &__image {
     display: block !important;

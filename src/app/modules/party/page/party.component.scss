@@ -59,10 +59,7 @@
 
   display: grid;
   padding-bottom: 2rem;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax($card-width, 1fr)
-  ); //TODO looks bad when 1 or 2 politicians, do better
+  grid-template-columns: repeat(auto-fit, minmax($card-width, 1fr));
   gap: 3.3rem;
 
   @media only screen and (max-width: $bp-small) {
