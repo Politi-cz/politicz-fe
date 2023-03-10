@@ -12,7 +12,6 @@ import {
 } from '../../../data/schema/political-party';
 import { tap, Observable } from 'rxjs';
 
-//TODO Delete political party logic
 @State<IPoliticalParty>({
   name: 'PoliticalPartyState',
   defaults: {
@@ -76,6 +75,18 @@ export class PoliticalPartyState {
         ctx.patchState({ ...data });
         ctx.dispatch(new SidenavPartiesActions.GetSidenavParties());
         this.notificationService.showSuccess('party-edit-success');
+      }),
+    );
+  }
+
+  @Action(PoliticalParty.RemovePoliticalParty) public removePoliticalParty(
+    ctx: StateContext<IPoliticalParty>,
+    { id }: PoliticalParty.RemovePoliticalParty,
+  ): Observable<void> {
+    return this.politicalPartyService.removePoliticalParty(id).pipe(
+      tap(() => {
+        ctx.dispatch(new SidenavPartiesActions.GetSidenavParties());
+        this.notificationService.showSuccess('party-remove-success');
       }),
     );
   }

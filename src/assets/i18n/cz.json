@@ -28,6 +28,7 @@
   "year-format": "DD.MM.YYYY",
   "admin-party-add": "Přidat politickou stranu",
   "edit-party": "Upravit stranu",
+  "remove-party": "Odstranit stranu",
   "party-name": "Název politické strany",
   "party-image": "Odkaz na logo politické strany",
   "party-tags": "Tagy politické strany",
@@ -37,6 +38,7 @@
   "error-politician-required": "Pro vytvoření politické strany přidejte alespoň 1 politika",
   "party-create-success": "Politická strana byla úspěšně vytvořena",
   "party-edit-success": "Politická strana byla úspěšně upravena",
+  "party-remove-success": "Politická strana byla odstraněna",
   "politician-create-success": "Politik byl úspěšně vytvořen",
   "politician-edit-success": "Politik byl úspěšně upraven",
   "politician-remove-success": "Politik byl odstraněn"

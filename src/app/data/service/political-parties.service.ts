@@ -36,6 +36,10 @@ export class PoliticalPartiesService {
     );
   }
 
+  public removePoliticalParty(id: string): Observable<void> {
+    return this.http.delete<void>(`${environment.apiUrl}/political-parties/${id}`);
+  }
+
   public editPoliticalParty(
     party: IPoliticalPartyPoliticiansFree,
   ): Observable<IPoliticalPartyPoliticiansFree> {

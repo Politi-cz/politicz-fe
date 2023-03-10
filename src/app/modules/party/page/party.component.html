@@ -19,6 +19,10 @@
             <mat-icon>edit</mat-icon>
             {{ 'edit-party' | translate }}
           </button>
+          <button mat-raised-button color="primary" class="button-add" (click)="removeParty()">
+            <mat-icon>delete_forever</mat-icon>
+            {{ 'remove-party' | translate }}
+          </button>
           <button
             [routerLink]="['/political-party/detail', party.id, 'add-politician']"
             mat-raised-button

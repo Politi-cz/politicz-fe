@@ -28,6 +28,7 @@
   "year-format": "DD/MM/YYYY",
   "admin-party-add": "Add political party",
   "edit-party": "Edit party",
+  "remove-party": "Remove party",
   "party-name": "Political party name",
   "party-image": "Link to political party logo/image",
   "party-tags": "Political party tags",
@@ -37,6 +38,7 @@
   "error-politician-required": "To create a political party, add at least 1 politician",
   "party-create-success": "Political party was successfully created",
   "party-edit-success": "Political party was Political party was successfully created upravena",
+  "party-remove-success": "Political party was removed",
   "politician-create-success": "Politician was successfully created",
   "politician-edit-success": "Politician was successfully edited",
   "politician-remove-success": "Politician was successfully removed"

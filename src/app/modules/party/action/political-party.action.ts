@@ -23,6 +23,12 @@ export namespace PoliticalParty {
     constructor(public payload: IPoliticalPartyPoliticiansFree) {}
   }
 
+  export class RemovePoliticalParty {
+    static readonly type = '[PoliticalParty] Remove political party';
+
+    constructor(public id: string) {}
+  }
+
   export class AddPolitician {
     static readonly type = '[PoliticalParty] Add politician';
 
