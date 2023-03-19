@@ -2,11 +2,15 @@
   <mat-card appearance="outlined" class="politician-card mat-elevation-z2">
     <app-admin-quick-menu-actions
       (actionClickEvt)="handleActionEvent($event)"></app-admin-quick-menu-actions>
-    <mat-card-header>
+    <mat-card-header class="politician-card__header">
       <mat-card-title>{{ politician.fullName }}</mat-card-title>
       <mat-card-subtitle>{{ politician.birthDate | dateFormatter }}</mat-card-subtitle>
     </mat-card-header>
-    <img class="politician-card__image" mat-card-image src="assets/man-user-svgrepo-com.svg" />
+    <img
+      alt="news image"
+      class="politician-card__image"
+      mat-card-image
+      src="assets/man-user-svgrepo-com.svg" />
     <mat-card-content class="politician-card__media">
       <a *ngIf="politician.facebookUrl" [href]="politician.facebookUrl" target="_blank">
         <img

@@ -1,12 +1,9 @@
-import { PoliticalParty } from '../../action/political-party.action';
-import { PoliticalPartyState } from '../../state/political-party.state';
+import { PoliticalParty } from '../../../../action/political-party.action';
+import { PoliticalPartyState } from '../../../../state/political-party.state';
 import { Store } from '@ngxs/store';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
-import {
-  IPoliticalParty,
-  IPoliticalPartyPoliticiansFree,
-} from '../../../../data/schema/political-party';
+import { IPoliticalParty } from '../../../../data/schema/political-party';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
@@ -32,11 +29,17 @@ export class EditPartyComponent implements OnInit, OnDestroy {
     this.destroy$.next();
   }
 
-  public onSubmit(party: IPoliticalPartyPoliticiansFree): void {
-    const currentPoliticalParty = this._store.selectSnapshot(PoliticalPartyState);
+  public onSubmit(party: IPoliticalParty): void {
+    const currentPoliticalParty = this._store.selectSnapshot(PoliticalPartyState.getPoliticalParty);
     this._store
-      .dispatch(new PoliticalParty.UpdatePoliticalParty({ ...party, id: currentPoliticalParty.id }))
-      .subscribe(() => this.navigateBack(currentPoliticalParty.id));
+      .dispatch(
+        new PoliticalParty.UpdatePoliticalParty({
+          ...party,
+          id: currentPoliticalParty.id,
+          politicians: [...currentPoliticalParty.politicians],
+        }),
+      )
+      .subscribe(() => this.navigateBack(currentPoliticalParty.id!));
   }
 
   public navigateBack(id: string): void {

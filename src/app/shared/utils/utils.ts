@@ -20,4 +20,8 @@ export class Utils {
   public static formatDate(date: string, format: string): string {
     return dayjs(date).format(format);
   }
+
+  public static generateGuid(): string {
+    return crypto.randomUUID();
+  }
 }

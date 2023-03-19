@@ -6,7 +6,6 @@ export const environment = {
   production: false,
 
   assetsPath: 'assets/i18n/',
-  assetsPartyLogosPath: 'assets/party-logos/',
 
   apiUrl: 'http://localhost:5000/api',
 };

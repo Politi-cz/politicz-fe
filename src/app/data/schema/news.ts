@@ -4,3 +4,8 @@ export interface INews {
   content: string;
   publishDate?: Date;
 }
+
+export interface INewsState {
+  news: INews[];
+  selectedNews: INews;
+}

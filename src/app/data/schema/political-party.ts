@@ -9,6 +9,11 @@ export interface IPoliticalParty {
   politicians: IPolitician[];
 }
 
+export interface IPoliticalPartyState {
+  selectedParty: IPoliticalParty;
+  parties: IPoliticalParty[];
+}
+
 export interface IPoliticalPartyPoliticiansFree {
   id?: string;
   name: string;

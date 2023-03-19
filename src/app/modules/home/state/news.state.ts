@@ -1,30 +1,31 @@
-import { tap, Observable } from 'rxjs';
-import { NewsService } from '../../../data/service/news.service';
-import { INews } from '../../../data/schema/news';
-import { Action, State, StateContext } from '@ngxs/store';
+import { INews, INewsState } from '../../../data/schema/news';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { Injectable } from '@angular/core';
 import { News } from '../action/news.action';
+import { NewsStateDefaultData } from '../../../../assets/news-mock-data';
 
-@State<INews[]>({
+@State<INewsState>({
   name: 'newsState',
-  defaults: [],
+  defaults: NewsStateDefaultData,
 })
 @Injectable()
 export class NewsState {
-  constructor(private newsService: NewsService) {}
-
-  @Action(News.GetAll) public getNews(ctx: StateContext<INews[]>): Observable<INews[]> {
-    return this.newsService.getAllNews().pipe(tap((news: INews[]) => ctx.setState(news)));
+  @Selector()
+  public static getSelectedNews(state: INewsState): INews {
+    return state.selectedNews;
   }
 
-  @Action(News.Remove) public removeNews(
-    ctx: StateContext<INews[]>,
-    { payload }: News.Remove,
-  ): Observable<void> {
-    return this.newsService
-      .deleteNews(payload.id)
-      .pipe(
-        tap(() => ctx.setState(ctx.getState().filter((news: INews) => news.id !== payload.id))),
-      );
+  @Selector()
+  public static getNews(state: INewsState): INews[] {
+    return state.news;
+  }
+
+  @Action(News.Get)
+  public getNews(ctx: StateContext<INewsState>, { id }: News.Get): void {
+    const selectedNews = ctx.getState().news.find((news: INews) => news.id === id);
+
+    if (selectedNews) {
+      ctx.patchState({ selectedNews: selectedNews });
+    }
   }
 }

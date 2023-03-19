@@ -1,8 +1,5 @@
-import {
-  IPoliticalParty,
-  IPoliticalPartyPoliticiansFree,
-} from '../../../data/schema/political-party';
-import { IPolitician } from '../../../data/schema/politician';
+import { IPoliticalParty } from '../data/schema/political-party';
+import { IPolitician } from '../data/schema/politician';
 
 export namespace PoliticalParty {
   export class GetPoliticalParty {
@@ -12,15 +9,15 @@ export namespace PoliticalParty {
   }
 
   export class CreatePoliticalParty {
-    static readonly type = '[Politicalparty] Create political party';
+    static readonly type = '[PoliticalParty] Create political party';
 
     constructor(public payload: IPoliticalParty) {}
   }
 
   export class UpdatePoliticalParty {
-    static readonly type = '[Politicalparty] Update political party';
+    static readonly type = '[PoliticalParty] Update political party';
 
-    constructor(public payload: IPoliticalPartyPoliticiansFree) {}
+    constructor(public payload: IPoliticalParty) {}
   }
 
   export class RemovePoliticalParty {

@@ -1,10 +1,10 @@
-import { PoliticalPartyState } from './../../state/political-party.state';
+import { PoliticalPartyState } from '../../../../state/political-party.state';
 import { Router } from '@angular/router';
-import { IPolitician } from './../../../../data/schema/politician';
+import { IPolitician } from '../../../../data/schema/politician';
 import { Component, Input } from '@angular/core';
 import { ActionType, QuickMenuAction } from 'src/app/data/schema/quick-menu-action';
 import { Store } from '@ngxs/store';
-import { PoliticalParty } from '../../action/political-party.action';
+import { PoliticalParty } from '../../../../action/political-party.action';
 
 @Component({
   selector: 'app-politician',

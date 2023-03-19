@@ -1,12 +1,12 @@
 import { IPolitician } from '../../../data/schema/politician';
-import { PoliticalPartyState } from '../state/political-party.state';
+import { PoliticalPartyState } from '../../../state/political-party.state';
 import { FiltersState } from '../../../state/filters.state';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { IPoliticalParty } from '../../../data/schema/political-party';
-import { PoliticalParty } from '../action/political-party.action';
+import { PoliticalParty } from '../../../action/political-party.action';
 
 @Component({
   selector: 'app-party',
@@ -16,7 +16,7 @@ import { PoliticalParty } from '../action/political-party.action';
 export class PartyComponent implements OnInit {
   @Select(FiltersState.getPoliticianFilterCount) politiciansCount: Observable<number>;
 
-  @Select(PoliticalPartyState) politicalParty$: Observable<IPoliticalParty>;
+  @Select(PoliticalPartyState.getPoliticalParty) politicalParty$: Observable<IPoliticalParty>;
 
   @Select(PoliticalPartyState.getPoliticians) politicians$: Observable<IPolitician[]>;
 

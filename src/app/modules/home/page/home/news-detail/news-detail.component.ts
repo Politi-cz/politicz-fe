@@ -1,8 +1,10 @@
-import { NewsService } from './../../../../../data/service/news.service';
-import { INews } from './../../../../../data/schema/news';
-import { Observable, switchMap } from 'rxjs';
+import { INews } from '../../../../../data/schema/news';
+import { Observable } from 'rxjs';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Select, Store } from '@ngxs/store';
+import { News } from '../../../action/news.action';
+import { NewsState } from '../../../state/news.state';
 
 @Component({
   selector: 'app-news-detail',
@@ -10,13 +12,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./news-detail.component.scss'],
 })
 export class NewsDetailComponent implements OnInit {
-  newsDetail$: Observable<INews>;
+  @Select(NewsState.getSelectedNews) newsDetail$: Observable<INews>;
 
-  constructor(private route: ActivatedRoute, private newsService: NewsService) {}
+  constructor(private route: ActivatedRoute, private store: Store) {}
 
   public ngOnInit(): void {
-    this.newsDetail$ = this.route.queryParamMap.pipe(
-      switchMap((params: ParamMap) => this.newsService.getNewsById(params.get('id')!)),
+    this.route.queryParamMap.subscribe((params: ParamMap) =>
+      this.store.dispatch(new News.Get(params.get('id')!)),
     );
   }
 }

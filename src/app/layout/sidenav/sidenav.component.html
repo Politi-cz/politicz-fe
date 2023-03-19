@@ -20,7 +20,7 @@
     </div>
     <mat-nav-list>
       <mat-list-item
-        (click)="navigateToPoliticalPartyPage(party.id)"
+        (click)="navigateToPoliticalPartyPage(party.id!)"
         *ngFor="let party of (sidenavParties$ | async)! | filterParties : input.value">
         <div class="party">
           <div class="party__logo-container">
@@ -33,6 +33,11 @@
         <span class="no-result">{{ 'no-result' | translate }}</span>
       </mat-list-item>
     </mat-nav-list>
+    <div class="add-party">
+      <button mat-mini-fab color="primary" routerLink="/political-party/add">
+        <span>+</span>
+      </button>
+    </div>
 
     <span
       (click)="toggleSidenav()"

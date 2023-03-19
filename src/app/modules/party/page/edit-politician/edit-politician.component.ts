@@ -1,10 +1,11 @@
 import { PoliticalPartiesService } from '../../../../data/service/political-parties.service';
 import { IPolitician } from '../../../../data/schema/politician';
-import { Observable, switchMap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { PoliticalParty } from '../../action/political-party.action';
+import { PoliticalParty } from '../../../../action/political-party.action';
+import { PoliticalPartyState } from '../../../../state/political-party.state';
 
 @Component({
   selector: 'app-edit-politician',
@@ -26,15 +27,16 @@ export class EditPoliticianComponent implements OnInit {
   ) {}
 
   public ngOnInit(): void {
-    this.politician$ = this._route.paramMap.pipe(
-      switchMap((params: ParamMap) => {
-        this.politicalPartyId = params.get('id')!;
-        this.politicianId = params.get('politicianId')!;
-        this._store.dispatch(new PoliticalParty.GetPoliticalParty(this.politicalPartyId));
+    this._route.paramMap.subscribe((params: ParamMap) => {
+      this.politicalPartyId = params.get('id')!;
+      this.politicianId = params.get('politicianId')!;
 
-        return this._politicalPartiesService.getPolitician(this.politicianId);
-      }),
-    );
+      this._store.dispatch(new PoliticalParty.GetPoliticalParty(this.politicalPartyId));
+
+      this.politician$ = this._store.select(
+        PoliticalPartyState.getPoliticianById(this.politicianId),
+      );
+    });
   }
 
   public onSubmit(politician: IPolitician): void {

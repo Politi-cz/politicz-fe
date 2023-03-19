@@ -11,19 +11,19 @@
     <a class="navbar__politi" routerLink="'/home'">Politi.cz</a>
   </div>
   <div class="navbar__mid">
-    <div class="flag-container">
-      <div class="flag flag--white"></div>
-      <div class="flag flag--red"></div>
-      <div class="flag flag--blue"></div>
-    </div>
+    <!--    <div class="flag-container">-->
+    <!--      <div class="flag flag&#45;&#45;white"></div>-->
+    <!--      <div class="flag flag&#45;&#45;red"></div>-->
+    <!--      <div class="flag flag&#45;&#45;blue"></div>-->
+    <!--    </div>-->
   </div>
   <button class="menu" mat-button [matMenuTriggerFor]="menu">
-    <span>Pepík</span>
+    <span>User-1</span>
     <mat-icon>account_circle</mat-icon>
   </button>
 </mat-toolbar>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>{{ 'menu-settings' | translate }}</button>
   <button mat-menu-item routerLink="/admin">{{ 'menu-admin' | translate }}</button>
-  <button mat-menu-item>{{ 'menu-logout' | translate }}</button>
+  <button [disabled]="true" mat-menu-item>{{ 'menu-settings' | translate }}</button>
+  <button [disabled]="true" mat-menu-item>{{ 'menu-logout' | translate }}</button>
 </mat-menu>

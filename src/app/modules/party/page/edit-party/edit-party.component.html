@@ -1,6 +1,7 @@
 <section class="container">
   <div class="container__content">
     <ng-container *ngIf="politicalParty$ | async as politicalParty">
+      <h1>{{ 'admin-party-edit' | translate }}</h1>
       <app-party-form
         *ngIf="politicalParty.id"
         [party]="politicalParty"

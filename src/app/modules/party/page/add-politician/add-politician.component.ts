@@ -2,7 +2,7 @@ import { IPolitician } from '../../../../data/schema/politician';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { PoliticalParty } from '../../action/political-party.action';
+import { PoliticalParty } from '../../../../action/political-party.action';
 
 @Component({
   selector: 'app-add-politician',
