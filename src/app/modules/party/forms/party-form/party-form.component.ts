@@ -58,6 +58,7 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
   }
 
   public addPolitician(): void {
+    //TODO přeložit nadpis politika a otevřít form pro 1. politika. Dále přidat nadpisy pro add/edit party
     const politicianForm = this._fb.group<IPoliticianForm>({
       fullName: this._fb.control('', { nonNullable: true, validators: Validators.required }),
       birthDate: this._fb.control('', {

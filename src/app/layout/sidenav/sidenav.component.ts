@@ -23,6 +23,7 @@ import { IPartySidenavItem } from 'src/app/data/schema/political-party';
   styleUrls: ['./sidenav.component.scss'],
 })
 export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
+  //TODO přidal plusko pro přidání strany.
   @ViewChild('snav') sidenav!: MatSidenav;
 
   @Select(FiltersState.getPartyFilterCount) partiesCount: Observable<number>;
