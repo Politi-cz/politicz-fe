@@ -99,6 +99,6 @@ const materialModules = [
 })
 export class MaterialModule {
   constructor(private _dateAdapter: DateAdapter<any>) {
-    this._dateAdapter.setLocale('cs');
+    this._dateAdapter.setLocale('en');
   }
 }

@@ -150,6 +150,7 @@ export class PoliticalPartyState {
       parties[partyPosition].politicians[indexOfEditedPolitician] = { ...payload };
 
       ctx.patchState({ parties: parties });
+      this.notificationService.showSuccess('politician-edit-success');
     }
   }
 

@@ -36,7 +36,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient],
       },
-      defaultLanguage: 'cz',
+      defaultLanguage: 'en',
     }),
     NgxsModule.forRoot([SpinnerState, FiltersState, PoliticalPartyState]),
   ],
