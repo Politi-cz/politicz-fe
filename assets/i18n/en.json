@@ -39,7 +39,7 @@
   "chips-required": "Required field - must contain at least 1 word",
   "error-politician-required": "To create a political party, add at least 1 politician",
   "party-create-success": "Political party was successfully created",
-  "party-edit-success": "Political party was Political party was successfully created upravena",
+  "party-edit-success": "Political party was successfully edited",
   "party-remove-success": "Political party was removed",
   "politician-create-success": "Politician was successfully created",
   "politician-edit-success": "Politician was successfully edited",
