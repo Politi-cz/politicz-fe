@@ -4,7 +4,7 @@ export const NewsStateDefaultData: INewsState = {
   news: [
     {
       id: '0643c0fe79944a0ba0fcc33b9546cab9',
-      heading: 'BBC',
+      heading: 'Silicon Valley Bank files for Bankruptcy',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus leo in laoreet consectetur. Proin elementum eu arcu et imperdiet. Ut et mi scelerisque sem eleifend pretium non id ipsum. Nunc lectus enim, placerat tincidunt pellentesque eget, tincidunt et erat. Aenean nec dignissim arcu. Integer ultrices ante eget tincidunt rhoncus. Morbi consectetur consequat mauris ut sollicitudin. In hac habitasse platea dictumst. Curabitur aliquet dolor tortor, eget bibendum justo interdum vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dolor dolor, tristique eget cursus sed, euismod id ligula. Nulla feugiat nibh et est rhoncus, ac tincidunt leo consequat.\n' +
         '<br><br>' +
@@ -22,7 +22,7 @@ export const NewsStateDefaultData: INewsState = {
     },
     {
       id: '9b9284633cd049e484a6eb7bed7c5097',
-      heading: 'Are you fat?',
+      heading: 'Bitcoin as official currency',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus leo in laoreet consectetur. Proin elementum eu arcu et imperdiet. Ut et mi scelerisque sem eleifend pretium non id ipsum. Nunc lectus enim, placerat tincidunt pellentesque eget, tincidunt et erat. Aenean nec dignissim arcu. Integer ultrices ante eget tincidunt rhoncus. Morbi consectetur consequat mauris ut sollicitudin. In hac habitasse platea dictumst. Curabitur aliquet dolor tortor, eget bibendum justo interdum vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dolor dolor, tristique eget cursus sed, euismod id ligula. Nulla feugiat nibh et est rhoncus, ac tincidunt leo consequat.\n' +
         '<br><br>' +
@@ -32,7 +32,7 @@ export const NewsStateDefaultData: INewsState = {
     },
     {
       id: '4b35151c7e864445b27f73bbe57b0957',
-      heading: 'Is Andrew Tate threat to society?',
+      heading: 'Should be Tik Tok banned??',
       content:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed faucibus leo in laoreet consectetur. Proin elementum eu arcu et imperdiet. Ut et mi scelerisque sem eleifend pretium non id ipsum. Nunc lectus enim, placerat tincidunt pellentesque eget, tincidunt et erat. Aenean nec dignissim arcu. Integer ultrices ante eget tincidunt rhoncus. Morbi consectetur consequat mauris ut sollicitudin. In hac habitasse platea dictumst. Curabitur aliquet dolor tortor, eget bibendum justo interdum vel. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer dolor dolor, tristique eget cursus sed, euismod id ligula. Nulla feugiat nibh et est rhoncus, ac tincidunt leo consequat.\n' +
         '<br><br>' +
