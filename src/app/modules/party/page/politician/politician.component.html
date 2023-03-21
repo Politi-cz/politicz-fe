@@ -2,12 +2,12 @@
   <mat-card appearance="outlined" class="politician-card mat-elevation-z2">
     <app-admin-quick-menu-actions
       (actionClickEvt)="handleActionEvent($event)"></app-admin-quick-menu-actions>
-    <mat-card-header class="politician-card__header">
-      <mat-card-title>{{ politician.fullName }}</mat-card-title>
+    <mat-card-header>
+      <mat-card-title class="politician-card__title">{{ politician.fullName }}</mat-card-title>
       <mat-card-subtitle>{{ politician.birthDate | dateFormatter }}</mat-card-subtitle>
     </mat-card-header>
     <img
-      alt="news image"
+      alt="politician_image"
       class="politician-card__image"
       mat-card-image
       src="assets/man-user-svgrepo-com.svg" />

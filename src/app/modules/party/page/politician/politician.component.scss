@@ -3,6 +3,10 @@
 .politician-card {
   max-width: 30rem;
 
+  &__title {
+    margin-right: 3rem;
+  }
+
   &__image {
     display: block !important;
     max-height: 15rem !important;
