@@ -9,7 +9,8 @@
 
   &__image {
     display: block !important;
-    max-height: 15rem !important;
+    height: 200px !important;
+    object-fit: cover;
   }
 
   &__media {
