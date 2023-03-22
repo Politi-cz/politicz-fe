@@ -43,7 +43,7 @@ mat-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  right: 0px;
+  right: 0;
   top: 50%;
   width: 3rem;
   height: 4rem;
@@ -59,4 +59,13 @@ mat-icon {
 
 .hidden {
   display: none;
+}
+
+.add-party {
+  display: flex;
+  justify-content: center;
+
+  span {
+    font-size: 2rem;
+  }
 }
