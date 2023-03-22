@@ -8,7 +8,6 @@ import { Component, EventEmitter, Output } from '@angular/core';
 })
 export class AdminQuickMenuActionsComponent {
   @Output() actionClickEvt = new EventEmitter<QuickMenuAction>();
-  //TODO vyřešit aby text nepřetékal
 
   readonly menuActions: QuickMenuAction[] = [
     { icon: 'edit', label: 'menu-action-edit', type: ActionType.EDIT },
