@@ -10,7 +10,9 @@
       alt="politician_image"
       class="politician-card__image"
       mat-card-image
-      src="assets/man-user-svgrepo-com.svg" />
+      [src]="
+        politician.profileImageUrl ? politician.profileImageUrl : 'assets/man-user-svgrepo-com.svg'
+      " />
     <mat-card-content class="politician-card__media">
       <a *ngIf="politician.facebookUrl" [href]="politician.facebookUrl" target="_blank">
         <img
