@@ -32,9 +32,11 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
   }
 
   public ngOnInit(): void {
+    this.addPolitician(); //Start politicians formArray with 1 politician
+
     if (this.party) {
       this.partyForm.removeControl('politicians');
-      this.tags = [...this.party.tags]; //If user didn't triggers blur event in mat-chips, the latest values are not added.
+      this.tags = [...this.party.tags]; //If user didn't trigger blur event in mat-chips, the latest values are not added.
 
       this.partyForm.patchValue({
         name: this.party.name,
