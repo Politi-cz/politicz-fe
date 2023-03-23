@@ -18,7 +18,7 @@ describe('PoliticianFormComponent', () => {
   const emptyPoliticianFormValues = {
     fullName: '',
     birthDate: '',
-    profileImageUrl: '',
+    imageUrl: '',
     instagramUrl: '',
     twitterUrl: '',
     facebookUrl: '',
@@ -84,10 +84,10 @@ describe('PoliticianFormComponent', () => {
 
     const fullNameControl = component.politicianForm.get('fullName');
     const birthDateControl = component.politicianForm.get('birthDateControl');
-    const profileImageUrl = component.politicianForm.get('profileImageUrl');
+    const imageUrl = component.politicianForm.get('imageUrl');
 
     fullNameControl?.setValue('Karel Novak');
-    profileImageUrl?.setValue('https://google.com');
+    imageUrl?.setValue('https://google.com');
 
     fixture.detectChanges();
 
