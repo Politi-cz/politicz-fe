@@ -64,7 +64,7 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
         nonNullable: true,
         validators: [Validators.required],
       }),
-      profileImageUrl: this._fb.control('', {
+      imageUrl: this._fb.control('', {
         nonNullable: true,
         validators: [Validators.required],
       }),

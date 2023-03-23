@@ -1,6 +1,6 @@
-import { IPoliticianForm } from './../../../../data/schema/politician';
+import { IPoliticianForm } from '../../../../data/schema/politician';
 import { AbstractFormComponent } from '../../../../shared/forms/abstractForm';
-import { IPolitician } from './../../../../data/schema/politician';
+import { IPolitician } from '../../../../data/schema/politician';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 
@@ -21,7 +21,7 @@ export class PoliticianFormComponent extends AbstractFormComponent implements On
       nonNullable: true,
       validators: [Validators.required],
     }),
-    profileImageUrl: this._fb.control('', {
+    imageUrl: this._fb.control('', {
       nonNullable: true,
       validators: [Validators.required],
     }),
@@ -41,7 +41,7 @@ export class PoliticianFormComponent extends AbstractFormComponent implements On
         birthDate: this.politician.birthDate,
         facebookUrl: this.politician.facebookUrl,
         instagramUrl: this.politician.instagramUrl,
-        profileImageUrl: this.politician.profileImageUrl,
+        imageUrl: this.politician.imageUrl,
         twitterUrl: this.politician.twitterUrl,
       });
     }

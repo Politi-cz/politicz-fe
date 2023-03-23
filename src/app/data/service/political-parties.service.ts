@@ -45,7 +45,7 @@ export class PoliticalPartiesService {
   ): Observable<IPoliticalPartyPoliticiansFree> {
     return this.http.put<IPoliticalPartyPoliticiansFree>(
       `${environment.apiUrl}/political-parties/${party.id}`,
-      party,
+      { ...party, politicians: [] },
     );
   }
 
@@ -73,6 +73,6 @@ export class PoliticalPartiesService {
   }
 
   public removePolitician(id: string): Observable<void> {
-    return this.http.delete<void>(`${environment.apiUrl}/political-parties/${id}`);
+    return this.http.delete<void>(`${environment.apiUrl}/political-parties/politician/${id}`);
   }
 }

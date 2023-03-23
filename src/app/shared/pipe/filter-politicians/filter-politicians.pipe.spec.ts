@@ -1,4 +1,4 @@
-import { IPolitician } from './../../../data/schema/politician';
+import { IPolitician } from '../../../data/schema/politician';
 import { FilterPoliticiansPipe } from './filter-politicians.pipe';
 
 describe('FilterPoliticians', () => {
@@ -12,19 +12,19 @@ describe('FilterPoliticians', () => {
     {
       id: '1',
       fullName: 'Karel Kokos',
-      profileImageUrl: 'kks',
+      imageUrl: 'kks',
       birthDate: new Date(),
     },
     {
       id: '2',
       fullName: 'Karel Topol',
-      profileImageUrl: 'kks',
+      imageUrl: 'kks',
       birthDate: new Date(),
     },
     {
       id: '3',
       fullName: 'Prokop Černý',
-      profileImageUrl: 'kks',
+      imageUrl: 'kks',
       birthDate: new Date(),
     },
   ];

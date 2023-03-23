@@ -17,7 +17,7 @@ describe('PartyFormComponent', () => {
       {
         birthDate: new Date(),
         fullName: 'karel',
-        profileImageUrl: 'ss',
+        imageUrl: 'ss',
         facebookUrl: 'dsds',
         id: '5',
         instagramUrl: 'dasdas',
