@@ -5,6 +5,9 @@ import { Component, Input } from '@angular/core';
 import { ActionType, QuickMenuAction } from 'src/app/data/schema/quick-menu-action';
 import { Store } from '@ngxs/store';
 import { PoliticalParty } from '../../../../action/political-party.action';
+import { IConfirmDialogData } from '../../../../data/schema/dialog';
+import { ConfirmDialogComponent } from '../../../../shared/component/confirm-dialog/confirm-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-politician',
@@ -14,7 +17,7 @@ import { PoliticalParty } from '../../../../action/political-party.action';
 export class PoliticianComponent {
   @Input() politician: IPolitician;
 
-  constructor(private _store: Store, private _router: Router) {}
+  constructor(private _store: Store, private _router: Router, private _dialog: MatDialog) {}
 
   public handleActionEvent(action: QuickMenuAction): void {
     const politicalPartyId = this._store.selectSnapshot(PoliticalPartyState.getPoliticalPartyId);
@@ -29,8 +32,26 @@ export class PoliticianComponent {
         ]);
         break;
       case ActionType.DELETE:
-        this._store.dispatch(new PoliticalParty.RemovePolitician(this.politician));
+        this.openDialogAndRemovePolitician();
         break;
     }
+  }
+
+  private openDialogAndRemovePolitician() {
+    const dialogData: IConfirmDialogData = {
+      title: 'dialog-remove',
+      content: 'remove-politician-content',
+      confirmButtonText: 'remove-politician',
+      closeButtonText: 'dialog-action-cancel',
+    };
+    const dialogRef = this._dialog.open(ConfirmDialogComponent, {
+      data: dialogData,
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this._store.dispatch(new PoliticalParty.RemovePolitician(this.politician));
+      }
+    });
   }
 }
