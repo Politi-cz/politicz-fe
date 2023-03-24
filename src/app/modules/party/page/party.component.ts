@@ -7,6 +7,9 @@ import { Select, Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
 import { IPoliticalParty } from '../../../data/schema/political-party';
 import { PoliticalParty } from '../action/political-party.action';
+import { ConfirmDialogComponent } from '../../../shared/component/confirm-dialog/confirm-dialog.component';
+import { IConfirmDialogData } from '../../../data/schema/dialog';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-party',
@@ -20,7 +23,12 @@ export class PartyComponent implements OnInit {
 
   @Select(PoliticalPartyState.getPoliticians) politicians$: Observable<IPolitician[]>;
 
-  constructor(private route: ActivatedRoute, private store: Store, private _router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private store: Store,
+    private _router: Router,
+    private dialog: MatDialog,
+  ) {}
 
   public ngOnInit(): void {
     this.route.paramMap.subscribe((params: ParamMap) => {
@@ -28,8 +36,25 @@ export class PartyComponent implements OnInit {
     });
   }
 
-  //TODO Add dialog for remove
-  public removeParty(): void {
+  public openDialogAndRemoveParty(): void {
+    const dialogData: IConfirmDialogData = {
+      title: 'dialog-remove',
+      content: 'remove-party-content',
+      confirmButtonText: 'remove-party',
+      closeButtonText: 'dialog-action-cancel',
+    };
+    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+      data: dialogData,
+    });
+
+    dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this.removeParty();
+      }
+    });
+  }
+
+  private removeParty(): void {
     const partyId = this.store.selectSnapshot(PoliticalPartyState.getPoliticalPartyId);
 
     if (partyId) {

@@ -31,6 +31,9 @@
   "admin-party-edit": "Upravit politickou stranu",
   "edit-party": "Upravit stranu",
   "remove-party": "Odstranit stranu",
+  "remove-party-content": "Opravdu chcete odstranit politickou stranu?",
+  "remove-politician": "Odstranit politika",
+  "remove-politician-content": "Opravdu chcete odstranit politika?",
   "party-name": "Název politické strany",
   "party-image": "Odkaz na logo politické strany",
   "party-tags": "Tagy politické strany",
@@ -43,5 +46,7 @@
   "party-remove-success": "Politická strana byla odstraněna",
   "politician-create-success": "Politik byl úspěšně vytvořen",
   "politician-edit-success": "Politik byl úspěšně upraven",
-  "politician-remove-success": "Politik byl odstraněn"
+  "politician-remove-success": "Politik byl odstraněn",
+  "dialog-remove": "Odstranit",
+  "dialog-action-cancel": "Zrušit"
 }

@@ -11,7 +11,7 @@
   "no-result": "No search result found",
   "sidenav-home": "Home",
   "menu-action-edit": "Edit",
-  "menu-action-delete": "Delete",
+  "menu-action-delete": "Remove",
   "politician-add": "Add politician",
   "politician-new": "New politician",
   "politician-edit": "Edit politician",
@@ -31,6 +31,9 @@
   "admin-party-edit": "Update political party",
   "edit-party": "Edit party",
   "remove-party": "Remove party",
+  "remove-party-content": "Do you really want to remove a political party?",
+  "remove-politician": "Remove politician",
+  "remove-politician-content": "Do you really want to remove a politician?",
   "party-name": "Political party name",
   "party-image": "Link to political party logo/image",
   "party-tags": "Political party tags",
@@ -43,5 +46,7 @@
   "party-remove-success": "Political party was removed",
   "politician-create-success": "Politician was successfully created",
   "politician-edit-success": "Politician was successfully edited",
-  "politician-remove-success": "Politician was successfully removed"
+  "politician-remove-success": "Politician was successfully removed",
+  "dialog-remove": "Remove",
+  "dialog-action-cancel": "Cancel"
 }
