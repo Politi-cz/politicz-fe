@@ -5,6 +5,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { AbstractFormComponent } from '../../../../shared/forms/abstractForm';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
+import { Utils } from '../../../../shared/utils/utils';
 
 @Component({
   selector: 'app-party-form',
@@ -16,7 +17,9 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
 
   public partyForm = this._fb.group<IPoliticalPartyForm>({
     name: this._fb.nonNullable.control('', { validators: Validators.required }),
-    imageUrl: this._fb.nonNullable.control('', Validators.required),
+    imageUrl: this._fb.nonNullable.control('', {
+      validators: [Validators.required, Validators.pattern(Utils.URL_PATTERN)],
+    }),
     tags: this._fb.nonNullable.control([''], Validators.required),
     politicians: this._fb.array<FormGroup<IPoliticianForm>>([]),
   });
@@ -61,18 +64,21 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
 
   public addPolitician(): void {
     const politicianForm = this._fb.group<IPoliticianForm>({
-      fullName: this._fb.control('', { nonNullable: true, validators: Validators.required }),
+      fullName: this._fb.control('', {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
       birthDate: this._fb.control('', {
         nonNullable: true,
         validators: [Validators.required],
       }),
       imageUrl: this._fb.control('', {
         nonNullable: true,
-        validators: [Validators.required],
+        validators: [Validators.required, Validators.pattern(Utils.URL_PATTERN)],
       }),
-      facebookUrl: this._fb.control(''),
-      instagramUrl: this._fb.control(''),
-      twitterUrl: this._fb.control(''),
+      facebookUrl: this._fb.control('', Validators.pattern(Utils.URL_PATTERN)),
+      instagramUrl: this._fb.control('', Validators.pattern(Utils.URL_PATTERN)),
+      twitterUrl: this._fb.control('', Validators.pattern(Utils.URL_PATTERN)),
     });
 
     if (this.politiciansFormArray) {

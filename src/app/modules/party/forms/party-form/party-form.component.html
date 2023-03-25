@@ -7,7 +7,12 @@
   <mat-form-field class="span-12" appearance="outline">
     <mat-label>{{ 'party-image' | translate }}</mat-label>
     <input matInput formControlName="imageUrl" />
-    <mat-error>{{ 'form-required' | translate }}</mat-error>
+    <mat-error *ngIf="partyForm.controls.imageUrl.hasError('required')">{{
+      'form-required' | translate
+    }}</mat-error>
+    <mat-error *ngIf="partyForm.controls.imageUrl.hasError('pattern')">{{
+      'form-bad-url-pattern' | translate
+    }}</mat-error>
   </mat-form-field>
   <mat-form-field class="span-12" appearance="outline">
     <mat-label>{{ 'party-tags' | translate }}</mat-label>
@@ -54,19 +59,27 @@
       <mat-form-field class="span-12" appearance="outline">
         <mat-label>{{ 'politician-profileImageUrl' | translate }}</mat-label>
         <input matInput formControlName="imageUrl" />
-        <mat-error>{{ 'form-required' | translate }}</mat-error>
+        <mat-error *ngIf="politicianForm.controls.imageUrl.hasError('required')">{{
+          'form-required' | translate
+        }}</mat-error>
+        <mat-error *ngIf="politicianForm.controls.imageUrl.hasError('pattern')">{{
+          'form-bad-url-pattern' | translate
+        }}</mat-error>
       </mat-form-field>
       <mat-form-field class="span-12" appearance="outline">
         <mat-label>{{ 'politician-twitterUrl' | translate }}</mat-label>
         <input matInput formControlName="twitterUrl" />
+        <mat-error>{{ 'form-bad-url-pattern' | translate }}</mat-error>
       </mat-form-field>
       <mat-form-field class="span-12" appearance="outline">
         <mat-label>{{ 'politician-instagramUrl' | translate }}</mat-label>
         <input matInput formControlName="instagramUrl" />
+        <mat-error>{{ 'form-bad-url-pattern' | translate }}</mat-error>
       </mat-form-field>
       <mat-form-field class="span-12" appearance="outline">
         <mat-label>{{ 'politician-facebookUrl' | translate }}</mat-label>
         <input matInput formControlName="facebookUrl" />
+        <mat-error>{{ 'form-bad-url-pattern' | translate }}</mat-error>
       </mat-form-field>
       <div class="span-12 delete-politician">
         <button type="button" mat-fab color="warn" (click)="removePolitician(i)">

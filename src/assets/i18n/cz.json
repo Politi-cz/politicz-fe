@@ -25,6 +25,7 @@
   "update": "Uložit",
   "back": "Zpět",
   "form-required": "Povinný údaj",
+  "form-bad-url-pattern": "Chybný formát odkazu",
   "form-date": "Chybný formát datumu (DD.MM.YYYY)",
   "year-format": "DD.MM.YYYY",
   "admin-party-add": "Přidat politickou stranu",
