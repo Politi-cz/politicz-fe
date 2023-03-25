@@ -24,6 +24,15 @@ describe('PoliticianFormComponent', () => {
     facebookUrl: '',
   };
 
+  const politicianWithEmptyNotRequiredUrls: IPolitician = {
+    birthDate: new Date(),
+    fullName: 'Tomio Okamura',
+    imageUrl: 'https://profile.cz',
+    facebookUrl: '',
+    instagramUrl: '',
+    twitterUrl: '',
+  };
+
   let component: PoliticianFormComponent;
   let fixture: ComponentFixture<PoliticianFormComponent>;
 
@@ -95,5 +104,36 @@ describe('PoliticianFormComponent', () => {
     expect(component.submitEvent.emit).not.toHaveBeenCalled();
     expect(component.politicianForm.valid).toBeFalsy();
     expect(birthDateControl?.valid).toBeFalsy();
+  });
+
+  it('Should not send form when imageUrl is not in valid format', () => {
+    component.politician = { ...politicianWithEmptyNotRequiredUrls, imageUrl: 'invalid' };
+    fixture.detectChanges();
+
+    jest.spyOn(component.submitEvent, 'emit');
+
+    component.submit(component.politicianForm);
+    fixture.detectChanges();
+
+    expect(component.submitEvent.emit).not.toHaveBeenCalled();
+    expect(component.politicianForm.valid).toBeFalsy();
+  });
+
+  it('Should not send form when optional urls are not in valid format', () => {
+    component.politician = {
+      ...politicianWithEmptyNotRequiredUrls,
+      instagramUrl: 'invalidUrl',
+      facebookUrl: 'invalidUrl',
+      twitterUrl: 'invalidUrl',
+    };
+    fixture.detectChanges();
+
+    jest.spyOn(component.submitEvent, 'emit');
+
+    component.submit(component.politicianForm);
+    fixture.detectChanges();
+
+    expect(component.submitEvent.emit).not.toHaveBeenCalled();
+    expect(component.politicianForm.valid).toBeFalsy();
   });
 });

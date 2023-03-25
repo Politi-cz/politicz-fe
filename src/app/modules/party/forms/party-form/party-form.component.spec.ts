@@ -9,7 +9,7 @@ describe('PartyFormComponent', () => {
   let fixture: ComponentFixture<PartyFormComponent>;
 
   const mockPoliticalParty: IPoliticalParty = {
-    imageUrl: 'ss',
+    imageUrl: 'https://image.com',
     name: 'test',
     id: '5',
     tags: ['brk', 'frk'],
@@ -17,7 +17,7 @@ describe('PartyFormComponent', () => {
       {
         birthDate: new Date(),
         fullName: 'karel',
-        imageUrl: 'ss',
+        imageUrl: 'https://image.com',
         facebookUrl: 'dsds',
         id: '5',
         instagramUrl: 'dasdas',
@@ -66,6 +66,18 @@ describe('PartyFormComponent', () => {
   });
 
   it('Should not submit form when required values not filled', () => {
+    fixture.detectChanges();
+    jest.spyOn(component.submitEvent, 'emit');
+    component.submit();
+    fixture.detectChanges();
+
+    expect(component.submitEvent.emit).not.toHaveBeenCalled();
+  });
+
+  it('Should not submit form when party imageUrl is not in url format', () => {
+    const mockParty = { ...mockPoliticalParty };
+    mockParty.imageUrl = 'notValidUrl';
+    component.party = mockParty;
     fixture.detectChanges();
     jest.spyOn(component.submitEvent, 'emit');
     component.submit();
