@@ -25,6 +25,7 @@
   "update": "Update",
   "back": "Back",
   "form-required": "Required field",
+  "form-bad-url-pattern": "Wrong link format",
   "form-date": "Wrong date format (DD/MM/YYYY)",
   "year-format": "DD/MM/YYYY",
   "admin-party-add": "Add political party",
@@ -46,7 +47,7 @@
   "party-remove-success": "Political party was removed",
   "politician-create-success": "Politician was successfully created",
   "politician-edit-success": "Politician was successfully edited",
-  "politician-remove-success": "Politician was successfully removed",
+  "politician-remove-success": "Politician was removed",
   "dialog-remove": "Remove",
   "dialog-action-cancel": "Cancel"
 }

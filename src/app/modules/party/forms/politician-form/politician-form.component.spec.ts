@@ -1,4 +1,4 @@
-import { IPolitician } from './../../../../data/schema/politician';
+import { IPolitician } from '../../../../data/schema/politician';
 import { FormBuilder } from '@angular/forms';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
@@ -9,7 +9,7 @@ describe('PoliticianFormComponent', () => {
   const politician: IPolitician = {
     birthDate: new Date(),
     fullName: 'Tomio Okamura',
-    profileImageUrl: 'https://profile.cz',
+    imageUrl: 'https://profile.cz',
     facebookUrl: 'https://fb.com',
     instagramUrl: 'https://ig.com',
     twitterUrl: 'https://twitter.com',
