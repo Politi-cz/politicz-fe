@@ -1,10 +1,12 @@
 import { IPoliticianForm } from 'src/app/data/schema/politician';
 import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
-import { IPoliticalParty, IPoliticalPartyForm } from './../../../../data/schema/political-party';
+import { IPoliticalParty, IPoliticalPartyForm } from '../../../../data/schema/political-party';
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractFormComponent } from '../../../../shared/forms/abstractForm';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
+import { Utils } from '../../../../shared/utils/utils';
+import { politicianAgeValidator } from '../../../../shared/forms/validators/politician-age-validator';
 
 @Component({
   selector: 'app-party-form',
@@ -16,7 +18,9 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
 
   public partyForm = this._fb.group<IPoliticalPartyForm>({
     name: this._fb.nonNullable.control('', { validators: Validators.required }),
-    image: this._fb.nonNullable.control('', Validators.required),
+    imageUrl: this._fb.nonNullable.control('', {
+      validators: [Validators.required, Validators.pattern(Utils.URL_PATTERN)],
+    }),
     tags: this._fb.nonNullable.control([''], Validators.required),
     politicians: this._fb.array<FormGroup<IPoliticianForm>>([]),
   });
@@ -32,13 +36,15 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
   }
 
   public ngOnInit(): void {
+    this.addPolitician(); //Start politicians formArray with 1 politician
+
     if (this.party) {
       this.partyForm.removeControl('politicians');
-      this.tags = [...this.party.tags]; //If user didn't triggers blur event in mat-chips, the latest values are not added.
+      this.tags = [...this.party.tags]; //If user didn't trigger blur event in mat-chips, the latest values are not added.
 
       this.partyForm.patchValue({
         name: this.party.name,
-        image: this.party.image,
+        imageUrl: this.party.imageUrl,
         tags: [...this.party.tags],
       });
     }
@@ -59,18 +65,21 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
 
   public addPolitician(): void {
     const politicianForm = this._fb.group<IPoliticianForm>({
-      fullName: this._fb.control('', { nonNullable: true, validators: Validators.required }),
+      fullName: this._fb.control('', {
+        nonNullable: true,
+        validators: [Validators.required],
+      }),
       birthDate: this._fb.control('', {
         nonNullable: true,
-        validators: [Validators.required],
+        validators: [Validators.required, politicianAgeValidator()],
       }),
-      profileImageUrl: this._fb.control('', {
+      imageUrl: this._fb.control('', {
         nonNullable: true,
-        validators: [Validators.required],
+        validators: [Validators.required, Validators.pattern(Utils.URL_PATTERN)],
       }),
-      facebookUrl: this._fb.control(''),
-      instagramUrl: this._fb.control(''),
-      twitterUrl: this._fb.control(''),
+      facebookUrl: this._fb.control('', Validators.pattern(Utils.URL_PATTERN)),
+      instagramUrl: this._fb.control('', Validators.pattern(Utils.URL_PATTERN)),
+      twitterUrl: this._fb.control('', Validators.pattern(Utils.URL_PATTERN)),
     });
 
     if (this.politiciansFormArray) {

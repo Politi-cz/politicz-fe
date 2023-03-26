@@ -1,4 +1,4 @@
-import { IPartySidenavItem } from './../../../data/schema/political-party';
+import { IPartySidenavItem } from '../../../data/schema/political-party';
 import { FilterPartiesPipe } from './filter-parties.pipe';
 
 describe('FilterPartiesPipe', () => {
@@ -11,13 +11,13 @@ describe('FilterPartiesPipe', () => {
   const parties: IPartySidenavItem[] = [
     {
       id: '1',
-      image: '',
+      imageUrl: '',
       name: 'SPD',
       tags: ['Úsvit příme demokracio', 'Tomio'],
     },
     {
       id: '2',
-      image: '',
+      imageUrl: '',
       name: 'Pirati',
       tags: ['Bartoš', 'tráva'],
     },

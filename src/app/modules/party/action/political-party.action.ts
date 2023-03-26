@@ -1,7 +1,7 @@
 import {
   IPoliticalParty,
-  IPoliticalPartyPolticiansFree,
-} from './../../../data/schema/political-party';
+  IPoliticalPartyPoliticiansFree,
+} from '../../../data/schema/political-party';
 import { IPolitician } from '../../../data/schema/politician';
 
 export namespace PoliticalParty {
@@ -20,7 +20,13 @@ export namespace PoliticalParty {
   export class UpdatePoliticalParty {
     static readonly type = '[Politicalparty] Update political party';
 
-    constructor(public payload: IPoliticalPartyPolticiansFree) {}
+    constructor(public payload: IPoliticalPartyPoliticiansFree) {}
+  }
+
+  export class RemovePoliticalParty {
+    static readonly type = '[PoliticalParty] Remove political party';
+
+    constructor(public id: string) {}
   }
 
   export class AddPolitician {

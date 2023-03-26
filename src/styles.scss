@@ -17,6 +17,7 @@ body {
     font-size: 70%;
   }
 }
+
 body {
   margin: 0;
 }
@@ -44,6 +45,7 @@ app-sidenav {
     overflow-y: visible;
   }
 }
+
 // fullscreen layout
 
 .container {
@@ -74,11 +76,13 @@ app-sidenav {
 .errorNotification {
   --mdc-snackbar-container-color: rgb(240, 43, 43);
   --mat-mdc-snack-bar-button-color: #fff;
+  white-space: pre-wrap;
 }
 
 .successNotification {
   --mdc-snackbar-container-color: #187c2c;
   --mat-mdc-snack-bar-button-color: #fff;
+  white-space: pre-wrap;
 }
 
 .form-content {
@@ -87,7 +91,7 @@ app-sidenav {
   gap: 2rem;
   background-color: #fff;
   padding: 3rem 2rem;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
 }
 
 .form-footer {

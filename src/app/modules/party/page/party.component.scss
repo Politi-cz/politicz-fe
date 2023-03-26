@@ -11,7 +11,6 @@
     letter-spacing: 0.1rem;
     word-spacing: 0.5rem;
     text-transform: uppercase;
-    font-size: bold;
 
     @media only screen and (max-width: $bp-large) {
       line-height: 3.5rem;
@@ -34,6 +33,7 @@
     }
 
     &__search {
+      align-self: center;
       mat-form-field {
         width: 100% !important;
       }
@@ -69,6 +69,7 @@
 
   @media only screen and (max-width: $bp-mobile) {
     grid-template-columns: 1fr;
+    justify-items: center;
   }
 }
 

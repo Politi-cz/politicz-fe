@@ -1,4 +1,4 @@
-import { QuickMenuAction, ActionType } from './../../../data/schema/quick-menu-action';
+import { QuickMenuAction, ActionType } from '../../../data/schema/quick-menu-action';
 import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({

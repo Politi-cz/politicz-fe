@@ -8,7 +8,7 @@ export const environment = {
   assetsPath: 'assets/i18n/',
   assetsPartyLogosPath: 'assets/party-logos/',
 
-  apiUrl: 'https://virtserver.swaggerhub.com/kollermartin/politicz/1.0.0',
+  apiUrl: 'http://localhost:5000/api',
 };
 
 /*

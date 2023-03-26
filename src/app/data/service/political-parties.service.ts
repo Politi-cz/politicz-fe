@@ -1,13 +1,13 @@
-import { environment } from './../../../environments/environment';
+import { environment } from '../../../environments/environment';
 import { IPoliticianResponse } from '../schema/politician';
 import {
   ICreatePoliticalPartyResponse,
   IPoliticalParty,
-  IPoliticalPartyPolticiansFree,
-} from './../schema/political-party';
+  IPoliticalPartyPoliticiansFree,
+} from '../schema/political-party';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IPartySidenavItem } from './../schema/political-party';
+import { IPartySidenavItem } from '../schema/political-party';
 import { Observable } from 'rxjs';
 import { IPolitician } from '../schema/politician';
 
@@ -36,12 +36,16 @@ export class PoliticalPartiesService {
     );
   }
 
+  public removePoliticalParty(id: string): Observable<void> {
+    return this.http.delete<void>(`${environment.apiUrl}/political-parties/${id}`);
+  }
+
   public editPoliticalParty(
-    party: IPoliticalPartyPolticiansFree,
-  ): Observable<IPoliticalPartyPolticiansFree> {
-    return this.http.put<IPoliticalPartyPolticiansFree>(
+    party: IPoliticalPartyPoliticiansFree,
+  ): Observable<IPoliticalPartyPoliticiansFree> {
+    return this.http.put<IPoliticalPartyPoliticiansFree>(
       `${environment.apiUrl}/political-parties/${party.id}`,
-      party,
+      { ...party, politicians: [] },
     );
   }
 
@@ -69,6 +73,6 @@ export class PoliticalPartiesService {
   }
 
   public removePolitician(id: string): Observable<void> {
-    return this.http.delete<void>(`${environment.apiUrl}/political-parties/${id}`);
+    return this.http.delete<void>(`${environment.apiUrl}/political-parties/politician/${id}`);
   }
 }

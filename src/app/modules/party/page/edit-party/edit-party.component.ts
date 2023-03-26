@@ -1,12 +1,12 @@
 import { PoliticalParty } from '../../action/political-party.action';
-import { PoliticalPartyState } from './../../state/political-party.state';
+import { PoliticalPartyState } from '../../state/political-party.state';
 import { Store } from '@ngxs/store';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import {
   IPoliticalParty,
-  IPoliticalPartyPolticiansFree,
-} from './../../../../data/schema/political-party';
+  IPoliticalPartyPoliticiansFree,
+} from '../../../../data/schema/political-party';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 @Component({
@@ -32,7 +32,7 @@ export class EditPartyComponent implements OnInit, OnDestroy {
     this.destroy$.next();
   }
 
-  public onSubmit(party: IPoliticalPartyPolticiansFree): void {
+  public onSubmit(party: IPoliticalPartyPoliticiansFree): void {
     const currentPoliticalParty = this._store.selectSnapshot(PoliticalPartyState);
     this._store
       .dispatch(new PoliticalParty.UpdatePoliticalParty({ ...party, id: currentPoliticalParty.id }))

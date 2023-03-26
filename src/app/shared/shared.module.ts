@@ -7,9 +7,10 @@ import { MaterialModule } from './material.module';
 import { PipeModule } from './pipe/pipe.module';
 import { AdminQuickMenuActionsComponent } from './component/admin-quick-menu-actions/admin-quick-menu-actions.component';
 import { AdminSectionComponent } from './component/admin-section/admin-section.component';
+import { ConfirmDialogComponent } from './component/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
-  declarations: [AdminQuickMenuActionsComponent, AdminSectionComponent],
+  declarations: [AdminQuickMenuActionsComponent, AdminSectionComponent, ConfirmDialogComponent],
   imports: [
     CommonModule,
     FormsModule,

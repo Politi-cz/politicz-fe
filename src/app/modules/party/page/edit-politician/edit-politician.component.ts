@@ -1,5 +1,5 @@
-import { PoliticalPartiesService } from './../../../../data/service/political-parties.service';
-import { IPolitician } from './../../../../data/schema/politician';
+import { PoliticalPartiesService } from '../../../../data/service/political-parties.service';
+import { IPolitician } from '../../../../data/schema/politician';
 import { Observable, switchMap } from 'rxjs';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -39,8 +39,9 @@ export class EditPoliticianComponent implements OnInit {
 
   public onSubmit(politician: IPolitician): void {
     const request = { id: this.politicianId, ...politician } as IPolitician;
-    this._store.dispatch(new PoliticalParty.EditPolitician(request));
-    this.navigateBack();
+    this._store
+      .dispatch(new PoliticalParty.EditPolitician(request))
+      .subscribe(() => this.navigateBack());
   }
 
   public navigateBack(): void {

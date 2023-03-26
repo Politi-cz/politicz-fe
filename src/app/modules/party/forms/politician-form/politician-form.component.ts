@@ -1,8 +1,10 @@
-import { IPoliticianForm } from './../../../../data/schema/politician';
+import { IPoliticianForm } from '../../../../data/schema/politician';
 import { AbstractFormComponent } from '../../../../shared/forms/abstractForm';
-import { IPolitician } from './../../../../data/schema/politician';
+import { IPolitician } from '../../../../data/schema/politician';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Utils } from '../../../../shared/utils/utils';
+import { politicianAgeValidator } from '../../../../shared/forms/validators/politician-age-validator';
 
 @Component({
   selector: 'app-politician-form',
@@ -19,15 +21,15 @@ export class PoliticianFormComponent extends AbstractFormComponent implements On
     }),
     birthDate: this._fb.control('', {
       nonNullable: true,
-      validators: [Validators.required],
+      validators: [Validators.required, politicianAgeValidator()],
     }),
-    profileImageUrl: this._fb.control('', {
+    imageUrl: this._fb.control('', {
       nonNullable: true,
-      validators: [Validators.required],
+      validators: [Validators.required, Validators.pattern(Utils.URL_PATTERN)],
     }),
-    facebookUrl: this._fb.control(''),
-    instagramUrl: this._fb.control(''),
-    twitterUrl: this._fb.control(''),
+    facebookUrl: this._fb.control('', Validators.pattern(Utils.URL_PATTERN)),
+    instagramUrl: this._fb.control('', Validators.pattern(Utils.URL_PATTERN)),
+    twitterUrl: this._fb.control('', Validators.pattern(Utils.URL_PATTERN)),
   });
 
   constructor(private _fb: FormBuilder) {
@@ -41,7 +43,7 @@ export class PoliticianFormComponent extends AbstractFormComponent implements On
         birthDate: this.politician.birthDate,
         facebookUrl: this.politician.facebookUrl,
         instagramUrl: this.politician.instagramUrl,
-        profileImageUrl: this.politician.profileImageUrl,
+        imageUrl: this.politician.imageUrl,
         twitterUrl: this.politician.twitterUrl,
       });
     }

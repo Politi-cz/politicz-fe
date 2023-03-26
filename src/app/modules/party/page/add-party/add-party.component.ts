@@ -1,7 +1,7 @@
 import { Store } from '@ngxs/store';
-import { NotificationService } from './../../../../shared/service/notification.service';
+import { NotificationService } from '../../../../shared/service/notification.service';
 import { Router } from '@angular/router';
-import { IPoliticalParty } from './../../../../data/schema/political-party';
+import { IPoliticalParty } from '../../../../data/schema/political-party';
 import { Component } from '@angular/core';
 import { PoliticalParty } from '../../action/political-party.action';
 

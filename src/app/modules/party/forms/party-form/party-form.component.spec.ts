@@ -1,4 +1,4 @@
-import { IPoliticalParty } from './../../../../data/schema/political-party';
+import { IPoliticalParty } from '../../../../data/schema/political-party';
 import { FormBuilder } from '@angular/forms';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateModule } from '@ngx-translate/core';
@@ -9,7 +9,7 @@ describe('PartyFormComponent', () => {
   let fixture: ComponentFixture<PartyFormComponent>;
 
   const mockPoliticalParty: IPoliticalParty = {
-    image: 'ss',
+    imageUrl: 'https://image.com',
     name: 'test',
     id: '5',
     tags: ['brk', 'frk'],
@@ -17,7 +17,7 @@ describe('PartyFormComponent', () => {
       {
         birthDate: new Date(),
         fullName: 'karel',
-        profileImageUrl: 'ss',
+        imageUrl: 'https://image.com',
         facebookUrl: 'dsds',
         id: '5',
         instagramUrl: 'dasdas',
@@ -60,12 +60,24 @@ describe('PartyFormComponent', () => {
 
     const partyControls = component.partyForm.controls;
 
-    expect(partyControls.image.value).toBe(mockPoliticalParty.image);
+    expect(partyControls.imageUrl.value).toBe(mockPoliticalParty.imageUrl);
     expect(partyControls.name.value).toBe(mockPoliticalParty.name);
     expect(partyControls.tags.value).toEqual(expect.arrayContaining(mockPoliticalParty.tags));
   });
 
   it('Should not submit form when required values not filled', () => {
+    fixture.detectChanges();
+    jest.spyOn(component.submitEvent, 'emit');
+    component.submit();
+    fixture.detectChanges();
+
+    expect(component.submitEvent.emit).not.toHaveBeenCalled();
+  });
+
+  it('Should not submit form when party imageUrl is not in url format', () => {
+    const mockParty = { ...mockPoliticalParty };
+    mockParty.imageUrl = 'notValidUrl';
+    component.party = mockParty;
     fixture.detectChanges();
     jest.spyOn(component.submitEvent, 'emit');
     component.submit();

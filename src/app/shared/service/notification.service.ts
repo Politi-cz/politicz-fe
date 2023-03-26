@@ -10,7 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
   providedIn: 'root',
 })
 export class NotificationService {
-  private _duration = 5000;
+  private _duration = 10000;
 
   private config = {
     horizontalPosition: 'center' as MatSnackBarHorizontalPosition,
