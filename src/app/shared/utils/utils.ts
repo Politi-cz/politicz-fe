@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
 export class Utils {
-  public static readonly URL_PATTERN = '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
+  public static readonly URL_PATTERN = '(https?://)([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?';
 
   public static textIncludesSearchedValueCaseInsensitive(
     text: string,
