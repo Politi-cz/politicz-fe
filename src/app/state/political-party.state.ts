@@ -184,6 +184,7 @@ export class PoliticalPartyState {
       parties[partyPosition].politicians = [...filteredPoliticians];
 
       ctx.patchState({ parties: parties, selectedParty: { ...parties[partyPosition] } });
+      this.notificationService.showSuccess('politician-remove-success');
     }
   }
 }
