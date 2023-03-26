@@ -6,6 +6,7 @@ import { AbstractFormComponent } from '../../../../shared/forms/abstractForm';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
 import { Utils } from '../../../../shared/utils/utils';
+import { politicianAgeValidator } from '../../../../shared/forms/validators/politician-age-validator';
 
 @Component({
   selector: 'app-party-form',
@@ -70,7 +71,7 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
       }),
       birthDate: this._fb.control('', {
         nonNullable: true,
-        validators: [Validators.required],
+        validators: [Validators.required, politicianAgeValidator()],
       }),
       imageUrl: this._fb.control('', {
         nonNullable: true,
