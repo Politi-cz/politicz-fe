@@ -4,6 +4,7 @@ import { IPolitician } from '../../../../data/schema/politician';
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Utils } from '../../../../shared/utils/utils';
+import { politicianAgeValidator } from '../../../../shared/forms/validators/politician-age-validator';
 
 @Component({
   selector: 'app-politician-form',
@@ -20,7 +21,7 @@ export class PoliticianFormComponent extends AbstractFormComponent implements On
     }),
     birthDate: this._fb.control('', {
       nonNullable: true,
-      validators: [Validators.required],
+      validators: [Validators.required, politicianAgeValidator()],
     }),
     imageUrl: this._fb.control('', {
       nonNullable: true,

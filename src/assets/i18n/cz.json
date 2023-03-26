@@ -27,6 +27,7 @@
   "form-required": "Povinný údaj",
   "form-bad-url-pattern": "Chybný formát odkazu",
   "form-date": "Chybný formát datumu (DD.MM.YYYY)",
+  "form-minimum-age": "Politikovi musí být alespoň 21 let",
   "year-format": "DD.MM.YYYY",
   "admin-party-add": "Přidat politickou stranu",
   "admin-party-edit": "Upravit politickou stranu",
