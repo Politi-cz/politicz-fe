@@ -74,7 +74,7 @@ describe('PoliticianFormComponent', () => {
     expect(component.politicianForm.value).toEqual(politician);
   });
 
-  it('Form should not be submitted if politician hasnt been passed', () => {
+  it('Form should not be submitted if politician hasn not been passed', () => {
     fixture.detectChanges();
     jest.spyOn(component.submitEvent, 'emit');
     component.submit(component.politicianForm);
