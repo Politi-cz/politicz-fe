@@ -46,9 +46,16 @@ export class SidenavComponent implements OnDestroy, AfterViewInit {
 
   public navigateToPoliticalPartyPage(id: string): void {
     this.router.navigate(['/political-party/detail/' + id]);
+    this.closeSidenavIfMatches();
   }
 
   public toggleSidenav(): void {
     this.sidenavService.toggleSidenav();
+  }
+
+  public closeSidenavIfMatches(): void {
+    if (this.mobileQuery.matches) {
+      this.toggleSidenav();
+    }
   }
 }
