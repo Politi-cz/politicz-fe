@@ -6,7 +6,7 @@
     [mode]="mobileQuery.matches ? 'over' : 'side'"
     [fixedInViewport]="mobileQuery.matches">
     <mat-nav-list>
-      <mat-list-item class="navitem" routerLink="'/home'">
+      <mat-list-item (click)="closeSidenavIfMatches()" class="navitem" routerLink="'/home'">
         <mat-icon color="primary">home</mat-icon>
         <span>{{ 'sidenav-home' | translate }}</span>
       </mat-list-item>
@@ -34,7 +34,11 @@
       </mat-list-item>
     </mat-nav-list>
     <div class="add-party">
-      <button mat-mini-fab color="primary" routerLink="/political-party/add">
+      <button
+        (click)="closeSidenavIfMatches()"
+        mat-mini-fab
+        color="primary"
+        routerLink="/political-party/add">
         <span>+</span>
       </button>
     </div>
