@@ -1,12 +1,6 @@
 @import '../../../../../styles/variables.scss';
 
 .politician-card {
-  max-width: 30rem;
-
-  @media only screen and (max-width: $bp-mobile) {
-    width: 35rem;
-  }
-
   &__title {
     margin-right: 3rem;
   }
