@@ -10,13 +10,6 @@
     </button>
     <a class="navbar__politi" routerLink="'/home'">Politi.cz</a>
   </div>
-  <div class="navbar__mid">
-    <div class="flag-container">
-      <div class="flag flag--white"></div>
-      <div class="flag flag--red"></div>
-      <div class="flag flag--blue"></div>
-    </div>
-  </div>
   <ng-container *ngIf="auth.isAuthenticated$ | async; else loginButton">
     <button class="menu" mat-button [matMenuTriggerFor]="menu">
       <ng-container *ngIf="auth.user$ | async as user">
