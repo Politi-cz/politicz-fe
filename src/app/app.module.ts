@@ -1,8 +1,9 @@
 import { SidenavPartiesState } from './state/sidenav-parties.state';
-import { environment } from './../environments/environment';
+import { environment } from '../environments/environment';
 import { SpinnerState } from './state/spinner.state';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { AuthModule } from '@auth0/auth0-angular';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,6 +40,9 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       defaultLanguage: 'cz',
     }),
     NgxsModule.forRoot([SpinnerState, FiltersState, SidenavPartiesState]),
+    AuthModule.forRoot({
+      ...environment.auth,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

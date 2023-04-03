@@ -9,6 +9,14 @@ export const environment = {
   assetsPartyLogosPath: 'assets/party-logos/',
 
   apiUrl: 'http://localhost:5000/api',
+
+  auth: {
+    domain: 'dev-7trytxnmza6ccyvo.us.auth0.com',
+    clientId: 'R4hInXouXWjlcAothDYQ9bi4H5aoW0VR',
+    authorizationParams: {
+      redirect_uri: window.location.origin,
+    },
+  },
 };
 
 /*

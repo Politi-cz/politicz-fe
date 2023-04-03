@@ -17,13 +17,23 @@
       <div class="flag flag--blue"></div>
     </div>
   </div>
-  <button class="menu" mat-button [matMenuTriggerFor]="menu">
-    <span>Pepík</span>
-    <mat-icon>account_circle</mat-icon>
-  </button>
+  <ng-container *ngIf="auth.isAuthenticated$ | async; else loginButton">
+    <button class="menu" mat-button [matMenuTriggerFor]="menu">
+      <ng-container *ngIf="auth.user$ | async as user">
+        <span>{{ user.email }}</span>
+      </ng-container>
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </ng-container>
 </mat-toolbar>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>{{ 'menu-settings' | translate }}</button>
   <button mat-menu-item routerLink="/admin">{{ 'menu-admin' | translate }}</button>
-  <button mat-menu-item>{{ 'menu-logout' | translate }}</button>
+  <mat-divider></mat-divider>
+  <ng-container *ngIf="auth.isAuthenticated$ | async">
+    <button mat-menu-item (click)="logout()">{{ 'menu-logout' | translate }}</button>
+  </ng-container>
 </mat-menu>
+
+<ng-template #loginButton>
+  <button mat-flat-button (click)="login()">{{ 'menu-login' | translate }}</button>
+</ng-template>
