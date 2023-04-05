@@ -28,5 +28,12 @@
 </mat-menu>
 
 <ng-template #loginButton>
-  <button mat-flat-button (click)="login()">{{ 'menu-login' | translate }}</button>
+  <mat-icon
+    class="login-icon"
+    aria-label="Button that redirects user to login / register form"
+    matTooltipPosition="before"
+    [matTooltip]="'login-register' | translate"
+    (click)="login()"
+    >account_circle
+  </mat-icon>
 </ng-template>

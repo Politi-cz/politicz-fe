@@ -51,5 +51,6 @@
   "politician-edit-success": "Politician was successfully edited",
   "politician-remove-success": "Politician was removed",
   "dialog-remove": "Remove",
-  "dialog-action-cancel": "Cancel"
+  "dialog-action-cancel": "Cancel",
+  "login-register": "Login / Register"
 }

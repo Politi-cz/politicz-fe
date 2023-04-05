@@ -51,5 +51,6 @@
   "politician-edit-success": "Politik byl úspěšně upraven",
   "politician-remove-success": "Politik byl odstraněn",
   "dialog-remove": "Odstranit",
-  "dialog-action-cancel": "Zrušit"
+  "dialog-action-cancel": "Zrušit",
+  "login-register": "Příhlásit / Registrovat"
 }
