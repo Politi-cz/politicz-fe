@@ -8,6 +8,7 @@ export class GlobalErrorHandler implements ErrorHandler {
   constructor(private notificationService: NotificationService) {}
 
   public handleError(httpError: HttpErrorResponse): void {
+    //TODO udělat type guard
     const structuredError = httpError.error as ErrorResponse;
     let errorMessage = httpError.message;
 

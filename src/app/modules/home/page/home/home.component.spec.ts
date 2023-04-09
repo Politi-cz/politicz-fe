@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TranslateLoader, TranslateModule, TranslateStore } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -19,7 +19,6 @@ describe('HomeComponent', () => {
     await TestBed.configureTestingModule({
       imports: [
         NgxsModule.forRoot([NewsState]),
-        HttpClientModule,
         TranslateModule.forChild({
           defaultLanguage: 'cz',
           loader: {
