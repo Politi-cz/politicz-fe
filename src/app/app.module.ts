@@ -18,6 +18,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { NgxsModule } from '@ngxs/store';
 import { FiltersState } from './state/filters.state';
+import {AuthenticationState} from './state/authentication.state';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, environment.assetsPath, '.json');
@@ -39,7 +40,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       },
       defaultLanguage: 'cz',
     }),
-    NgxsModule.forRoot([SpinnerState, FiltersState, SidenavPartiesState]),
+    NgxsModule.forRoot([SpinnerState, FiltersState, SidenavPartiesState, AuthenticationState]),
     AuthModule.forRoot({
       ...environment.auth,
     }),

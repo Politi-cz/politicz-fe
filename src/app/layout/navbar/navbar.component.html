@@ -10,9 +10,9 @@
     </button>
     <a class="navbar__politi" routerLink="'/home'">Politi.cz</a>
   </div>
-  <ng-container *ngIf="auth.isAuthenticated$ | async; else loginButton">
+  <ng-container *ngIf="isAuthorized$ | async; else loginButton">
     <button class="menu" mat-button [matMenuTriggerFor]="menu">
-      <ng-container *ngIf="auth.user$ | async as user">
+      <ng-container *ngIf="user$ | async as user">
         <span>{{ user.email }}</span>
       </ng-container>
       <mat-icon>account_circle</mat-icon>
@@ -22,7 +22,7 @@
 <mat-menu #menu="matMenu">
   <button mat-menu-item routerLink="/admin">{{ 'menu-admin' | translate }}</button>
   <mat-divider></mat-divider>
-  <ng-container *ngIf="auth.isAuthenticated$ | async">
+  <ng-container *ngIf="isAuthorized$ | async">
     <button mat-menu-item (click)="logout()">{{ 'menu-logout' | translate }}</button>
   </ng-container>
 </mat-menu>

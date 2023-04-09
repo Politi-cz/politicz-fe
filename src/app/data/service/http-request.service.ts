@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AuthService } from '@auth0/auth0-angular';
 import { Observable } from 'rxjs';
+import {Store} from '@ngxs/store';
+import {AuthenticationState} from '../../state/authentication.state';
+import {IAuthStateModel} from '../schema/auth-state-model';
 
 @Injectable({
   providedIn: 'root',
@@ -11,15 +13,10 @@ export class HttpRequestService {
 
   private isAuth: boolean;
 
-  constructor(private _http: HttpClient, private _auth: AuthService) {
-    this._auth.isAuthenticated$.subscribe((result: boolean) => {
-      this.isAuth = result;
-
-      if (result) {
-        this._auth
-          .getAccessTokenSilently()
-          .subscribe((token: string) => (this.accessToken = token));
-      }
+  constructor(private _http: HttpClient, private _store: Store) {
+    this._store.select(AuthenticationState).subscribe((authState: IAuthStateModel) => {
+      this.accessToken = authState.accessToken;
+      this.isAuth = authState.isAuthorized;
     });
   }
 
