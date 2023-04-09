@@ -1,4 +1,4 @@
-import {User} from '@auth0/auth0-angular';
+import { User } from '@auth0/auth0-angular';
 
 export interface IAuthStateModel {
   accessToken: string;

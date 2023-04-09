@@ -79,6 +79,9 @@ export class PoliticalPartiesService {
   //TODO Only for admin in UI
 
   public removePolitician(id: string): Observable<void> {
-    return this._httpRequest.delete(`${environment.apiUrl}/political-parties/politician/${id}`, true);
+    return this._httpRequest.delete(
+      `${environment.apiUrl}/political-parties/politician/${id}`,
+      true,
+    );
   }
 }

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import {Store} from '@ngxs/store';
-import {AuthenticationState} from '../../state/authentication.state';
-import {IAuthStateModel} from '../schema/auth-state-model';
+import { Store } from '@ngxs/store';
+import { AuthenticationState } from '../../state/authentication.state';
+import { IAuthStateModel } from '../schema/auth-state-model';
 
 @Injectable({
   providedIn: 'root',
@@ -51,7 +51,7 @@ export class HttpRequestService {
 
     return {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${this.accessToken}`,
+      Authorization: `Bearer ${this.accessToken}`,
     };
   }
 }
