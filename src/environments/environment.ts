@@ -11,10 +11,11 @@ export const environment = {
   apiUrl: 'http://localhost:5000/api',
 
   auth: {
-    domain: 'dev-7trytxnmza6ccyvo.us.auth0.com',
-    clientId: 'R4hInXouXWjlcAothDYQ9bi4H5aoW0VR',
+    domain: 'dev-zu5pzoxyf4a2amfg.us.auth0.com',
+    clientId: 'mgQUdiVLoVdejanEtTx7OHqSVk9aJ5sx',
     authorizationParams: {
       redirect_uri: window.location.origin,
+      audience: 'https://politi.cz',
     },
   },
 };

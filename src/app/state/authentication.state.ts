@@ -5,15 +5,11 @@ import { AuthenticationActions } from '../action/authentication.action';
 import { AuthService, User } from '@auth0/auth0-angular';
 import { IAuth0DetailedResponse } from '../data/schema/auth0-detailed-response';
 import { DOCUMENT } from '@angular/common';
+import jwtDecode from 'jwt-decode';
+import { IJwtDecoded } from '../data/schema/jwt-decoded';
 
 @State<IAuthStateModel>({
   name: 'AuthenticationState',
-  defaults: {
-    accessToken: '',
-    idToken: '',
-    isAuthorized: false,
-    user: {},
-  },
 })
 @Injectable()
 export class AuthenticationState {
@@ -43,14 +39,15 @@ export class AuthenticationState {
   public setAuthentication(ctx: StateContext<IAuthStateModel>): void {
     this._auth.isAuthenticated$.subscribe((isAuth: boolean) => {
       if (isAuth) {
-        // Do as action call
         this._auth
           .getAccessTokenSilently({ detailedResponse: true })
           .subscribe((tokenData: IAuth0DetailedResponse) => {
+            const decodedToken = jwtDecode(tokenData.access_token) as IJwtDecoded;
             ctx.patchState({
               accessToken: tokenData.access_token,
               idToken: tokenData.id_token,
               isAuthorized: isAuth,
+              permissions: [...decodedToken.permissions],
             });
           });
         this._auth.user$.subscribe((user: any) => {
@@ -72,6 +69,7 @@ export class AuthenticationState {
       isAuthorized: false,
       idToken: '',
       user: {},
+      permissions: [],
     });
 
     this._auth.logout({ logoutParams: { returnTo: this.document.location.origin } });

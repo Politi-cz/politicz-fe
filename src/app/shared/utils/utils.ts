@@ -1,4 +1,5 @@
-import dayjs from 'dayjs';
+import { IAuthStateModel } from '../../data/schema/auth-state-model';
+import { Permission } from '../../data/schema/permission.enum';
 
 export class Utils {
   public static readonly URL_PATTERN = '(https?://)([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w ?=&.-]*/?';
@@ -19,7 +20,7 @@ export class Utils {
     );
   }
 
-  public static formatDate(date: string, format: string): string {
-    return dayjs(date).format(format);
+  public static checkPermission(auth: IAuthStateModel, permission: Permission): boolean {
+    return auth.permissions.includes(permission);
   }
 }

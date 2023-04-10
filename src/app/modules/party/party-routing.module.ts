@@ -5,6 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { AddPoliticianComponent } from './page/add-politician/add-politician.component';
 import { EditPartyComponent } from './page/edit-party/edit-party.component';
 import { AddPartyComponent } from './page/add-party/add-party.component';
+import { FeatureGuard } from '../../core/guard/feature.guard';
+import { Permission } from '../../data/schema/permission.enum';
 
 const routes: Routes = [
   {
@@ -16,6 +18,8 @@ const routes: Routes = [
   {
     path: 'add',
     component: AddPartyComponent,
+    canActivate: [FeatureGuard],
+    data: { permission: Permission.ModifyPartiesPoliticians },
   },
   {
     path: 'detail/:id',
@@ -24,14 +28,20 @@ const routes: Routes = [
   {
     path: 'detail/:id/add-politician',
     component: AddPoliticianComponent,
+    canActivate: [FeatureGuard],
+    data: { permission: Permission.ModifyPartiesPoliticians },
   },
   {
     path: 'detail/:id/edit-politician/:politicianId',
     component: EditPoliticianComponent,
+    canActivate: [FeatureGuard],
+    data: { permission: Permission.ModifyPartiesPoliticians },
   },
   {
     path: 'detail/:id/edit',
     component: EditPartyComponent,
+    canActivate: [FeatureGuard],
+    data: { permission: Permission.ModifyPartiesPoliticians },
   },
 ];
 

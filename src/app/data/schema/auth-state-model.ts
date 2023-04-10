@@ -5,4 +5,5 @@ export interface IAuthStateModel {
   idToken: string;
   isAuthorized: boolean;
   user: User;
+  permissions: string[];
 }

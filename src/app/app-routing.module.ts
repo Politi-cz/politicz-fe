@@ -1,7 +1,8 @@
 import { AdminSectionComponent } from './shared/component/admin-section/admin-section.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './core/guard/auth.guard';
+import { FeatureGuard } from './core/guard/feature.guard';
+import { Permission } from './data/schema/permission.enum';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminSectionComponent,
-    canActivate: [AuthGuard],
+    canActivate: [FeatureGuard],
+    data: { permission: Permission.ModifyPartiesPoliticians },
   },
   { path: '', redirectTo: '/news', pathMatch: 'full' },
   { path: '**', redirectTo: '/news', pathMatch: 'full' },
