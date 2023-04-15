@@ -3,8 +3,8 @@ import { map, Observable } from 'rxjs';
 import { Store } from '@ngxs/store';
 import { AuthenticationState } from '../../state/authentication.state';
 import { IAuthStateModel } from '../../data/schema/auth-state-model';
-import { Utils } from '../../shared/utils/utils';
 import { Injectable } from '@angular/core';
+import { Utils } from '../../shared/utils/utils';
 
 // TODO Do in new way, function auth guard
 @Injectable()
@@ -16,7 +16,11 @@ export class FeatureGuard implements CanActivate {
   ): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
     return this.store.select(AuthenticationState).pipe(
       map((auth: IAuthStateModel) => {
-        if (!!auth && auth.isAuthorized && Utils.checkPermission(auth, route.data['permission'])) {
+        if (
+          !!auth &&
+          auth.isAuthorized &&
+          Utils.checkPermission(auth.permissions, route.data['permission'])
+        ) {
           return true;
         }
 

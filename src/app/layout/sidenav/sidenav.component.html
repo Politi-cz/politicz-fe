@@ -35,6 +35,7 @@
     </mat-nav-list>
     <div class="add-party">
       <button
+        *ngIf="hasPermission$ | async"
         (click)="closeSidenavIfMatches()"
         mat-mini-fab
         color="primary"

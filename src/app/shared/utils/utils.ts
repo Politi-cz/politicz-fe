@@ -1,4 +1,3 @@
-import { IAuthStateModel } from '../../data/schema/auth-state-model';
 import { Permission } from '../../data/schema/permission.enum';
 
 export class Utils {
@@ -20,7 +19,11 @@ export class Utils {
     );
   }
 
-  public static checkPermission(auth: IAuthStateModel, permission: Permission): boolean {
-    return auth.permissions.includes(permission);
+  public static checkPermission(permissions: string[], permissionToCheck: Permission): boolean {
+    if (!permissions || permissions.length <= 0) {
+      return false;
+    }
+
+    return permissions.includes(permissionToCheck);
   }
 }

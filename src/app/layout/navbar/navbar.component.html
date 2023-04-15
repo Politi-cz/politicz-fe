@@ -20,8 +20,10 @@
   </ng-container>
 </mat-toolbar>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item routerLink="/admin">{{ 'menu-admin' | translate }}</button>
-  <mat-divider></mat-divider>
+  <button *ngIf="hasPermission$ | async" mat-menu-item routerLink="/admin">{{
+    'menu-admin' | translate
+  }}</button>
+  <mat-divider *ngIf="hasPermission$ | async"></mat-divider>
   <ng-container *ngIf="isAuthorized$ | async">
     <button mat-menu-item (click)="logout()">{{ 'menu-logout' | translate }}</button>
   </ng-container>

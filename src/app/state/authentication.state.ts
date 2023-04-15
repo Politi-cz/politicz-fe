@@ -35,6 +35,11 @@ export class AuthenticationState {
     return state.isAuthorized;
   }
 
+  @Selector()
+  public static permissions(state: IAuthStateModel): string[] {
+    return state.permissions;
+  }
+
   @Action(AuthenticationActions.Set)
   public setAuthentication(ctx: StateContext<IAuthStateModel>): void {
     this._auth.isAuthenticated$.subscribe((isAuth: boolean) => {
