@@ -34,12 +34,10 @@ export class PoliticalPartiesService {
     return this._httpRequest.post(`${environment.apiUrl}/political-parties/create`, party, true);
   }
 
-  //TODO Only for admin in UI
   public removePoliticalParty(id: string): Observable<void> {
     return this._httpRequest.delete(`${environment.apiUrl}/political-parties/${id}`, true);
   }
 
-  //TODO Only for admin in UI
   public editPoliticalParty(
     party: IPoliticalPartyPoliticiansFree,
   ): Observable<IPoliticalPartyPoliticiansFree> {
@@ -49,7 +47,6 @@ export class PoliticalPartiesService {
       true,
     );
   }
-  //TODO Only for admin in UI
 
   public addPolitician(partyId: string, politician: IPolitician): Observable<IPoliticianResponse> {
     return this._httpRequest.post(
@@ -58,7 +55,6 @@ export class PoliticalPartiesService {
       true,
     );
   }
-  //TODO Only for admin in UI
 
   public editPolitician(
     politicianId: string,
@@ -76,7 +72,6 @@ export class PoliticalPartiesService {
       `${environment.apiUrl}/political-parties/politician/${politicianId}`,
     );
   }
-  //TODO Only for admin in UI
 
   public removePolitician(id: string): Observable<void> {
     return this._httpRequest.delete(
