@@ -10,20 +10,32 @@
     </button>
     <a class="navbar__politi" routerLink="'/home'">Politi.cz</a>
   </div>
-  <div class="navbar__mid">
-    <div class="flag-container">
-      <div class="flag flag--white"></div>
-      <div class="flag flag--red"></div>
-      <div class="flag flag--blue"></div>
-    </div>
-  </div>
-  <button class="menu" mat-button [matMenuTriggerFor]="menu">
-    <span>Pepík</span>
-    <mat-icon>account_circle</mat-icon>
-  </button>
+  <ng-container *ngIf="isAuthorized$ | async; else loginButton">
+    <button class="menu" mat-button [matMenuTriggerFor]="menu">
+      <ng-container *ngIf="user$ | async as user">
+        <span>{{ user.email }}</span>
+      </ng-container>
+      <mat-icon>account_circle</mat-icon>
+    </button>
+  </ng-container>
 </mat-toolbar>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item>{{ 'menu-settings' | translate }}</button>
-  <button mat-menu-item routerLink="/admin">{{ 'menu-admin' | translate }}</button>
-  <button mat-menu-item>{{ 'menu-logout' | translate }}</button>
+  <button *ngIf="hasPermission$ | async" mat-menu-item routerLink="/admin">{{
+    'menu-admin' | translate
+  }}</button>
+  <mat-divider *ngIf="hasPermission$ | async"></mat-divider>
+  <ng-container *ngIf="isAuthorized$ | async">
+    <button mat-menu-item (click)="logout()">{{ 'menu-logout' | translate }}</button>
+  </ng-container>
 </mat-menu>
+
+<ng-template #loginButton>
+  <mat-icon
+    class="login-icon"
+    aria-label="Button that redirects user to login / register form"
+    matTooltipPosition="before"
+    [matTooltip]="'login-register' | translate"
+    (click)="login()"
+    >account_circle
+  </mat-icon>
+</ng-template>

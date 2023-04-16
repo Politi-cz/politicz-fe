@@ -3,7 +3,7 @@ import { SidenavPartiesState } from '../../state/sidenav-parties.state';
 import { Select, Store } from '@ngxs/store';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import {
   AfterViewInit,
   ChangeDetectorRef,
@@ -16,6 +16,9 @@ import { SidenavService } from '../../shared/service/sidenav.service';
 import { Router } from '@angular/router';
 import { FiltersState } from 'src/app/state/filters.state';
 import { IPartySidenavItem } from 'src/app/data/schema/political-party';
+import { Permission } from '../../data/schema/permission.enum';
+import { AuthenticationState } from '../../state/authentication.state';
+import { Utils } from '../../shared/utils/utils';
 
 @Component({
   selector: 'app-sidenav',
@@ -29,13 +32,19 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
 
   @Select(SidenavPartiesState.getParties) sidenavParties$: Observable<IPartySidenavItem[]>;
 
-  mobileQuery!: MediaQueryList;
+  public mobileQuery!: MediaQueryList;
+
+  public hasPermission$ = this.store.select(AuthenticationState.permissions).pipe(
+    map((permissions: string[]) => {
+      return Utils.checkPermission(permissions, Permission.ModifyPartiesPoliticians);
+    }),
+  );
 
   private _mobileQueryListener: () => void;
 
   constructor(
-    changeDetectorRef: ChangeDetectorRef,
-    media: MediaMatcher,
+    public changeDetectorRef: ChangeDetectorRef,
+    public media: MediaMatcher,
     private sidenavService: SidenavService,
     private router: Router,
     private store: Store,

@@ -4,12 +4,15 @@ import { FiltersState } from '../../../state/filters.state';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { IPoliticalParty } from '../../../data/schema/political-party';
 import { PoliticalParty } from '../action/political-party.action';
 import { ConfirmDialogComponent } from '../../../shared/component/confirm-dialog/confirm-dialog.component';
 import { IConfirmDialogData } from '../../../data/schema/dialog';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthenticationState } from '../../../state/authentication.state';
+import { Permission } from '../../../data/schema/permission.enum';
+import { Utils } from '../../../shared/utils/utils';
 
 @Component({
   selector: 'app-party',
@@ -22,6 +25,12 @@ export class PartyComponent implements OnInit {
   @Select(PoliticalPartyState) politicalParty$: Observable<IPoliticalParty>;
 
   @Select(PoliticalPartyState.getPoliticians) politicians$: Observable<IPolitician[]>;
+
+  public hasPermission$ = this.store.select(AuthenticationState.permissions).pipe(
+    map((permissions: string[]) => {
+      return Utils.checkPermission(permissions, Permission.ModifyPartiesPoliticians);
+    }),
+  );
 
   constructor(
     private route: ActivatedRoute,

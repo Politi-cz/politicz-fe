@@ -2,6 +2,7 @@
 
 .navbar {
   display: flex;
+  justify-content: space-between;
 
   &__politi {
     text-decoration: none;
@@ -34,7 +35,7 @@
 .flag-container {
   display: flex;
   align-self: stretch;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0 3px 6px, rgba(0, 0, 0, 0.23) 0 3px 6px;
   margin: 0 0.5rem;
   .flag {
     width: 2rem;
@@ -59,4 +60,10 @@
   mat-icon {
     scale: (1.5);
   }
+}
+
+.login-icon {
+  scale: 1.5;
+  cursor: pointer;
+  margin-right: 1rem;
 }

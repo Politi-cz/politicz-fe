@@ -2,8 +2,9 @@
   "home": "Doma",
   "app-page": "App stránka",
   "menu-settings": "Nastavení",
-  "menu-admin": "Admin sekce",
+  "menu-admin": "Administrace",
   "menu-logout": "Odhlásit se",
+  "menu-login": "Přihlásit se",
   "sidenav-search": "Hledat politickou stranu",
   "politician": "Politik",
   "party-members": "Členové",
@@ -50,5 +51,6 @@
   "politician-edit-success": "Politik byl úspěšně upraven",
   "politician-remove-success": "Politik byl odstraněn",
   "dialog-remove": "Odstranit",
-  "dialog-action-cancel": "Zrušit"
+  "dialog-action-cancel": "Zrušit",
+  "login-register": "Příhlásit / Registrovat"
 }

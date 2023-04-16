@@ -8,6 +8,10 @@ import { PoliticalParty } from '../../action/political-party.action';
 import { IConfirmDialogData } from '../../../../data/schema/dialog';
 import { ConfirmDialogComponent } from '../../../../shared/component/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { AuthenticationState } from '../../../../state/authentication.state';
+import { map } from 'rxjs';
+import { Permission } from '../../../../data/schema/permission.enum';
+import { Utils } from '../../../../shared/utils/utils';
 
 @Component({
   selector: 'app-politician',
@@ -16,6 +20,12 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class PoliticianComponent {
   @Input() politician: IPolitician;
+
+  public hasPermission$ = this._store.select(AuthenticationState.permissions).pipe(
+    map((permissions: string[]) => {
+      return Utils.checkPermission(permissions, Permission.ModifyPartiesPoliticians);
+    }),
+  );
 
   constructor(private _store: Store, private _router: Router, private _dialog: MatDialog) {}
 

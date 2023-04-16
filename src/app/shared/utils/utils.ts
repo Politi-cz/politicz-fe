@@ -1,4 +1,4 @@
-import dayjs from 'dayjs';
+import { Permission } from '../../data/schema/permission.enum';
 
 export class Utils {
   public static readonly URL_PATTERN = '(https?://)([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w ?=&.-]*/?';
@@ -19,7 +19,11 @@ export class Utils {
     );
   }
 
-  public static formatDate(date: string, format: string): string {
-    return dayjs(date).format(format);
+  public static checkPermission(permissions: string[], permissionToCheck: Permission): boolean {
+    if (!permissions || permissions.length <= 0) {
+      return false;
+    }
+
+    return permissions.includes(permissionToCheck);
   }
 }

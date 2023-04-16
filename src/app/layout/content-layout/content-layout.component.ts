@@ -1,7 +1,8 @@
 import { Observable } from 'rxjs';
-import { SpinnerState } from './../../state/spinner.state';
+import { SpinnerState } from '../../state/spinner.state';
 import { Component } from '@angular/core';
 import { Select } from '@ngxs/store';
+import { AuthService } from '@auth0/auth0-angular';
 
 @Component({
   selector: 'app-content-layout',
@@ -10,4 +11,6 @@ import { Select } from '@ngxs/store';
 })
 export class ContentLayoutComponent {
   @Select(SpinnerState.getSpinnerState) spinner$!: Observable<boolean>;
+
+  constructor(public auth: AuthService) {}
 }

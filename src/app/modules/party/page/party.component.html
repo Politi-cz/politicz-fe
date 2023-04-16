@@ -10,7 +10,7 @@
             <mat-icon color="primary" matSuffix>search</mat-icon>
           </mat-form-field>
         </div>
-        <div class="party__actions__admin-buttons">
+        <div *ngIf="hasPermission$ | async" class="party__actions__admin-buttons">
           <button
             [routerLink]="['/political-party/detail', party.id, 'edit']"
             mat-raised-button
