@@ -7,24 +7,37 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class GlobalErrorHandler implements ErrorHandler {
   constructor(private notificationService: NotificationService) {}
 
-  public handleError(httpError: HttpErrorResponse): void {
-    //TODO udělat type guard
-    const structuredError = httpError.error as ErrorResponse;
-    let errorMessage = httpError.message;
+  public handleError(httpError: HttpErrorResponse | any): void {
+    const error = httpError?.error;
 
-    if (structuredError.message || structuredError.errors) {
-      const errorMessages = [];
+    if (this.isErrorResponse(error)) {
+      const structuredError = error;
+      let errorMessage = error.message;
 
-      if (structuredError.errors && Object.keys(structuredError.errors).length > 0) {
-        for (const [key, value] of Object.entries(structuredError.errors)) {
-          errorMessages.push(key + ' ' + value[0].toLowerCase());
+      if (Object.keys(structuredError.errors).length > 0) {
+        const errorMessages = [];
+
+        if (structuredError.errors && Object.keys(structuredError.errors).length > 0) {
+          for (const [key, value] of Object.entries(structuredError.errors)) {
+            errorMessages.push(key + ' ' + value[0].toLowerCase());
+          }
+
+          errorMessage = errorMessages.join('\n ');
         }
-
-        errorMessage = errorMessages.join('\n ');
       }
+
+      this.notificationService.showError(errorMessage);
+    } else {
+      this.notificationService.showError(httpError?.error ?? 'Unknown error occurred');
     }
 
-    this.notificationService.showError(errorMessage!);
     console.error(httpError);
+  }
+
+  private isErrorResponse(error: ErrorResponse | any): error is ErrorResponse {
+    return (
+      (error as ErrorResponse)?.message !== undefined &&
+      (error as ErrorResponse)?.errors !== undefined
+    );
   }
 }
