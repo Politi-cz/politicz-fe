@@ -15,8 +15,8 @@ export class HttpRequestService {
 
   constructor(private _http: HttpClient, private _store: Store) {
     this._store.select(AuthenticationState).subscribe((authState: IAuthStateModel) => {
-      this.accessToken = authState.accessToken;
-      this.isAuth = authState.isAuthorized;
+      this.accessToken = authState?.accessToken;
+      this.isAuth = authState?.isAuthorized;
     });
   }
 
