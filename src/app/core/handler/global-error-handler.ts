@@ -27,14 +27,16 @@ export class GlobalErrorHandler implements ErrorHandler {
       }
 
       this.notificationService.showError(errorMessage);
+    } else if (httpError.message) {
+      this.notificationService.showError(httpError?.message);
     } else {
-      this.notificationService.showError(httpError?.error ?? 'Unknown error occurred');
+      this.notificationService.showError('Unknown error has occurred');
     }
 
     console.error(httpError);
   }
 
-  private isErrorResponse(error: ErrorResponse | any): error is ErrorResponse {
+  private isErrorResponse(error: ErrorResponse | HttpErrorResponse): error is ErrorResponse {
     return (
       (error as ErrorResponse)?.message !== undefined &&
       (error as ErrorResponse)?.errors !== undefined

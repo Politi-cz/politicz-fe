@@ -58,6 +58,14 @@ export class AuthenticationState {
         this._auth.user$.subscribe((user: any) => {
           ctx.patchState({ user: user });
         });
+      } else {
+        ctx.setState({
+          accessToken: '',
+          isAuthorized: false,
+          idToken: '',
+          user: {},
+          permissions: [],
+        });
       }
     });
   }
