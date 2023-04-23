@@ -86,7 +86,7 @@
         <input matInput formControlName="facebookUrl" />
         <mat-error>{{ 'form-bad-url-pattern' | translate }}</mat-error>
       </mat-form-field>
-      <div class="span-12 delete-politician">
+      <div *ngIf="i > 0" class="span-12 delete-politician">
         <button type="button" mat-fab color="warn" (click)="removePolitician(i)">
           <mat-icon>clear</mat-icon>
         </button>
