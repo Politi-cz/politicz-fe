@@ -8,19 +8,19 @@ import { Spinner } from 'src/app/action/spinner.action';
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {
   // Implement adding headers to request
-  constructor(private store: Store) {}
+  constructor(private _store: Store) {}
 
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // Workaround for expression changed after it was checked error
     setTimeout(() => {
-      this.store.dispatch(new Spinner.Set(true));
+      this._store.dispatch(new Spinner.Set(true));
     });
 
     const modifiedRequest = request.clone({ body: this.removeEmptyAttributes(request.body) });
 
     return next.handle(modifiedRequest).pipe(
       finalize(() => {
-        this.store.dispatch(new Spinner.Set(false));
+        this._store.dispatch(new Spinner.Set(false));
       }),
     );
   }

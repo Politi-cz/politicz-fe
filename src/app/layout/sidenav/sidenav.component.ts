@@ -34,7 +34,7 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
 
   public mobileQuery!: MediaQueryList;
 
-  public hasPermission$ = this.store.select(AuthenticationState.permissions).pipe(
+  public hasPermission$ = this._store.select(AuthenticationState.permissions).pipe(
     map((permissions: string[]) => {
       return Utils.checkPermission(permissions, Permission.ModifyPartiesPoliticians);
     }),
@@ -45,9 +45,9 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
   constructor(
     public changeDetectorRef: ChangeDetectorRef,
     public media: MediaMatcher,
-    private sidenavService: SidenavService,
-    private router: Router,
-    private store: Store,
+    private _sidenavService: SidenavService,
+    private _router: Router,
+    private _store: Store,
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 1360px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -55,11 +55,11 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public ngOnInit(): void {
-    this.store.dispatch(new SidenavPartiesActions.GetSidenavParties());
+    this._store.dispatch(new SidenavPartiesActions.GetSidenavParties());
   }
 
   public ngAfterViewInit(): void {
-    this.sidenavService.setSidenav(this.sidenav);
+    this._sidenavService.setSidenav(this.sidenav);
   }
 
   public ngOnDestroy(): void {
@@ -67,12 +67,12 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public navigateToPoliticalPartyPage(id: string): void {
-    this.router.navigate(['/political-party/detail/' + id]);
+    this._router.navigate(['/political-party/detail/' + id]);
     this.closeSidenavIfMatches();
   }
 
   public toggleSidenav(): void {
-    this.sidenavService.toggleSidenav();
+    this._sidenavService.toggleSidenav();
   }
 
   public closeSidenavIfMatches(): void {

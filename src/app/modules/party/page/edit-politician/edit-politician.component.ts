@@ -14,9 +14,9 @@ import { PoliticalParty } from '../../action/political-party.action';
 export class EditPoliticianComponent implements OnInit {
   politician$: Observable<IPolitician>;
 
-  private politicalPartyId: string;
+  private _politicalPartyId: string;
 
-  private politicianId: string;
+  private _politicianId: string;
 
   constructor(
     private _route: ActivatedRoute,
@@ -28,23 +28,23 @@ export class EditPoliticianComponent implements OnInit {
   public ngOnInit(): void {
     this.politician$ = this._route.paramMap.pipe(
       switchMap((params: ParamMap) => {
-        this.politicalPartyId = params.get('id')!;
-        this.politicianId = params.get('politicianId')!;
-        this._store.dispatch(new PoliticalParty.GetPoliticalParty(this.politicalPartyId));
+        this._politicalPartyId = params.get('id')!;
+        this._politicianId = params.get('politicianId')!;
+        this._store.dispatch(new PoliticalParty.GetPoliticalParty(this._politicalPartyId));
 
-        return this._politicalPartiesService.getPolitician(this.politicianId);
+        return this._politicalPartiesService.getPolitician(this._politicianId);
       }),
     );
   }
 
   public onSubmit(politician: IPolitician): void {
-    const request = { id: this.politicianId, ...politician } as IPolitician;
+    const request = { id: this._politicianId, ...politician } as IPolitician;
     this._store
       .dispatch(new PoliticalParty.EditPolitician(request))
       .subscribe(() => this.navigateBack());
   }
 
   public navigateBack(): void {
-    this._router.navigate(['/political-party/detail/' + this.politicalPartyId]);
+    this._router.navigate(['/political-party/detail/' + this._politicalPartyId]);
   }
 }

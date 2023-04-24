@@ -17,7 +17,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 export class EditPartyComponent implements OnInit, OnDestroy {
   politicalParty$: Observable<IPoliticalParty>;
 
-  private destroy$ = new Subject<void>();
+  private _destroy$ = new Subject<void>();
 
   constructor(private _route: ActivatedRoute, private _router: Router, private _store: Store) {}
 
@@ -29,7 +29,7 @@ export class EditPartyComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.destroy$.next();
+    this._destroy$.next();
   }
 
   public onSubmit(party: IPoliticalPartyPoliticiansFree): void {

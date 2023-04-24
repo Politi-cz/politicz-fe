@@ -5,7 +5,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class GlobalErrorHandler implements ErrorHandler {
-  constructor(private notificationService: NotificationService) {}
+  constructor(private _notificationService: NotificationService) {}
 
   public handleError(httpError: HttpErrorResponse | any): void {
     const error = httpError?.error;
@@ -26,11 +26,11 @@ export class GlobalErrorHandler implements ErrorHandler {
         }
       }
 
-      this.notificationService.showError(errorMessage);
+      this._notificationService.showError(errorMessage);
     } else if (httpError.message) {
-      this.notificationService.showError(httpError?.message);
+      this._notificationService.showError(httpError?.message);
     } else {
-      this.notificationService.showError('Unknown error has occurred');
+      this._notificationService.showError('Unknown error has occurred');
     }
 
     console.error(httpError);

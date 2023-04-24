@@ -26,22 +26,22 @@ export class PartyComponent implements OnInit {
 
   @Select(PoliticalPartyState.getPoliticians) politicians$: Observable<IPolitician[]>;
 
-  public hasPermission$ = this.store.select(AuthenticationState.permissions).pipe(
+  public hasPermission$ = this._store.select(AuthenticationState.permissions).pipe(
     map((permissions: string[]) => {
       return Utils.checkPermission(permissions, Permission.ModifyPartiesPoliticians);
     }),
   );
 
   constructor(
-    private route: ActivatedRoute,
-    private store: Store,
+    private _route: ActivatedRoute,
+    private _store: Store,
     private _router: Router,
-    private dialog: MatDialog,
+    private _dialog: MatDialog,
   ) {}
 
   public ngOnInit(): void {
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      return this.store.dispatch(new PoliticalParty.GetPoliticalParty(params.get('id')));
+    this._route.paramMap.subscribe((params: ParamMap) => {
+      return this._store.dispatch(new PoliticalParty.GetPoliticalParty(params.get('id')));
     });
   }
 
@@ -52,7 +52,7 @@ export class PartyComponent implements OnInit {
       confirmButtonText: 'remove-party',
       closeButtonText: 'dialog-action-cancel',
     };
-    const dialogRef = this.dialog.open(ConfirmDialogComponent, {
+    const dialogRef = this._dialog.open(ConfirmDialogComponent, {
       data: dialogData,
     });
 
@@ -64,10 +64,10 @@ export class PartyComponent implements OnInit {
   }
 
   private removeParty(): void {
-    const partyId = this.store.selectSnapshot(PoliticalPartyState.getPoliticalPartyId);
+    const partyId = this._store.selectSnapshot(PoliticalPartyState.getPoliticalPartyId);
 
     if (partyId) {
-      this.store
+      this._store
         .dispatch(new PoliticalParty.RemovePoliticalParty(partyId))
         .subscribe(() => this._router.navigate(['/news']));
     }

@@ -1,18 +1,18 @@
 import { Store } from '@ngxs/store';
 import { Pipe, PipeTransform } from '@angular/core';
 import { Utils } from '../../utils/utils';
-import { Filters } from '../../../../app/action/filters.action';
-import { IPartySidenavItem } from './../../../data/schema/political-party';
+import { Filters } from '../../../action/filters.action';
+import { IPartySidenavItem } from '../../../data/schema/political-party';
 
 @Pipe({
   name: 'filterParties',
 })
 export class FilterPartiesPipe implements PipeTransform {
-  constructor(private store: Store) {}
+  constructor(private _store: Store) {}
 
   public transform(parties: IPartySidenavItem[], searchValue: string): IPartySidenavItem[] {
     if (!searchValue || parties === null || parties === undefined) {
-      this.store.dispatch(new Filters.Set({ partyFilterCount: parties?.length ?? 1 }));
+      this._store.dispatch(new Filters.Set({ partyFilterCount: parties?.length ?? 1 }));
 
       return parties;
     }
@@ -24,7 +24,7 @@ export class FilterPartiesPipe implements PipeTransform {
       );
     });
 
-    this.store.dispatch(new Filters.Set({ partyFilterCount: filteredParties.length }));
+    this._store.dispatch(new Filters.Set({ partyFilterCount: filteredParties.length }));
 
     return filteredParties;
   }

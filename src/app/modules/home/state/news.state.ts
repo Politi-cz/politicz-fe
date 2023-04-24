@@ -11,17 +11,17 @@ import { News } from '../action/news.action';
 })
 @Injectable()
 export class NewsState {
-  constructor(private newsService: NewsService) {}
+  constructor(private _newsService: NewsService) {}
 
   @Action(News.GetAll) public getNews(ctx: StateContext<INews[]>): Observable<INews[]> {
-    return this.newsService.getAllNews().pipe(tap((news: INews[]) => ctx.setState(news)));
+    return this._newsService.getAllNews().pipe(tap((news: INews[]) => ctx.setState(news)));
   }
 
   @Action(News.Remove) public removeNews(
     ctx: StateContext<INews[]>,
     { payload }: News.Remove,
   ): Observable<void> {
-    return this.newsService
+    return this._newsService
       .deleteNews(payload.id)
       .pipe(
         tap(() => ctx.setState(ctx.getState().filter((news: INews) => news.id !== payload.id))),

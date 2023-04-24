@@ -9,14 +9,14 @@ import { IAuthStateModel } from '../schema/auth-state-model';
   providedIn: 'root',
 })
 export class HttpRequestService {
-  private accessToken: string;
+  private _accessToken: string;
 
-  private isAuth: boolean;
+  private _isAuth: boolean;
 
   constructor(private _http: HttpClient, private _store: Store) {
     this._store.select(AuthenticationState).subscribe((authState: IAuthStateModel) => {
-      this.accessToken = authState?.accessToken;
-      this.isAuth = authState?.isAuthorized;
+      this._accessToken = authState?.accessToken;
+      this._isAuth = authState?.isAuthorized;
     });
   }
 
@@ -45,13 +45,13 @@ export class HttpRequestService {
   }
 
   private headerWithAccessToken(): any {
-    if (!this.isAuth || !this.accessToken) {
+    if (!this._isAuth || !this._accessToken) {
       throw new Error('User is not authenticated, cannot add access token');
     }
 
     return {
       'Content-Type': 'application/json',
-      Authorization: `Bearer ${this.accessToken}`,
+      Authorization: `Bearer ${this._accessToken}`,
     };
   }
 }

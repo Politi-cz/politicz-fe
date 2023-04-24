@@ -16,7 +16,7 @@ import { HttpRequestService } from './http-request.service';
   providedIn: 'root',
 })
 export class PoliticalPartiesService {
-  constructor(private http: HttpClient, private _httpRequest: HttpRequestService) {}
+  constructor(private _http: HttpClient, private _httpRequest: HttpRequestService) {}
 
   public getPartiesForSidenav(): Observable<IPartySidenavItem[]> {
     return this._httpRequest.get(`${environment.apiUrl}/political-parties`);

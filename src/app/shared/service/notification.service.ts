@@ -12,33 +12,33 @@ import { TranslateService } from '@ngx-translate/core';
 export class NotificationService {
   private _duration = 10000;
 
-  private config = {
+  private _config = {
     horizontalPosition: 'center' as MatSnackBarHorizontalPosition,
     verticalPosition: 'top' as MatSnackBarVerticalPosition,
   };
 
   constructor(
-    private snackBar: MatSnackBar,
-    private zone: NgZone,
-    private translate: TranslateService,
+    private _snackBar: MatSnackBar,
+    private _zone: NgZone,
+    private _translate: TranslateService,
   ) {}
 
   public showSuccess(message: string, duration: number = this._duration): void {
-    this.zone.run(() => {
-      this.snackBar.open(this.translate.instant(message), 'X', {
+    this._zone.run(() => {
+      this._snackBar.open(this._translate.instant(message), 'X', {
         panelClass: ['successNotification'],
         duration: duration,
-        ...this.config,
+        ...this._config,
       });
     });
   }
 
   public showError(message: string, duration: number = this._duration): void {
-    this.zone.run(() => {
-      this.snackBar.open(this.translate.instant(message), 'X', {
+    this._zone.run(() => {
+      this._snackBar.open(this._translate.instant(message), 'X', {
         panelClass: ['errorNotification'],
         duration: duration,
-        ...this.config,
+        ...this._config,
       });
     });
   }

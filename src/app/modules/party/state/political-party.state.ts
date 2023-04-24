@@ -25,8 +25,8 @@ import { tap, Observable } from 'rxjs';
 @Injectable()
 export class PoliticalPartyState {
   constructor(
-    private politicalPartyService: PoliticalPartiesService,
-    private notificationService: NotificationService,
+    private _politicalPartyService: PoliticalPartiesService,
+    private _notificationService: NotificationService,
   ) {}
 
   @Selector()
@@ -48,7 +48,7 @@ export class PoliticalPartyState {
     ctx: StateContext<IPoliticalParty>,
     { payload }: PoliticalParty.GetPoliticalParty,
   ): Observable<IPoliticalParty> {
-    return this.politicalPartyService
+    return this._politicalPartyService
       .getPoliticalParty(payload)
       .pipe(tap((data: IPoliticalParty) => ctx.setState(data)));
   }
@@ -57,11 +57,11 @@ export class PoliticalPartyState {
     ctx: StateContext<IPoliticalParty>,
     { payload }: PoliticalParty.CreatePoliticalParty,
   ): Observable<ICreatePoliticalPartyResponse> {
-    return this.politicalPartyService.createPoliticalParty(payload).pipe(
+    return this._politicalPartyService.createPoliticalParty(payload).pipe(
       tap((data: ICreatePoliticalPartyResponse) => {
         ctx.patchState({ ...data });
         ctx.dispatch(new SidenavPartiesActions.GetSidenavParties());
-        this.notificationService.showSuccess('party-create-success');
+        this._notificationService.showSuccess('party-create-success');
       }),
     );
   }
@@ -70,11 +70,11 @@ export class PoliticalPartyState {
     ctx: StateContext<IPoliticalParty>,
     { payload }: PoliticalParty.UpdatePoliticalParty,
   ): Observable<IPoliticalPartyPoliticiansFree> {
-    return this.politicalPartyService.editPoliticalParty(payload).pipe(
+    return this._politicalPartyService.editPoliticalParty(payload).pipe(
       tap((data: IPoliticalPartyPoliticiansFree) => {
         ctx.patchState({ ...data });
         ctx.dispatch(new SidenavPartiesActions.GetSidenavParties());
-        this.notificationService.showSuccess('party-edit-success');
+        this._notificationService.showSuccess('party-edit-success');
       }),
     );
   }
@@ -83,10 +83,10 @@ export class PoliticalPartyState {
     ctx: StateContext<IPoliticalParty>,
     { id }: PoliticalParty.RemovePoliticalParty,
   ): Observable<void> {
-    return this.politicalPartyService.removePoliticalParty(id).pipe(
+    return this._politicalPartyService.removePoliticalParty(id).pipe(
       tap(() => {
         ctx.dispatch(new SidenavPartiesActions.GetSidenavParties());
-        this.notificationService.showSuccess('party-remove-success');
+        this._notificationService.showSuccess('party-remove-success');
       }),
     );
   }
@@ -96,10 +96,10 @@ export class PoliticalPartyState {
     ctx: StateContext<IPoliticalParty>,
     { payload }: PoliticalParty.AddPolitician,
   ): Observable<IPoliticianResponse> {
-    return this.politicalPartyService.addPolitician(ctx.getState().id!, payload).pipe(
+    return this._politicalPartyService.addPolitician(ctx.getState().id!, payload).pipe(
       tap((politician: IPoliticianResponse) => {
         ctx.patchState({ politicians: [...ctx.getState().politicians, politician] });
-        this.notificationService.showSuccess('politician-create-success');
+        this._notificationService.showSuccess('politician-create-success');
       }),
     );
   }
@@ -109,7 +109,7 @@ export class PoliticalPartyState {
     ctx: StateContext<IPoliticalParty>,
     { payload }: PoliticalParty.EditPolitician,
   ): Observable<IPoliticianResponse> {
-    return this.politicalPartyService.editPolitician(payload.id!, payload).pipe(
+    return this._politicalPartyService.editPolitician(payload.id!, payload).pipe(
       tap((politician: IPoliticianResponse) => {
         let politicians = [...ctx.getState().politicians];
 
@@ -118,7 +118,7 @@ export class PoliticalPartyState {
         );
 
         if (indexOfEditedPolitician === -1) {
-          this.notificationService.showError('Wrong politician id');
+          this._notificationService.showError('Wrong politician id');
 
           return;
         }
@@ -126,7 +126,7 @@ export class PoliticalPartyState {
         politicians[indexOfEditedPolitician] = { ...politician };
 
         ctx.patchState({ politicians: [...politicians] });
-        this.notificationService.showSuccess('politician-edit-success');
+        this._notificationService.showSuccess('politician-edit-success');
       }),
     );
   }
@@ -136,14 +136,14 @@ export class PoliticalPartyState {
     ctx: StateContext<IPoliticalParty>,
     { payload }: PoliticalParty.RemovePolitician,
   ): Observable<void> {
-    return this.politicalPartyService.removePolitician(payload.id!).pipe(
+    return this._politicalPartyService.removePolitician(payload.id!).pipe(
       tap(() => {
         const filteredPoliticians = ctx
           .getState()
           .politicians.filter((politician: IPolitician) => politician.id !== payload.id);
 
         ctx.patchState({ politicians: filteredPoliticians });
-        this.notificationService.showSuccess('politician-remove-success');
+        this._notificationService.showSuccess('politician-remove-success');
       }),
     );
   }
