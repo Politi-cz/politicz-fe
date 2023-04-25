@@ -10,7 +10,7 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'detail',
+    path: 'detail/:id',
     component: NewsDetailComponent,
   },
 ];

@@ -11,14 +11,14 @@ export class NewsService {
   constructor(private _http: HttpClient) {}
 
   public getAllNews(): Observable<INews[]> {
-    return this._http.get<INews[]>(`${environment.apiUrl}/news`);
+    return this._http.get<INews[]>(`${environment.apiNews}/news`);
   }
 
   public getNewsById(id: string): Observable<INews> {
-    return this._http.get<INews>(`${environment.apiUrl}/news/${id}`);
+    return this._http.get<INews>(`${environment.apiNews}/news/${id}`);
   }
 
   public deleteNews(id: string): Observable<void> {
-    return this._http.delete<void>(`${environment.apiUrl}/news/${id}`);
+    return this._http.delete<void>(`${environment.apiNews}/news/${id}`);
   }
 }

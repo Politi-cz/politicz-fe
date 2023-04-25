@@ -16,7 +16,7 @@ export class NewsComponent {
   constructor(private _router: Router, private _store: Store) {}
 
   public navigateToDetail(id: string): void {
-    this._router.navigate(['/news/detail'], { queryParams: { id: id } });
+    this._router.navigate(['/news/detail', id]);
   }
 
   public handleActionEvent(action: QuickMenuAction): void {
