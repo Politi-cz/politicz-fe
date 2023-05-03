@@ -1,9 +1,11 @@
 <div class="news" (click)="navigateToDetail(news.id)">
   <app-admin-quick-menu-actions
     (actionClickEvt)="handleActionEvent($event)"></app-admin-quick-menu-actions>
-  <img src="assets/polit.jpg" />
+  <img [src]="news.imageUrl" alt="politician image" />
   <div class="news__text">
     <h3>{{ news.heading }}</h3>
-    <div class="news__text__content">{{ news.content }}</div>
+    <div class="news__text__content"
+      ><b>{{ news.publishDate | dateFormatter : dateTimeFormat }}</b> - {{ news.content }}</div
+    >
   </div>
 </div>
