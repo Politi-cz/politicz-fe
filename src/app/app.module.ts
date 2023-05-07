@@ -24,7 +24,6 @@ import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, environment.assetsPath, '.json');
 }
-// TODO update readme + dropdown menu for actions + divnej hover sidenav itemu
 @NgModule({
   declarations: [AppComponent, ContentLayoutComponent, NavbarComponent, SidenavComponent],
   imports: [

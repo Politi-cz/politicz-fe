@@ -55,5 +55,6 @@
   "dialog-remove": "Odstranit",
   "dialog-action-cancel": "Zrušit",
   "login-register": "Příhlásit / Registrovat",
-  "no-politicians": "Tato politická strana neobsahuje žádné politiky"
+  "no-politicians": "Tato politická strana neobsahuje žádné politiky",
+  "actions": "Akce"
 }
