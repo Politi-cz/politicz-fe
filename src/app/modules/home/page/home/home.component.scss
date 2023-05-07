@@ -18,5 +18,12 @@
 
   & app-news:nth-of-type(1) {
     grid-column: center-start / center-end;
+    height: 40rem;
   }
+}
+
+.news__actions {
+  grid-column: center-start / center-end;
+  justify-self: flex-end;
+  margin-bottom: 2rem;
 }

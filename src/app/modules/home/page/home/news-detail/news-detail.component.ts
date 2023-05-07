@@ -14,11 +14,11 @@ import { NewsState } from '../../../state/news.state';
 export class NewsDetailComponent implements OnInit {
   @Select(NewsState.getSelectedNews) newsDetail$: Observable<INews>;
 
-  constructor(private route: ActivatedRoute, private store: Store) {}
+  constructor(private _route: ActivatedRoute, private _store: Store) {}
 
   public ngOnInit(): void {
-    this.route.queryParamMap.subscribe((params: ParamMap) =>
-      this.store.dispatch(new News.Get(params.get('id')!)),
+    this._route.paramMap.subscribe((params: ParamMap) =>
+      this._store.dispatch(new News.Get(params.get('id')!)),
     );
   }
 }
