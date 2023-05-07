@@ -113,7 +113,7 @@ export const PoliticalPartyStateDefaultMock: IPoliticalPartyState = {
     {
       imageUrl:
         'https://magazin.klarstein.cz/wp-content/uploads/2023/02/KS_Magazine_0223_Pizza-Hawaii_1300x1300px.jpg',
-      name: 'Alliance Defending Hawai Pizza',
+      name: 'Alliance Defending Pizza Hawai',
       id: '3',
       tags: ['Hawai', 'Pizza', 'Not Normal'],
       politicians: [],
