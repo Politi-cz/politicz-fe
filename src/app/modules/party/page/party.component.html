@@ -43,9 +43,21 @@
         <app-politician
           *ngFor="let politician of politicians | filterPoliticians : input.value"
           [politician]="politician"></app-politician>
-        <ng-container *ngIf="(politiciansCount | async) === 0">
+        <ng-container *ngIf="(politiciansCount | async) === 0 && politicians.length">
           <span class="no-result">{{ 'no-result' | translate }}</span>
         </ng-container>
+        <div class="no-politician" *ngIf="(politiciansCount | async) === 0 && !politicians.length">
+          <span class="no-result">{{ 'no-politicians' | translate }}</span>
+          <button
+            *ngIf="hasPermission$ | async"
+            [routerLink]="['/political-party/detail', party.id, 'add-politician']"
+            mat-raised-button
+            color="primary"
+            class="button-add">
+            {{ 'politician-add' | translate }}
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
       </div>
     </ng-container>
   </ng-container>

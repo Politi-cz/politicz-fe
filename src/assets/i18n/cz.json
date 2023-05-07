@@ -54,5 +54,6 @@
   "politician-remove-success": "Politik byl odstraněn",
   "dialog-remove": "Odstranit",
   "dialog-action-cancel": "Zrušit",
-  "login-register": "Příhlásit / Registrovat"
+  "login-register": "Příhlásit / Registrovat",
+  "no-politicians": "Tato politická strana neobsahuje žádné politiky"
 }
