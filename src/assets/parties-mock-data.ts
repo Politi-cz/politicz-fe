@@ -5,7 +5,7 @@ export const PoliticalPartyStateDefaultMock: IPoliticalPartyState = {
   parties: [
     {
       imageUrl: 'https://seeklogo.com/images/P/Praha-logo-D9CC980EDF-seeklogo.com.png',
-      name: 'Sdružení za Prahu',
+      name: 'Prague Enjoyers',
       id: '1',
       tags: ['Praha', 'Praha sobě', 'Demokracie'],
       politicians: [
@@ -109,6 +109,14 @@ export const PoliticalPartyStateDefaultMock: IPoliticalPartyState = {
           twitterUrl: 'https://twitter.com',
         },
       ],
+    },
+    {
+      imageUrl:
+        'https://magazin.klarstein.cz/wp-content/uploads/2023/02/KS_Magazine_0223_Pizza-Hawaii_1300x1300px.jpg',
+      name: 'Alliance Defending Hawai Pizza',
+      id: '3',
+      tags: ['Hawai', 'Pizza', 'Not Normal'],
+      politicians: [],
     },
   ],
 };
