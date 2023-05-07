@@ -20,13 +20,15 @@
     </div>
     <mat-nav-list>
       <mat-list-item
-        (click)="navigateToPoliticalPartyPage(party.id!)"
+        (click)="navigateToPoliticalPartyPage(party.id)"
         *ngFor="let party of (sidenavParties$ | async)! | filterParties : input.value">
         <div class="party">
           <div class="party__logo-container">
             <img [src]="party.imageUrl" alt="party icon" class="party-icon" />
           </div>
-          <span>{{ party.name }}</span>
+          <div matTooltipPosition="above" [matTooltip]="party.name" class="party__name">{{
+            party.name
+          }}</div>
         </div>
       </mat-list-item>
       <mat-list-item *ngIf="(partiesCount | async) === 0">
@@ -35,6 +37,7 @@
     </mat-nav-list>
     <div class="add-party">
       <button
+        [matTooltip]="'admin-party-add' | translate"
         (click)="closeSidenavIfMatches()"
         mat-mini-fab
         color="primary"

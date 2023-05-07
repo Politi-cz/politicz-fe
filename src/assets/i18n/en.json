@@ -15,6 +15,7 @@
   "news-add": "Add news",
   "news-deleted": "News was successfully deleted",
   "politician-add": "Add politician",
+  "politician-add-next": "Add another politician",
   "politician-new": "New politician",
   "politician-edit": "Edit politician",
   "politician-name": "Name and Surname",

@@ -37,10 +37,6 @@ app-sidenav {
     height: calc(100vh - 5rem);
   }
 
-  mat-sidenav .mat-mdc-list-base {
-    width: $sidenav-width !important;
-  }
-
   .mat-drawer {
     overflow-y: visible;
   }
