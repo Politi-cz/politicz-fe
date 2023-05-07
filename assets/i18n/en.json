@@ -12,6 +12,8 @@
   "sidenav-home": "Home",
   "menu-action-edit": "Edit",
   "menu-action-delete": "Remove",
+  "news-add": "Add news",
+  "news-deleted": "News was successfully deleted",
   "politician-add": "Add politician",
   "politician-new": "New politician",
   "politician-edit": "Edit politician",
