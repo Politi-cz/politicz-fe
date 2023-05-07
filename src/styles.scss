@@ -34,7 +34,7 @@ app-sidenav {
   flex-grow: 1;
 
   & > mat-sidenav-container.mat-drawer-container {
-    height: 100%;
+    height: calc(100vh - 5rem);
   }
 
   mat-sidenav .mat-mdc-list-base {
