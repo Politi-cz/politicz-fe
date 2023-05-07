@@ -4,6 +4,7 @@ import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { News } from '../../../action/news.action';
+import { Utils } from '../../../../../shared/utils/utils';
 
 @Component({
   selector: 'app-news',
@@ -13,10 +14,12 @@ import { News } from '../../../action/news.action';
 export class NewsComponent {
   @Input() news: INews;
 
+  public readonly dateTimeFormat = Utils.DATE_TIME_FORMAT;
+
   constructor(private _router: Router, private _store: Store) {}
 
   public navigateToDetail(id: string): void {
-    this._router.navigate(['/news/detail'], { queryParams: { id: id } });
+    this._router.navigate(['/news/detail', id]);
   }
 
   public handleActionEvent(action: QuickMenuAction): void {

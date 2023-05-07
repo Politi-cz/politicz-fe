@@ -3,6 +3,8 @@ import { Permission } from '../../data/schema/permission.enum';
 export class Utils {
   public static readonly URL_PATTERN = '(https?://)([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w ?=&.-]*/?';
 
+  public static readonly DATE_TIME_FORMAT = 'DD.MM.YYYY HH:MM';
+
   public static textIncludesSearchedValueCaseInsensitive(
     text: string,
     valueToSearch: string,

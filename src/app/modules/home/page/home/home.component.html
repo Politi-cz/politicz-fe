@@ -1,4 +1,10 @@
 <section class="container">
+  <div class="news__actions">
+    <button mat-raised-button color="primary" class="button-add">
+      {{ 'news-add' | translate }}
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
   <div class="news_container">
     <ng-container *ngFor="let news of newsList$ | async">
       <app-news [news]="news"></app-news>

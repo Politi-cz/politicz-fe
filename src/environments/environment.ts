@@ -9,6 +9,7 @@ export const environment = {
   assetsPartyLogosPath: 'assets/party-logos/',
 
   apiUrl: 'http://localhost:5000/api',
+  apiNews: 'https://virtserver.swaggerhub.com/kollermartin/politicz/1.0.0',
 
   auth: {
     domain: 'dev-zu5pzoxyf4a2amfg.us.auth0.com',
