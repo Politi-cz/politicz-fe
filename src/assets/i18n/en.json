@@ -15,6 +15,7 @@
   "menu-action-delete": "Remove",
   "news-add": "Add news",
   "politician-add": "Add politician",
+  "politician-add-next": "Add another politician",
   "politician-new": "New politician",
   "politician-edit": "Edit politician",
   "politician-name": "Name and Surname",
@@ -53,5 +54,7 @@
   "politician-remove-success": "Politician was removed",
   "dialog-remove": "Remove",
   "dialog-action-cancel": "Cancel",
-  "login-register": "Login / Register"
+  "login-register": "Login / Register",
+  "no-politicians": "This political party has no politicians",
+  "actions": "Actions"
 }

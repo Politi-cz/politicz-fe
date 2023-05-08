@@ -26,7 +26,9 @@
           <div class="party__logo-container">
             <img [src]="party.imageUrl" alt="party icon" class="party-icon" />
           </div>
-          <span>{{ party.name }}</span>
+          <div matTooltipPosition="above" [matTooltip]="party.name" class="party__name">{{
+            party.name
+          }}</div>
         </div>
       </mat-list-item>
       <mat-list-item *ngIf="(partiesCount | async) === 0">
@@ -36,6 +38,7 @@
     <div class="add-party">
       <button
         *ngIf="hasPermission$ | async"
+        [matTooltip]="'admin-party-add' | translate"
         (click)="closeSidenavIfMatches()"
         mat-mini-fab
         color="primary"

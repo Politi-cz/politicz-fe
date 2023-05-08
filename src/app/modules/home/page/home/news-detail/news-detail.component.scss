@@ -1,3 +1,5 @@
+@import 'src/styles/variables';
+
 .news {
   display: flex;
   flex-direction: column;
@@ -8,11 +10,6 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-
-    img {
-      width: 100%;
-      height: 100%;
-    }
 
     &__box {
       flex-grow: 1;
@@ -31,6 +28,10 @@
         line-height: 4rem;
         margin: 1rem 0;
         color: #000;
+
+        @media only screen and (max-width: $bp-small) {
+          font-size: 2rem;
+        }
       }
 
       &__date {
@@ -39,6 +40,14 @@
         font-size: 1.5rem;
         color: #000;
       }
+    }
+  }
+
+  &__image {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
   }
 

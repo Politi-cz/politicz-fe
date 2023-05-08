@@ -15,6 +15,7 @@
   "menu-action-delete": "Smazat",
   "news-add": "Přidat článek",
   "politician-add": "Přidat politika",
+  "politician-add-next": "Přidat dalšího politika",
   "politician-new": "Nový politik",
   "politician-edit": "Upravit politika",
   "politician-name": "Jméno a příjmení",
@@ -53,5 +54,7 @@
   "politician-remove-success": "Politik byl odstraněn",
   "dialog-remove": "Odstranit",
   "dialog-action-cancel": "Zrušit",
-  "login-register": "Příhlásit / Registrovat"
+  "login-register": "Příhlásit / Registrovat",
+  "no-politicians": "Tato politická strana neobsahuje žádné politiky",
+  "actions": "Akce"
 }

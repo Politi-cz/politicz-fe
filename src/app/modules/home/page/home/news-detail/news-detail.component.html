@@ -6,7 +6,9 @@
           <h1 class="news__header__box__heading">{{ news.heading }}</h1>
           <p class="news__header__box__date">{{ news.publishDate | dateFormatter }}</p>
         </div>
-        <img alt="news image" [src]="news.imageUrl" />
+        <div class="news__image">
+          <img alt="news image" [src]="news.imageUrl" />
+        </div>
         <div [innerHTML]="news.content" class="news__content"></div>
       </div>
     </ng-container>

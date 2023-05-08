@@ -1,23 +1,42 @@
 import { IPolitician } from '../../../data/schema/politician';
 import { PoliticalPartyState } from '../state/political-party.state';
 import { FiltersState } from '../../../state/filters.state';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
 import { map, Observable } from 'rxjs';
 import { IPoliticalParty } from '../../../data/schema/political-party';
 import { PoliticalParty } from '../action/political-party.action';
-import { ConfirmDialogComponent } from '../../../shared/component/confirm-dialog/confirm-dialog.component';
-import { IConfirmDialogData } from '../../../data/schema/dialog';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthenticationState } from '../../../state/authentication.state';
 import { Permission } from '../../../data/schema/permission.enum';
 import { Utils } from '../../../shared/utils/utils';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { MatInput } from '@angular/material/input';
 
 @Component({
   selector: 'app-party',
   templateUrl: './party.component.html',
   styleUrls: ['./party.component.scss'],
+  animations: [
+    trigger('searchAnimation', [
+      state(
+        'open',
+        style({
+          width: '200px',
+          opacity: 1,
+        }),
+      ),
+      state(
+        'closed',
+        style({
+          width: '0px',
+          opacity: 0,
+        }),
+      ),
+      transition('closed <=> open', [animate('0.2s')]),
+    ]),
+  ],
 })
 export class PartyComponent implements OnInit {
   @Select(FiltersState.getPoliticianFilterCount) politiciansCount: Observable<number>;
@@ -26,11 +45,15 @@ export class PartyComponent implements OnInit {
 
   @Select(PoliticalPartyState.getPoliticians) politicians$: Observable<IPolitician[]>;
 
+  @ViewChild('partySearchInput') partySearchInput: MatInput;
+
   public hasPermission$ = this._store.select(AuthenticationState.permissions).pipe(
     map((permissions: string[]) => {
       return Utils.checkPermission(permissions, Permission.ModifyPartiesPoliticians);
     }),
   );
+
+  public searchState: string = 'closed';
 
   constructor(
     private _route: ActivatedRoute,
@@ -45,31 +68,7 @@ export class PartyComponent implements OnInit {
     });
   }
 
-  public openDialogAndRemoveParty(): void {
-    const dialogData: IConfirmDialogData = {
-      title: 'dialog-remove',
-      content: 'remove-party-content',
-      confirmButtonText: 'remove-party',
-      closeButtonText: 'dialog-action-cancel',
-    };
-    const dialogRef = this._dialog.open(ConfirmDialogComponent, {
-      data: dialogData,
-    });
-
-    dialogRef.afterClosed().subscribe((result: boolean) => {
-      if (result) {
-        this.removeParty();
-      }
-    });
-  }
-
-  private removeParty(): void {
-    const partyId = this._store.selectSnapshot(PoliticalPartyState.getPoliticalPartyId);
-
-    if (partyId) {
-      this._store
-        .dispatch(new PoliticalParty.RemovePoliticalParty(partyId))
-        .subscribe(() => this._router.navigate(['/news']));
-    }
+  public toggleSearch(): void {
+    this.searchState = this.searchState === 'closed' ? 'open' : 'closed';
   }
 }

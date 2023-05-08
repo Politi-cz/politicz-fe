@@ -1,0 +1,27 @@
+<button
+  mat-icon-button
+  [matTooltip]="'actions' | translate"
+  [matMenuTriggerFor]="menu"
+  (click)="$event.stopPropagation()">
+  <mat-icon color="primary">settings</mat-icon>
+</button>
+<mat-menu #menu="matMenu">
+  <button
+    [routerLink]="['/political-party/detail', partyId, 'edit']"
+    mat-menu-item
+    class="button-add">
+    <mat-icon color="primary">edit</mat-icon>
+    {{ 'edit-party' | translate }}
+  </button>
+  <button mat-menu-item class="button-add" (click)="openDialogAndRemoveParty()">
+    <mat-icon color="primary">delete_forever</mat-icon>
+    {{ 'remove-party' | translate }}
+  </button>
+  <button
+    [routerLink]="['/political-party/detail', partyId, 'add-politician']"
+    mat-menu-item
+    class="button-add">
+    {{ 'politician-add' | translate }}
+    <mat-icon color="primary">add</mat-icon>
+  </button>
+</mat-menu>
