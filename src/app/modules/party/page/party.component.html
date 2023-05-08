@@ -17,7 +17,7 @@
           <div>
             <mat-form-field [@searchAnimation]="searchState" appearance="outline">
               <mat-label>{{ 'politician-search' | translate }}</mat-label>
-              <input type="text" #partySearchInput matInput />
+              <input type="text" #partySearchInput matInput [formControl]="searchControl" />
             </mat-form-field>
           </div>
         </div>
