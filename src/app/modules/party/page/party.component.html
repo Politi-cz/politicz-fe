@@ -1,51 +1,32 @@
 <section class="container">
   <ng-container *ngIf="politicalParty$ | async as party">
     <div class="party">
-      <h1 class="party__heading">{{ party.name }}</h1>
+      <h1 class="party__heading"
+        >{{ party.name }}
+        <app-party-actions class="party__act__actions" [partyId]="party.id!"></app-party-actions>
+      </h1>
       <div class="party__act">
-        <button
-          color="primary"
-          mat-raised-button
-          [matMenuTriggerFor]="menu"
-          aria-label="Example icon-button with a menu">
-          {{ 'actions' | translate }}
-          <mat-icon>settings</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu">
+        <div class="party__act__search">
           <button
-            [routerLink]="['/political-party/detail', party.id, 'edit']"
-            mat-menu-item
-            class="button-add">
-            <mat-icon color="primary">edit</mat-icon>
-            {{ 'edit-party' | translate }}
+            color="primary"
+            (click)="toggleSearch()"
+            [matTooltip]="'politician-search' | translate"
+            mat-icon-button>
+            <mat-icon>search</mat-icon>
           </button>
-          <button mat-menu-item class="button-add" (click)="openDialogAndRemoveParty()">
-            <mat-icon color="primary">delete_forever</mat-icon>
-            {{ 'remove-party' | translate }}
-          </button>
-          <button
-            [routerLink]="['/political-party/detail', party.id, 'add-politician']"
-            mat-menu-item
-            class="button-add">
-            {{ 'politician-add' | translate }}
-            <mat-icon color="primary">add</mat-icon>
-          </button>
-        </mat-menu>
-      </div>
-      <div class="party__actions">
-        <div class="party__actions__search">
-          <mat-form-field appearance="outline">
-            <mat-label>{{ 'politician-search' | translate }}</mat-label>
-            <input type="text" #input matInput />
-            <mat-icon color="primary" matSuffix>search</mat-icon>
-          </mat-form-field>
+          <div>
+            <mat-form-field [@searchAnimation]="searchState" appearance="outline">
+              <mat-label>{{ 'politician-search' | translate }}</mat-label>
+              <input type="text" #partySearchInput matInput />
+            </mat-form-field>
+          </div>
         </div>
       </div>
     </div>
     <ng-container *ngIf="politicians$ | async as politicians">
       <div class="politicians">
         <app-politician
-          *ngFor="let politician of politicians | filterPoliticians : input.value"
+          *ngFor="let politician of politicians | filterPoliticians : partySearchInput?.value ?? ''"
           [politician]="politician"></app-politician>
         <ng-container *ngIf="(politiciansCount | async) === 0 && politicians.length">
           <span class="no-result">{{ 'no-result' | translate }}</span>

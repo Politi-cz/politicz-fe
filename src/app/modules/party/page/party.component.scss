@@ -6,13 +6,26 @@
 
   &__act {
     display: flex;
-    margin-bottom: 2rem;
+    flex-direction: column;
+
+    &__actions {
+      align-self: center;
+    }
+
+    &__search {
+      display: flex;
+      gap: 1rem;
+    }
+
+    @media only screen and (max-width: $bp-mobile) {
+      justify-content: center;
+    }
   }
 
   &__heading {
     font-size: 3rem;
     text-align: center;
-    padding: 1rem 0 2rem 0;
+    padding: 1rem 0 0 0;
     letter-spacing: 0.1rem;
     word-spacing: 0.5rem;
     text-transform: uppercase;
@@ -28,8 +41,8 @@
 
   &__actions {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    //align-items: center;
+    //justify-content: space-between;
     padding-bottom: 3rem;
     gap: 1.5rem;
 
@@ -39,10 +52,10 @@
     }
 
     &__search {
-      align-self: center;
-      mat-form-field {
-        width: 100% !important;
-      }
+      //align-self: center;
+      //mat-form-field {
+      //  width: 100% !important;
+      //}
     }
   }
 
@@ -89,4 +102,12 @@
   flex-direction: column;
   gap: 3rem;
   align-items: center;
+}
+
+.visible-shit {
+  visibility: visible;
+}
+
+.invisible-shit {
+  visibility: hidden;
 }

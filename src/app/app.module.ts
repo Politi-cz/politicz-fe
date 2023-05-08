@@ -21,7 +21,6 @@ import { PoliticalPartyState } from './state/political-party.state';
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, environment.assetsPath, '.json');
 }
-
 @NgModule({
   declarations: [AppComponent, ContentLayoutComponent, NavbarComponent, SidenavComponent],
   imports: [
