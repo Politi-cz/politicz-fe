@@ -12,15 +12,15 @@ export class RequestInterceptor implements HttpInterceptor {
 
   public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     // Workaround for expression changed after it was checked error
-    setTimeout(() => {
-      this.store.dispatch(new Spinner.Set(true));
-    });
+    //setTimeout(() => {
+    //  this.store.dispatch(new Spinner.Set(true));
+    //});
 
     const modifiedRequest = request.clone({ body: this.removeEmptyAttributes(request.body) });
 
     return next.handle(modifiedRequest).pipe(
       finalize(() => {
-        this.store.dispatch(new Spinner.Set(false));
+       // this.store.dispatch(new Spinner.Set(false));
       }),
     );
   }
