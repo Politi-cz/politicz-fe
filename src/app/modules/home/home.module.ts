@@ -24,15 +24,6 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     HomeRoutingModule,
     SharedModule,
     NgxsModule.forFeature([NewsState]),
-    TranslateModule.forChild({
-      defaultLanguage: 'cz',
-      loader: {
-        provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient],
-      },
-      isolate: true,
-    }),
   ],
 })
 export class HomeModule {}
