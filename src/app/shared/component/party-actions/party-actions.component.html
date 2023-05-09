@@ -1,9 +1,10 @@
 <button
   mat-icon-button
   [matTooltip]="'actions' | translate"
+  [matTooltipDisabled]="disableTooltip"
   [matMenuTriggerFor]="menu"
   (click)="$event.stopPropagation()">
-  <mat-icon color="primary">settings</mat-icon>
+  <mat-icon color="primary">{{ iconName }}</mat-icon>
 </button>
 <mat-menu #menu="matMenu">
   <button
