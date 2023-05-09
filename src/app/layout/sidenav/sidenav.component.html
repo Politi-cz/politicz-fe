@@ -29,6 +29,11 @@
           <div matTooltipPosition="above" [matTooltip]="party.name" class="party__name">{{
             party.name
           }}</div>
+          <app-party-actions
+            *ngIf="hasPermission$ | async"
+            class="party__actions"
+            [partyId]="party.id"
+            [disableTooltip]="true"></app-party-actions>
         </div>
       </mat-list-item>
       <mat-list-item *ngIf="(partiesCount | async) === 0">

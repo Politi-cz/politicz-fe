@@ -15,6 +15,10 @@ import { Router } from '@angular/router';
 export class PartyActionsComponent {
   @Input() partyId: string;
 
+  @Input() disableTooltip: boolean = false;
+
+  @Input() iconName = 'more_vert';
+
   constructor(private _dialog: MatDialog, private _store: Store, private _router: Router) {}
 
   public openDialogAndRemoveParty(): void {

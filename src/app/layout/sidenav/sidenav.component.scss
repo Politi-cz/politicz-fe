@@ -19,6 +19,10 @@
     }
   }
 
+  &__actions {
+    margin-left: auto;
+  }
+
   &__name {
     max-width: calc($sidenav-text-width - 5rem);
     text-overflow: ellipsis;

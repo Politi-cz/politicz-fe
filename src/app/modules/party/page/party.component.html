@@ -6,6 +6,7 @@
         <app-party-actions
           *ngIf="hasPermission$ | async"
           class="party__act__actions"
+          [iconName]="'settings'"
           [partyId]="party.id!"></app-party-actions>
       </h1>
       <div class="party__act">
