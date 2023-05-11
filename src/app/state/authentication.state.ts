@@ -36,8 +36,8 @@ export class AuthenticationState {
   }
 
   @Selector()
-  public static permissions(state: IAuthStateModel): string[] {
-    return state.permissions;
+  public static permissions(state: IAuthStateModel): string[] | undefined {
+    return state?.isAuthorized ? state.permissions : undefined;
   }
 
   @Action(AuthenticationActions.Set)

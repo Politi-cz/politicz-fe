@@ -35,7 +35,7 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
   public mobileQuery!: MediaQueryList;
 
   public hasPermission$ = this._store.select(AuthenticationState.permissions).pipe(
-    map((permissions: string[]) => {
+    map((permissions: string[] | undefined) => {
       return Utils.checkPermission(permissions, Permission.ModifyPartiesPoliticians);
     }),
   );

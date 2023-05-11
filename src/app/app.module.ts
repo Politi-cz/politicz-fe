@@ -24,7 +24,7 @@ import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, environment.assetsPath, '.json');
 }
-// TODO settings tlacitko v seynamu stran
+// zlepšit ux/ui politické strany
 @NgModule({
   declarations: [AppComponent, ContentLayoutComponent, NavbarComponent, SidenavComponent],
   imports: [

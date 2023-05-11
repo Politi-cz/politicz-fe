@@ -22,7 +22,7 @@ export class PoliticianComponent {
   @Input() politician: IPolitician;
 
   public hasPermission$ = this._store.select(AuthenticationState.permissions).pipe(
-    map((permissions: string[]) => {
+    map((permissions: string[] | undefined) => {
       return Utils.checkPermission(permissions, Permission.ModifyPartiesPoliticians);
     }),
   );
