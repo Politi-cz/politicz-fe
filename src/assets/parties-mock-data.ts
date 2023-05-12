@@ -52,9 +52,8 @@ export const PoliticalPartyStateDefaultMock: IPoliticalPartyState = {
       ],
     },
     {
-      imageUrl:
-        'https://e7.pngegg.com/pngimages/31/978/png-clipart-peace-sign-logo-angellist-peace-logo-icons-logos-emojis-tech-companies-thumbnail.png',
-      name: 'OWF',
+      imageUrl: 'https://i.pinimg.com/originals/78/7d/6a/787d6a60e7565a8dc171dbe8e05f08dc.jpg',
+      name: 'Dark Brotherhood',
       id: '2',
       tags: ['Peace', 'Human rights', 'Whatever'],
       politicians: [
