@@ -1,0 +1,30 @@
+//TODO Material typography is interfering with h1-hn styles, fix
+.heading {
+  font-size: 3rem !important;
+  text-align: center !important;
+  letter-spacing: 0.1rem !important;
+  word-spacing: 0.2rem !important;
+  text-transform: uppercase !important;
+
+  @media only screen and (max-width: $bp-large) {
+    line-height: 3.5rem !important;
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    font-size: 2.5rem !important;
+    word-spacing: 0 !important;
+    letter-spacing: 0 !important;
+  }
+}
+
+.subheading {
+  font-size: 2rem !important;
+  border-bottom: 3px solid $main-color !important;
+  text-transform: uppercase !important;
+  margin-top: 5rem !important;
+  word-spacing: 0.2rem !important;
+
+  @media only screen and (max-width: $bp-small) {
+    font-size: 1.7rem !important;
+  }
+}
