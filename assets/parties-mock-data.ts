@@ -55,7 +55,7 @@ export const PoliticalPartyStateDefaultMock: IPoliticalPartyState = {
       imageUrl: 'https://i.pinimg.com/originals/78/7d/6a/787d6a60e7565a8dc171dbe8e05f08dc.jpg',
       name: 'Dark Brotherhood',
       id: '2',
-      tags: ['Peace', 'Human rights', 'Whatever'],
+      tags: ['Peace', 'Skyrim', 'Whatever'],
       politicians: [
         {
           id: '1',
