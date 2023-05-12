@@ -20,20 +20,6 @@
       position: relative;
       margin-bottom: 1.5rem;
 
-      &__heading {
-        align-self: center;
-        justify-self: center;
-        font-size: 3.5rem;
-        letter-spacing: 0.1rem;
-        line-height: 4rem;
-        margin: 1rem 0;
-        color: #000;
-
-        @media only screen and (max-width: $bp-small) {
-          font-size: 2rem;
-        }
-      }
-
       &__date {
         text-align: right;
         margin: 0.5rem;
