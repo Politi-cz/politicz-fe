@@ -56,5 +56,6 @@
   "dialog-action-cancel": "Zrušit",
   "login-register": "Příhlásit / Registrovat",
   "no-politicians": "Tato politická strana neobsahuje žádné politiky",
-  "actions": "Akce"
+  "actions": "Akce",
+  "politicians":"Politici"
 }

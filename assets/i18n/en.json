@@ -56,5 +56,6 @@
   "dialog-action-cancel": "Cancel",
   "login-register": "Login / Register",
   "no-politicians": "This political party has no politicians",
-  "actions": "Actions"
+  "actions": "Actions",
+  "politicians":"Politicians"
 }
