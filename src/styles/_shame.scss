@@ -3,7 +3,7 @@
 app-content-layout {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 120vh;
 }
 
 app-sidenav {
@@ -11,7 +11,7 @@ app-sidenav {
   flex-grow: 1;
 
   & > mat-sidenav-container.mat-drawer-container {
-    height: 100vh;
+    height: 120vh;
   }
 
   .mat-drawer {
