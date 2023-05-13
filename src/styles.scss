@@ -62,7 +62,7 @@ app-sidenav {
 
   @media only screen and (max-width: $bp-mobile) {
     grid-template-columns: [center-start] repeat(8, minmax(min-content, 1fr)) [center-end];
-    padding: 2rem 3rem;
+    padding: 1.5rem 1rem;
   }
 
   &__content {
