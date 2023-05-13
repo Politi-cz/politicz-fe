@@ -15,7 +15,7 @@
 
   @media only screen and (max-width: $bp-mobile) {
     grid-template-columns: [center-start] repeat(8, minmax(min-content, 1fr)) [center-end];
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 2rem 15rem 2rem;
   }
 
   &__content {
