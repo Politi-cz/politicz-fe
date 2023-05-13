@@ -1,4 +1,4 @@
-@import '../../../../styles/variables.scss';
+@import "abstracts/variables";
 
 .party {
   height: 100%;
@@ -15,6 +15,7 @@
     &__search {
       display: flex;
       gap: 1rem;
+      margin-top: 1rem;
     }
 
     @media only screen and (max-width: $bp-mobile) {
@@ -22,41 +23,12 @@
     }
   }
 
-  &__heading {
-    font-size: 3rem;
-    text-align: center;
-    padding: 1rem 0 0 0;
-    letter-spacing: 0.1rem;
-    word-spacing: 0.5rem;
-    text-transform: uppercase;
-
-    @media only screen and (max-width: $bp-large) {
-      line-height: 3.5rem;
-    }
-  }
-
-  &__subheading {
-    font-size: 2rem;
-  }
-
-  &__actions {
-    display: flex;
-    //align-items: center;
-    //justify-content: space-between;
-    padding-bottom: 3rem;
-    gap: 1.5rem;
-
-    @media only screen and (max-width: $bp-mobile) {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    &__search {
-      //align-self: center;
-      //mat-form-field {
-      //  width: 100% !important;
-      //}
-    }
+  &__logo {
+    object-fit: contain;
+    max-height: 25rem;
+    display: block;
+    margin: 2rem auto;
+    border-radius: 2%;
   }
 
   .empty {
@@ -81,7 +53,7 @@
   }
 
   @media only screen and (max-width: $bp-mobile) {
-    grid-template-columns: [center-start] 1fr [center-end];
+    grid-template-columns: [center-start] minmax(20rem, 1fr) [center-end];
     gap: 2rem;
   }
 }

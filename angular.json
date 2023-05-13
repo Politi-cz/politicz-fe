@@ -25,8 +25,13 @@
             "inlineStyleLanguage": "scss",
             "allowedCommonJsDependencies": ["dayjs", "moment"],
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/theme.scss", "src/styles.scss"],
-            "scripts": []
+            "styles": ["src/styles/themes/_light-theme.scss", "src/main.scss"],
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            }
           },
           "configurations": {
             "production": {
@@ -91,7 +96,7 @@
             "karmaConfig": "karma.conf.js",
             "inlineStyleLanguage": "scss",
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/theme.scss", "src/styles.scss"],
+            "styles": ["src/styles/themes/_light-theme.scss", "src/main.scss"],
             "scripts": []
           }
         },

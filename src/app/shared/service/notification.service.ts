@@ -26,7 +26,7 @@ export class NotificationService {
   public showSuccess(message: string, duration: number = this._duration): void {
     this._zone.run(() => {
       this._snackBar.open(this._translate.instant(message), 'X', {
-        panelClass: ['successNotification'],
+        panelClass: ['success-notification'],
         duration: duration,
         ...this._config,
       });
@@ -36,7 +36,7 @@ export class NotificationService {
   public showError(message: string, duration: number = this._duration): void {
     this._zone.run(() => {
       this._snackBar.open(this._translate.instant(message), 'X', {
-        panelClass: ['errorNotification'],
+        panelClass: ['error-notification'],
         duration: duration,
         ...this._config,
       });

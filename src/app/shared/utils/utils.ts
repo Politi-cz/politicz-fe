@@ -21,8 +21,11 @@ export class Utils {
     );
   }
 
-  public static checkPermission(permissions: string[], permissionToCheck: Permission): boolean {
-    if (!permissions || permissions.length <= 0) {
+  public static checkPermission(
+    permissions: string[] | undefined,
+    permissionToCheck: Permission,
+  ): boolean {
+    if (!permissions) {
       return false;
     }
 

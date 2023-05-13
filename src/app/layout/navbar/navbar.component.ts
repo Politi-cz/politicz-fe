@@ -21,7 +21,7 @@ export class NavbarComponent {
   @Select(AuthenticationState.user) user$: Observable<User>;
 
   public hasPermission$ = this._store.select(AuthenticationState.permissions).pipe(
-    map((permissions: string[]) => {
+    map((permissions: string[] | undefined) => {
       return Utils.checkPermission(permissions, Permission.ModifyPartiesPoliticians);
     }),
     share(),
