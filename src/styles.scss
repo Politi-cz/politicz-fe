@@ -1,5 +1,5 @@
-@import 'styles/variables';
-@import "styles/utils";
+@import 'variables';
+@import 'utils';
 //TODO Redo all imports on use
 *,
 *::before,
@@ -62,7 +62,7 @@ app-sidenav {
 
   @media only screen and (max-width: $bp-mobile) {
     grid-template-columns: [center-start] repeat(8, minmax(min-content, 1fr)) [center-end];
-    padding: 1.5rem 1rem;
+    padding: 1.5rem 2rem;
   }
 
   &__content {
