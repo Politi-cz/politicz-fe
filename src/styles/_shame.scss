@@ -1,0 +1,31 @@
+// Place for hacks
+app-content-layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+app-sidenav {
+  overflow: auto;
+  flex-grow: 1;
+
+  & > mat-sidenav-container.mat-drawer-container {
+    height: calc(100vh - $navbar-height);
+  }
+
+  .mat-drawer {
+    overflow-y: visible;
+  }
+}
+
+.error-notification {
+  --mdc-snackbar-container-color: rgb(240, 43, 43);
+  --mat-mdc-snack-bar-button-color: #fff;
+  white-space: pre-wrap;
+}
+
+.success-notification {
+  --mdc-snackbar-container-color: #187c2c;
+  --mat-mdc-snack-bar-button-color: #fff;
+  white-space: pre-wrap;
+}

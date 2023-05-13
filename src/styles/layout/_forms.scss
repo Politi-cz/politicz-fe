@@ -1,0 +1,47 @@
+.form-content {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 2rem;
+  background-color: #fff;
+  padding: 3rem 2rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.span {
+  &-4 {
+    grid-column: span 4;
+
+    @media only screen and (max-width: $bp-xlarge) {
+      grid-column: span 6;
+    }
+
+    @media only screen and (max-width: $bp-small) {
+      grid-column: span 12;
+    }
+  }
+
+  &-6 {
+    grid-column: span 6;
+
+    @media only screen and (max-width: $bp-small) {
+      grid-column: span 12;
+    }
+  }
+
+  &-8 {
+    grid-column: span 8;
+    @media only screen and (max-width: $bp-mobile) {
+      grid-column: span 12;
+    }
+  }
+
+  &-12 {
+    grid-column: span 12;
+  }
+}

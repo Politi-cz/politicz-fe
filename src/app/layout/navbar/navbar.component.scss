@@ -1,9 +1,9 @@
-@import 'variables';
+@import 'abstracts/variables';
 
 .navbar {
   display: flex;
   justify-content: space-between;
-  height: 5rem;
+  height: $navbar-height;
 
   &__politi {
     text-decoration: none;

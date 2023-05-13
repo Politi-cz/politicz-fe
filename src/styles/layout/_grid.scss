@@ -1,0 +1,24 @@
+.container {
+  display: grid;
+  grid-template-columns: [full-start] 20rem [center-start] repeat(8, minmax(min-content, 10rem)) [center-end] 20rem [full-end];
+  justify-content: center;
+  padding: 5rem 0;
+
+  @media only screen and (max-width: $bp-xlarge) {
+    grid-template-columns: [full-start] 10rem [center-start] repeat(8, minmax(min-content, 1fr)) [center-end] 10rem [full-end];
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    grid-template-columns: [center-start] repeat(8, minmax(min-content, 1fr)) [center-end];
+    padding: 2rem 3rem;
+  }
+
+  @media only screen and (max-width: $bp-mobile) {
+    grid-template-columns: [center-start] repeat(8, minmax(min-content, 1fr)) [center-end];
+    padding: 1.5rem 2rem;
+  }
+
+  &__content {
+    grid-column: center-start / center-end;
+  }
+}
