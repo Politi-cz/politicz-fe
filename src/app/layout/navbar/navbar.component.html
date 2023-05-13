@@ -8,7 +8,6 @@
       aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
-    <a class="navbar__politi" routerLink="'/home'">Politi.cz</a>
   </div>
   <ng-container *ngIf="isAuthorized$ | async; else loginButton">
     <button class="menu" mat-button [matMenuTriggerFor]="menu">

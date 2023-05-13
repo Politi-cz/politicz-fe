@@ -1,4 +1,5 @@
 // Place for hacks
+
 app-content-layout {
   display: flex;
   flex-direction: column;
@@ -10,7 +11,7 @@ app-sidenav {
   flex-grow: 1;
 
   & > mat-sidenav-container.mat-drawer-container {
-    height: calc(100vh - $navbar-height);
+    height: 100vh;
   }
 
   .mat-drawer {

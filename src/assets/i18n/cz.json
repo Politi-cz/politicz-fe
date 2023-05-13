@@ -10,7 +10,7 @@
   "party-members": "Členové",
   "politician-search": "Hledat politika",
   "no-result": "Výsledek hledání nebyl nalezen",
-  "sidenav-home": "Hlavní strana",
+  "sidenav-home": "Domovská stránka",
   "menu-action-edit": "Upravit",
   "menu-action-delete": "Smazat",
   "news-add": "Přidat článek",
@@ -39,6 +39,7 @@
   "remove-party-content": "Opravdu chcete odstranit politickou stranu?",
   "remove-politician": "Odstranit politika",
   "remove-politician-content": "Opravdu chcete odstranit politika?",
+  "parties": "Politické strany",
   "party-name": "Název politické strany",
   "party-image": "Odkaz na logo politické strany",
   "party-tags": "Tagy politické strany",
@@ -57,5 +58,6 @@
   "login-register": "Příhlásit / Registrovat",
   "no-politicians": "Tato politická strana neobsahuje žádné politiky",
   "actions": "Akce",
-  "politicians":"Politici"
+  "politicians":"Politici",
+  "sections": "Sekce"
 }
