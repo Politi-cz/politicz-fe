@@ -5,10 +5,7 @@
   letter-spacing: 0.1rem !important;
   word-spacing: 0.2rem !important;
   text-transform: uppercase !important;
-
-  @media only screen and (max-width: $bp-large) {
-    line-height: 3.5rem !important;
-  }
+  line-height: 3.5rem !important;
 
   @media only screen and (max-width: $bp-small) {
     font-size: 2.5rem !important;
