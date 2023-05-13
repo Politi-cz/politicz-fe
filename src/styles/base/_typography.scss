@@ -1,6 +1,6 @@
 //TODO coliding with material typography, redo in future
 .heading {
-  font-size: 3rem !important;
+  font-size: $text-l !important;
   text-align: center !important;
   letter-spacing: 0.1rem !important;
   word-spacing: 0.2rem !important;
@@ -18,7 +18,7 @@
 }
 
 .subheading {
-  font-size: 2rem !important;
+  font-size: $text-m !important;
   border-bottom: 3px solid $main-color !important;
   text-transform: uppercase !important;
   margin-top: 5rem !important;
@@ -27,4 +27,9 @@
   @media only screen and (max-width: $bp-small) {
     font-size: 1.7rem !important;
   }
+}
+
+.nav-section-heading {
+  font-size: $text-s;
+  margin: .5rem 1rem;
 }

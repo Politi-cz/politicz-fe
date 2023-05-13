@@ -39,6 +39,7 @@
   "remove-party-content": "Do you really want to remove a political party?",
   "remove-politician": "Remove politician",
   "remove-politician-content": "Do you really want to remove a politician?",
+  "parties": "Political parties",
   "party-name": "Political party name",
   "party-image": "Link to political party logo/image",
   "party-tags": "Political party tags",
@@ -57,5 +58,6 @@
   "login-register": "Login / Register",
   "no-politicians": "This political party has no politicians",
   "actions": "Actions",
-  "politicians":"Politicians"
+  "politicians":"Politicians",
+  "sections": "Sections"
 }

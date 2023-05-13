@@ -5,16 +5,6 @@
   justify-content: space-between;
   height: $navbar-height;
 
-  &__politi {
-    text-decoration: none;
-    color: #fff;
-    transition: all 0.25s;
-
-    &:hover {
-      color: rgb(225, 220, 220);
-    }
-  }
-
   &__left {
     display: flex;
     align-items: center;

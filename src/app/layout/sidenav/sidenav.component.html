@@ -5,20 +5,30 @@
     #snav
     [mode]="mobileQuery.matches ? 'over' : 'side'"
     [fixedInViewport]="mobileQuery.matches">
+    <div class="politi">
+      <span>Politi.cz</span>
+    </div>
+    <mat-divider></mat-divider>
     <mat-nav-list>
+      <div mat-subheader
+        ><b>{{ 'sections' | translate }}</b></div
+      >
       <mat-list-item (click)="closeSidenavIfMatches()" class="navitem" routerLink="'/home'">
         <mat-icon color="primary">home</mat-icon>
         <span>{{ 'sidenav-home' | translate }}</span>
       </mat-list-item>
     </mat-nav-list>
-    <div class="search">
-      <mat-form-field class="search__input">
-        <mat-label>{{ 'sidenav-search' | translate }}</mat-label>
-        <input type="text" #input matInput />
-        <mat-icon color="primary" matSuffix>search</mat-icon>
-      </mat-form-field>
-    </div>
     <mat-nav-list>
+      <div mat-subheader
+        ><b>{{ 'parties' | translate }}</b></div
+      >
+      <div class="search">
+        <mat-form-field class="search__input">
+          <mat-label>{{ 'sidenav-search' | translate }}</mat-label>
+          <input type="text" #input matInput />
+          <mat-icon color="primary" matSuffix>search</mat-icon>
+        </mat-form-field>
+      </div>
       <mat-list-item
         (click)="navigateToPoliticalPartyPage(party.id!)"
         *ngFor="let party of (sidenavParties$ | async)! | filterParties : input.value">
@@ -59,6 +69,7 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
+    <app-navbar></app-navbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
