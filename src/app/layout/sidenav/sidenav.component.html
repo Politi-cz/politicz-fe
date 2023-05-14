@@ -67,8 +67,8 @@
     </span>
   </mat-sidenav>
 
-  <mat-sidenav-content role="main">
+  <mat-sidenav-content #sidenavContent role="main">
     <app-navbar></app-navbar>
-    <router-outlet #outlet (activate)="onActivate($event, outlet)"></router-outlet>
+    <router-outlet (activate)="scrollToTop()"></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>
