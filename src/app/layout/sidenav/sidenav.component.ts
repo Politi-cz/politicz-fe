@@ -8,6 +8,7 @@ import { Router } from '@angular/router';
 import { FiltersState } from 'src/app/state/filters.state';
 import { IPoliticalParty } from 'src/app/data/schema/political-party';
 import { PoliticalPartyState } from '../../state/political-party.state';
+import { Utils } from '../../shared/utils/utils';
 
 @Component({
   selector: 'app-sidenav',
@@ -28,10 +29,10 @@ export class SidenavComponent implements OnDestroy, AfterViewInit {
   private _mobileQueryListener: () => void;
 
   constructor(
-    changeDetectorRef: ChangeDetectorRef,
-    media: MediaMatcher,
-    private sidenavService: SidenavService,
-    private router: Router,
+    public changeDetectorRef: ChangeDetectorRef,
+    public media: MediaMatcher,
+    private _sidenavService: SidenavService,
+    private _router: Router,
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 1360px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -39,7 +40,7 @@ export class SidenavComponent implements OnDestroy, AfterViewInit {
   }
 
   public ngAfterViewInit(): void {
-    this.sidenavService.setSidenav(this.sidenav);
+    this._sidenavService.setSidenav(this.sidenav);
   }
 
   public ngOnDestroy(): void {
@@ -47,12 +48,12 @@ export class SidenavComponent implements OnDestroy, AfterViewInit {
   }
 
   public navigateToPoliticalPartyPage(id: string): void {
-    this.router.navigate(['/political-party/detail/' + id]);
+    this._router.navigate(['/political-party/detail/' + id]);
     this.closeSidenavIfMatches();
   }
 
   public toggleSidenav(): void {
-    this.sidenavService.toggleSidenav();
+    this._sidenavService.toggleSidenav();
   }
 
   public closeSidenavIfMatches(): void {
