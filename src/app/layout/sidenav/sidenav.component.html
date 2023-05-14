@@ -69,6 +69,6 @@
 
   <mat-sidenav-content role="main">
     <app-navbar></app-navbar>
-    <router-outlet></router-outlet>
+    <router-outlet #outlet (activate)="onActivate($event, outlet)"></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

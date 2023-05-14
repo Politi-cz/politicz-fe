@@ -58,4 +58,8 @@ export class SidenavComponent implements OnDestroy, AfterViewInit {
       this.toggleSidenav();
     }
   }
+
+  public onActivate(e: any, outlet: any): void {
+    outlet.scrollTop = 0;
+  }
 }
