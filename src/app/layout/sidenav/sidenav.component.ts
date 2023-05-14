@@ -89,7 +89,9 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
    * https://stackoverflow.com/questions/55512351/scrolling-to-top-in-angular-after-route-change-and-new-component-loads-not-worki
    */
   public scrollToTop(): void {
-    if (this.sidenavContentScrollable) {
+    const currentUrl = this._router.routerState.snapshot.url;
+
+    if (this.sidenavContentScrollable && !Utils.FORBIDDEN_SCROLL_URL.includes(currentUrl)) {
       this.sidenavContentScrollable.scrollTo({ top: 0 });
     }
   }
