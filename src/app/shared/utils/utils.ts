@@ -5,6 +5,8 @@ export class Utils {
 
   public static readonly DATE_TIME_FORMAT = 'DD.MM.YYYY HH:MM';
 
+  public static readonly FORBIDDEN_SCROLL_URL = ['/news'];
+
   public static textIncludesSearchedValueCaseInsensitive(
     text: string,
     valueToSearch: string,
