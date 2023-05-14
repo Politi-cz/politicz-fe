@@ -2,7 +2,7 @@ import { SidenavPartiesActions } from 'src/app/action/sidenav-parties.action';
 import { SidenavPartiesState } from '../../state/sidenav-parties.state';
 import { Select, Store } from '@ngxs/store';
 import { MediaMatcher } from '@angular/cdk/layout';
-import { MatSidenav } from '@angular/material/sidenav';
+import { MatSidenav, MatSidenavContent } from '@angular/material/sidenav';
 import { map, Observable } from 'rxjs';
 import {
   AfterViewInit,
@@ -27,6 +27,8 @@ import { Utils } from '../../shared/utils/utils';
 })
 export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('snav') sidenav!: MatSidenav;
+
+  @ViewChild('sidenavContent', { read: MatSidenavContent }) sidenavContentScrollable: MatSidenavContent;
 
   @Select(FiltersState.getPartyFilterCount) partiesCount: Observable<number>;
 
@@ -78,6 +80,17 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
   public closeSidenavIfMatches(): void {
     if (this.mobileQuery.matches) {
       this.toggleSidenav();
+    }
+  }
+
+  /**
+   * Scroll mat-sidenav-content to top when user changes route.
+   * Only solution that is working, for more info see this thread:
+   * https://stackoverflow.com/questions/55512351/scrolling-to-top-in-angular-after-route-change-and-new-component-loads-not-worki
+   */
+  public scrollToTop(): void {
+    if (this.sidenavContentScrollable) {
+      this.sidenavContentScrollable.scrollTo({ top: 0 });
     }
   }
 }
