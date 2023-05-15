@@ -1,6 +1,6 @@
 import { IPolitician } from '../../../data/schema/politician';
 import { PoliticalPartyState } from '../state/political-party.state';
-import { FiltersState } from '../../../state/filters.state';
+import { FiltersState } from '../../../core/state/filters.state';
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Select, Store } from '@ngxs/store';
@@ -8,7 +8,7 @@ import { map, Observable } from 'rxjs';
 import { IPoliticalParty } from '../../../data/schema/political-party';
 import { PoliticalParty } from '../action/political-party.action';
 import { MatDialog } from '@angular/material/dialog';
-import { AuthenticationState } from '../../../state/authentication.state';
+import { AuthenticationState } from '../../../core/state/authentication.state';
 import { Permission } from '../../../data/schema/permission.enum';
 import { Utils } from '../../../shared/utils/utils';
 import { animate, state, style, transition, trigger } from '@angular/animations';

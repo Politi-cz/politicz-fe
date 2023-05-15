@@ -1,11 +1,11 @@
 import { Observable, tap } from 'rxjs';
 import { IPartySidenavItem } from 'src/app/data/schema/political-party';
-import { ISidenavPartiesStateModel } from '../data/schema/sidenav-partiers-state-model';
-import { State, Action, StateContext, Selector } from '@ngxs/store';
+import { ISidenavPartiesStateModel } from '../../data/schema/sidenav-partiers-state-model';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { Injectable } from '@angular/core';
 import { SidenavPartiesActions } from '../action/sidenav-parties.action';
 import { PoliticalPartiesService } from 'src/app/data/service/political-parties.service';
-import { Filters } from 'src/app/action/filters.action';
+import { Filters } from 'src/app/core/action/filters.action';
 
 @State<ISidenavPartiesStateModel>({
   name: 'SidenavPartiesState',

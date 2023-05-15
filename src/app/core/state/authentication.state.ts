@@ -1,12 +1,12 @@
 import { Inject, Injectable } from '@angular/core';
 import { Action, Selector, State, StateContext } from '@ngxs/store';
-import { IAuthStateModel } from '../data/schema/auth-state-model';
+import { IAuthStateModel } from '../../data/schema/auth-state-model';
 import { AuthenticationActions } from '../action/authentication.action';
 import { AuthService, User } from '@auth0/auth0-angular';
-import { IAuth0DetailedResponse } from '../data/schema/auth0-detailed-response';
+import { IAuth0DetailedResponse } from '../../data/schema/auth0-detailed-response';
 import { DOCUMENT } from '@angular/common';
 import jwtDecode from 'jwt-decode';
-import { IJwtDecoded } from '../data/schema/jwt-decoded';
+import { IJwtDecoded } from '../../data/schema/jwt-decoded';
 
 @State<IAuthStateModel>({
   name: 'AuthenticationState',

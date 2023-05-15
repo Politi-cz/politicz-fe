@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { State, Selector, Action, StateContext } from '@ngxs/store';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { Filters } from '../action/filters.action';
-import { IFiltersCount } from '../data/schema/filters-count';
+import { IFiltersCount } from '../../data/schema/filters-count';
 
 @State<IFiltersCount>({
   name: 'filters',

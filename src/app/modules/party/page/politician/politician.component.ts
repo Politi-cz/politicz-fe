@@ -8,7 +8,7 @@ import { PoliticalParty } from '../../action/political-party.action';
 import { IConfirmDialogData } from '../../../../data/schema/dialog';
 import { ConfirmDialogComponent } from '../../../../shared/component/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
-import { AuthenticationState } from '../../../../state/authentication.state';
+import { AuthenticationState } from '../../../../core/state/authentication.state';
 import { map } from 'rxjs';
 import { Permission } from '../../../../data/schema/permission.enum';
 import { Utils } from '../../../../shared/utils/utils';

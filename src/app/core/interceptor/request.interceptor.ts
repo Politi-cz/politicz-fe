@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { finalize } from 'rxjs/operators';
 import { Store } from '@ngxs/store';
-import { Spinner } from 'src/app/action/spinner.action';
+import { Spinner } from 'src/app/core/action/spinner.action';
 
 @Injectable()
 export class RequestInterceptor implements HttpInterceptor {

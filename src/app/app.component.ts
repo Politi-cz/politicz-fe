@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
-import { AuthenticationActions } from './action/authentication.action';
+import { AuthenticationActions } from './core/action/authentication.action';
 
 @Component({
   selector: 'app-root',

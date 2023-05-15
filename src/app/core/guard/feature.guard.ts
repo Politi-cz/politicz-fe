@@ -1,10 +1,10 @@
-import { ActivatedRouteSnapshot, CanActivate, Router, UrlTree } from '@angular/router';
-import { map, Observable } from 'rxjs';
-import { Store } from '@ngxs/store';
-import { AuthenticationState } from '../../state/authentication.state';
-import { IAuthStateModel } from '../../data/schema/auth-state-model';
-import { Injectable } from '@angular/core';
-import { Utils } from '../../shared/utils/utils';
+import {ActivatedRouteSnapshot, CanActivate, Router, UrlTree} from '@angular/router';
+import {map, Observable} from 'rxjs';
+import {Store} from '@ngxs/store';
+import {AuthenticationState} from '../state/authentication.state';
+import {IAuthStateModel} from '../../data/schema/auth-state-model';
+import {Injectable} from '@angular/core';
+import {Utils} from '../../shared/utils/utils';
 
 // TODO Do in new way, function auth guard
 @Injectable()

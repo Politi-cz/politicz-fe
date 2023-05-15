@@ -1,16 +1,16 @@
-import { SidenavPartiesActions } from 'src/app/action/sidenav-parties.action';
+import { SidenavPartiesActions } from 'src/app/core/action/sidenav-parties.action';
 import { IPolitician, IPoliticianResponse } from '../../../data/schema/politician';
 import { NotificationService } from '../../../shared/service/notification.service';
 import { PoliticalPartiesService } from '../../../data/service/political-parties.service';
 import { Injectable } from '@angular/core';
-import { Selector, State, Action, StateContext } from '@ngxs/store';
+import { Action, Selector, State, StateContext } from '@ngxs/store';
 import { PoliticalParty } from '../action/political-party.action';
 import {
   ICreatePoliticalPartyResponse,
   IPoliticalParty,
   IPoliticalPartyPoliticiansFree,
 } from '../../../data/schema/political-party';
-import { tap, Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @State<IPoliticalParty>({
   name: 'PoliticalPartyState',

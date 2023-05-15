@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Store } from '@ngxs/store';
-import { AuthenticationState } from '../../state/authentication.state';
+import { AuthenticationState } from '../../core/state/authentication.state';
 import { IAuthStateModel } from '../schema/auth-state-model';
 
 @Injectable({

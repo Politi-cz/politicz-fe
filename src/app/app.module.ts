@@ -1,6 +1,6 @@
-import { SidenavPartiesState } from './state/sidenav-parties.state';
+import { SidenavPartiesState } from './core/state/sidenav-parties.state';
 import { environment } from '../environments/environment';
-import { SpinnerState } from './state/spinner.state';
+import { SpinnerState } from './core/state/spinner.state';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AuthModule } from '@auth0/auth0-angular';
@@ -17,8 +17,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { SidenavComponent } from './layout/sidenav/sidenav.component';
 import { NgxsModule } from '@ngxs/store';
-import { FiltersState } from './state/filters.state';
-import { AuthenticationState } from './state/authentication.state';
+import { FiltersState } from './core/state/filters.state';
+import { AuthenticationState } from './core/state/authentication.state';
 import { NgxsStoragePluginModule } from '@ngxs/storage-plugin';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {

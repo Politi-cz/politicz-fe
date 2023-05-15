@@ -1,4 +1,4 @@
-import { IFiltersCount } from '../data/schema/filters-count';
+import { IFiltersCount } from '../../data/schema/filters-count';
 
 export namespace Filters {
   export class Set {

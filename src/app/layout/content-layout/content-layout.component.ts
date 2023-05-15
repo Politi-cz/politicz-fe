@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs';
-import { SpinnerState } from '../../state/spinner.state';
+import { SpinnerState } from '../../core/state/spinner.state';
 import { Component } from '@angular/core';
 import { Select } from '@ngxs/store';
 import { AuthService } from '@auth0/auth0-angular';

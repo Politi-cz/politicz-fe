@@ -1,7 +1,7 @@
 import { Store } from '@ngxs/store';
 import { Pipe, PipeTransform } from '@angular/core';
 import { Utils } from '../../utils/utils';
-import { Filters } from '../../../action/filters.action';
+import { Filters } from '../../../core/action/filters.action';
 import { IPartySidenavItem } from '../../../data/schema/political-party';
 
 @Pipe({

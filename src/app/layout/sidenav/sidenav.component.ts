@@ -1,5 +1,5 @@
-import { SidenavPartiesActions } from 'src/app/action/sidenav-parties.action';
-import { SidenavPartiesState } from '../../state/sidenav-parties.state';
+import { SidenavPartiesActions } from 'src/app/core/action/sidenav-parties.action';
+import { SidenavPartiesState } from '../../core/state/sidenav-parties.state';
 import { Select, Store } from '@ngxs/store';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatSidenav, MatSidenavContent } from '@angular/material/sidenav';
@@ -14,10 +14,10 @@ import {
 } from '@angular/core';
 import { SidenavService } from '../../shared/service/sidenav.service';
 import { Router } from '@angular/router';
-import { FiltersState } from 'src/app/state/filters.state';
+import { FiltersState } from 'src/app/core/state/filters.state';
 import { IPartySidenavItem } from 'src/app/data/schema/political-party';
 import { Permission } from '../../data/schema/permission.enum';
-import { AuthenticationState } from '../../state/authentication.state';
+import { AuthenticationState } from '../../core/state/authentication.state';
 import { Utils } from '../../shared/utils/utils';
 
 @Component({
