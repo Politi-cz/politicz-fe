@@ -1,7 +1,7 @@
 import { IPoliticianForm } from 'src/app/data/schema/politician';
-import { FormBuilder, Validators, FormGroup, FormArray } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { IPoliticalParty, IPoliticalPartyForm } from '../../../../data/schema/political-party';
-import { Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { AbstractFormComponent } from '../../../../shared/forms/abstractForm';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipEditedEvent, MatChipInputEvent } from '@angular/material/chips';
@@ -12,9 +12,20 @@ import { politicianAgeValidator } from '../../../../shared/forms/validators/poli
   selector: 'app-party-form',
   templateUrl: './party-form.component.html',
   styleUrls: ['./party-form.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PartyFormComponent extends AbstractFormComponent implements OnInit {
-  @Input() party: IPoliticalParty | null;
+  @Input()
+  public set party(value: IPoliticalParty | null) {
+    if (value) {
+      this._party = value;
+      this.initializeFormData();
+    }
+  }
+
+  public get party(): IPoliticalParty {
+    return this._party;
+  }
 
   public partyForm = this._fb.group<IPoliticalPartyForm>({
     name: this._fb.nonNullable.control('', { validators: Validators.required }),
@@ -31,23 +42,14 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
 
   public readonly separatorKeysCodes = [ENTER, COMMA] as const;
 
+  private _party: IPoliticalParty;
+
   constructor(private _fb: FormBuilder) {
     super();
   }
 
   public ngOnInit(): void {
-    this.addPolitician(); //Start politicians formArray with 1 politician
-
-    if (this.party) {
-      this.partyForm.removeControl('politicians');
-      this.tags = [...this.party.tags]; //If user didn't trigger blur event in mat-chips, the latest values are not added.
-
-      this.partyForm.patchValue({
-        name: this.party.name,
-        imageUrl: this.party.imageUrl,
-        tags: [...this.party.tags],
-      });
-    }
+    this.initializeFormData();
   }
 
   public get politiciansFormArray(): FormArray<FormGroup<IPoliticianForm>> | null {
@@ -125,5 +127,21 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
     if (index >= 0) {
       this.tags[index] = value;
     }
+  }
+
+  private initializeFormData(): void {
+    this.addPolitician(); //Start politicians formArray with 1 politician
+
+    if (this.party) {
+      this.partyForm.removeControl('politicians');
+      this.tags = [...this.party.tags]; //If user didn't trigger blur event in mat-chips, the latest values are not added.
+
+      this.partyForm.patchValue({
+        name: this.party.name,
+        imageUrl: this.party.imageUrl,
+        tags: [...this.party.tags],
+      });
+    }
+
   }
 }
