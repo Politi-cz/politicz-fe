@@ -19,7 +19,7 @@ import { Utils } from '../../../../shared/utils/utils';
   styleUrls: ['./politician.component.scss'],
 })
 export class PoliticianComponent {
-  @Input() politician: IPolitician;
+  @Input({ required: true }) politician: IPolitician;
 
   public hasPermission$ = this._store.select(AuthenticationState.permissions).pipe(
     map((permissions: string[] | undefined) => {
