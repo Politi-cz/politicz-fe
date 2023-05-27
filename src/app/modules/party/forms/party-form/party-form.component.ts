@@ -142,6 +142,5 @@ export class PartyFormComponent extends AbstractFormComponent implements OnInit 
         tags: [...this.party.tags],
       });
     }
-
   }
 }

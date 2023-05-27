@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./party-actions.component.scss'],
 })
 export class PartyActionsComponent {
-  @Input() partyId: string;
+  @Input({ required: true }) partyId: string;
 
   @Input() disableTooltip: boolean = false;
 
