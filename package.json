@@ -30,7 +30,7 @@
     "@auth0/auth0-angular": "^2.0.2",
     "@ngx-translate/core": "^14.0.0",
     "@ngx-translate/http-loader": "^7.0.0",
-    "@ngxs/storage-plugin": "^3.8.0",
+    "@ngxs/storage-plugin": "^3.8.1",
     "@ngxs/store": "^3.8.1",
     "dayjs": "^1.11.7",
     "eslint-config-airbnb-typescript": "^17.0.0",
