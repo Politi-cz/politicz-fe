@@ -13,7 +13,7 @@ import { PoliticalParty } from '../../../action/political-party.action';
   styleUrls: ['./party-actions.component.scss'],
 })
 export class PartyActionsComponent {
-  @Input() partyId: string;
+  @Input({ required: true }) partyId: string;
 
   @Input() disableTooltip: boolean = false;
 

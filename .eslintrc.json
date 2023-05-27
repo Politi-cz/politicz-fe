@@ -193,7 +193,12 @@
       "extends": ["prettier"],
       "parser": "@angular-eslint/template-parser",
       "rules": {
-        "prettier/prettier": ["error", { "parser": "angular" }]
+        "prettier/prettier": [
+          "error",
+          {
+            "parser": "angular"
+          }
+        ]
       }
     }
   ]

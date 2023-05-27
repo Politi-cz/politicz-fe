@@ -28,9 +28,7 @@
             "styles": ["src/styles/themes/_light-theme.scss", "src/main.scss"],
             "scripts": [],
             "stylePreprocessorOptions": {
-              "includePaths": [
-                "src/styles"
-              ]
+              "includePaths": ["src/styles"]
             }
           },
           "configurations": {

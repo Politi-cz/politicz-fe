@@ -15,7 +15,7 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrls: ['./politician.component.scss'],
 })
 export class PoliticianComponent {
-  @Input() politician: IPolitician;
+  @Input({ required: true }) politician: IPolitician;
 
   constructor(private _store: Store, private _router: Router, private _dialog: MatDialog) {}
 

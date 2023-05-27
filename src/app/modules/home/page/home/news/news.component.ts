@@ -12,7 +12,7 @@ import { Utils } from '../../../../../shared/utils/utils';
   styleUrls: ['./news.component.scss'],
 })
 export class NewsComponent {
-  @Input() news: INews;
+  @Input({ required: true }) news: INews;
 
   public readonly dateTimeFormat = Utils.DATE_TIME_FORMAT;
 
