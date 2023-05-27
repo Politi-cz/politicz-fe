@@ -2,22 +2,20 @@ import { PoliticalParty } from '../../action/political-party.action';
 import { PoliticalPartyState } from '../../state/political-party.state';
 import { Store } from '@ngxs/store';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
-import { Observable, Subject } from 'rxjs';
+import { Observable } from 'rxjs';
 import {
   IPoliticalParty,
   IPoliticalPartyPoliticiansFree,
 } from '../../../../data/schema/political-party';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-edit-party',
   templateUrl: './edit-party.component.html',
   styleUrls: ['./edit-party.component.scss'],
 })
-export class EditPartyComponent implements OnInit, OnDestroy {
+export class EditPartyComponent implements OnInit {
   politicalParty$: Observable<IPoliticalParty>;
-
-  private _destroy$ = new Subject<void>();
 
   constructor(private _route: ActivatedRoute, private _router: Router, private _store: Store) {}
 
@@ -26,10 +24,6 @@ export class EditPartyComponent implements OnInit, OnDestroy {
       this._store.dispatch(new PoliticalParty.GetPoliticalParty(params.get('id')));
       this.politicalParty$ = this._store.select(PoliticalPartyState.getPoliticalParty);
     });
-  }
-
-  public ngOnDestroy(): void {
-    this._destroy$.next();
   }
 
   public onSubmit(party: IPoliticalPartyPoliticiansFree): void {

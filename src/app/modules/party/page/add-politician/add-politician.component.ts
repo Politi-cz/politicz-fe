@@ -15,13 +15,11 @@ export class AddPoliticianComponent implements OnInit {
   constructor(private _store: Store, private _router: Router, private _route: ActivatedRoute) {}
 
   public ngOnInit(): void {
-    this._route.paramMap.subscribe(
-      (params: ParamMap) => {
-        // TODO Improve! When ID is undefined or not found, redirect to home page
-        this.politicalPartyId = params.get('id')!;
-        this._store.dispatch(new PoliticalParty.GetPoliticalParty(this.politicalPartyId));
-      },
-    );
+    this._route.paramMap.subscribe((params: ParamMap) => {
+      // TODO Improve! When ID is undefined or not found, redirect to home page
+      this.politicalPartyId = params.get('id')!;
+      this._store.dispatch(new PoliticalParty.GetPoliticalParty(this.politicalPartyId));
+    });
   }
 
   public onSubmit(politician: IPolitician): void {
