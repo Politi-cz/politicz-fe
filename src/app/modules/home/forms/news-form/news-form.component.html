@@ -1,0 +1,22 @@
+<form class="form-content" [formGroup]="newsForm">
+  <mat-form-field class="span-12" appearance="outline">
+    <mat-label>{{ 'news-heading' | translate }}</mat-label>
+    <input matInput formControlName="heading" />
+    <mat-error>{{ 'form-required' | translate }}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="span-12" appearance="outline">
+    <mat-label>{{ 'news-image' | translate }}</mat-label>
+    <input matInput formControlName="imageUrl" />
+    <mat-error *ngIf="newsForm.controls.imageUrl.hasError('required')">{{
+      'form-required' | translate
+    }}</mat-error>
+    <mat-error *ngIf="newsForm.controls.imageUrl.hasError('pattern')">{{
+      'form-bad-url-pattern' | translate
+    }}</mat-error>
+  </mat-form-field>
+  <mat-form-field class="span-12" appearance="outline">
+    <mat-label>{{ 'news-content' | translate }}</mat-label>
+    <input matInput formControlName="heading" />
+    <mat-error>{{ 'form-required' | translate }}</mat-error>
+  </mat-form-field>
+</form>
