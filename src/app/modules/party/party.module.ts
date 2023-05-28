@@ -1,7 +1,6 @@
 import { PoliticalPartyState } from './state/political-party.state';
-import { SharedModule } from './../../shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 
 import { PartyRoutingModule } from './party-routing.module';
 import { PartyComponent } from './page/party.component';
@@ -13,6 +12,7 @@ import { EditPoliticianComponent } from './page/edit-politician/edit-politician.
 import { EditPartyComponent } from './page/edit-party/edit-party.component';
 import { AddPartyComponent } from './page/add-party/add-party.component';
 import { PartyFormComponent } from './forms/party-form/party-form.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
