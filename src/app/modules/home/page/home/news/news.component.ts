@@ -25,7 +25,7 @@ export class NewsComponent {
   public handleActionEvent(action: QuickMenuAction): void {
     switch (action.type) {
       case ActionType.EDIT:
-        alert('WIP');
+        this._router.navigate(['/news/edit/' + this.news.id]);
         break;
       case ActionType.DELETE:
         this._store.dispatch(new News.Remove(this.news));

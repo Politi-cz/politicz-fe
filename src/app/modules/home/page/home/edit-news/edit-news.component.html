@@ -1,0 +1,12 @@
+<ng-container *ngIf="news$ | async as news">
+  <section class="container">
+    <div class="container__content">
+      <h1>{{ 'news-edit' | translate }}</h1>
+      <app-news-form
+        *ngIf="news"
+        [news]="news"
+        (cancelEvent)="navigateBack()"
+        (submitEvent)="updateNews($event)"></app-news-form>
+    </div>
+  </section>
+</ng-container>

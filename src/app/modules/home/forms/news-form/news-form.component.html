@@ -1,4 +1,4 @@
-<form class="form-content" [formGroup]="newsForm">
+<form class="form-content" [formGroup]="newsForm" (ngSubmit)="submit(newsForm)">
   <mat-form-field class="span-12" appearance="outline">
     <mat-label>{{ 'news-heading' | translate }}</mat-label>
     <input matInput formControlName="heading" />
@@ -14,9 +14,19 @@
       'form-bad-url-pattern' | translate
     }}</mat-error>
   </mat-form-field>
+  <!--  TODO do as multiline-->
   <mat-form-field class="span-12" appearance="outline">
     <mat-label>{{ 'news-content' | translate }}</mat-label>
-    <input matInput formControlName="heading" />
+    <input matInput formControlName="content" />
     <mat-error>{{ 'form-required' | translate }}</mat-error>
   </mat-form-field>
+  <div class="form-footer span-12">
+    <!--    TODO create as component-->
+    <button (click)="cancel()" type="button" mat-raised-button class="button-add">
+      {{ 'back' | translate }}
+    </button>
+    <button type="submit" mat-raised-button color="primary" class="button-add">
+      {{ news ? ('update' | translate) : ('create' | translate) }}
+    </button>
+  </div>
 </form>

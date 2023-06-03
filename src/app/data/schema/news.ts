@@ -10,7 +10,7 @@ export interface INews {
 
 export interface INewsState {
   news: INews[];
-  selectedNews: INews;
+  selectedNews?: INews;
 }
 
 export interface INewsForm {
@@ -18,3 +18,5 @@ export interface INewsForm {
   content: FormControl<string>;
   imageUrl: FormControl<string>;
 }
+
+export type NewsRequest = Omit<INews, 'id' | 'publishDate'>;

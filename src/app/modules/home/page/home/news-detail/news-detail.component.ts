@@ -18,7 +18,7 @@ export class NewsDetailComponent implements OnInit {
 
   public ngOnInit(): void {
     this._route.paramMap.subscribe((params: ParamMap) =>
-      this._store.dispatch(new News.Get(params.get('id')!)),
+      this._store.dispatch(new News.GetNewsById(params.get('id')!)),
     );
   }
 }
