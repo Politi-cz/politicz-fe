@@ -1,6 +1,7 @@
 <section class="container">
   <div class="news__actions">
-    <button mat-raised-button color="primary" class="button-add">
+    <!--    TODO permissions-->
+    <button mat-raised-button color="primary" class="button-add" [routerLink]="'/news/add'">
       {{ 'news-add' | translate }}
       <mat-icon>add</mat-icon>
     </button>

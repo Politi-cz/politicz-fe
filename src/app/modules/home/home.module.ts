@@ -13,13 +13,15 @@ import { environment } from 'src/environments/environment';
 import { NewsComponent } from './page/home/news/news.component';
 import { NewsDetailComponent } from './page/home/news-detail/news-detail.component';
 import { NewsFormComponent } from './forms/news-form/news-form.component';
+import { AddNewsComponent } from './page/home/add-news/add-news.component';
+import { EditNewsComponent } from './page/home/edit-news/edit-news.component';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, environment.assetsPath, '.json');
 }
 
 @NgModule({
-  declarations: [HomeComponent, NewsComponent, NewsDetailComponent, NewsFormComponent],
+  declarations: [HomeComponent, NewsComponent, NewsDetailComponent, NewsFormComponent, AddNewsComponent, EditNewsComponent],
   imports: [
     CommonModule,
     HomeRoutingModule,

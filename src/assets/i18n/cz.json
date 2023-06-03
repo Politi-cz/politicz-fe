@@ -59,5 +59,12 @@
   "no-politicians": "Tato politická strana neobsahuje žádné politiky",
   "actions": "Akce",
   "politicians": "Politici",
-  "sections": "Sekce"
+  "sections": "Sekce",
+  "news-update-success": "Článek byl úspěšně upraven",
+  "news-remove-success": "Článek byl smazán",
+  "news-add-success": "Článek byl úspěšně vytvořen",
+  "news-edit": "Upravit článek",
+  "news-heading": "Nadpis článku",
+  "news-image": "Obrázek článku",
+  "news-content": "Obsah článku"
 }

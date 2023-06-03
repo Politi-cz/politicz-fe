@@ -1,0 +1,6 @@
+<section class="container">
+  <div class="container__content">
+    <h1>{{ 'news-add' | translate }}</h1>
+    <app-news-form (cancelEvent)="navigateBack()" (submitEvent)="onSubmit($event)"></app-news-form>
+  </div>
+</section>

@@ -25,9 +25,10 @@ export class NewsComponent {
   public handleActionEvent(action: QuickMenuAction): void {
     switch (action.type) {
       case ActionType.EDIT:
-        alert('Zedituju tě more');
+        this._router.navigate(['/news/edit/' + this.news.id]);
         break;
       case ActionType.DELETE:
+        // TODO MODAL when delete
         this._store.dispatch(new News.Remove(this.news));
         break;
     }

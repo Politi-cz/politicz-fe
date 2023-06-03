@@ -11,7 +11,7 @@ import { News } from '../../action/news.action';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  @Select(NewsState) newsList$: Observable<INews[]>;
+  @Select(NewsState.allNews) newsList$: Observable<INews[]>;
 
   constructor(private _store: Store) {}
 

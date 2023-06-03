@@ -8,8 +8,15 @@ export interface INews {
   publishDate: Date;
 }
 
+export interface INewsState {
+  news: INews[];
+  selectedNews?: INews;
+}
+
 export interface INewsForm {
   heading: FormControl<string>;
   content: FormControl<string>;
   imageUrl: FormControl<string>;
 }
+
+export type NewsRequest = Omit<INews, 'id' | 'publishDate'>;
