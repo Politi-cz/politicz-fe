@@ -4,6 +4,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Select, Store } from '@ngxs/store';
 import { News } from '../../action/news.action';
+import { Permission } from '../../../../data/schema/permission.enum';
+import { AuthenticationState } from '../../../../core/state/authentication.state';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +14,9 @@ import { News } from '../../action/news.action';
 })
 export class HomeComponent implements OnInit {
   @Select(NewsState.allNews) newsList$: Observable<INews[]>;
+
+  @Select(AuthenticationState.hasPermission(Permission.ModifyNews))
+  hasPermission$: Observable<boolean>;
 
   constructor(private _store: Store) {}
 

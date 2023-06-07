@@ -3,7 +3,7 @@ import { SidenavPartiesState } from '../../core/state/sidenav-parties.state';
 import { Select, Store } from '@ngxs/store';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MatSidenav, MatSidenavContent } from '@angular/material/sidenav';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import {
   AfterViewInit,
   ChangeDetectorRef,
@@ -33,14 +33,10 @@ export class SidenavComponent implements OnInit, OnDestroy, AfterViewInit {
   @Select(FiltersState.getPartyFilterCount) partiesCount: Observable<number>;
 
   @Select(SidenavPartiesState.getParties) sidenavParties$: Observable<IPartySidenavItem[]>;
+  
+  @Select(AuthenticationState.hasPermission(Permission.ModifyPartiesPoliticians)) hasPermission$: Observable<true>;
 
   public mobileQuery!: MediaQueryList;
-
-  public hasPermission$ = this._store.select(AuthenticationState.permissions).pipe(
-    map((permissions: string[] | undefined) => {
-      return Utils.checkPermission(permissions, Permission.ModifyPartiesPoliticians);
-    }),
-  );
 
   private _mobileQueryListener: () => void;
 

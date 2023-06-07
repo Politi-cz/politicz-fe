@@ -6,9 +6,8 @@ import { DOCUMENT } from '@angular/common';
 import { Select, Store } from '@ngxs/store';
 import { AuthenticationActions } from '../../core/action/authentication.action';
 import { AuthenticationState } from '../../core/state/authentication.state';
-import { map, Observable, share } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Permission } from '../../data/schema/permission.enum';
-import { Utils } from '../../shared/utils/utils';
 
 @Component({
   selector: 'app-navbar',
@@ -19,13 +18,9 @@ export class NavbarComponent {
   @Select(AuthenticationState.isAuthorized) isAuthorized$: Observable<boolean>;
 
   @Select(AuthenticationState.user) user$: Observable<User>;
-
-  public hasPermission$ = this._store.select(AuthenticationState.permissions).pipe(
-    map((permissions: string[] | undefined) => {
-      return Utils.checkPermission(permissions, Permission.ModifyPartiesPoliticians);
-    }),
-    share(),
-  );
+  
+  @Select(AuthenticationState.hasPermission(Permission.ModifyPartiesPoliticians))
+  hasPermission$: Observable<boolean>;
 
   constructor(
     @Inject(DOCUMENT) public document: Document,

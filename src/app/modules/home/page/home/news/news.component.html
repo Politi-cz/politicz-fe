@@ -1,5 +1,6 @@
 <div class="news" (click)="navigateToDetail(news.id)">
   <app-admin-quick-menu-actions
+    *ngIf="hasPermission$ | async"
     (actionClickEvt)="handleActionEvent($event)"></app-admin-quick-menu-actions>
   <img [src]="news.imageUrl" alt="politician image" />
   <div class="news__text">

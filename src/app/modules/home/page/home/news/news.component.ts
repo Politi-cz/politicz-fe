@@ -2,9 +2,12 @@ import { ActionType, QuickMenuAction } from '../../../../../data/schema/quick-me
 import { INews } from '../../../../../data/schema/news';
 import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { Store } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 import { News } from '../../../action/news.action';
 import { Utils } from '../../../../../shared/utils/utils';
+import { AuthenticationState } from '../../../../../core/state/authentication.state';
+import { Permission } from '../../../../../data/schema/permission.enum';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-news',
@@ -13,6 +16,8 @@ import { Utils } from '../../../../../shared/utils/utils';
 })
 export class NewsComponent {
   @Input({ required: true }) news: INews;
+
+  @Select(AuthenticationState.hasPermission(Permission.ModifyNews)) hasPermission$: Observable<boolean>;
 
   public readonly dateTimeFormat = Utils.DATE_TIME_FORMAT;
 
