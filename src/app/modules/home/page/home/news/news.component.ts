@@ -8,6 +8,9 @@ import { Utils } from '../../../../../shared/utils/utils';
 import { AuthenticationState } from '../../../../../core/state/authentication.state';
 import { Permission } from '../../../../../data/schema/permission.enum';
 import { Observable } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../../../../../shared/component/confirm-dialog/confirm-dialog.component';
+import { IConfirmDialogData } from '../../../../../data/schema/dialog';
 
 @Component({
   selector: 'app-news',
@@ -17,11 +20,12 @@ import { Observable } from 'rxjs';
 export class NewsComponent {
   @Input({ required: true }) news: INews;
 
-  @Select(AuthenticationState.hasPermission(Permission.ModifyNews)) hasPermission$: Observable<boolean>;
+  @Select(AuthenticationState.hasPermission(Permission.ModifyNews))
+  hasPermission$: Observable<boolean>;
 
   public readonly dateTimeFormat = Utils.DATE_TIME_FORMAT;
 
-  constructor(private _router: Router, private _store: Store) {}
+  constructor(private _router: Router, private _store: Store, private _dialog: MatDialog) {}
 
   public navigateToDetail(id: string): void {
     this._router.navigate(['/news/detail', id]);
@@ -33,9 +37,25 @@ export class NewsComponent {
         this._router.navigate(['/news/edit/' + this.news.id]);
         break;
       case ActionType.DELETE:
-        // TODO MODAL when delete
-        this._store.dispatch(new News.Remove(this.news));
+        this.deleteNews();
         break;
     }
+  }
+
+  private deleteNews(): void {
+    const data: IConfirmDialogData = {
+      title: 'dialog-remove',
+      content: 'news-delete-content',
+      closeButtonText: 'dialog-action-cancel',
+      confirmButtonText: 'news-delete',
+    };
+    const ref = this._dialog.open(ConfirmDialogComponent, {
+      data,
+    });
+    ref.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this._store.dispatch(new News.Remove(this.news));
+      }
+    });
   }
 }

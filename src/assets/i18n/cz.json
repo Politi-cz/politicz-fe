@@ -66,5 +66,7 @@
   "news-edit": "Upravit článek",
   "news-heading": "Nadpis článku",
   "news-image": "Obrázek článku",
-  "news-content": "Obsah článku"
+  "news-content": "Obsah článku",
+  "news-delete-content": "Opravdu chcete smazat článek?",
+  "news-delete": "Smazat článek"
 }
