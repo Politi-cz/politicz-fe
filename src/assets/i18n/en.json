@@ -66,5 +66,7 @@
   "news-edit": "Edit news",
   "news-heading": "News title",
   "news-image": "News image",
-  "news-content": "News content"
+  "news-content": "News content",
+  "news-delete-content": "Do you really want to delete the news?",
+  "news-delete": "Delete news"
 }

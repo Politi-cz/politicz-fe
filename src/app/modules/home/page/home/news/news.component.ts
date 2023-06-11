@@ -5,6 +5,9 @@ import { Router } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { News } from '../../../action/news.action';
 import { Utils } from '../../../../../shared/utils/utils';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogComponent } from '../../../../../shared/component/confirm-dialog/confirm-dialog.component';
+import { IConfirmDialogData } from '../../../../../data/schema/dialog';
 
 @Component({
   selector: 'app-news',
@@ -16,7 +19,7 @@ export class NewsComponent {
 
   public readonly dateTimeFormat = Utils.DATE_TIME_FORMAT;
 
-  constructor(private _router: Router, private _store: Store) {}
+  constructor(private _router: Router, private _store: Store, private _dialog: MatDialog) {}
 
   public navigateToDetail(id: string): void {
     this._router.navigate(['/news/detail', id]);
@@ -28,8 +31,25 @@ export class NewsComponent {
         this._router.navigate(['/news/edit/' + this.news.id]);
         break;
       case ActionType.DELETE:
-        this._store.dispatch(new News.Remove(this.news));
+        this.deleteNews();
         break;
     }
+  }
+
+  private deleteNews(): void {
+    const data: IConfirmDialogData = {
+      title: 'dialog-remove',
+      content: 'news-delete-content',
+      closeButtonText: 'dialog-action-cancel',
+      confirmButtonText: 'news-delete',
+    };
+    const ref = this._dialog.open(ConfirmDialogComponent, {
+      data,
+    });
+    ref.afterClosed().subscribe((result: boolean) => {
+      if (result) {
+        this._store.dispatch(new News.Remove(this.news));
+      }
+    });
   }
 }
