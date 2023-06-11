@@ -42,12 +42,8 @@
     <input matInput formControlName="facebookUrl" />
     <mat-error>{{ 'form-bad-url-pattern' | translate }}</mat-error>
   </mat-form-field>
-  <div class="form-footer span-12">
-    <button (click)="cancel()" type="button" mat-raised-button class="button-add">
-      {{ 'back' | translate }}
-    </button>
-    <button type="submit" mat-raised-button color="primary" class="button-add">
-      {{ politician ? ('update' | translate) : ('create' | translate) }}
-    </button>
-  </div>
+  <app-form-actions
+    class="span-12"
+    [createForm]="!!politician"
+    (backEvent)="cancel()"></app-form-actions>
 </form>

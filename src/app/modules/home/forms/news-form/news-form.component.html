@@ -20,13 +20,5 @@
     <input matInput formControlName="content" />
     <mat-error>{{ 'form-required' | translate }}</mat-error>
   </mat-form-field>
-  <div class="form-footer span-12">
-    <!--    TODO create as component-->
-    <button (click)="cancel()" type="button" mat-raised-button class="button-add">
-      {{ 'back' | translate }}
-    </button>
-    <button type="submit" mat-raised-button color="primary" class="button-add">
-      {{ news ? ('update' | translate) : ('create' | translate) }}
-    </button>
-  </div>
+  <app-form-actions class="span-12" [createForm]="!!news" (backEvent)="cancel()"></app-form-actions>
 </form>
