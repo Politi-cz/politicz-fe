@@ -13,6 +13,7 @@ import { EditPartyComponent } from './page/edit-party/edit-party.component';
 import { AddPartyComponent } from './page/add-party/add-party.component';
 import { PartyFormComponent } from './forms/party-form/party-form.component';
 import { CommonModule } from '@angular/common';
+import { FormActionsComponent } from '../../shared/component/form-actions/form-actions.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { CommonModule } from '@angular/common';
     PartyRoutingModule,
     SharedModule,
     NgxsModule.forFeature([PoliticalPartyState]),
+    FormActionsComponent,
   ],
 })
 export class PartyModule {}

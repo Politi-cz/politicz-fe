@@ -15,13 +15,21 @@ import { NewsDetailComponent } from './page/home/news-detail/news-detail.compone
 import { NewsFormComponent } from './forms/news-form/news-form.component';
 import { AddNewsComponent } from './page/home/add-news/add-news.component';
 import { EditNewsComponent } from './page/home/edit-news/edit-news.component';
+import { FormActionsComponent } from '../../shared/component/form-actions/form-actions.component';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http, environment.assetsPath, '.json');
 }
 
 @NgModule({
-  declarations: [HomeComponent, NewsComponent, NewsDetailComponent, NewsFormComponent, AddNewsComponent, EditNewsComponent],
+  declarations: [
+    HomeComponent,
+    NewsComponent,
+    NewsDetailComponent,
+    NewsFormComponent,
+    AddNewsComponent,
+    EditNewsComponent,
+  ],
   imports: [
     CommonModule,
     HomeRoutingModule,
@@ -36,6 +44,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
       },
       isolate: true,
     }),
+    FormActionsComponent,
   ],
 })
 export class HomeModule {}
