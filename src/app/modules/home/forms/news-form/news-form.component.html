@@ -14,10 +14,14 @@
       'form-bad-url-pattern' | translate
     }}</mat-error>
   </mat-form-field>
-  <!--  TODO do as multiline-->
   <mat-form-field class="span-12" appearance="outline">
     <mat-label>{{ 'news-content' | translate }}</mat-label>
-    <input matInput formControlName="content" />
+    <textarea
+      matInput
+      cdkTextareaAutosize
+      #autosize="cdkTextareaAutosize"
+      cdkAutosizeMinRows="10"
+      formControlName="content"></textarea>
     <mat-error>{{ 'form-required' | translate }}</mat-error>
   </mat-form-field>
   <app-form-actions class="span-12" [createForm]="!!news" (backEvent)="cancel()"></app-form-actions>

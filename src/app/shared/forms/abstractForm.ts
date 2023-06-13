@@ -5,9 +5,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class AbstractFormComponent {
   @Output() submitEvent = new EventEmitter();
 
-  @Output() cancelEvent = new EventEmitter();
+  @Output() cancelEvent = new EventEmitter<void>();
 
-  // TODO Make generic
   public submit(formGroup: FormGroup): void {
     if (formGroup.valid) {
       this.submitEvent.emit(formGroup.value);
