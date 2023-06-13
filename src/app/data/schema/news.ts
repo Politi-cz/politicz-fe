@@ -1,3 +1,5 @@
+import { FormControl } from '@angular/forms';
+
 export interface INews {
   id: string;
   heading: string;
@@ -5,3 +7,16 @@ export interface INews {
   imageUrl: string;
   publishDate: Date;
 }
+
+export interface INewsState {
+  news: INews[];
+  selectedNews?: INews;
+}
+
+export interface INewsForm {
+  heading: FormControl<string>;
+  content: FormControl<string>;
+  imageUrl: FormControl<string>;
+}
+
+export type NewsRequest = Omit<INews, 'id' | 'publishDate'>;

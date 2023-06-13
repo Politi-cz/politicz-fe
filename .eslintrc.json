@@ -93,19 +93,7 @@
             "min": 1
           }
         ],
-        "indent": [
-          "error",
-          2,
-          {
-            "CallExpression": {
-              "arguments": "first"
-            },
-            "FunctionExpression": {
-              "parameters": "first"
-            },
-            "SwitchCase": 1
-          }
-        ],
+        "indent": "off",
         "lines-between-class-members": [
           "error",
           "always",

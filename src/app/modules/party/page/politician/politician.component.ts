@@ -3,15 +3,14 @@ import { Router } from '@angular/router';
 import { IPolitician } from '../../../../data/schema/politician';
 import { Component, Input } from '@angular/core';
 import { ActionType, QuickMenuAction } from 'src/app/data/schema/quick-menu-action';
-import { Store } from '@ngxs/store';
+import { Select, Store } from '@ngxs/store';
 import { PoliticalParty } from '../../action/political-party.action';
 import { IConfirmDialogData } from '../../../../data/schema/dialog';
 import { ConfirmDialogComponent } from '../../../../shared/component/confirm-dialog/confirm-dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 import { AuthenticationState } from '../../../../core/state/authentication.state';
-import { map } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Permission } from '../../../../data/schema/permission.enum';
-import { Utils } from '../../../../shared/utils/utils';
 
 @Component({
   selector: 'app-politician',
@@ -21,11 +20,8 @@ import { Utils } from '../../../../shared/utils/utils';
 export class PoliticianComponent {
   @Input({ required: true }) politician: IPolitician;
 
-  public hasPermission$ = this._store.select(AuthenticationState.permissions).pipe(
-    map((permissions: string[] | undefined) => {
-      return Utils.checkPermission(permissions, Permission.ModifyPartiesPoliticians);
-    }),
-  );
+  @Select(AuthenticationState.hasPermission(Permission.ModifyPartiesPoliticians))
+  hasPermission$: Observable<boolean>;
 
   constructor(private _store: Store, private _router: Router, private _dialog: MatDialog) {}
 

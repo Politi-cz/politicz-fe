@@ -1,5 +1,5 @@
 import { Inject, Injectable } from '@angular/core';
-import { Action, Selector, State, StateContext } from '@ngxs/store';
+import { Action, createSelector, Selector, State, StateContext } from '@ngxs/store';
 import { IAuthStateModel } from '../../data/schema/auth-state-model';
 import { AuthenticationActions } from '../action/authentication.action';
 import { AuthService, User } from '@auth0/auth0-angular';
@@ -7,6 +7,7 @@ import { IAuth0DetailedResponse } from '../../data/schema/auth0-detailed-respons
 import { DOCUMENT } from '@angular/common';
 import jwtDecode from 'jwt-decode';
 import { IJwtDecoded } from '../../data/schema/jwt-decoded';
+import { Permission } from '../../data/schema/permission.enum';
 
 @State<IAuthStateModel>({
   name: 'AuthenticationState',
@@ -38,6 +39,12 @@ export class AuthenticationState {
   @Selector()
   public static permissions(state: IAuthStateModel): string[] | undefined {
     return state?.isAuthorized ? state.permissions : undefined;
+  }
+
+  public static hasPermission(permission: Permission): (state: IAuthStateModel) => boolean {
+    return createSelector([AuthenticationState], (state: IAuthStateModel) => {
+      return state.permissions.includes(permission);
+    });
   }
 
   @Action(AuthenticationActions.Set)

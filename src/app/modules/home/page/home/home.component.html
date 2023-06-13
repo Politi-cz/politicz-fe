@@ -1,6 +1,11 @@
 <section class="container">
   <div class="news__actions">
-    <button mat-raised-button color="primary" class="button-add">
+    <button
+      *ngIf="hasPermission$ | async"
+      mat-raised-button
+      color="primary"
+      class="button-add"
+      [routerLink]="'/news/add'">
       {{ 'news-add' | translate }}
       <mat-icon>add</mat-icon>
     </button>

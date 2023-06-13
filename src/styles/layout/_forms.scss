@@ -7,10 +7,11 @@
   box-shadow: rgba(99, 99, 99, 0.2) 0 2px 8px 0;
 }
 
-.form-footer {
+.form-actions {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
+  width: 100%;
 }
 
 .span {

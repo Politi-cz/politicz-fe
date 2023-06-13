@@ -1,11 +1,11 @@
 import { FormGroup } from '@angular/forms';
-import { Output, EventEmitter, Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
-@Component({ template: '' })
+@Component({ template: '', standalone: true })
 export class AbstractFormComponent {
   @Output() submitEvent = new EventEmitter();
 
-  @Output() cancelEvent = new EventEmitter();
+  @Output() cancelEvent = new EventEmitter<void>();
 
   public submit(formGroup: FormGroup): void {
     if (formGroup.valid) {
