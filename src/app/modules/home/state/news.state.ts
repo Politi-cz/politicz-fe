@@ -42,6 +42,7 @@ export class NewsState {
   @Action(News.Remove)
   public removeNews(ctx: StateContext<INewsState>, { payload }: News.Remove): void {
     ctx.patchState({ news: ctx.getState().news.filter((news: INews) => news.id !== payload.id) });
+    this._notification.showSuccess('news-remove-success');
   }
 
   @Action(News.Add)
@@ -51,6 +52,8 @@ export class NewsState {
       id: Utils.generateGuid(),
       publishDate: new Date(),
     };
+
+    this._notification.showSuccess('news-add-success');
 
     ctx.patchState({ news: [...ctx.getState().news, newNews] });
   }
@@ -67,6 +70,8 @@ export class NewsState {
     }
 
     news[newsIndex] = { ...news[newsIndex], ...payload };
+
+    this._notification.showSuccess('news-update-success');
 
     ctx.patchState({ news: news });
   }
