@@ -59,5 +59,12 @@
   "no-politicians": "This political party has no politicians",
   "actions": "Actions",
   "politicians": "Politicians",
-  "sections": "Sections"
+  "sections": "Sections",
+  "news-update-success": "News was successfully updated",
+  "news-remove-success": "News was successfully removed",
+  "news-add-success": "News was successfully added",
+  "news-edit": "Edit news",
+  "news-heading": "News title",
+  "news-image": "News image",
+  "news-content": "News content"
 }
